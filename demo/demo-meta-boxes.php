@@ -2,7 +2,7 @@
 /**
  * Initialize the custom Meta Boxes.
  *
- * @package OptionTree
+ * @package Prince
  */
 
 add_action( 'admin_init', 'custom_meta_boxes' );
@@ -18,7 +18,7 @@ function custom_meta_boxes() {
 
 	/**
 	 * Create a custom meta boxes array that we pass to
-	 * the OptionTree Meta Box API Class.
+	 * the Prince Meta Box API Class.
 	 */
 	$my_meta_box = array(
 		'id'       => 'demo_meta_box',
@@ -77,9 +77,9 @@ function custom_meta_boxes() {
 
 	/**
 	 * Register our meta boxes using the
-	 * ot_register_meta_box() function.
+	 * prince_register_meta_box() function.
 	 */
-	if ( function_exists( 'ot_register_meta_box' ) ) {
-		ot_register_meta_box( $my_meta_box );
+	if ( function_exists( 'prince_register_meta_box' ) ) {
+		prince_register_meta_box( $my_meta_box );
 	}
 }

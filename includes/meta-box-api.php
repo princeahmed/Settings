@@ -1,10 +1,10 @@
 <?php
 /**
- * OptionTree Meta Box API
+ * Prince Meta Box API
  *
  * This class loads all the methods and helpers specific to build a meta box.
  *
- * @package   OptionTree
+ * @package   Prince
  * @author    Derek Herman <derek@valendesigns.com>
  * @copyright Copyright (c) 2013, Derek Herman
  */
@@ -32,13 +32,13 @@ if ( ! class_exists( 'MetaBox' ) ) {
 				return;
 			}
 
-			global $ot_meta_boxes;
+			global $prince_meta_boxes;
 
-			if ( ! isset( $ot_meta_boxes ) ) {
-				$ot_meta_boxes = array();
+			if ( ! isset( $prince_meta_boxes ) ) {
+				$prince_meta_boxes = array();
 			}
 
-			$ot_meta_boxes[] = $meta_box;
+			$prince_meta_boxes[] = $meta_box;
 
 			$this->meta_box = $meta_box;
 
@@ -77,7 +77,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 		 */
 		function build_meta_box( $post, $metabox ) {
 
-			echo '<div class="ot-metabox-wrapper">';
+			echo '<div class="prince-metabox-wrapper">';
 
 			/* Use nonce for verification */
 			echo '<input type="hidden" name="' . $this->meta_box['id'] . '_nonce" value="' . wp_create_nonce( $this->meta_box['id'] ) . '" />';
@@ -250,7 +250,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 								'std'       => '',
 								'type'      => 'text',
 								'rows'      => '',
-								'class'     => 'option-tree-setting-title',
+								'class'     => 'prince-setting-title',
 								'post_type' => '',
 								'choices'   => array()
 							)
@@ -373,7 +373,7 @@ if ( ! function_exists( 'prince_register_meta_box' ) ) {
 			return;
 		}
 
-		$ot_meta_box = new MetaBox( $args );
+		$prince_meta_box = new MetaBox( $args );
 	}
 
 }

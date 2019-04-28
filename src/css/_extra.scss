@@ -1,0 +1,29 @@
+.wrap.settings-wrap{
+  .ui-tabs-nav{
+    margin-top: -15px;
+    &>li{
+      margin-left: 3px;
+
+      &>a{
+        border-bottom: 1px dashed #ddd;
+        padding: 8px 5px 8px 12px;
+      }
+
+      &.ui-tabs-active{
+        background: #000 !important;
+        &>a{
+          color: #fff;
+          &:hover{
+            color: darken(#fff, 15%);
+          }
+        }
+      }
+
+    }
+  }
+}
+
+//reset btn
+button.reset-settings{
+  margin-top: -8px !important;
+}

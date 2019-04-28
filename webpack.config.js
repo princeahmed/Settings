@@ -21,7 +21,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.(css|scss)$/,
                 use: ExtractTextPlugin.extract({
                     use: [
                         'css-loader',
@@ -73,7 +73,7 @@ module.exports = {
         }),
 
         new PurgecssPlugin({
-            paths: glob.sync(['./src/js/ot-admin.js', './includes/*.php'])
+            paths: glob.sync(['./src/js/prince-admin.js', './includes/*.php'])
         }),
 
         new CleanWebpackPlugin({

@@ -34,7 +34,7 @@
             this.javascript_editor_mode();
         },
         init_hide_body: function (elm, type) {
-            var css = '.option-tree-setting-body';
+            var css = '.prince-setting-body';
             if (type === 'parent') {
                 $(css).not(elm.parent().parent().children(css)).hide();
             } else if (type === 'child') {
@@ -48,7 +48,7 @@
             }
         },
         init_remove_active: function (elm, type) {
-            var css = '.option-tree-setting-edit';
+            var css = '.prince-setting-edit';
             if (type === 'parent') {
                 $(css).not(elm).removeClass('active');
             } else if (type === 'child') {
@@ -61,7 +61,7 @@
         },
         init_sortable: function (scope) {
             scope = scope || document;
-            $('.option-tree-sortable', scope).each(function () {
+            $('.prince-sortable', scope).each(function () {
                 if ($(this).children('li').length) {
                     var elm = $(this);
                     elm.show();
@@ -85,31 +85,31 @@
             });
         },
         init_add: function () {
-            $(document).on('click', '.option-tree-section-add', function (e) {
+            $(document).on('click', '.prince-section-add', function (e) {
                 e.preventDefault();
                 OT_UI.add(this, 'section');
             });
-            $(document).on('click', '.option-tree-setting-add', function (e) {
+            $(document).on('click', '.prince-setting-add', function (e) {
                 e.preventDefault();
                 OT_UI.add(this, 'setting');
             });
-            $(document).on('click', '.option-tree-help-add', function (e) {
+            $(document).on('click', '.prince-help-add', function (e) {
                 e.preventDefault();
                 OT_UI.add(this, 'the_contextual_help');
             });
-            $(document).on('click', '.option-tree-choice-add', function (e) {
+            $(document).on('click', '.prince-choice-add', function (e) {
                 e.preventDefault();
                 OT_UI.add(this, 'choice');
             });
-            $(document).on('click', '.option-tree-list-item-add', function (e) {
+            $(document).on('click', '.prince-list-item-add', function (e) {
                 e.preventDefault();
                 OT_UI.add(this, 'list_item');
             });
-            $(document).on('click', '.option-tree-social-links-add', function (e) {
+            $(document).on('click', '.prince-social-links-add', function (e) {
                 e.preventDefault();
                 OT_UI.add(this, 'social_links');
             });
-            $(document).on('click', '.option-tree-list-item-setting-add', function (e) {
+            $(document).on('click', '.prince-list-item-setting-add', function (e) {
                 e.preventDefault();
                 if ($(this).parents('ul').parents('ul').hasClass('ui-sortable')) {
                     alert(option_tree.setting_limit);
@@ -119,9 +119,9 @@
             });
         },
         init_edit: function () {
-            $(document).on('click', '.option-tree-setting-edit', function (e) {
+            $(document).on('click', '.prince-setting-edit', function (e) {
                 e.preventDefault();
-                if ($(this).parents().hasClass('option-tree-setting-body')) {
+                if ($(this).parents().hasClass('prince-setting-body')) {
                     OT_UI.init_remove_active($(this), 'child');
                     OT_UI.init_hide_body($(this), 'child');
                 } else {
@@ -133,7 +133,7 @@
             });
         },
         init_remove: function () {
-            $(document).on('click', '.option-tree-setting-remove', function (event) {
+            $(document).on('click', '.prince-setting-remove', function (event) {
                 event.preventDefault();
                 if ($(this).parents('li').hasClass('ui-state-disabled')) {
                     alert(option_tree.remove_no);
@@ -151,12 +151,12 @@
             });
         },
         init_edit_title: function () {
-            $(document).on('keyup', '.option-tree-setting-title', function () {
+            $(document).on('keyup', '.prince-setting-title', function () {
                 OT_UI.edit_title(this);
             });
             // Automatically fill option IDs with clean versions of their respective option labels
-            $(document).on('blur', '.option-tree-setting-title', function () {
-                var optionId = $(this).parents('.option-tree-setting-body').find('[type="text"][name$="id]"]');
+            $(document).on('blur', '.prince-setting-title', function () {
+                var optionId = $(this).parents('.prince-setting-body').find('[type="text"][name$="id]"]');
                 if (optionId.val() === '') {
                     optionId.val($(this).val().replace(/[^a-z0-9]/gi, '_').toLowerCase());
                 }
@@ -168,20 +168,20 @@
             });
         },
         init_activate_layout: function () {
-            $(document).on('click', '.option-tree-layout-activate', function () {
-                var active = $(this).parents('.option-tree-setting').find('.open').text();
-                $('.option-tree-layout-activate').removeClass('active');
+            $(document).on('click', '.prince-layout-activate', function () {
+                var active = $(this).parents('.prince-setting').find('.open').text();
+                $('.prince-layout-activate').removeClass('active');
                 $(this).toggleClass('active');
                 $('.active-layout-input').attr({'value': active});
             });
-            $(document).on('change', '#option-tree-options-layouts-form select', function () {
+            $(document).on('change', '#prince-options-layouts-form select', function () {
                 var agree = confirm(option_tree.activate_layout_agree);
                 if (agree) {
-                    $('#option-tree-options-layouts-form').submit();
+                    $('#prince-options-layouts-form').submit();
                 } else {
                     var active = $('#the_current_layout').attr('value');
-                    $('#option-tree-options-layouts-form select option[value="' + active + '"]').attr({'selected': 'selected'});
-                    $('#option-tree-options-layouts-form select').prev('span').replaceWith('<span>' + active + '</span>');
+                    $('#prince-options-layouts-form select option[value="' + active + '"]').attr({'selected': 'selected'});
+                    $('#prince-options-layouts-form select').prev('span').replaceWith('<span>' + active + '</span>');
                 }
             });
         },
@@ -220,7 +220,7 @@
                 this.processing = true;
                 var count = parseInt(list.children('li').length);
                 if (type === 'list_item' || type === 'social_links') {
-                    list.find('li input.option-tree-setting-title', self).each(function () {
+                    list.find('li input.prince-setting-title', self).each(function () {
                         var setting = $(this).attr('name'),
                             regex = /\[([0-9]+)\]/,
                             matches = setting.match(regex),
@@ -254,9 +254,9 @@
                         }
                         var listItem = $('<li class="ui-state-default ' + list_class + '">' + data.responseText + '</li>');
                         list.append(listItem);
-                        list.children().last().find('.option-tree-setting-edit').toggleClass('active');
-                        list.children().last().find('.option-tree-setting-body').toggle();
-                        list.children().last().find('.option-tree-setting-title').focus();
+                        list.children().last().find('.prince-setting-edit').toggleClass('active');
+                        list.children().last().find('.prince-setting-body').toggle();
+                        list.children().last().find('.prince-setting-title').focus();
                         if (type !== 'the_contextual_help') {
                             OT_UI.update_ids(list);
                         }
@@ -309,7 +309,7 @@
             });
         },
         condition_objects: function () {
-            return 'select, input[type="radio"]:checked, input[type="text"], input[type="hidden"], input.ot-numeric-slider-hidden-input';
+            return 'select, input[type="radio"]:checked, input[type="text"], input[type="hidden"], input.prince-numeric-slider-hidden-input';
         },
         match_conditions: function (condition) {
             var match;
@@ -419,34 +419,34 @@
             OT_UI.parse_condition();
         },
         init_upload: function () {
-            $(document).on('click', '.ot_upload_media', function () {
-                var field_id = $(this).parent('.option-tree-ui-upload-parent').find('input').attr('id'),
+            $(document).on('click', '.prince_upload_media', function () {
+                var field_id = $(this).parent('.prince-ui-upload-parent').find('input').attr('id'),
                     post_id = $(this).attr('rel'),
-                    save_attachment_id = $('#' + field_id).hasClass('ot-upload-attachment-id'),
+                    save_attachment_id = $('#' + field_id).hasClass('prince-upload-attachment-id'),
                     btnContent = '';
                 if (window.wp && wp.media) {
-                    window.ot_media_frame = window.ot_media_frame || new wp.media.view.MediaFrame.Select({
+                    window.prince_media_frame = window.prince_media_frame || new wp.media.view.MediaFrame.Select({
                         title: $(this).attr('title'),
                         button: {
                             text: option_tree.upload_text
                         },
                         multiple: false
                     });
-                    window.ot_media_frame.on('select', function () {
-                        var attachment = window.ot_media_frame.state().get('selection').first(),
+                    window.prince_media_frame.on('select', function () {
+                        var attachment = window.prince_media_frame.state().get('selection').first(),
                             href = attachment.attributes.url,
                             attachment_id = attachment.attributes.id,
                             mime = attachment.attributes.mime,
                             regex = /^image\/(?:jpe?g|png|gif|x-icon)$/i;
                         if (mime.match(regex)) {
-                            btnContent += '<div class="option-tree-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
+                            btnContent += '<div class="prince-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
                         }
-                        btnContent += '<a href="javascript:(void);" class="option-tree-ui-remove-media option-tree-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon ot-icon-minus-circle"></span>' + option_tree.remove_media_text + '</a>';
+                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon prince-icon-minus-circle"></span>' + option_tree.remove_media_text + '</a>';
                         $('#' + field_id).val((save_attachment_id ? attachment_id : href));
                         $('#' + field_id + '_media').remove();
-                        $('#' + field_id).parent().parent('div').append('<div class="option-tree-ui-media-wrap" id="' + field_id + '_media" />');
+                        $('#' + field_id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + field_id + '_media" />');
                         $('#' + field_id + '_media').append(btnContent).slideDown();
-                        window.ot_media_frame.off('select');
+                        window.prince_media_frame.off('select');
                     }).open();
                 } else {
                     var backup = window.send_to_editor,
@@ -468,12 +468,12 @@
                         }
                         var image = /\.(?:jpe?g|png|gif|ico)$/i;
                         if (href.match(image) && OT_UI.url_exists(href)) {
-                            btnContent += '<div class="option-tree-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
+                            btnContent += '<div class="prince-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
                         }
-                        btnContent += '<a href="javascript:(void);" class="option-tree-ui-remove-media option-tree-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon ot-icon-minus-circle"></span>' + option_tree.remove_media_text + '</a>';
+                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon prince-icon-minus-circle"></span>' + option_tree.remove_media_text + '</a>';
                         $('#' + field_id).val(href);
                         $('#' + field_id + '_media').remove();
-                        $('#' + field_id).parent().parent('div').append('<div class="option-tree-ui-media-wrap" id="' + field_id + '_media" />');
+                        $('#' + field_id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + field_id + '_media" />');
                         $('#' + field_id + '_media').append(btnContent).slideDown();
                         OT_UI.fix_upload_parent();
                         tb_remove();
@@ -485,7 +485,7 @@
             });
         },
         init_upload_remove: function () {
-            $(document).on('click', '.option-tree-ui-remove-media', function (event) {
+            $(document).on('click', '.prince-ui-remove-media', function (event) {
                 event.preventDefault();
                 var agree = confirm(option_tree.remove_agree);
                 if (agree) {
@@ -498,7 +498,7 @@
         init_upload_fix: function (elm) {
             var id = $(elm).attr('id'),
                 val = $(elm).val(),
-                img = $(elm).parent().next('.option-tree-ui-media-wrap').find('img'),
+                img = $(elm).parent().next('.prince-ui-media-wrap').find('img'),
                 src = img.attr('src'),
                 btnContent = '';
             if (val == src) {
@@ -510,28 +510,28 @@
             if (val !== '' && (typeof src == 'undefined' || src == false) && OT_UI.url_exists(val)) {
                 var image = /\.(?:jpe?g|png|gif|ico)$/i;
                 if (val.match(image)) {
-                    btnContent += '<div class="option-tree-ui-image-wrap"><img src="' + val + '" alt="" /></div>';
+                    btnContent += '<div class="prince-ui-image-wrap"><img src="' + val + '" alt="" /></div>';
                 }
-                btnContent += '<a href="javascript:(void);" class="option-tree-ui-remove-media option-tree-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon ot-icon-minus-circle">' + option_tree.remove_media_text + '</span></a>';
+                btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon prince-icon-minus-circle">' + option_tree.remove_media_text + '</span></a>';
                 $('#' + id).val(val);
                 $('#' + id + '_media').remove();
-                $('#' + id).parent().parent('div').append('<div class="option-tree-ui-media-wrap" id="' + id + '_media" />');
+                $('#' + id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + id + '_media" />');
                 $('#' + id + '_media').append(btnContent).slideDown();
             } else if (val == '' || !OT_UI.url_exists(val)) {
-                $(elm).parent().next('.option-tree-ui-media-wrap').remove();
+                $(elm).parent().next('.prince-ui-media-wrap').remove();
             }
         },
         init_numeric_slider: function (scope) {
             scope = scope || document;
-            $(".ot-numeric-slider-wrap", scope).each(function () {
-                var hidden = $(".ot-numeric-slider-hidden-input", this),
+            $(".prince-numeric-slider-wrap", scope).each(function () {
+                var hidden = $(".prince-numeric-slider-hidden-input", this),
                     value = hidden.val(),
-                    helper = $(".ot-numeric-slider-helper-input", this);
+                    helper = $(".prince-numeric-slider-helper-input", this);
                 if (!value) {
                     value = hidden.data("min");
                     helper.val(value)
                 }
-                $(".ot-numeric-slider", this).slider({
+                $(".prince-numeric-slider", this).slider({
                     min: hidden.data("min"),
                     max: hidden.data("max"),
                     step: hidden.data("step"),
@@ -572,15 +572,15 @@
             });
         },
         init_radio_image_select: function () {
-            $(document).on('click', '.option-tree-ui-radio-image', function () {
-                $(this).closest('.type-radio-image').find('.option-tree-ui-radio-image').removeClass('option-tree-ui-radio-image-selected');
-                $(this).toggleClass('option-tree-ui-radio-image-selected');
-                $(this).parent().find('.option-tree-ui-radio').prop('checked', true).trigger('change');
+            $(document).on('click', '.prince-ui-radio-image', function () {
+                $(this).closest('.type-radio-image').find('.prince-ui-radio-image').removeClass('prince-ui-radio-image-selected');
+                $(this).toggleClass('prince-ui-radio-image-selected');
+                $(this).parent().find('.prince-ui-radio').prop('checked', true).trigger('change');
             });
         },
         init_select_wrapper: function (scope) {
             scope = scope || document;
-            $('.option-tree-ui-select', scope).each(function () {
+            $('.prince-ui-select', scope).each(function () {
                 if (!$(this).parent().hasClass('select-wrapper')) {
                     $(this).wrap('<div class="select-wrapper" />');
                     $(this).parent('.select-wrapper').prepend('<span>' + $(this).find('option:selected').text() + '</span>');
@@ -588,7 +588,7 @@
             });
         },
         bind_select_wrapper: function () {
-            $(document).on('change', '.option-tree-ui-select', function () {
+            $(document).on('change', '.prince-ui-select', function () {
                 $(this).prev('span').replaceWith('<span>' + $(this).find('option:selected').text() + '</span>');
             });
         },
@@ -610,23 +610,23 @@
                     }));
                 }
             };
-            $(document).on('change', '.option-tree-google-font-family select', function () {
+            $(document).on('change', '.prince-google-font-family select', function () {
                 var input = $(this);
                 $.ajax({
                     url: option_tree.ajax,
                     type: 'POST',
                     dataType: 'json',
                     data: {
-                        action: 'ot_google_font',
+                        action: 'prince_google_font',
                         family: input.val(),
                         field_id: input.attr('id')
                     }
                 }).done(function (response) {
                     if (response.hasOwnProperty('variants')) {
-                        update_items(input, response.variants, '.option-tree-google-font-variants');
+                        update_items(input, response.variants, '.prince-google-font-variants');
                     }
                     if (response.hasOwnProperty('subsets')) {
-                        update_items(input, response.subsets, '.option-tree-google-font-subsets');
+                        update_items(input, response.subsets, '.prince-google-font-subsets');
                     }
                 });
             });
@@ -642,10 +642,10 @@
                 $('select', $clone).each(function () {
                     $(this).attr('id', replacer).attr('name', replacer);
                 });
-                $('.option-tree-google-font-variants', $clone).each(function () {
+                $('.prince-google-font-variants', $clone).each(function () {
                     $(this).attr('data-field-id-prefix', replacer).attr('data-field-name', replacer);
                 });
-                $('.option-tree-google-font-subsets', $clone).each(function () {
+                $('.prince-google-font-subsets', $clone).each(function () {
                     $(this).attr('data-field-id-prefix', replacer).attr('data-field-name', replacer);
                 });
                 $el_clone.before($clone)
@@ -683,14 +683,14 @@
             });
         },
         fix_upload_parent: function () {
-            $('.option-tree-ui-upload-input').not('.ot-upload-attachment-id').on('focus blur', function () {
-                $(this).parent('.option-tree-ui-upload-parent').toggleClass('focus');
+            $('.prince-ui-upload-input').not('.prince-upload-attachment-id').on('focus blur', function () {
+                $(this).parent('.prince-ui-upload-parent').toggleClass('focus');
                 OT_UI.init_upload_fix(this);
             });
         },
         remove_image: function (e) {
-            $(e).parent().parent().find('.option-tree-ui-upload-input').attr('value', '');
-            $(e).parent('.option-tree-ui-media-wrap').remove();
+            $(e).parent().parent().find('.prince-ui-upload-input').attr('value', '');
+            $(e).parent('.prince-ui-media-wrap').remove();
         },
         fix_textarea: function () {
             $('.wp-editor-area').focus(function () {
@@ -722,7 +722,7 @@
             });
         },
         css_editor_mode: function () {
-            $('.ot-css-editor').each(function () {
+            $('.prince-css-editor').each(function () {
                 var editor = ace.edit($(this).attr('id'));
                 var this_textarea = $('#textarea_' + $(this).attr('id'));
                 editor.setTheme("ace/theme/chrome");
@@ -739,7 +739,7 @@
             });
         },
         javascript_editor_mode: function () {
-            $('.ot-javascript-editor').each(function () {
+            $('.prince-javascript-editor').each(function () {
                 var editor = ace.edit($(this).attr('id'));
                 var this_textarea = $('#textarea_' + $(this).attr('id'));
                 editor.setTheme("ace/theme/chrome");
@@ -784,14 +784,14 @@
 /* Gallery */
 !function ($) {
 
-    ot_gallery = {
+    prince_gallery = {
 
         frame: function (elm) {
 
             var selection = this.select(elm)
 
             this._frame = wp.media({
-                id: 'ot-gallery-frame'
+                id: 'prince-gallery-frame'
                 , frame: 'post'
                 , state: 'gallery-edit'
                 , title: wp.media.view.l10n.editGalleryTitle
@@ -801,17 +801,17 @@
             })
 
             this._frame.on('update', function () {
-                var controller = ot_gallery._frame.states.get('gallery-edit')
+                var controller = prince_gallery._frame.states.get('gallery-edit')
                     , library = controller.get('library')
                     , ids = library.pluck('id')
                     , parent = $(elm).parents('.format-setting-inner')
-                    , input = parent.children('.ot-gallery-value')
+                    , input = parent.children('.prince-gallery-value')
                     , shortcode = wp.media.gallery.shortcode(selection).string().replace(/\"/g, "'")
 
                 input.attr('value', ids)
 
-                if (parent.children('.ot-gallery-list').length <= 0)
-                    input.after('<ul class="ot-gallery-list" />')
+                if (parent.children('.prince-gallery-list').length <= 0)
+                    input.after('<ul class="prince-gallery-list" />')
 
                 $.ajax({
                     type: 'POST',
@@ -822,12 +822,12 @@
                         , ids: ids
                     },
                     success: function (res) {
-                        parent.children('.ot-gallery-list').html(res);
-                        if (input.hasClass('ot-gallery-shortcode')) {
+                        parent.children('.prince-gallery-list').html(res);
+                        if (input.hasClass('prince-gallery-shortcode')) {
                             input.val(shortcode);
                         }
-                        if ($(elm).parent().children('.ot-gallery-delete').length <= 0) {
-                            $(elm).parent().append('<a href="#" class="option-tree-ui-button button button-secondary hug-left ot-gallery-delete">' + option_tree.delete + '</a>');
+                        if ($(elm).parent().children('.prince-gallery-delete').length <= 0) {
+                            $(elm).parent().append('<a href="#" class="prince-ui-button button button-secondary hug-left prince-gallery-delete">' + option_tree.delete + '</a>');
                         }
                         $(elm).text(option_tree.edit);
                         OT_UI.parse_condition();
@@ -840,11 +840,11 @@
         }
 
         , select: function (elm) {
-            var input = $(elm).parents('.format-setting-inner').children('.ot-gallery-value')
+            var input = $(elm).parents('.format-setting-inner').children('.prince-gallery-value')
                 , ids = input.attr('value')
-                , _shortcode = input.hasClass('ot-gallery-shortcode') ? ids : '[gallery ids=\'' + ids + '\]'
+                , _shortcode = input.hasClass('prince-gallery-shortcode') ? ids : '[gallery ids=\'' + ids + '\]'
                 ,
-                shortcode = wp.shortcode.next('gallery', (ids ? _shortcode : wp.media.view.settings.ot_gallery.shortcode))
+                shortcode = wp.shortcode.next('gallery', (ids ? _shortcode : wp.media.view.settings.prince_gallery.shortcode))
                 , defaultPostId = wp.media.gallery.defaults.id
                 , attachments
                 , selection
@@ -859,7 +859,7 @@
             if (_.isUndefined(shortcode.get('id')) && !_.isUndefined(defaultPostId))
                 shortcode.set('id', defaultPostId)
 
-            if (_.isUndefined(shortcode.get('ids')) && !input.hasClass('ot-gallery-shortcode') && ids)
+            if (_.isUndefined(shortcode.get('ids')) && !input.hasClass('prince-gallery-shortcode') && ids)
                 shortcode.set('ids', ids)
 
             if (_.isUndefined(shortcode.get('ids')))
@@ -887,7 +887,7 @@
 
         , open: function (elm) {
 
-            ot_gallery.frame(elm).open()
+            prince_gallery.frame(elm).open()
 
         }
 
@@ -895,9 +895,9 @@
 
             if (confirm(option_tree.confirm)) {
 
-                $(elm).parents('.format-setting-inner').children('.ot-gallery-value').attr('value', '');
-                $(elm).parents('.format-setting-inner').children('.ot-gallery-list').remove();
-                $(elm).next('.ot-gallery-edit').text(option_tree.create);
+                $(elm).parents('.format-setting-inner').children('.prince-gallery-value').attr('value', '');
+                $(elm).parents('.format-setting-inner').children('.prince-gallery-list').remove();
+                $(elm).next('.prince-gallery-edit').text(option_tree.create);
                 $(elm).remove();
                 OT_UI.parse_condition();
 
@@ -908,15 +908,15 @@
     }
 
     // Gallery delete
-    $(document).on('click.ot_gallery.data-api', '.ot-gallery-delete', function (e) {
+    $(document).on('click.prince_gallery.data-api', '.prince-gallery-delete', function (e) {
         e.preventDefault()
-        ot_gallery.remove($(this))
+        prince_gallery.remove($(this))
     })
 
     // Gallery edit
-    $(document).on('click.ot_gallery.data-api', '.ot-gallery-edit', function (e) {
+    $(document).on('click.prince_gallery.data-api', '.prince-gallery-edit', function (e) {
         e.preventDefault()
-        ot_gallery.open($(this))
+        prince_gallery.open($(this))
     })
 
 }(window.jQuery);
@@ -929,16 +929,16 @@
     $(document).on('ready', function () {
 
         // Loop over the metaboxes
-        $('.ot-metabox-wrapper').each(function () {
+        $('.prince-metabox-wrapper').each(function () {
 
             // Only if there is a tab option
             if ($(this).find('.type-tab').length) {
 
-                // Add .ot-metabox-panels
-                $(this).find('.type-tab').parents('.ot-metabox-wrapper').wrapInner('<div class="ot-metabox-panels" />')
+                // Add .prince-metabox-panels
+                $(this).find('.type-tab').parents('.prince-metabox-wrapper').wrapInner('<div class="prince-metabox-panels" />')
 
-                // Wrapp with .ot-metabox-tabs & add .ot-metabox-nav before .ot-metabox-panels
-                $(this).find('.ot-metabox-panels').wrap('<div class="ot-metabox-tabs" />').before('<ul class="ot-metabox-nav" />')
+                // Wrapp with .prince-metabox-tabs & add .prince-metabox-nav before .prince-metabox-panels
+                $(this).find('.prince-metabox-panels').wrap('<div class="prince-metabox-tabs" />').before('<ul class="prince-metabox-nav" />')
 
                 // Loop over settings and build the tabs nav
                 $(this).find('.format-settings').each(function () {
@@ -949,7 +949,7 @@
 
                         // Add a class, hide & append nav item
                         $(this).addClass('is-panel').hide()
-                        $(this).parents('.ot-metabox-panels').prev('.ot-metabox-nav').append('<li><a href="#' + id + '">' + title + '</a></li>')
+                        $(this).parents('.prince-metabox-panels').prev('.prince-metabox-nav').append('<li><a href="#' + id + '">' + title + '</a></li>')
 
                     }
 
@@ -964,26 +964,26 @@
                 })
 
                 // Create the tabs
-                $(this).find('.ot-metabox-tabs').tabs({
+                $(this).find('.prince-metabox-tabs').tabs({
                     activate: function (event, ui) {
                         var parent = $(this).outerHeight(),
-                            child = $(this).find('.ot-metabox-panels').outerHeight() + 8,
+                            child = $(this).find('.prince-metabox-panels').outerHeight() + 8,
                             minHeight = parent - 34
-                        if ($(this).find('.ot-metabox-panels').css('padding') == '12px' && child < parent) {
-                            $(this).find('.ot-metabox-panels').css({minHeight: minHeight})
+                        if ($(this).find('.prince-metabox-panels').css('padding') == '12px' && child < parent) {
+                            $(this).find('.prince-metabox-panels').css({minHeight: minHeight})
                         }
                         OT_UI.load_editors();
                     }
                 })
 
                 // Move the orphaned settings to the top
-                $(this).find('.ot-metabox-panels > .format-settings').prependTo($(this))
+                $(this).find('.prince-metabox-panels > .format-settings').prependTo($(this))
 
                 // Remove a bunch of classes to stop style conflicts.
-                $(this).find('.ot-metabox-tabs').removeClass('ui-widget ui-widget-content ui-corner-all')
-                $(this).find('.ot-metabox-nav').removeClass('ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all')
-                $(this).find('.ot-metabox-nav li').removeClass('ui-state-default ui-corner-top ui-tabs-active ui-tabs-active')
-                $(this).find('.ot-metabox-nav li').on('mouseenter mouseleave', function () {
+                $(this).find('.prince-metabox-tabs').removeClass('ui-widget ui-widget-content ui-corner-all')
+                $(this).find('.prince-metabox-nav').removeClass('ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all')
+                $(this).find('.prince-metabox-nav li').removeClass('ui-state-default ui-corner-top ui-tabs-active ui-tabs-active')
+                $(this).find('.prince-metabox-nav li').on('mouseenter mouseleave', function () {
                     $(this).removeClass('ui-state-hover')
                 })
 
@@ -1003,16 +1003,16 @@
     $(document).on('ready', function () {
 
         // Loop over the theme options
-        $('#option-tree-settings-api .inside').each(function () {
+        $('#prince-settings-api .inside').each(function () {
 
             // Only if there is a tab option
             if ($(this).find('.type-tab').length) {
 
-                // Add .ot-theme-option-panels
-                $(this).find('.type-tab').parents('.inside').wrapInner('<div class="ot-theme-option-panels" />')
+                // Add .prince-theme-option-panels
+                $(this).find('.type-tab').parents('.inside').wrapInner('<div class="prince-theme-option-panels" />')
 
-                // Wrap with .ot-theme-option-tabs & add .ot-theme-option-nav before .ot-theme-option-panels
-                $(this).find('.ot-theme-option-panels').wrap('<div class="ot-theme-option-tabs" />').before('<ul class="ot-theme-option-nav" />')
+                // Wrap with .prince-theme-option-tabs & add .prince-theme-option-nav before .prince-theme-option-panels
+                $(this).find('.prince-theme-option-panels').wrap('<div class="prince-theme-option-tabs" />').before('<ul class="prince-theme-option-nav" />')
 
                 // Loop over settings and build the tabs nav
                 $(this).find('.format-settings').each(function () {
@@ -1023,7 +1023,7 @@
 
                         // Add a class, hide & append nav item
                         $(this).addClass('is-panel').hide()
-                        $(this).parents('.ot-theme-option-panels').prev('.ot-theme-option-nav').append('<li><a href="#' + id + '">' + title + '</a></li>')
+                        $(this).parents('.prince-theme-option-panels').prev('.prince-theme-option-nav').append('<li><a href="#' + id + '">' + title + '</a></li>')
 
                     } else {
 
@@ -1040,14 +1040,14 @@
                 })
 
                 // Create the tabs
-                $(this).find('.ot-theme-option-tabs').tabs({
+                $(this).find('.prince-theme-option-tabs').tabs({
                     activate: function (event, ui) {
                         OT_UI.load_editors();
                     }
                 })
 
                 // Move the orphaned settings to the top
-                $(this).find('.ot-theme-option-panels > .format-settings').prependTo($(this).find('.ot-theme-option-tabs'))
+                $(this).find('.prince-theme-option-panels > .format-settings').prependTo($(this).find('.prince-theme-option-tabs'))
 
             }
 
@@ -1075,7 +1075,7 @@
             // then give the dragged div time to settle before firing the reclick function
             $('.wrap').on('mouseup', function () {
 
-                var ot_checked_radios = {}
+                var prince_checked_radios = {}
 
                 // loop over all checked radio buttons inside of parent element
                 $('#' + parent_id + ' input[type="radio"]').each(function () {
@@ -1083,12 +1083,12 @@
                     // stores checked radio buttons
                     if ($(this).is(':checked')) {
 
-                        ot_checked_radios[$(this).attr('name')] = $(this).val()
+                        prince_checked_radios[$(this).attr('name')] = $(this).val()
 
                     }
 
                     // write to the object
-                    $(document).data('ot_checked_radios', ot_checked_radios)
+                    $(document).data('prince_checked_radios', prince_checked_radios)
 
                 })
 
@@ -1096,7 +1096,7 @@
                 setTimeout(function () {
 
                     // get object of checked radio button names and values
-                    var checked = $(document).data('ot_checked_radios')
+                    var checked = $(document).data('prince_checked_radios')
 
                     // step thru each object element and trigger a click on it's corresponding radio button
                     for (key in checked) {
@@ -1154,7 +1154,7 @@
 
     }
 
-    $.ot_ParseColorValue = function (val) {
+    $.prince_ParseColorValue = function (val) {
 
         var value = val.replace(/\s+/g, ''),
             alpha = (value.indexOf('rgba') !== -1) ? parseFloat(value.replace(/^.*,(.+)\)/, '$1') * 100) : 100,
@@ -1164,7 +1164,7 @@
 
     };
 
-    $.fn.ot_wpColorPicker = function () {
+    $.fn.prince_wpColorPicker = function () {
 
         return this.each(function () {
 
@@ -1174,7 +1174,7 @@
             if ($this.data('rgba') !== false) {
 
                 // parse value
-                var picker = $.ot_ParseColorValue($this.val());
+                var picker = $.prince_ParseColorValue($this.val());
 
                 // wpColorPicker core
                 $this.wpColorPicker({
@@ -1183,7 +1183,7 @@
                     change: function (event, ui) {
 
                         // update checkerboard background color
-                        $this.closest('.wp-picker-container').find('.option-tree-opacity-slider-offset').css('background-color', ui.color.toString());
+                        $this.closest('.wp-picker-container').find('.prince-opacity-slider-offset').css('background-color', ui.color.toString());
                         $this.trigger('keyup');
 
                     },
@@ -1196,15 +1196,15 @@
                             $container = $this.closest('.wp-picker-container'),
 
                             // appending alpha wrapper
-                            $alpha_wrap = $('<div class="option-tree-opacity-wrap">' +
-                                '<div class="option-tree-opacity-slider"></div>' +
-                                '<div class="option-tree-opacity-slider-offset"></div>' +
-                                '<div class="option-tree-opacity-text"></div>' +
+                            $alpha_wrap = $('<div class="prince-opacity-wrap">' +
+                                '<div class="prince-opacity-slider"></div>' +
+                                '<div class="prince-opacity-slider-offset"></div>' +
+                                '<div class="prince-opacity-text"></div>' +
                                 '</div>').appendTo($container.find('.wp-picker-holder')),
 
-                            $alpha_slider = $alpha_wrap.find('.option-tree-opacity-slider'),
-                            $alpha_text = $alpha_wrap.find('.option-tree-opacity-text'),
-                            $alpha_offset = $alpha_wrap.find('.option-tree-opacity-slider-offset');
+                            $alpha_slider = $alpha_wrap.find('.prince-opacity-slider'),
+                            $alpha_text = $alpha_wrap.find('.prince-opacity-text'),
+                            $alpha_offset = $alpha_wrap.find('.prince-opacity-slider-offset');
 
                         // alpha slider
                         $alpha_slider.slider({
@@ -1243,7 +1243,7 @@
                                 // wpColorPicker default button for update iris data alpha && alpha text && slider color option
                                 $container.on('click', '.wp-picker-default', function () {
 
-                                    var default_picker = $.ot_ParseColorValue($this.data('default-color')),
+                                    var default_picker = $.prince_ParseColorValue($this.data('default-color')),
                                         default_value = parseFloat(default_picker.alpha / 100),
                                         default_text = default_value < 1 ? default_value : '';
 
@@ -1292,7 +1292,7 @@
     };
 
     $(document).ready(function () {
-        $('.hide-color-picker.ot-colorpicker-opacity').ot_wpColorPicker();
+        $('.hide-color-picker.prince-colorpicker-opacity').prince_wpColorPicker();
     });
 
 })(jQuery, window, document);

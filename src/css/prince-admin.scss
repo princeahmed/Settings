@@ -1,20 +1,20 @@
-/* -------------------------------------------------- 
-  :: OptionTree Font
+/* --------------------------------------------------
+  :: Prince Font
   ---------------------------------------------------*/
 @font-face {
-  font-family: "option-tree-font";
-  src:url("../fonts/option-tree-font.eot");
-  src:url("../fonts/option-tree-font.eot?#iefix") format("embedded-opentype"),
-  url("../fonts/option-tree-font.woff") format("woff"),
-  url("../fonts/option-tree-font.ttf") format("truetype"),
-  url("../fonts/option-tree-font.svg#option-tree-font") format("svg");
+  font-family: "prince-font";
+  src:url("../fonts/prince-font.eot");
+  src:url("../fonts/prince-font.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/prince-font.woff") format("woff"),
+  url("../fonts/prince-font.ttf") format("truetype"),
+  url("../fonts/prince-font.svg#prince-font") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="ot-icon-"],
-[class*=" ot-icon-"] {
-  font-family: "option-tree-font";
+[class^="prince-icon-"],
+[class*=" prince-icon-"] {
+  font-family: "prince-font";
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -25,1131 +25,1131 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.ui-tabs li > a [class^="ot-icon-"],
-.ui-tabs li > a [class*=" ot-icon-"] {
+.ui-tabs li > a [class^="prince-icon-"],
+.ui-tabs li > a [class*=" prince-icon-"] {
   padding-right: 5px;
   line-height: 18px;
   vertical-align: middle;
 }
 
-.ot-icon-option-tree:before {
+.prince-icon-prince:before {
   content: "\e785";
 }
-.ot-icon-glass:before {
+.prince-icon-glass:before {
   content: "\f000";
 }
-.ot-icon-music:before {
+.prince-icon-music:before {
   content: "\f001";
 }
-.ot-icon-search:before {
+.prince-icon-search:before {
   content: "\f002";
 }
-.ot-icon-envelope-o:before {
+.prince-icon-envelope-o:before {
   content: "\f003";
 }
-.ot-icon-heart:before {
+.prince-icon-heart:before {
   content: "\f004";
 }
-.ot-icon-star:before {
+.prince-icon-star:before {
   content: "\f005";
 }
-.ot-icon-star-o:before {
+.prince-icon-star-o:before {
   content: "\f006";
 }
-.ot-icon-user:before {
+.prince-icon-user:before {
   content: "\f007";
 }
-.ot-icon-film:before {
+.prince-icon-film:before {
   content: "\f008";
 }
-.ot-icon-th-large:before {
+.prince-icon-th-large:before {
   content: "\f009";
 }
-.ot-icon-th:before {
+.prince-icon-th:before {
   content: "\f00a";
 }
-.ot-icon-th-list:before {
+.prince-icon-th-list:before {
   content: "\f00b";
 }
-.ot-icon-check:before {
+.prince-icon-check:before {
   content: "\f00c";
 }
-.ot-icon-times:before {
+.prince-icon-times:before {
   content: "\f00d";
 }
-.ot-icon-search-plus:before {
+.prince-icon-search-plus:before {
   content: "\f00e";
 }
-.ot-icon-search-minus:before {
+.prince-icon-search-minus:before {
   content: "\f010";
 }
-.ot-icon-power-off:before {
+.prince-icon-power-off:before {
   content: "\f011";
 }
-.ot-icon-signal:before {
+.prince-icon-signal:before {
   content: "\f012";
 }
-.ot-icon-gear:before {
+.prince-icon-gear:before {
   content: "\f013";
 }
-.ot-icon-trash-o:before {
+.prince-icon-trash-o:before {
   content: "\f014";
 }
-.ot-icon-home:before {
+.prince-icon-home:before {
   content: "\f015";
 }
-.ot-icon-file-o:before {
+.prince-icon-file-o:before {
   content: "\f016";
 }
-.ot-icon-clock-o:before {
+.prince-icon-clock-o:before {
   content: "\f017";
 }
-.ot-icon-road:before {
+.prince-icon-road:before {
   content: "\f018";
 }
-.ot-icon-download:before {
+.prince-icon-download:before {
   content: "\f019";
 }
-.ot-icon-arrow-circle-o-down:before {
+.prince-icon-arrow-circle-o-down:before {
   content: "\f01a";
 }
-.ot-icon-arrow-circle-o-up:before {
+.prince-icon-arrow-circle-o-up:before {
   content: "\f01b";
 }
-.ot-icon-inbox:before {
+.prince-icon-inbox:before {
   content: "\f01c";
 }
-.ot-icon-play-circle-o:before {
+.prince-icon-play-circle-o:before {
   content: "\f01d";
 }
-.ot-icon-rotate-right:before {
+.prince-icon-rotate-right:before {
   content: "\f01e";
 }
-.ot-icon-refresh:before {
+.prince-icon-refresh:before {
   content: "\f021";
 }
-.ot-icon-list-alt:before {
+.prince-icon-list-alt:before {
   content: "\f022";
 }
-.ot-icon-lock:before {
+.prince-icon-lock:before {
   content: "\f023";
 }
-.ot-icon-flag:before {
+.prince-icon-flag:before {
   content: "\f024";
 }
-.ot-icon-headphones:before {
+.prince-icon-headphones:before {
   content: "\f025";
 }
-.ot-icon-volume-off:before {
+.prince-icon-volume-off:before {
   content: "\f026";
 }
-.ot-icon-volume-down:before {
+.prince-icon-volume-down:before {
   content: "\f027";
 }
-.ot-icon-volume-up:before {
+.prince-icon-volume-up:before {
   content: "\f028";
 }
-.ot-icon-qrcode:before {
+.prince-icon-qrcode:before {
   content: "\f029";
 }
-.ot-icon-barcode:before {
+.prince-icon-barcode:before {
   content: "\f02a";
 }
-.ot-icon-tag:before {
+.prince-icon-tag:before {
   content: "\f02b";
 }
-.ot-icon-tags:before {
+.prince-icon-tags:before {
   content: "\f02c";
 }
-.ot-icon-book:before {
+.prince-icon-book:before {
   content: "\f02d";
 }
-.ot-icon-bookmark:before {
+.prince-icon-bookmark:before {
   content: "\f02e";
 }
-.ot-icon-print:before {
+.prince-icon-print:before {
   content: "\f02f";
 }
-.ot-icon-camera:before {
+.prince-icon-camera:before {
   content: "\f030";
 }
-.ot-icon-font:before {
+.prince-icon-font:before {
   content: "\f031";
 }
-.ot-icon-bold:before {
+.prince-icon-bold:before {
   content: "\f032";
 }
-.ot-icon-italic:before {
+.prince-icon-italic:before {
   content: "\f033";
 }
-.ot-icon-text-height:before {
+.prince-icon-text-height:before {
   content: "\f034";
 }
-.ot-icon-text-width:before {
+.prince-icon-text-width:before {
   content: "\f035";
 }
-.ot-icon-align-left:before {
+.prince-icon-align-left:before {
   content: "\f036";
 }
-.ot-icon-align-center:before {
+.prince-icon-align-center:before {
   content: "\f037";
 }
-.ot-icon-align-right:before {
+.prince-icon-align-right:before {
   content: "\f038";
 }
-.ot-icon-align-justify:before {
+.prince-icon-align-justify:before {
   content: "\f039";
 }
-.ot-icon-list:before {
+.prince-icon-list:before {
   content: "\f03a";
 }
-.ot-icon-dedent:before {
+.prince-icon-dedent:before {
   content: "\f03b";
 }
-.ot-icon-indent:before {
+.prince-icon-indent:before {
   content: "\f03c";
 }
-.ot-icon-video-camera:before {
+.prince-icon-video-camera:before {
   content: "\f03d";
 }
-.ot-icon-picture-o:before {
+.prince-icon-picture-o:before {
   content: "\f03e";
 }
-.ot-icon-pencil:before {
+.prince-icon-pencil:before {
   content: "\f040";
 }
-.ot-icon-map-marker:before {
+.prince-icon-map-marker:before {
   content: "\f041";
 }
-.ot-icon-adjust:before {
+.prince-icon-adjust:before {
   content: "\f042";
 }
-.ot-icon-tint:before {
+.prince-icon-tint:before {
   content: "\f043";
 }
-.ot-icon-edit:before {
+.prince-icon-edit:before {
   content: "\f044";
 }
-.ot-icon-share-square-o:before {
+.prince-icon-share-square-o:before {
   content: "\f045";
 }
-.ot-icon-check-square-o:before {
+.prince-icon-check-square-o:before {
   content: "\f046";
 }
-.ot-icon-arrows:before {
+.prince-icon-arrows:before {
   content: "\f047";
 }
-.ot-icon-step-backward:before {
+.prince-icon-step-backward:before {
   content: "\f048";
 }
-.ot-icon-fast-backward:before {
+.prince-icon-fast-backward:before {
   content: "\f049";
 }
-.ot-icon-backward:before {
+.prince-icon-backward:before {
   content: "\f04a";
 }
-.ot-icon-play:before {
+.prince-icon-play:before {
   content: "\f04b";
 }
-.ot-icon-pause:before {
+.prince-icon-pause:before {
   content: "\f04c";
 }
-.ot-icon-stop:before {
+.prince-icon-stop:before {
   content: "\f04d";
 }
-.ot-icon-forward:before {
+.prince-icon-forward:before {
   content: "\f04e";
 }
-.ot-icon-fast-forward:before {
+.prince-icon-fast-forward:before {
   content: "\f050";
 }
-.ot-icon-step-forward:before {
+.prince-icon-step-forward:before {
   content: "\f051";
 }
-.ot-icon-eject:before {
+.prince-icon-eject:before {
   content: "\f052";
 }
-.ot-icon-chevron-left:before {
+.prince-icon-chevron-left:before {
   content: "\f053";
 }
-.ot-icon-chevron-right:before {
+.prince-icon-chevron-right:before {
   content: "\f054";
 }
-.ot-icon-plus-circle:before {
+.prince-icon-plus-circle:before {
   content: "\f055";
 }
-.ot-icon-minus-circle:before {
+.prince-icon-minus-circle:before {
   content: "\f056";
 }
-.ot-icon-times-circle:before {
+.prince-icon-times-circle:before {
   content: "\f057";
 }
-.ot-icon-check-circle:before {
+.prince-icon-check-circle:before {
   content: "\f058";
 }
-.ot-icon-question-circle:before {
+.prince-icon-question-circle:before {
   content: "\f059";
 }
-.ot-icon-info-circle:before {
+.prince-icon-info-circle:before {
   content: "\f05a";
 }
-.ot-icon-crosshairs:before {
+.prince-icon-crosshairs:before {
   content: "\f05b";
 }
-.ot-icon-times-circle-o:before {
+.prince-icon-times-circle-o:before {
   content: "\f05c";
 }
-.ot-icon-check-circle-o:before {
+.prince-icon-check-circle-o:before {
   content: "\f05d";
 }
-.ot-icon-ban:before {
+.prince-icon-ban:before {
   content: "\f05e";
 }
-.ot-icon-arrow-left:before {
+.prince-icon-arrow-left:before {
   content: "\f060";
 }
-.ot-icon-arrow-right:before {
+.prince-icon-arrow-right:before {
   content: "\f061";
 }
-.ot-icon-arrow-up:before {
+.prince-icon-arrow-up:before {
   content: "\f062";
 }
-.ot-icon-arrow-down:before {
+.prince-icon-arrow-down:before {
   content: "\f063";
 }
-.ot-icon-mail-forward:before {
+.prince-icon-mail-forward:before {
   content: "\f064";
 }
-.ot-icon-expand:before {
+.prince-icon-expand:before {
   content: "\f065";
 }
-.ot-icon-compress:before {
+.prince-icon-compress:before {
   content: "\f066";
 }
-.ot-icon-plus:before {
+.prince-icon-plus:before {
   content: "\f067";
 }
-.ot-icon-minus:before {
+.prince-icon-minus:before {
   content: "\f068";
 }
-.ot-icon-asterisk:before {
+.prince-icon-asterisk:before {
   content: "\f069";
 }
-.ot-icon-exclamation-circle:before {
+.prince-icon-exclamation-circle:before {
   content: "\f06a";
 }
-.ot-icon-gift:before {
+.prince-icon-gift:before {
   content: "\f06b";
 }
-.ot-icon-leaf:before {
+.prince-icon-leaf:before {
   content: "\f06c";
 }
-.ot-icon-fire:before {
+.prince-icon-fire:before {
   content: "\f06d";
 }
-.ot-icon-eye:before {
+.prince-icon-eye:before {
   content: "\f06e";
 }
-.ot-icon-eye-slash:before {
+.prince-icon-eye-slash:before {
   content: "\f070";
 }
-.ot-icon-warning:before {
+.prince-icon-warning:before {
   content: "\f071";
 }
-.ot-icon-plane:before {
+.prince-icon-plane:before {
   content: "\f072";
 }
-.ot-icon-calendar:before {
+.prince-icon-calendar:before {
   content: "\f073";
 }
-.ot-icon-random:before {
+.prince-icon-random:before {
   content: "\f074";
 }
-.ot-icon-comment:before {
+.prince-icon-comment:before {
   content: "\f075";
 }
-.ot-icon-magnet:before {
+.prince-icon-magnet:before {
   content: "\f076";
 }
-.ot-icon-chevron-up:before {
+.prince-icon-chevron-up:before {
   content: "\f077";
 }
-.ot-icon-chevron-down:before {
+.prince-icon-chevron-down:before {
   content: "\f078";
 }
-.ot-icon-retweet:before {
+.prince-icon-retweet:before {
   content: "\f079";
 }
-.ot-icon-shopping-cart:before {
+.prince-icon-shopping-cart:before {
   content: "\f07a";
 }
-.ot-icon-folder:before {
+.prince-icon-folder:before {
   content: "\f07b";
 }
-.ot-icon-folder-open:before {
+.prince-icon-folder-open:before {
   content: "\f07c";
 }
-.ot-icon-arrows-v:before {
+.prince-icon-arrows-v:before {
   content: "\f07d";
 }
-.ot-icon-arrows-h:before {
+.prince-icon-arrows-h:before {
   content: "\f07e";
 }
-.ot-icon-bar-chart-o:before {
+.prince-icon-bar-chart-o:before {
   content: "\f080";
 }
-.ot-icon-twitter-square:before {
+.prince-icon-twitter-square:before {
   content: "\f081";
 }
-.ot-icon-facebook-square:before {
+.prince-icon-facebook-square:before {
   content: "\f082";
 }
-.ot-icon-camera-retro:before {
+.prince-icon-camera-retro:before {
   content: "\f083";
 }
-.ot-icon-key:before {
+.prince-icon-key:before {
   content: "\f084";
 }
-.ot-icon-gears:before {
+.prince-icon-gears:before {
   content: "\f085";
 }
-.ot-icon-comments:before {
+.prince-icon-comments:before {
   content: "\f086";
 }
-.ot-icon-thumbs-o-up:before {
+.prince-icon-thumbs-o-up:before {
   content: "\f087";
 }
-.ot-icon-thumbs-o-down:before {
+.prince-icon-thumbs-o-down:before {
   content: "\f088";
 }
-.ot-icon-star-half:before {
+.prince-icon-star-half:before {
   content: "\f089";
 }
-.ot-icon-heart-o:before {
+.prince-icon-heart-o:before {
   content: "\f08a";
 }
-.ot-icon-sign-out:before {
+.prince-icon-sign-out:before {
   content: "\f08b";
 }
-.ot-icon-linkedin-square:before {
+.prince-icon-linkedin-square:before {
   content: "\f08c";
 }
-.ot-icon-thumb-tack:before {
+.prince-icon-thumb-tack:before {
   content: "\f08d";
 }
-.ot-icon-external-link:before {
+.prince-icon-external-link:before {
   content: "\f08e";
 }
-.ot-icon-sign-in:before {
+.prince-icon-sign-in:before {
   content: "\f090";
 }
-.ot-icon-trophy:before {
+.prince-icon-trophy:before {
   content: "\f091";
 }
-.ot-icon-github-square:before {
+.prince-icon-github-square:before {
   content: "\f092";
 }
-.ot-icon-upload:before {
+.prince-icon-upload:before {
   content: "\f093";
 }
-.ot-icon-lemon-o:before {
+.prince-icon-lemon-o:before {
   content: "\f094";
 }
-.ot-icon-phone:before {
+.prince-icon-phone:before {
   content: "\f095";
 }
-.ot-icon-square-o:before {
+.prince-icon-square-o:before {
   content: "\f096";
 }
-.ot-icon-bookmark-o:before {
+.prince-icon-bookmark-o:before {
   content: "\f097";
 }
-.ot-icon-phone-square:before {
+.prince-icon-phone-square:before {
   content: "\f098";
 }
-.ot-icon-twitter:before {
+.prince-icon-twitter:before {
   content: "\f099";
 }
-.ot-icon-facebook:before {
+.prince-icon-facebook:before {
   content: "\f09a";
 }
-.ot-icon-github:before {
+.prince-icon-github:before {
   content: "\f09b";
 }
-.ot-icon-unlock:before {
+.prince-icon-unlock:before {
   content: "\f09c";
 }
-.ot-icon-credit-card:before {
+.prince-icon-credit-card:before {
   content: "\f09d";
 }
-.ot-icon-rss:before {
+.prince-icon-rss:before {
   content: "\f09e";
 }
-.ot-icon-hdd-o:before {
+.prince-icon-hdd-o:before {
   content: "\f0a0";
 }
-.ot-icon-bullhorn:before {
+.prince-icon-bullhorn:before {
   content: "\f0a1";
 }
-.ot-icon-bell:before {
+.prince-icon-bell:before {
   content: "\f0a2";
 }
-.ot-icon-certificate:before {
+.prince-icon-certificate:before {
   content: "\f0a3";
 }
-.ot-icon-hand-o-right:before {
+.prince-icon-hand-o-right:before {
   content: "\f0a4";
 }
-.ot-icon-hand-o-left:before {
+.prince-icon-hand-o-left:before {
   content: "\f0a5";
 }
-.ot-icon-hand-o-up:before {
+.prince-icon-hand-o-up:before {
   content: "\f0a6";
 }
-.ot-icon-hand-o-down:before {
+.prince-icon-hand-o-down:before {
   content: "\f0a7";
 }
-.ot-icon-arrow-circle-left:before {
+.prince-icon-arrow-circle-left:before {
   content: "\f0a8";
 }
-.ot-icon-arrow-circle-right:before {
+.prince-icon-arrow-circle-right:before {
   content: "\f0a9";
 }
-.ot-icon-arrow-circle-up:before {
+.prince-icon-arrow-circle-up:before {
   content: "\f0aa";
 }
-.ot-icon-arrow-circle-down:before {
+.prince-icon-arrow-circle-down:before {
   content: "\f0ab";
 }
-.ot-icon-globe:before {
+.prince-icon-globe:before {
   content: "\f0ac";
 }
-.ot-icon-wrench:before {
+.prince-icon-wrench:before {
   content: "\f0ad";
 }
-.ot-icon-tasks:before {
+.prince-icon-tasks:before {
   content: "\f0ae";
 }
-.ot-icon-filter:before {
+.prince-icon-filter:before {
   content: "\f0b0";
 }
-.ot-icon-briefcase:before {
+.prince-icon-briefcase:before {
   content: "\f0b1";
 }
-.ot-icon-arrows-alt:before {
+.prince-icon-arrows-alt:before {
   content: "\f0b2";
 }
-.ot-icon-group:before {
+.prince-icon-group:before {
   content: "\f0c0";
 }
-.ot-icon-chain:before {
+.prince-icon-chain:before {
   content: "\f0c1";
 }
-.ot-icon-cloud:before {
+.prince-icon-cloud:before {
   content: "\f0c2";
 }
-.ot-icon-flask:before {
+.prince-icon-flask:before {
   content: "\f0c3";
 }
-.ot-icon-cut:before {
+.prince-icon-cut:before {
   content: "\f0c4";
 }
-.ot-icon-copy:before {
+.prince-icon-copy:before {
   content: "\f0c5";
 }
-.ot-icon-paperclip:before {
+.prince-icon-paperclip:before {
   content: "\f0c6";
 }
-.ot-icon-save:before {
+.prince-icon-save:before {
   content: "\f0c7";
 }
-.ot-icon-square:before {
+.prince-icon-square:before {
   content: "\f0c8";
 }
-.ot-icon-bars:before {
+.prince-icon-bars:before {
   content: "\f0c9";
 }
-.ot-icon-list-ul:before {
+.prince-icon-list-ul:before {
   content: "\f0ca";
 }
-.ot-icon-list-ol:before {
+.prince-icon-list-ol:before {
   content: "\f0cb";
 }
-.ot-icon-strikethrough:before {
+.prince-icon-strikethrough:before {
   content: "\f0cc";
 }
-.ot-icon-underline:before {
+.prince-icon-underline:before {
   content: "\f0cd";
 }
-.ot-icon-table:before {
+.prince-icon-table:before {
   content: "\f0ce";
 }
-.ot-icon-magic:before {
+.prince-icon-magic:before {
   content: "\f0d0";
 }
-.ot-icon-truck:before {
+.prince-icon-truck:before {
   content: "\f0d1";
 }
-.ot-icon-pinterest:before {
+.prince-icon-pinterest:before {
   content: "\f0d2";
 }
-.ot-icon-pinterest-square:before {
+.prince-icon-pinterest-square:before {
   content: "\f0d3";
 }
-.ot-icon-google-plus-square:before {
+.prince-icon-google-plus-square:before {
   content: "\f0d4";
 }
-.ot-icon-google-plus:before {
+.prince-icon-google-plus:before {
   content: "\f0d5";
 }
-.ot-icon-money:before {
+.prince-icon-money:before {
   content: "\f0d6";
 }
-.ot-icon-caret-down:before {
+.prince-icon-caret-down:before {
   content: "\f0d7";
 }
-.ot-icon-caret-up:before {
+.prince-icon-caret-up:before {
   content: "\f0d8";
 }
-.ot-icon-caret-left:before {
+.prince-icon-caret-left:before {
   content: "\f0d9";
 }
-.ot-icon-caret-right:before {
+.prince-icon-caret-right:before {
   content: "\f0da";
 }
-.ot-icon-columns:before {
+.prince-icon-columns:before {
   content: "\f0db";
 }
-.ot-icon-unsorted:before {
+.prince-icon-unsorted:before {
   content: "\f0dc";
 }
-.ot-icon-sort-down:before {
+.prince-icon-sort-down:before {
   content: "\f0dd";
 }
-.ot-icon-sort-up:before {
+.prince-icon-sort-up:before {
   content: "\f0de";
 }
-.ot-icon-envelope:before {
+.prince-icon-envelope:before {
   content: "\f0e0";
 }
-.ot-icon-linkedin:before {
+.prince-icon-linkedin:before {
   content: "\f0e1";
 }
-.ot-icon-rotate-left:before {
+.prince-icon-rotate-left:before {
   content: "\f0e2";
 }
-.ot-icon-legal:before {
+.prince-icon-legal:before {
   content: "\f0e3";
 }
-.ot-icon-dashboard:before {
+.prince-icon-dashboard:before {
   content: "\f0e4";
 }
-.ot-icon-comment-o:before {
+.prince-icon-comment-o:before {
   content: "\f0e5";
 }
-.ot-icon-comments-o:before {
+.prince-icon-comments-o:before {
   content: "\f0e6";
 }
-.ot-icon-flash:before {
+.prince-icon-flash:before {
   content: "\f0e7";
 }
-.ot-icon-sitemap:before {
+.prince-icon-sitemap:before {
   content: "\f0e8";
 }
-.ot-icon-umbrella:before {
+.prince-icon-umbrella:before {
   content: "\f0e9";
 }
-.ot-icon-paste:before {
+.prince-icon-paste:before {
   content: "\f0ea";
 }
-.ot-icon-lightbulb-o:before {
+.prince-icon-lightbulb-o:before {
   content: "\f0eb";
 }
-.ot-icon-exchange:before {
+.prince-icon-exchange:before {
   content: "\f0ec";
 }
-.ot-icon-cloud-download:before {
+.prince-icon-cloud-download:before {
   content: "\f0ed";
 }
-.ot-icon-cloud-upload:before {
+.prince-icon-cloud-upload:before {
   content: "\f0ee";
 }
-.ot-icon-user-md:before {
+.prince-icon-user-md:before {
   content: "\f0f0";
 }
-.ot-icon-stethoscope:before {
+.prince-icon-stethoscope:before {
   content: "\f0f1";
 }
-.ot-icon-suitcase:before {
+.prince-icon-suitcase:before {
   content: "\f0f2";
 }
-.ot-icon-bell-o:before {
+.prince-icon-bell-o:before {
   content: "\f0f3";
 }
-.ot-icon-coffee:before {
+.prince-icon-coffee:before {
   content: "\f0f4";
 }
-.ot-icon-cutlery:before {
+.prince-icon-cutlery:before {
   content: "\f0f5";
 }
-.ot-icon-file-text-o:before {
+.prince-icon-file-text-o:before {
   content: "\f0f6";
 }
-.ot-icon-building-o:before {
+.prince-icon-building-o:before {
   content: "\f0f7";
 }
-.ot-icon-hospital-o:before {
+.prince-icon-hospital-o:before {
   content: "\f0f8";
 }
-.ot-icon-ambulance:before {
+.prince-icon-ambulance:before {
   content: "\f0f9";
 }
-.ot-icon-medkit:before {
+.prince-icon-medkit:before {
   content: "\f0fa";
 }
-.ot-icon-fighter-jet:before {
+.prince-icon-fighter-jet:before {
   content: "\f0fb";
 }
-.ot-icon-beer:before {
+.prince-icon-beer:before {
   content: "\f0fc";
 }
-.ot-icon-h-square:before {
+.prince-icon-h-square:before {
   content: "\f0fd";
 }
-.ot-icon-plus-square:before {
+.prince-icon-plus-square:before {
   content: "\f0fe";
 }
-.ot-icon-angle-double-left:before {
+.prince-icon-angle-double-left:before {
   content: "\f100";
 }
-.ot-icon-angle-double-right:before {
+.prince-icon-angle-double-right:before {
   content: "\f101";
 }
-.ot-icon-angle-double-up:before {
+.prince-icon-angle-double-up:before {
   content: "\f102";
 }
-.ot-icon-angle-double-down:before {
+.prince-icon-angle-double-down:before {
   content: "\f103";
 }
-.ot-icon-angle-left:before {
+.prince-icon-angle-left:before {
   content: "\f104";
 }
-.ot-icon-angle-right:before {
+.prince-icon-angle-right:before {
   content: "\f105";
 }
-.ot-icon-angle-up:before {
+.prince-icon-angle-up:before {
   content: "\f106";
 }
-.ot-icon-angle-down:before {
+.prince-icon-angle-down:before {
   content: "\f107";
 }
-.ot-icon-desktop:before {
+.prince-icon-desktop:before {
   content: "\f108";
 }
-.ot-icon-laptop:before {
+.prince-icon-laptop:before {
   content: "\f109";
 }
-.ot-icon-tablet:before {
+.prince-icon-tablet:before {
   content: "\f10a";
 }
-.ot-icon-mobile-phone:before {
+.prince-icon-mobile-phone:before {
   content: "\f10b";
 }
-.ot-icon-circle-o:before {
+.prince-icon-circle-o:before {
   content: "\f10c";
 }
-.ot-icon-quote-left:before {
+.prince-icon-quote-left:before {
   content: "\f10d";
 }
-.ot-icon-quote-right:before {
+.prince-icon-quote-right:before {
   content: "\f10e";
 }
-.ot-icon-spinner:before {
+.prince-icon-spinner:before {
   content: "\f110";
 }
-.ot-icon-circle:before {
+.prince-icon-circle:before {
   content: "\f111";
 }
-.ot-icon-mail-reply:before {
+.prince-icon-mail-reply:before {
   content: "\f112";
 }
-.ot-icon-github-alt:before {
+.prince-icon-github-alt:before {
   content: "\f113";
 }
-.ot-icon-folder-o:before {
+.prince-icon-folder-o:before {
   content: "\f114";
 }
-.ot-icon-folder-open-o:before {
+.prince-icon-folder-open-o:before {
   content: "\f115";
 }
-.ot-icon-smile-o:before {
+.prince-icon-smile-o:before {
   content: "\f118";
 }
-.ot-icon-frown-o:before {
+.prince-icon-frown-o:before {
   content: "\f119";
 }
-.ot-icon-meh-o:before {
+.prince-icon-meh-o:before {
   content: "\f11a";
 }
-.ot-icon-gamepad:before {
+.prince-icon-gamepad:before {
   content: "\f11b";
 }
-.ot-icon-keyboard-o:before {
+.prince-icon-keyboard-o:before {
   content: "\f11c";
 }
-.ot-icon-flag-o:before {
+.prince-icon-flag-o:before {
   content: "\f11d";
 }
-.ot-icon-flag-checkered:before {
+.prince-icon-flag-checkered:before {
   content: "\f11e";
 }
-.ot-icon-terminal:before {
+.prince-icon-terminal:before {
   content: "\f120";
 }
-.ot-icon-code:before {
+.prince-icon-code:before {
   content: "\f121";
 }
-.ot-icon-reply-all:before {
+.prince-icon-reply-all:before {
   content: "\f122";
 }
-.ot-icon-star-half-empty:before {
+.prince-icon-star-half-empty:before {
   content: "\f123";
 }
-.ot-icon-location-arrow:before {
+.prince-icon-location-arrow:before {
   content: "\f124";
 }
-.ot-icon-crop:before {
+.prince-icon-crop:before {
   content: "\f125";
 }
-.ot-icon-code-fork:before {
+.prince-icon-code-fork:before {
   content: "\f126";
 }
-.ot-icon-unlink:before {
+.prince-icon-unlink:before {
   content: "\f127";
 }
-.ot-icon-question:before {
+.prince-icon-question:before {
   content: "\f128";
 }
-.ot-icon-info:before {
+.prince-icon-info:before {
   content: "\f129";
 }
-.ot-icon-exclamation:before {
+.prince-icon-exclamation:before {
   content: "\f12a";
 }
-.ot-icon-superscript:before {
+.prince-icon-superscript:before {
   content: "\f12b";
 }
-.ot-icon-subscript:before {
+.prince-icon-subscript:before {
   content: "\f12c";
 }
-.ot-icon-eraser:before {
+.prince-icon-eraser:before {
   content: "\f12d";
 }
-.ot-icon-puzzle-piece:before {
+.prince-icon-puzzle-piece:before {
   content: "\f12e";
 }
-.ot-icon-microphone:before {
+.prince-icon-microphone:before {
   content: "\f130";
 }
-.ot-icon-microphone-slash:before {
+.prince-icon-microphone-slash:before {
   content: "\f131";
 }
-.ot-icon-shield:before {
+.prince-icon-shield:before {
   content: "\f132";
 }
-.ot-icon-calendar-o:before {
+.prince-icon-calendar-o:before {
   content: "\f133";
 }
-.ot-icon-fire-extinguisher:before {
+.prince-icon-fire-extinguisher:before {
   content: "\f134";
 }
-.ot-icon-rocket:before {
+.prince-icon-rocket:before {
   content: "\f135";
 }
-.ot-icon-maxcdn:before {
+.prince-icon-maxcdn:before {
   content: "\f136";
 }
-.ot-icon-chevron-circle-left:before {
+.prince-icon-chevron-circle-left:before {
   content: "\f137";
 }
-.ot-icon-chevron-circle-right:before {
+.prince-icon-chevron-circle-right:before {
   content: "\f138";
 }
-.ot-icon-chevron-circle-up:before {
+.prince-icon-chevron-circle-up:before {
   content: "\f139";
 }
-.ot-icon-chevron-circle-down:before {
+.prince-icon-chevron-circle-down:before {
   content: "\f13a";
 }
-.ot-icon-html5:before {
+.prince-icon-html5:before {
   content: "\f13b";
 }
-.ot-icon-css3:before {
+.prince-icon-css3:before {
   content: "\f13c";
 }
-.ot-icon-anchor:before {
+.prince-icon-anchor:before {
   content: "\f13d";
 }
-.ot-icon-unlock-alt:before {
+.prince-icon-unlock-alt:before {
   content: "\f13e";
 }
-.ot-icon-bullseye:before {
+.prince-icon-bullseye:before {
   content: "\f140";
 }
-.ot-icon-ellipsis-h:before {
+.prince-icon-ellipsis-h:before {
   content: "\f141";
 }
-.ot-icon-ellipsis-v:before {
+.prince-icon-ellipsis-v:before {
   content: "\f142";
 }
-.ot-icon-rss-square:before {
+.prince-icon-rss-square:before {
   content: "\f143";
 }
-.ot-icon-play-circle:before {
+.prince-icon-play-circle:before {
   content: "\f144";
 }
-.ot-icon-ticket:before {
+.prince-icon-ticket:before {
   content: "\f145";
 }
-.ot-icon-minus-square:before {
+.prince-icon-minus-square:before {
   content: "\f146";
 }
-.ot-icon-minus-square-o:before {
+.prince-icon-minus-square-o:before {
   content: "\f147";
 }
-.ot-icon-level-up:before {
+.prince-icon-level-up:before {
   content: "\f148";
 }
-.ot-icon-level-down:before {
+.prince-icon-level-down:before {
   content: "\f149";
 }
-.ot-icon-check-square:before {
+.prince-icon-check-square:before {
   content: "\f14a";
 }
-.ot-icon-pencil-square:before {
+.prince-icon-pencil-square:before {
   content: "\f14b";
 }
-.ot-icon-external-link-square:before {
+.prince-icon-external-link-square:before {
   content: "\f14c";
 }
-.ot-icon-share-square:before {
+.prince-icon-share-square:before {
   content: "\f14d";
 }
-.ot-icon-compass:before {
+.prince-icon-compass:before {
   content: "\f14e";
 }
-.ot-icon-toggle-down:before {
+.prince-icon-toggle-down:before {
   content: "\f150";
 }
-.ot-icon-toggle-up:before {
+.prince-icon-toggle-up:before {
   content: "\f151";
 }
-.ot-icon-toggle-right:before {
+.prince-icon-toggle-right:before {
   content: "\f152";
 }
-.ot-icon-euro:before {
+.prince-icon-euro:before {
   content: "\f153";
 }
-.ot-icon-gbp:before {
+.prince-icon-gbp:before {
   content: "\f154";
 }
-.ot-icon-dollar:before {
+.prince-icon-dollar:before {
   content: "\f155";
 }
-.ot-icon-rupee:before {
+.prince-icon-rupee:before {
   content: "\f156";
 }
-.ot-icon-cny:before {
+.prince-icon-cny:before {
   content: "\f157";
 }
-.ot-icon-ruble:before {
+.prince-icon-ruble:before {
   content: "\f158";
 }
-.ot-icon-won:before {
+.prince-icon-won:before {
   content: "\f159";
 }
-.ot-icon-bitcoin:before {
+.prince-icon-bitcoin:before {
   content: "\f15a";
 }
-.ot-icon-file:before {
+.prince-icon-file:before {
   content: "\f15b";
 }
-.ot-icon-file-text:before {
+.prince-icon-file-text:before {
   content: "\f15c";
 }
-.ot-icon-sort-alpha-asc:before {
+.prince-icon-sort-alpha-asc:before {
   content: "\f15d";
 }
-.ot-icon-sort-alpha-desc:before {
+.prince-icon-sort-alpha-desc:before {
   content: "\f15e";
 }
-.ot-icon-sort-amount-asc:before {
+.prince-icon-sort-amount-asc:before {
   content: "\f160";
 }
-.ot-icon-sort-amount-desc:before {
+.prince-icon-sort-amount-desc:before {
   content: "\f161";
 }
-.ot-icon-sort-numeric-asc:before {
+.prince-icon-sort-numeric-asc:before {
   content: "\f162";
 }
-.ot-icon-sort-numeric-desc:before {
+.prince-icon-sort-numeric-desc:before {
   content: "\f163";
 }
-.ot-icon-thumbs-up:before {
+.prince-icon-thumbs-up:before {
   content: "\f164";
 }
-.ot-icon-thumbs-down:before {
+.prince-icon-thumbs-down:before {
   content: "\f165";
 }
-.ot-icon-youtube-square:before {
+.prince-icon-youtube-square:before {
   content: "\f166";
 }
-.ot-icon-youtube:before {
+.prince-icon-youtube:before {
   content: "\f167";
 }
-.ot-icon-xing:before {
+.prince-icon-xing:before {
   content: "\f168";
 }
-.ot-icon-xing-square:before {
+.prince-icon-xing-square:before {
   content: "\f169";
 }
-.ot-icon-youtube-play:before {
+.prince-icon-youtube-play:before {
   content: "\f16a";
 }
-.ot-icon-dropbox:before {
+.prince-icon-dropbox:before {
   content: "\f16b";
 }
-.ot-icon-stack-overflow:before {
+.prince-icon-stack-overflow:before {
   content: "\f16c";
 }
-.ot-icon-instagram:before {
+.prince-icon-instagram:before {
   content: "\f16d";
 }
-.ot-icon-flickr:before {
+.prince-icon-flickr:before {
   content: "\f16e";
 }
-.ot-icon-adn:before {
+.prince-icon-adn:before {
   content: "\f170";
 }
-.ot-icon-bitbucket:before {
+.prince-icon-bitbucket:before {
   content: "\f171";
 }
-.ot-icon-bitbucket-square:before {
+.prince-icon-bitbucket-square:before {
   content: "\f172";
 }
-.ot-icon-tumblr:before {
+.prince-icon-tumblr:before {
   content: "\f173";
 }
-.ot-icon-tumblr-square:before {
+.prince-icon-tumblr-square:before {
   content: "\f174";
 }
-.ot-icon-long-arrow-down:before {
+.prince-icon-long-arrow-down:before {
   content: "\f175";
 }
-.ot-icon-long-arrow-up:before {
+.prince-icon-long-arrow-up:before {
   content: "\f176";
 }
-.ot-icon-long-arrow-left:before {
+.prince-icon-long-arrow-left:before {
   content: "\f177";
 }
-.ot-icon-long-arrow-right:before {
+.prince-icon-long-arrow-right:before {
   content: "\f178";
 }
-.ot-icon-apple:before {
+.prince-icon-apple:before {
   content: "\f179";
 }
-.ot-icon-windows:before {
+.prince-icon-windows:before {
   content: "\f17a";
 }
-.ot-icon-android:before {
+.prince-icon-android:before {
   content: "\f17b";
 }
-.ot-icon-linux:before {
+.prince-icon-linux:before {
   content: "\f17c";
 }
-.ot-icon-dribbble:before {
+.prince-icon-dribbble:before {
   content: "\f17d";
 }
-.ot-icon-skype:before {
+.prince-icon-skype:before {
   content: "\f17e";
 }
-.ot-icon-foursquare:before {
+.prince-icon-foursquare:before {
   content: "\f180";
 }
-.ot-icon-trello:before {
+.prince-icon-trello:before {
   content: "\f181";
 }
-.ot-icon-female:before {
+.prince-icon-female:before {
   content: "\f182";
 }
-.ot-icon-male:before {
+.prince-icon-male:before {
   content: "\f183";
 }
-.ot-icon-gittip:before {
+.prince-icon-gittip:before {
   content: "\f184";
 }
-.ot-icon-sun-o:before {
+.prince-icon-sun-o:before {
   content: "\f185";
 }
-.ot-icon-moon-o:before {
+.prince-icon-moon-o:before {
   content: "\f186";
 }
-.ot-icon-archive:before {
+.prince-icon-archive:before {
   content: "\f187";
 }
-.ot-icon-bug:before {
+.prince-icon-bug:before {
   content: "\f188";
 }
-.ot-icon-vk:before {
+.prince-icon-vk:before {
   content: "\f189";
 }
-.ot-icon-weibo:before {
+.prince-icon-weibo:before {
   content: "\f18a";
 }
-.ot-icon-renren:before {
+.prince-icon-renren:before {
   content: "\f18b";
 }
-.ot-icon-pagelines:before {
+.prince-icon-pagelines:before {
   content: "\f18c";
 }
-.ot-icon-stack-exchange:before {
+.prince-icon-stack-exchange:before {
   content: "\f18d";
 }
-.ot-icon-arrow-circle-o-right:before {
+.prince-icon-arrow-circle-o-right:before {
   content: "\f18e";
 }
-.ot-icon-arrow-circle-o-left:before {
+.prince-icon-arrow-circle-o-left:before {
   content: "\f190";
 }
-.ot-icon-toggle-left:before {
+.prince-icon-toggle-left:before {
   content: "\f191";
 }
-.ot-icon-dot-circle-o:before {
+.prince-icon-dprince-circle-o:before {
   content: "\f192";
 }
-.ot-icon-wheelchair:before {
+.prince-icon-wheelchair:before {
   content: "\f193";
 }
-.ot-icon-vimeo-square:before {
+.prince-icon-vimeo-square:before {
   content: "\f194";
 }
-.ot-icon-turkish-lira:before {
+.prince-icon-turkish-lira:before {
   content: "\f195";
 }
-.ot-icon-plus-square-o:before {
+.prince-icon-plus-square-o:before {
   content: "\f196";
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Screen Meta & Menu Icon
   ---------------------------------------------------*/
-.appearance_page_ot-theme-options #screen-meta {
+.appearance_page_prince-theme-options #screen-meta {
   margin-right: 20px;
   margin-left: 2px;
   min-width: 533px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Messages
   ---------------------------------------------------*/
 .wrap.settings-wrap div.error,
@@ -1157,22 +1157,22 @@
   margin: 9px 5px 0px 2px !important;
 }
 
-/* -------------------------------------------------- 
-  :: OptionTree Wrappers
+/* --------------------------------------------------
+  :: Prince Wrappers
   ---------------------------------------------------*/
-#option-tree-settings-api .metabox-holder {
+#prince-settings-api .metabox-holder {
   overflow: hidden;
 }
-#option-tree-settings-api .postbox {
+#prince-settings-api .postbox {
   background: #fff;
   border: none;
   margin: 0 20px;
 }
-#option-tree-settings-api .inside {
+#prince-settings-api .inside {
   margin: 0px !important;
   padding: 0px !important;
 }
-#option-tree-settings-api > .ui-tabs {
+#prince-settings-api > .ui-tabs {
   background: #fff;
   border: 1px solid #ccc;
   border-top: none;
@@ -1187,27 +1187,27 @@
   -moz-border-radius: 0 0 2px 2px;
   border-radius: 0 0 2px 2px;
 }
-.postbox.ot-meta-box {
+.postbox.prince-meta-box {
 
 }
 
-#poststuff .postbox.ot-meta-box .inside {
+#poststuff .postbox.prince-meta-box .inside {
   background-color: #f3f4f5;
   margin: 0;
   padding: 6px 12px 12px;
 }
 
-#poststuff .postbox.ot-meta-box .is-panel {
+#poststuff .postbox.prince-meta-box .is-panel {
   display: none !important;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Header
   ---------------------------------------------------*/
-#option-tree-header-wrap {
+#prince-header-wrap {
   position: relative;
 }
-#option-tree-header {
+#prince-header {
   background: #333;
   color: #bbb;
   display: block;
@@ -1222,32 +1222,32 @@
   -moz-border-radius: 2px 2px 0 0;
   border-radius: 2px 2px 0 0;
 }
-#option-tree-header li {
+#prince-header li {
   display: block;
   float: left;
   margin: 0px;
   padding: 0px;
 }
-#option-tree-header li a {
+#prince-header li a {
   color: #999;
   text-decoration: none;
   -webkit-transition: none;
   -moz-transition: none;
   transition: none;
 }
-#option-tree-header li a:hover {
+#prince-header li a:hover {
   color: #0074a2;
 }
-#option-tree-header #option-tree-logo a {
+#prince-header #prince-logo a {
   border-right: 1px solid #000;
   float: left;
   height: 24px;
   padding: 3px 12px 3px 13px;
   width: 20px;
 }
-#option-tree-header #option-tree-logo a:before {
+#prince-header #prince-logo a:before {
   content: "\e785";
-  font: normal 20px/1 "option-tree-font" !important;
+  font: normal 20px/1 "prince-font" !important;
   speak: none;
   padding: 2px 0;
   height: 24px;
@@ -1259,18 +1259,18 @@
   -moz-transition:    all .1s ease-in-out;
   transition:         all .1s ease-in-out;
 }
-#option-tree-header li#option-tree-logo:hover {
+#prince-header li#prince-logo:hover {
   background-color: #222;
   color: #0074a2;
   -webkit-border-top-left-radius: 2px;
   -moz-border-radius-topleft: 2px;
   border-top-left-radius: 2px;
 }
-#option-tree-header li#option-tree-logo:hover a {
+#prince-header li#prince-logo:hover a {
   border-right-color: #000;
 }
-#option-tree-header #option-tree-version span,
-#option-tree-header #theme-version span {
+#prince-header #prince-version span,
+#prince-header #theme-version span {
   border-left: 1px solid #444;
   display: block;
   float: left;
@@ -1278,7 +1278,7 @@
   line-height: 24px;
   padding: 3px 12px 3px 12px;
 }
-#option-tree-header #theme-version:before {
+#prince-header #theme-version:before {
   border-right: 1px solid #000;
   content: "";
   display: block;
@@ -1286,185 +1286,185 @@
   height: 30px;
 }
 /* light */
-.admin-color-light #option-tree-header {
+.admin-color-light #prince-header {
   background: #888;
   color: #fff;
 }
-.admin-color-light #option-tree-header li a {
+.admin-color-light #prince-header li a {
   color: #ccc;
 }
-.admin-color-light #option-tree-header li a:hover {
+.admin-color-light #prince-header li a:hover {
   color: #eee;
 }
-.admin-color-light #option-tree-header #option-tree-logo a,
-.admin-color-light #option-tree-header #theme-version:before {
+.admin-color-light #prince-header #prince-logo a,
+.admin-color-light #prince-header #theme-version:before {
   border-right-color: #3c3c3c;
 }
-.admin-color-light #option-tree-header li#option-tree-logo:hover {
+.admin-color-light #prince-header li#prince-logo:hover {
   background-color: #777;
 }
-.admin-color-light #option-tree-header li#option-tree-logo:hover a {
+.admin-color-light #prince-header li#prince-logo:hover a {
   border-right-color: #3c3c3c;
 }
-.admin-color-light #option-tree-header #option-tree-version span,
-.admin-color-light #option-tree-header #theme-version span {
+.admin-color-light #prince-header #prince-version span,
+.admin-color-light #prince-header #theme-version span {
   border-left-color: #999;
 }
 /* blue */
-.admin-color-blue #option-tree-header {
+.admin-color-blue #prince-header {
   background: #52accc;
   color: #fff;
 }
-.admin-color-blue #option-tree-header li a {
+.admin-color-blue #prince-header li a {
   color: #e2f8ff;
 }
-.admin-color-blue #option-tree-header li a:hover {
+.admin-color-blue #prince-header li a:hover {
   color: #fff;
 }
-.admin-color-blue #option-tree-header #option-tree-logo a,
-.admin-color-blue #option-tree-header #theme-version:before {
+.admin-color-blue #prince-header #prince-logo a,
+.admin-color-blue #prince-header #theme-version:before {
   border-right-color: #002b39;
 }
-.admin-color-blue #option-tree-header li#option-tree-logo:hover {
+.admin-color-blue #prince-header li#prince-logo:hover {
   background-color: #006484;
 }
-.admin-color-blue #option-tree-header li#option-tree-logo:hover a {
+.admin-color-blue #prince-header li#prince-logo:hover a {
   border-right-color: #002b39;
 }
-.admin-color-blue #option-tree-header #option-tree-version span,
-.admin-color-blue #option-tree-header #theme-version span {
+.admin-color-blue #prince-header #prince-version span,
+.admin-color-blue #prince-header #theme-version span {
   border-left-color: #5dc2e6;
 }
 /* coffee */
-.admin-color-coffee #option-tree-header {
+.admin-color-coffee #prince-header {
   background: #59524c;
   color: #c7cbc9;
 }
-.admin-color-coffee #option-tree-header li a {
+.admin-color-coffee #prince-header li a {
   color: #f3f2f1;
 }
-.admin-color-coffee #option-tree-header li a:hover {
+.admin-color-coffee #prince-header li a:hover {
   color: #fff;
 }
-.admin-color-coffee #option-tree-header #option-tree-logo a,
-.admin-color-coffee #option-tree-header #theme-version:before {
+.admin-color-coffee #prince-header #prince-logo a,
+.admin-color-coffee #prince-header #theme-version:before {
   border-right-color: #0f0e0d;
 }
-.admin-color-coffee #option-tree-header li#option-tree-logo:hover {
+.admin-color-coffee #prince-header li#prince-logo:hover {
   background-color: #cca588;
 }
-.admin-color-coffee #option-tree-header li#option-tree-logo:hover a {
+.admin-color-coffee #prince-header li#prince-logo:hover a {
   border-right-color: #0f0e0d;
 }
-.admin-color-coffee #option-tree-header #option-tree-version span,
-.admin-color-coffee #option-tree-header #theme-version span {
+.admin-color-coffee #prince-header #prince-version span,
+.admin-color-coffee #prince-header #theme-version span {
   border-left-color: #675f58;
 }
 /* ectoplasm */
-.admin-color-ectoplasm #option-tree-header {
+.admin-color-ectoplasm #prince-header {
   background: #523f6d;
   color: #c6c6d3;
 }
-.admin-color-ectoplasm #option-tree-header li a {
+.admin-color-ectoplasm #prince-header li a {
   color: #f3f2f1;
 }
-.admin-color-ectoplasm #option-tree-header li a:hover {
+.admin-color-ectoplasm #prince-header li a:hover {
   color: #fff;
 }
-.admin-color-ectoplasm #option-tree-header #option-tree-logo a,
-.admin-color-ectoplasm #option-tree-header #theme-version:before {
+.admin-color-ectoplasm #prince-header #prince-logo a,
+.admin-color-ectoplasm #prince-header #theme-version:before {
   border-right-color: #181220;
 }
-.admin-color-ectoplasm #option-tree-header li#option-tree-logo:hover {
+.admin-color-ectoplasm #prince-header li#prince-logo:hover {
   background-color: #a3b542;
 }
-.admin-color-ectoplasm #option-tree-header li#option-tree-logo:hover a {
+.admin-color-ectoplasm #prince-header li#prince-logo:hover a {
   border-right-color: #181220;
 }
-.admin-color-ectoplasm #option-tree-header #option-tree-version span,
-.admin-color-ectoplasm #option-tree-header #theme-version span {
+.admin-color-ectoplasm #prince-header #prince-version span,
+.admin-color-ectoplasm #prince-header #theme-version span {
   border-left-color: #644d85;
 }
 /* midnight */
-.admin-color-midnight #option-tree-header {
+.admin-color-midnight #prince-header {
   background: #363b3f;
   color: #f1f2f3;
 }
-.admin-color-midnight #option-tree-header li a {
+.admin-color-midnight #prince-header li a {
   color: #f1f2f3;
 }
-.admin-color-midnight #option-tree-header li a:hover {
+.admin-color-midnight #prince-header li a:hover {
   color: #fff;
 }
-.admin-color-midnight #option-tree-header #option-tree-logo a,
-.admin-color-midnight #option-tree-header #theme-version:before {
+.admin-color-midnight #prince-header #prince-logo a,
+.admin-color-midnight #prince-header #theme-version:before {
   border-right-color: #090a0b;
 }
-.admin-color-midnight #option-tree-header li#option-tree-logo:hover {
+.admin-color-midnight #prince-header li#prince-logo:hover {
   background-color: #ed543f;
 }
-.admin-color-midnight #option-tree-header li#option-tree-logo:hover a {
+.admin-color-midnight #prince-header li#prince-logo:hover a {
   border-right-color: #090a0b;
 }
-.admin-color-midnight #option-tree-header #option-tree-version span,
-.admin-color-midnight #option-tree-header #theme-version span {
+.admin-color-midnight #prince-header #prince-version span,
+.admin-color-midnight #prince-header #theme-version span {
   border-left-color: #4c5359;
 }
 /* ocean */
-.admin-color-ocean #option-tree-header {
+.admin-color-ocean #prince-header {
   background: #738e96;
   color: #f1fcff;
 }
-.admin-color-ocean #option-tree-header li a {
+.admin-color-ocean #prince-header li a {
   color: #f1fcff;
 }
-.admin-color-ocean #option-tree-header li a:hover {
+.admin-color-ocean #prince-header li a:hover {
   color: #fff;
 }
-.admin-color-ocean #option-tree-header #option-tree-logo a,
-.admin-color-ocean #option-tree-header #theme-version:before {
+.admin-color-ocean #prince-header #prince-logo a,
+.admin-color-ocean #prince-header #theme-version:before {
   border-right-color: #39464a;
 }
-.admin-color-ocean #option-tree-header li#option-tree-logo:hover {
+.admin-color-ocean #prince-header li#prince-logo:hover {
   background-color: #9ab8a0;
 }
-.admin-color-ocean #option-tree-header li#option-tree-logo:hover a {
+.admin-color-ocean #prince-header li#prince-logo:hover a {
   border-right-color: #39464a;
 }
-.admin-color-ocean #option-tree-header #option-tree-version span,
-.admin-color-ocean #option-tree-header #theme-version span {
+.admin-color-ocean #prince-header #prince-version span,
+.admin-color-ocean #prince-header #theme-version span {
   border-left-color: #87a6af;
 }
 /* sunrise */
-.admin-color-sunrise #option-tree-header {
+.admin-color-sunrise #prince-header {
   background: #da4f41;
   color: #fff;
 }
-.admin-color-sunrise #option-tree-header li a {
+.admin-color-sunrise #prince-header li a {
   color: #f3f1f1;
 }
-.admin-color-sunrise #option-tree-header li a:hover {
+.admin-color-sunrise #prince-header li a:hover {
   color: #fff;
 }
-.admin-color-sunrise #option-tree-header #option-tree-logo a,
-.admin-color-sunrise #option-tree-header #theme-version:before {
+.admin-color-sunrise #prince-header #prince-logo a,
+.admin-color-sunrise #prince-header #theme-version:before {
   border-right-color: #8a322a;
 }
-.admin-color-sunrise #option-tree-header li#option-tree-logo:hover {
+.admin-color-sunrise #prince-header li#prince-logo:hover {
   background-color: #e88436;
 }
-.admin-color-sunrise #option-tree-header li#option-tree-logo:hover a {
+.admin-color-sunrise #prince-header li#prince-logo:hover a {
   border-right-color: #8a322a;
 }
-.admin-color-sunrise #option-tree-header #option-tree-version span,
-.admin-color-sunrise #option-tree-header #theme-version span {
+.admin-color-sunrise #prince-header #prince-version span,
+.admin-color-sunrise #prince-header #theme-version span {
   border-left-color: #e75546;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Sub Header
   ---------------------------------------------------*/
-#option-tree-sub-header {
+#prince-sub-header {
   background: #fafafa;
   border: 1px solid #ccc;
   border-top: none;
@@ -1479,7 +1479,7 @@
   box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Tabs
   ---------------------------------------------------*/
 .wrap.settings-wrap .ui-tabs-nav {
@@ -1518,7 +1518,7 @@
   clear: both;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Format Settings
   ---------------------------------------------------*/
 .format-settings {
@@ -1526,11 +1526,11 @@
   width: 100%;
 }
 .format-setting-wrap,
-.option-tree-sortable .format-settings {
+.prince-sortable .format-settings {
   padding: 10px 0 20px 0;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Format Setting Label
   ---------------------------------------------------*/
 .format-setting-label {
@@ -1539,8 +1539,8 @@
   padding: 5px 0px 1px 0px;
   width: 100%;
 }
-#option-tree-settings-api .description h3,
-#option-tree-settings-api .format-setting-label .label,
+#prince-settings-api .description h3,
+#prince-settings-api .format-setting-label .label,
 #poststuff .format-setting-label .label {
   background: none;
   border: none;
@@ -1556,7 +1556,7 @@
   text-shadow: none;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Format Setting
   ---------------------------------------------------*/
 .format-setting {
@@ -1586,7 +1586,7 @@
 .list-item-description {
   padding-top: 10px;
 }
-#option-tree-settings-api h4 {
+#prince-settings-api h4 {
   color: #333;
   font-size: 1.2em;
   font-weight: 500;
@@ -1594,7 +1594,7 @@
   margin: 1em 0 0.5em 0;
   padding: 0;
 }
-#option-tree-settings-api h5 {
+#prince-settings-api h5 {
   color: #444;
   font-size: 1em;
   font-weight: 700;
@@ -1602,7 +1602,7 @@
   margin: 1em 0 0.5em 0;
   padding: 0;
 }
-#option-tree-settings-api p {
+#prince-settings-api p {
   margin: 0 0 1.5em 0 !important;
 }
 #post .format-setting-inner p {
@@ -1647,12 +1647,12 @@
   float: left;
   width: 100%;
 }
-#option-tree-settings-api blockquote {
+#prince-settings-api blockquote {
   font-style: italic;
   padding-left: 15px;
   position: relative;
 }
-#option-tree-settings-api blockquote:before {
+#prince-settings-api blockquote:before {
   color: #ccc;
   content: "\201C";
   display: block;
@@ -1672,28 +1672,28 @@
     padding-bottom: 20px;
   }
 }
-.ot-background-group {
+.prince-background-group {
   overflow: hidden;
   width: auto;
 }
-.ot-background-size-input {
+.prince-background-size-input {
   max-width: 110px;
 }
-.option-tree-setting-edit,
-.option-tree-setting-remove {
+.prince-setting-edit,
+.prince-setting-remove {
   text-indent: -9999px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Code formatting
   ---------------------------------------------------*/
-#option-tree-settings-api code,
-.ot-metabox-wrapper code {
+#prince-settings-api code,
+.prince-metabox-wrapper code {
   background-color: #f1f1f1;
   color: #333;
   font-size: 12px;
 }
-#option-tree-settings-api pre {
+#prince-settings-api pre {
   font-size: 13px;
   padding: 0;
   margin: 1.5em 0;
@@ -1708,17 +1708,17 @@
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-#option-tree-settings-api pre code {
+#prince-settings-api pre code {
   padding: 0 18px 18px 18px;
   display: block;
-  background: url(../images/ot-pre-bg.gif) repeat left top;
+  background: url(../images/prince-pre-bg.gif) repeat left top;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Input & Upload
   ---------------------------------------------------*/
-input.option-tree-ui-upload-input,
-input.option-tree-ui-input {
+input.prince-ui-upload-input,
+input.prince-ui-input {
   background: #fff;
   border: 1px solid #ccc !important;
   line-height: 17px;
@@ -1734,34 +1734,34 @@ input.option-tree-ui-input {
   -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.05);
 }
-input:hover.option-tree-ui-upload-input,
-input:hover.option-tree-ui-input {
+input:hover.prince-ui-upload-input,
+input:hover.prince-ui-input {
   border-color: #bbb !important;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
   -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
 }
-input:focus.option-tree-ui-upload-input,
-input:focus.option-tree-ui-input {
+input:focus.prince-ui-upload-input,
+input:focus.prince-ui-input {
   border-color: #999 !important;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  .option-tree-ui-input,
-  .option-tree-ui-upload-input {
+  .prince-ui-input,
+  .prince-ui-upload-input {
     padding: 5px 6px !important;
   }
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Upload
   ---------------------------------------------------*/
-div.option-tree-ui-media-wrap {
+div.prince-ui-media-wrap {
   margin: 0 55px 0 0;
   min-height: 35px;
   position: relative;
 }
-.option-tree-ui-media-wrap img {
+.prince-ui-media-wrap img {
   background: #fafafa;
   border: 1px solid #ccc;
   padding: 4px;
@@ -1774,20 +1774,20 @@ div.option-tree-ui-media-wrap {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.option-tree-ui-upload-parent {
+.prince-ui-upload-parent {
   width: auto !important;
   margin-right: 45px;
   padding: 0px;
   position: relative;
 }
-.ot_upload_media {
+.prince_upload_media {
   top: 0px;
   margin: 0px !important;
   position: absolute;
   right: -45px;
   text-indent: -9999px;
 }
-.option-tree-ui-media-wrap a.option-tree-ui-remove-media {
+.prince-ui-media-wrap a.prince-ui-remove-media {
   float: none !important;
   margin: 0px !important;
   position: absolute !important;
@@ -1796,7 +1796,7 @@ div.option-tree-ui-media-wrap {
   top: 1px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Textarea
   ---------------------------------------------------*/
 .fill-area .description,
@@ -1807,7 +1807,7 @@ div.option-tree-ui-media-wrap {
   display: block;
 }
 .textarea,
-.ot-metabox-wrapper textarea {
+.prince-metabox-wrapper textarea {
   width: 99.9%;
   border: 1px solid #ccc;
   font-family: Consolas, Monaco, monospace;
@@ -1819,18 +1819,18 @@ div.option-tree-ui-media-wrap {
 #contextual-help-setting .textarea {
   width: 99.75%;
 }
-.ot-metabox-wrapper .wp-editor-container {
+.prince-metabox-wrapper .wp-editor-container {
   border: none;
 }
 .textarea:hover,
-.ot-metabox-wrapper textarea:hover {
+.prince-metabox-wrapper textarea:hover {
   border-color: #bbb !important;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
   -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
 }
 .textarea:focus,
-.ot-metabox-wrapper textarea:focus {
+.prince-metabox-wrapper textarea:focus {
   border-color: #999 !important;
 }
 
@@ -1840,16 +1840,16 @@ div.option-tree-ui-media-wrap {
   }
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Setting Item with Drag & Drop
   ---------------------------------------------------*/
-.option-tree-setting-wrap {
+.prince-setting-wrap {
   margin-top: 0px;
 }
-.option-tree-setting-wrap li {
+.prince-setting-wrap li {
   margin: 5px 0px;
 }
-.option-tree-setting {
+.prince-setting {
   border: 1px solid #ccc;
   overflow: hidden;
   position: relative;
@@ -1857,36 +1857,36 @@ div.option-tree-ui-media-wrap {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.option-tree-setting:hover {
+.prince-setting:hover {
   border-color: #999;
   -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
   -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
 }
-.option-tree-setting a {
+.prince-setting a {
   text-decoration: none;
 }
-.option-tree-setting .open {
+.prince-setting .open {
   background: #fafafa;
   line-height: 21px;
   height: 21px;
   padding: 10px 100px 10px 10px;
   display: block;
 }
-.option-tree-sortable .open {
+.prince-sortable .open {
   cursor: move;
 }
-.ui-state-disabled .option-tree-setting .open {
+.ui-state-disabled .prince-setting .open {
   cursor: default;
 }
-.option-tree-setting .open:hover {
+.prince-setting .open:hover {
   background: #fafafa;
 }
-.option-tree-setting .open:hover:before {
+.prince-setting .open:hover:before {
   color: #999;
   content: "\f142";
   left: 4px;
-  font-family: "option-tree-font";
+  font-family: "prince-font";
   speak: none;
   font-size: 14px;
   font-style: normal;
@@ -1899,7 +1899,7 @@ div.option-tree-ui-media-wrap {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.option-tree-setting.is-section .open:hover:before {
+.prince-setting.is-section .open:hover:before {
   color: #000;
 }
 .button-section {
@@ -1907,141 +1907,141 @@ div.option-tree-ui-media-wrap {
   right: 0px;
   top: 1px;
 }
-.option-tree-setting.is-section {
+.prince-setting.is-section {
   border: 1px solid #000;
 }
-.option-tree-setting.is-section .option-tree-setting-body,
-.option-tree-setting.is-section .option-tree-ui-button {
+.prince-setting.is-section .prince-setting-body,
+.prince-setting.is-section .prince-ui-button {
   border-right-color: #000 !important;
 }
-.option-tree-setting.is-section .open {
+.prince-setting.is-section .open {
   background: #333;
   color: #bbb;
 }
-.format-setting .ui-sortable-helper .option-tree-setting .open {
+.format-setting .ui-sortable-helper .prince-setting .open {
   background: #fff;
 }
-.option-tree-setting.is-section .open:hover,
-.format-setting .ui-sortable-helper .option-tree-setting.is-section .open {
+.prince-setting.is-section .open:hover,
+.format-setting .ui-sortable-helper .prince-setting.is-section .open {
   background: #333;
 }
 /* light */
-.admin-color-light .option-tree-setting.is-section,
-.admin-color-light .option-tree-setting.is-section .option-tree-setting-body,
-.admin-color-light .option-tree-setting.is-section .option-tree-ui-button {
+.admin-color-light .prince-setting.is-section,
+.admin-color-light .prince-setting.is-section .prince-setting-body,
+.admin-color-light .prince-setting.is-section .prince-ui-button {
   border-color: #3c3c3c !important;
 }
-.admin-color-light .option-tree-setting.is-section .open:hover:before {
+.admin-color-light .prince-setting.is-section .open:hover:before {
   color: #3c3c3c;
 }
-.admin-color-light .option-tree-setting.is-section .open {
+.admin-color-light .prince-setting.is-section .open {
   background: #888;
   color: #fff;
 }
-.admin-color-light .option-tree-setting.is-section .open:hover,
-.admin-color-light .format-setting .ui-sortable-helper .option-tree-setting.is-section .open {
+.admin-color-light .prince-setting.is-section .open:hover,
+.admin-color-light .format-setting .ui-sortable-helper .prince-setting.is-section .open {
   background: #888;
 }
 /* blue */
-.admin-color-blue .option-tree-setting.is-section,
-.admin-color-blue .option-tree-setting.is-section .option-tree-setting-body,
-.admin-color-blue .option-tree-setting.is-section .option-tree-ui-button {
+.admin-color-blue .prince-setting.is-section,
+.admin-color-blue .prince-setting.is-section .prince-setting-body,
+.admin-color-blue .prince-setting.is-section .prince-ui-button {
   border-color: #002b39 !important;
 }
-.admin-color-blue .option-tree-setting.is-section .open:hover:before {
+.admin-color-blue .prince-setting.is-section .open:hover:before {
   color: #002b39;
 }
-.admin-color-blue .option-tree-setting.is-section .open {
+.admin-color-blue .prince-setting.is-section .open {
   background: #52accc;
   color: #fff;
 }
-.admin-color-blue .option-tree-setting.is-section .open:hover,
-.admin-color-blue .format-setting .ui-sortable-helper .option-tree-setting.is-section .open {
+.admin-color-blue .prince-setting.is-section .open:hover,
+.admin-color-blue .format-setting .ui-sortable-helper .prince-setting.is-section .open {
   background: #52accc;
 }
 /* coffee */
-.admin-color-coffee .option-tree-setting.is-section,
-.admin-color-coffee .option-tree-setting.is-section .option-tree-setting-body,
-.admin-color-coffee .option-tree-setting.is-section .option-tree-ui-button {
+.admin-color-coffee .prince-setting.is-section,
+.admin-color-coffee .prince-setting.is-section .prince-setting-body,
+.admin-color-coffee .prince-setting.is-section .prince-ui-button {
   border-color: #0f0e0d !important;
 }
-.admin-color-coffee .option-tree-setting.is-section .open:hover:before {
+.admin-color-coffee .prince-setting.is-section .open:hover:before {
   color: #0f0e0d;
 }
-.admin-color-coffee .option-tree-setting.is-section .open {
+.admin-color-coffee .prince-setting.is-section .open {
   background: #59524c;
   color: #c7cbc9;
 }
-.admin-color-coffee .option-tree-setting.is-section .open:hover,
-.admin-color-coffee .format-setting .ui-sortable-helper .option-tree-setting.is-section .open {
+.admin-color-coffee .prince-setting.is-section .open:hover,
+.admin-color-coffee .format-setting .ui-sortable-helper .prince-setting.is-section .open {
   background: #59524c;
 }
 /* ectoplasm */
-.admin-color-ectoplasm .option-tree-setting.is-section,
-.admin-color-ectoplasm .option-tree-setting.is-section .option-tree-setting-body,
-.admin-color-ectoplasm .option-tree-setting.is-section .option-tree-ui-button {
+.admin-color-ectoplasm .prince-setting.is-section,
+.admin-color-ectoplasm .prince-setting.is-section .prince-setting-body,
+.admin-color-ectoplasm .prince-setting.is-section .prince-ui-button {
   border-color: #181220 !important;
 }
-.admin-color-ectoplasm .option-tree-setting.is-section .open:hover:before {
+.admin-color-ectoplasm .prince-setting.is-section .open:hover:before {
   color: #181220;
 }
-.admin-color-ectoplasm .option-tree-setting.is-section .open {
+.admin-color-ectoplasm .prince-setting.is-section .open {
   background: #523f6d;
   color: #c6c6d3;
 }
-.admin-color-ectoplasm .option-tree-setting.is-section .open:hover,
-.admin-color-ectoplasm .format-setting .ui-sortable-helper .option-tree-setting.is-section .open {
+.admin-color-ectoplasm .prince-setting.is-section .open:hover,
+.admin-color-ectoplasm .format-setting .ui-sortable-helper .prince-setting.is-section .open {
   background: #523f6d;
 }
 /* midnight */
-.admin-color-midnight .option-tree-setting.is-section,
-.admin-color-midnight .option-tree-setting.is-section .option-tree-setting-body,
-.admin-color-midnight .option-tree-setting.is-section .option-tree-ui-button {
+.admin-color-midnight .prince-setting.is-section,
+.admin-color-midnight .prince-setting.is-section .prince-setting-body,
+.admin-color-midnight .prince-setting.is-section .prince-ui-button {
   border-color: #090a0b !important;
 }
-.admin-color-midnight .option-tree-setting.is-section .open:hover:before {
+.admin-color-midnight .prince-setting.is-section .open:hover:before {
   color: #090a0b;
 }
-.admin-color-midnight .option-tree-setting.is-section .open {
+.admin-color-midnight .prince-setting.is-section .open {
   background: #363b3f;
   color: #f1f2f3;
 }
-.admin-color-midnight .option-tree-setting.is-section .open:hover,
-.admin-color-midnight .format-setting .ui-sortable-helper .option-tree-setting.is-section .open {
+.admin-color-midnight .prince-setting.is-section .open:hover,
+.admin-color-midnight .format-setting .ui-sortable-helper .prince-setting.is-section .open {
   background: #363b3f;
 }
 /* ocean */
-.admin-color-ocean .option-tree-setting.is-section,
-.admin-color-ocean .option-tree-setting.is-section .option-tree-setting-body,
-.admin-color-ocean .option-tree-setting.is-section .option-tree-ui-button {
+.admin-color-ocean .prince-setting.is-section,
+.admin-color-ocean .prince-setting.is-section .prince-setting-body,
+.admin-color-ocean .prince-setting.is-section .prince-ui-button {
   border-color: #39464a !important;
 }
-.admin-color-ocean .option-tree-setting.is-section .open:hover:before {
+.admin-color-ocean .prince-setting.is-section .open:hover:before {
   color: #39464a;
 }
-.admin-color-ocean .option-tree-setting.is-section .open {
+.admin-color-ocean .prince-setting.is-section .open {
   background: #738e96;
   color: #f1fcff;
 }
-.admin-color-ocean .option-tree-setting.is-section .open:hover,
-.admin-color-ocean .format-setting .ui-sortable-helper .option-tree-setting.is-section .open {
+.admin-color-ocean .prince-setting.is-section .open:hover,
+.admin-color-ocean .format-setting .ui-sortable-helper .prince-setting.is-section .open {
   background: #738e96;
 }
 /* sunrise */
-.admin-color-sunrise .option-tree-setting.is-section,
-.admin-color-sunrise .option-tree-setting.is-section .option-tree-setting-body,
-.admin-color-sunrise .option-tree-setting.is-section .option-tree-ui-button {
+.admin-color-sunrise .prince-setting.is-section,
+.admin-color-sunrise .prince-setting.is-section .prince-setting-body,
+.admin-color-sunrise .prince-setting.is-section .prince-ui-button {
   border-color: #8a322a !important;
 }
-.admin-color-sunrise .option-tree-setting.is-section .open:hover:before {
+.admin-color-sunrise .prince-setting.is-section .open:hover:before {
   color: #8a322a;
 }
-.admin-color-sunrise .option-tree-setting.is-section .open {
+.admin-color-sunrise .prince-setting.is-section .open {
   background: #da4f41;
   color: #fff;
 }
-.admin-color-sunrise .option-tree-setting.is-section .open:hover,
-.admin-color-sunrise .format-setting .ui-sortable-helper .option-tree-setting.is-section .open {
+.admin-color-sunrise .prince-setting.is-section .open:hover,
+.admin-color-sunrise .format-setting .ui-sortable-helper .prince-setting.is-section .open {
   background: #da4f41;
 }
 .ui-state-highlight {
@@ -2051,7 +2051,7 @@ div.option-tree-ui-media-wrap {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.option-tree-setting-body {
+.prince-setting-body {
   background: #fff;
   border-top: 1px solid #ccc;
   display: none;
@@ -2072,32 +2072,32 @@ li ul .format-setting-label {
   margin: 0px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Layouts
   ---------------------------------------------------*/
 #option_tree_layouts {
   display: none;
   padding-top: 12px;
 }
-#option-tree-options-layouts-form {
+#prince-options-layouts-form {
   left: 13px;
   position: absolute;
   top: 30px;
   z-index: 10;
 }
-.option-tree-save-layout {
+.prince-save-layout {
   float: left;
   padding: 10px 0;
 }
-.option-tree-save-layout.active-layout {
+.prince-save-layout.active-layout {
   padding-left: 10px;
 }
-.option-tree-save-layout .widefat {
+.prince-save-layout .widefat {
   float: left;
   width: 128px !important;
   margin: 0;
 }
-.option-tree-active-layout {
+.prince-active-layout {
   border-right: 1px solid #ccc;
   float: left;
   padding: 10px 10px 10px 0;
@@ -2106,57 +2106,57 @@ li ul .format-setting-label {
 .button.save-layout {
   margin: 0 0 0 10px !important;
 }
-.option-tree-layout-activate {
+.prince-layout-activate {
   text-indent: -9999px;
 }
-.option-tree-layout-activate .icon:before {
+.prince-layout-activate .icon:before {
   content: "\f096";
   position: relative;
   top: 1px;
 }
-.option-tree-layout-activate.active .icon:before {
+.prince-layout-activate.active .icon:before {
   content: "\f046";
   padding-left: 1px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Option Group
   ---------------------------------------------------*/
-.ot-option-group {
+.prince-option-group {
   float: left;
   padding-right: 5px;
   position: relative;
   width: 20%;
   box-sizing: border-box;
 }
-.ot-option-group--three-fourths {
+.prince-option-group--three-fourths {
   width: 75%;
 }
-.ot-option-group--two-thirds {
+.prince-option-group--two-thirds {
   width: 66.6%;
 }
-.ot-option-group--one-half {
+.prince-option-group--one-half {
   width: 50%;
 }
-.ot-option-group--one-third {
+.prince-option-group--one-third {
   width: 33.3%;
 }
-.ot-option-group--one-fourth {
+.prince-option-group--one-fourth {
   width: 25%;
 }
-.ot-option-group--one-fifth {
+.prince-option-group--one-fifth {
   width: 20%;
 }
-.ot-option-group--one-sixth {
+.prince-option-group--one-sixth {
   width: 16.6%;
 }
-.ot-option-group--one-eighth {
+.prince-option-group--one-eighth {
   width: 12.5%;
 }
-.ot-option-group--is-last {
+.prince-option-group--is-last {
   padding-right: 0;
 }
-.ot-option-group--icon {
+.prince-option-group--icon {
   background: #fafafa;
   border-right: 1px solid #ccc;
   display: inline-block;
@@ -2170,10 +2170,10 @@ li ul .format-setting-label {
   width: 14px;
   z-index: 10;
 }
-.postbox.ot-meta-box .ot-option-group--icon {
+.postbox.prince-meta-box .prince-option-group--icon {
   width: 28px;
 }
-.ot-icon-circle.ot-option-group--icon:before {
+.prince-icon-circle.prince-option-group--icon:before {
   left: 1px;
   position: relative;
   -webkit-filter: blur(1px);
@@ -2182,59 +2182,59 @@ li ul .format-setting-label {
   -o-filter: blur(1px);
   filter: blur(1px);
 }
-.ot-option-group--icon + input.option-tree-ui-input {
+.prince-option-group--icon + input.prince-ui-input {
   padding-left: 34px !important;
   margin-right: 5px;
 }
-.ot-option-group--checkbox {
+.prince-option-group--checkbox {
   float: left;
   padding-top: 2px;
   padding-right: 10px;
   width: auto;
 }
-#post-body .ot-option-group--checkbox p {
+#post-body .prince-option-group--checkbox p {
   color: #a9a9a9;
   float: left;
   margin: 1px 0 0.3em 0 !important;
 }
 @media screen and ( min-width: 783px ) {
-  #post-body .ot-option-group--checkbox p input {
+  #post-body .prince-option-group--checkbox p input {
     margin-top: 0px !important;
   }
 }
 @media screen and ( max-width: 1020px ) {
-  .ot-option-group--one-fourth,
-  .ot-option-group--one-fifth,
-  .ot-option-group--one-sixth,
-  .ot-option-group--one-eighth {
+  .prince-option-group--one-fourth,
+  .prince-option-group--one-fifth,
+  .prince-option-group--one-sixth,
+  .prince-option-group--one-eighth {
     width: 33.3%;
   }
-  .ot-option-group--checkbox {
+  .prince-option-group--checkbox {
     width: 100%;
   }
 }
 @media screen and ( max-width: 782px ) {
-  .ot-option-group {
+  .prince-option-group {
     width: 50%;
   }
-  .ot-option-group--three-fourths,
-  .ot-option-group--two-thirds,
-  .ot-option-group--one-half {
+  .prince-option-group--three-fourths,
+  .prince-option-group--two-thirds,
+  .prince-option-group--one-half {
     width: 100%;
   }
-  .ot-option-group--checkbox {
+  .prince-option-group--checkbox {
     padding-top: 0.3em;
   }
 }
-.ot-option-group .select-wrapper {
+.prince-option-group .select-wrapper {
   width: 100%;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Select
   ---------------------------------------------------*/
 .select-wrapper {
-  background: #fff url(../images/ot-select.png) no-repeat right center;
+  background: #fff url(../images/prince-select.png) no-repeat right center;
   border: 1px solid #ccc;
   display: block;
   float: left;
@@ -2254,10 +2254,10 @@ li ul .format-setting-label {
   box-sizing: border-box;
 }
 .select-wrapper:hover {
-  background-image: url(../images/ot-select-hover.png);
+  background-image: url(../images/prince-select-hover.png);
   border-color: #999;
 }
-select.option-tree-ui-select {
+select.prince-ui-select {
   cursor: pointer;
   filter: alpha(opacity=0);
   font-size: 14px;
@@ -2273,7 +2273,7 @@ select.option-tree-ui-select {
   min-width: 118px;
 }
 
-select.option-tree-ui-select option {
+select.prince-ui-select option {
   padding: 3px 15px !important;
 }
 .select-wrapper span {
@@ -2285,13 +2285,13 @@ select.option-tree-ui-select option {
   position: absolute;
   z-index: 2;
 }
-#option-tree-options-layouts-form .select-wrapper {
+#prince-options-layouts-form .select-wrapper {
   margin: 0px;
 }
-#option-tree-options-layouts-form select.option-tree-ui-select {
+#prince-options-layouts-form select.prince-ui-select {
   min-width: 124px;
 }
-.type-measurement select.option-tree-ui-select {
+.type-measurement select.prince-ui-select {
   min-width: 73px !important;
 }
 .type-measurement .select-wrapper {
@@ -2303,19 +2303,19 @@ select.option-tree-ui-select option {
 
 /* FireFox */
 @-moz-document url-prefix() {
-  #option-tree-options-layouts-form .select-wrapper {
+  #prince-options-layouts-form .select-wrapper {
     left: 250px;
   }
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Measurement
   ---------------------------------------------------*/
-.option-tree-ui-measurement-input-wrap {
+.prince-ui-measurement-input-wrap {
   margin-right: 80px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Checkbox & Radio
   ---------------------------------------------------*/
 .format-setting.type-checkbox input,
@@ -2327,8 +2327,8 @@ select.option-tree-ui-select option {
   max-width: 90%;
   padding: 0px;
 }
-#option-tree-settings-api .format-setting.type-checkbox p,
-#option-tree-settings-api .format-setting.type-radio p {
+#prince-settings-api .format-setting.type-checkbox p,
+#prince-settings-api .format-setting.type-radio p {
   float: left;
   margin: 0.5em 0 !important;
   width: 100%;
@@ -2340,14 +2340,14 @@ select.option-tree-ui-select option {
   }
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Radio Images
   ---------------------------------------------------*/
-.type-radio-image .option-tree-ui-radio-images {
+.type-radio-image .prince-ui-radio-images {
   float: left;
   margin: 0 10px 10px 0px;
 }
-.type-radio-image .option-tree-ui-radio-images img {
+.type-radio-image .prince-ui-radio-images img {
   background: #fff;
   border: 1px solid #ccc;
   cursor: pointer;
@@ -2357,8 +2357,8 @@ select.option-tree-ui-select option {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.type-radio-image .option-tree-ui-radio-images img.option-tree-ui-radio-image-selected,
-.type-radio-image .option-tree-ui-radio-images img:hover {
+.type-radio-image .prince-ui-radio-images img.prince-ui-radio-image-selected,
+.type-radio-image .prince-ui-radio-images img:hover {
   border-color: #464646;
   opacity: 1;
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.05);
@@ -2366,14 +2366,14 @@ select.option-tree-ui-select option {
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Social Links
   ---------------------------------------------------*/
-.type-social-links input.option-tree-ui-input {
+.type-social-links input.prince-ui-input {
   margin-top: 5px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Numeric Slider
   ---------------------------------------------------*/
 .type-numeric-slider .format-setting-inner {
@@ -2388,17 +2388,17 @@ select.option-tree-ui-select option {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.ot-numeric-slider-wrap {
+.prince-numeric-slider-wrap {
   margin: 0 96px 0 0;
 }
-.ot-numeric-slider-wrap .ot-numeric-slider-helper-input {
+.prince-numeric-slider-wrap .prince-numeric-slider-helper-input {
   position: absolute;
   right: 5px;
   text-align: center;
   top: 5px;
   width: 90px !important;
 }
-.ot-numeric-slider.ui-slider {
+.prince-numeric-slider.ui-slider {
   background: #fff;
   border: 1px solid #ccc;
   margin: 8px 8px 0 8px;
@@ -2410,10 +2410,10 @@ select.option-tree-ui-select option {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.ot-numeric-slider.ui-slider-horizontal {
+.prince-numeric-slider.ui-slider-horizontal {
   height: 11px;
 }
-.ot-numeric-slider.ui-slider .ui-slider-handle {
+.prince-numeric-slider.ui-slider .ui-slider-handle {
   border: 1px solid #000;
   color: #555;
   cursor: pointer;
@@ -2431,90 +2431,90 @@ select.option-tree-ui-select option {
   border-radius: 2px;
 }
 /* default */
-.ot-numeric-slider.ui-slider .ui-slider-handle {
+.prince-numeric-slider.ui-slider .ui-slider-handle {
   background: #333;
   border-color: #000;
 }
-.ot-numeric-slider.ui-slider .ui-slider-handle:hover,
-.ot-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
+.prince-numeric-slider.ui-slider .ui-slider-handle:hover,
+.prince-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
   background: #444;
   border-color: #111;
 }
 /* light */
-.admin-color-light .ot-numeric-slider.ui-slider .ui-slider-handle {
+.admin-color-light .prince-numeric-slider.ui-slider .ui-slider-handle {
   background: #888;
   border-color: #3c3c3c;
 }
-.admin-color-light .ot-numeric-slider.ui-slider .ui-slider-handle:hover,
-.admin-color-light .ot-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
+.admin-color-light .prince-numeric-slider.ui-slider .ui-slider-handle:hover,
+.admin-color-light .prince-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
   background: #999;
   border-color: #777;
 }
 /* blue */
-.admin-color-blue .ot-numeric-slider.ui-slider .ui-slider-handle {
+.admin-color-blue .prince-numeric-slider.ui-slider .ui-slider-handle {
   background: #52accc;
   border-color: #002b39;
 }
-.admin-color-blue .ot-numeric-slider.ui-slider .ui-slider-handle:hover,
-.admin-color-blue .ot-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
+.admin-color-blue .prince-numeric-slider.ui-slider .ui-slider-handle:hover,
+.admin-color-blue .prince-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
   background: #5dc2e6;
   border-color: #006484;
 }
 /* coffee */
-.admin-color-coffee .ot-numeric-slider.ui-slider .ui-slider-handle {
+.admin-color-coffee .prince-numeric-slider.ui-slider .ui-slider-handle {
   background: #59524c;
   border-color: #0f0e0d;
 }
-.admin-color-coffee .ot-numeric-slider.ui-slider .ui-slider-handle:hover,
-.admin-color-coffee .ot-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
+.admin-color-coffee .prince-numeric-slider.ui-slider .ui-slider-handle:hover,
+.admin-color-coffee .prince-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
   background: #cca588;
   border-color: #675f58;
 }
 /* ectoplasm */
-.admin-color-ectoplasm .ot-numeric-slider.ui-slider .ui-slider-handle {
+.admin-color-ectoplasm .prince-numeric-slider.ui-slider .ui-slider-handle {
   background: #523f6d;
   border-color: #181220;
 }
-.admin-color-ectoplasm .ot-numeric-slider.ui-slider .ui-slider-handle:hover,
-.admin-color-ectoplasm .ot-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
+.admin-color-ectoplasm .prince-numeric-slider.ui-slider .ui-slider-handle:hover,
+.admin-color-ectoplasm .prince-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
   background: #a3b542;
   border-color: #644d85;
 }
 /* midnight */
-.admin-color-midnight .ot-numeric-slider.ui-slider .ui-slider-handle {
+.admin-color-midnight .prince-numeric-slider.ui-slider .ui-slider-handle {
   background: #363b3f;
   border-color: #090a0b;
 }
-.admin-color-midnight .ot-numeric-slider.ui-slider .ui-slider-handle:hover,
-.admin-color-midnight .ot-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
+.admin-color-midnight .prince-numeric-slider.ui-slider .ui-slider-handle:hover,
+.admin-color-midnight .prince-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
   background: #ed543f;
   border-color: #a0382a;
 }
 /* ocean */
-.admin-color-ocean .ot-numeric-slider.ui-slider .ui-slider-handle {
+.admin-color-ocean .prince-numeric-slider.ui-slider .ui-slider-handle {
   background: #738e96;
   border-color: #39464a;
 }
-.admin-color-ocean .ot-numeric-slider.ui-slider .ui-slider-handle:hover,
-.admin-color-ocean .ot-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
+.admin-color-ocean .prince-numeric-slider.ui-slider .ui-slider-handle:hover,
+.admin-color-ocean .prince-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
   background: #9ab8a0;
   border-color: #5a6c5e;
 }
 /* sunrise */
-.admin-color-sunrise .ot-numeric-slider.ui-slider .ui-slider-handle {
+.admin-color-sunrise .prince-numeric-slider.ui-slider .ui-slider-handle {
   background: #da4f41;
   border-color: #8a322a;
 }
-.admin-color-sunrise .ot-numeric-slider.ui-slider .ui-slider-handle:hover,
-.admin-color-sunrise .ot-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
+.admin-color-sunrise .prince-numeric-slider.ui-slider .ui-slider-handle:hover,
+.admin-color-sunrise .prince-numeric-slider.ui-slider .ui-slider-handle.ui-state-active {
   background: #e88436;
   border-color: #e75546;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Colorpicker
   ---------------------------------------------------*/
-.option-tree-ui-colorpicker-input-wrap {
+.prince-ui-colorpicker-input-wrap {
   float: left;
 }
 .hide-color-picker {
@@ -2523,18 +2523,18 @@ select.option-tree-ui-select option {
 .wp-picker-active .hide-color-picker {
   display: inline-block;
 }
-.option-tree-ui-colorpicker-input-wrap .option-tree-ui-colorpicker-label {
+.prince-ui-colorpicker-input-wrap .prince-ui-colorpicker-label {
   height: 30px;
   line-height: 30px;
   margin-right: 10px;
   display: block;
 }
-.type-link-color .option-tree-ui-colorpicker-input-wrap {
+.type-link-color .prince-ui-colorpicker-input-wrap {
   margin-right: 20px;
 }
-.option-tree-ui-colorpicker-input-wrap .wp-color-picker,
-.option-tree-ui-colorpicker-input-wrap .wp-picker-default,
-.option-tree-ui-colorpicker-input-wrap .wp-picker-clear {
+.prince-ui-colorpicker-input-wrap .wp-color-picker,
+.prince-ui-colorpicker-input-wrap .wp-picker-default,
+.prince-ui-colorpicker-input-wrap .wp-picker-clear {
   border-color: #ccc;
   font-size: 12px !important;
   height: 29px !important;
@@ -2547,10 +2547,10 @@ select.option-tree-ui-select option {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.option-tree-ui-colorpicker-input-wrap .wp-color-picker {
+.prince-ui-colorpicker-input-wrap .wp-color-picker {
   margin: 0 0 5px 0 !important;
 }
-.option-tree-ui-colorpicker-input-wrap .wp-color-result {
+.prince-ui-colorpicker-input-wrap .wp-color-result {
   height: 29px !important;
   outline: 0;
   margin: 0 5px 5px 0px;
@@ -2559,11 +2559,11 @@ select.option-tree-ui-select option {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.option-tree-ui-colorpicker-input-wrap .wp-color-result:after,
-.option-tree-ui-colorpicker-input-wrap .wp-color-result-text {
+.prince-ui-colorpicker-input-wrap .wp-color-result:after,
+.prince-ui-colorpicker-input-wrap .wp-color-result-text {
   line-height: 27px;
 }
-.option-tree-ui-colorpicker-input-wrap .wp-picker-container .iris-picker {
+.prince-ui-colorpicker-input-wrap .wp-picker-container .iris-picker {
   border-color: #ccc;
   margin: 0px 5px 5px 0;
   -webkit-border-radius: 2px;
@@ -2571,20 +2571,20 @@ select.option-tree-ui-select option {
   border-radius: 2px;
 }
 @media screen and ( max-width: 782px ) {
-  .option-tree-ui-colorpicker-input-wrap .wp-color-picker {
+  .prince-ui-colorpicker-input-wrap .wp-color-picker {
     padding: 3px 5px !important;
   }
-  .option-tree-ui-colorpicker-input-wrap .wp-picker-clear,
-  .option-tree-ui-colorpicker-input-wrap .wp-picker-default {
+  .prince-ui-colorpicker-input-wrap .wp-picker-clear,
+  .prince-ui-colorpicker-input-wrap .wp-picker-default {
     margin-top: 4px;
     padding: 0 8px 1px !important;
   }
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Colorpicker Opacity (Derivative work of the Codestar WP Color Picker.)
   ---------------------------------------------------*/
-.option-tree-opacity-wrap {
+.prince-opacity-wrap {
   background-color: #fff;
   border: 1px solid #ccc;
   border-top: none;
@@ -2596,14 +2596,14 @@ select.option-tree-ui-select option {
   top: -6px;
   width: 235px;
 }
-.option-tree-opacity-slider {
+.prince-opacity-slider {
   left: 10px;
   position: absolute;
   width: 171px;
   margin-left: 3px;
   height: 28px;
 }
-.option-tree-opacity-slider .ui-slider-handle {
+.prince-opacity-slider .ui-slider-handle {
   position: absolute;
   top: -3px;
   bottom: -3px;
@@ -2620,7 +2620,7 @@ select.option-tree-ui-select option {
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-.option-tree-opacity-slider .ui-slider-handle:before {
+.prince-opacity-slider .ui-slider-handle:before {
   content: " ";
   position: absolute;
   left: -2px;
@@ -2630,14 +2630,14 @@ select.option-tree-ui-select option {
   border: 2px solid #fff;
   border-radius: 3px;
 }
-.option-tree-opacity-slider-offset {
+.prince-opacity-slider-offset {
   height: 28px;
   width: 183px;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAASCAYAAAAe/ZHXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NkNEQUQ0ODM4RUE0MTFFNEExOEJFN0E5M0VFOTg0QUQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NkNEQUQ0ODQ4RUE0MTFFNEExOEJFN0E5M0VFOTg0QUQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2Q0RBRDQ4MThFQTQxMUU0QTE4QkU3QTkzRUU5ODRBRCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2Q0RBRDQ4MjhFQTQxMUU0QTE4QkU3QTkzRUU5ODRBRCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/r/N8AAAWYSURBVHjarFvvR3VBEN45JZGIPkREHyIiIhJJf3qUSERE9CGiDxERkcg9z9u92uucvTszz5z7xnHPj93Z2d359cxscn5+jpTS+EoiMr3/+51cZ2dn4+e29i2/u7y8RKf/pO3vc+o+n5ycoNK31+f6+jrfZ37yuG2mf3R01H3fa5N/b29vU6dP5qft0G4PDg5MGuPr/v4+jz1t27mfvN/b21P75+fHx8eZfiV/Ozs7rUJnSu/5+RlFv+m6ZJpbW1s1PnrvXl9fZ/qX89zY2LB4mfy+v7/nsdV1XltbK/dr5vnz87OcV5bJabuVlRVLBifjfX9/l/xkGtM+S0tLNXnu0szfU/P3IMn/k0678h6ddqjQFGccVL6hoCsVfsq+NZ5QtCv5rfFS41sq37W+UPhMyhxEWTetvce3NR8oewqD39qalXuGAK/WPltjajIC4x2c9Ye1f43SGcqGwRBeTZjhMNntL4pCWZMQYhE05RVl02EovRgC4RkCbUNSQAGhGB/GsKG4h6FQoigDa2i8fRBy3uLMXYIG3Vr3aZvRaCRdBYlYIMZywhBGCVhgzzOlgRuUSOvC0GMEWxOM/+EtQFh1OIIXtfwg1tRaayGjg5px0jyZKEaTle3e+AsLCygVRAh3FlEgKbReE3oYGj9EgIR00QiEgKw3ZBQbRGjBeAMtDETQmHiKDsezJNLgCTFGItZXlAgCSiQggblP+9c8SDI0lXWlFv5g3K63KZ51FOcZzthQ3LomoNHwJmKIQISI3vqzSpwIQ8liSjGMFQjDpoVgaQ6cWgvLhOC7qiAwiHrWbEg4JMSmeUrBuHoYwioOQNXmhmAcrs096s1gJCGi3hSEVU8DQxYElYHhKwUUGAa+NqOBMsSSAQJuhQhCAH4vxozExsxiihPuaIrjCVYKWlYEsjSM52G8Kxxryngl5j0j+EyGTIiED4s1Itm0ZGWxMFCLJaBAcEI6OBkmFgNBoc8Cait2ZnENE/6wQN8LJSJeSMNAjKVm+LUMAIt3PR5AQgIGp1Z5zxhE8PtXUYReYeXi4mKmOPNXBMzt2tPT07LIUtJqr66uusXEbkFnWiQ6Pj72ikrtzc1NKopuvbbj58PDwxqNHp27u7tuYWumUDV+v7+/Xyu6pc59+/DwUCsC9ujt7u6qRbt8//T01C3elbyN70fb29uZ/1FSincvLy/lPGb42tzc9IqJeHt7q61Pr2C6vr7u7tfHx8fMPhV0sLq6WhZtU0n36+uru8elPE7aLi8v1wqJPXn++fmZKYgX8ozFxcXJb0NaQTHClZT8+gBjsYdaFc+zWcUkGTCWENY66ta92oSVzo3WI6IZKGtukeyfBLFKBNAj6bUOBgaoe9wE4n04IBNkLMoC7+Skj630ZlTJMYdyMsU2T8AwpzALkVFilZgJcT2l9PCWDDSAMBSjVlJgZNk0lE1AIby0qCiCnBQNj6aBGQslZIZJ5hB6D/AzQHto5Z9Nk8tARdN4q2ExBnsyIJ311EymShyjan2rKk0zh1Ay1oQVWAZQRnkUA8RFw7TahjBnmNgMVMQrsCGZJezRtGlU0cUZ1zuaxGZPpbhApM+ZpFQqQ6xadoMtBrEKpBVo4GRXvNSxpaRixKiR+TChCYhsDwZkfFj8IkErjAHejcUI0XQrgwehhNSMHAz21E0wZ23FcCAmj8Sd/PXy2xLYLAuwRw4IMsqjFaWYOpMEhDySAPFCWyFkgAHrEcA+BNeJ4UE8HCzJPpCrerUmQIx1pWJkjqxJD8EikUo2c5aI8ZYgsAkM4WQtnHd0ns0ORgVTBghy5ISy928SGsbTMqYg523RUY8oNYG4FIYiyRyZCnFCJC87IoRAIMVOqQ7BKexxCS2hYVl9JhvlpYjnAe4MhmRPMWhhvLfXINaI9WKM0Zu0+SfAAFLE1EgfVSv7AAAAAElFTkSuQmCC);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4) inset;
   border-radius: 2px;
 }
-.option-tree-opacity-text {
+.prince-opacity-text {
   position: absolute;
   top: 15px;
   left: 215px;
@@ -2646,7 +2646,7 @@ select.option-tree-ui-select option {
   text-align: center;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Google Font
   ---------------------------------------------------*/
 .type-google-font {
@@ -2660,15 +2660,15 @@ select.option-tree-ui-select option {
   margin-bottom: 20px;
   width: 100%;
 }
-.js-remove-google-font.option-tree-ui-button.button {
+.js-remove-google-font.prince-ui-button.button {
   margin-left: 0;
   margin-top: 0;
 }
 
-/* -------------------------------------------------- 
-  :: OptionTree UI Buttons 
+/* --------------------------------------------------
+  :: Prince UI Buttons
   ---------------------------------------------------*/
-.option-tree-ui-button.button {
+.prince-ui-button.button {
   float: left;
   font-size: 12px !important;
   line-height: 27px !important;
@@ -2677,15 +2677,15 @@ select.option-tree-ui-select option {
   min-width: 40px;
   padding: 0 10px 1px !important;
 }
-.option-tree-ui-button:active,
-.option-tree-ui-button:hover,
-.option-tree-ui-button:focus {
+.prince-ui-button:active,
+.prince-ui-button:hover,
+.prince-ui-button:focus {
   outline: 0;
 }
-.option-tree-ui-button.hidden {
+.prince-ui-button.hidden {
   display: none;
 }
-.option-tree-ui-button.button-secondary {
+.prince-ui-button.button-secondary {
   background: #b73b27;
   border-color: #7f291b;
   color: #fff;
@@ -2694,10 +2694,10 @@ select.option-tree-ui-select option {
   -moz-box-shadow: inset 0 1px 0 rgba(229,134,119,0.5), 0 1px 0 rgba(0,0,0,.15);
   box-shadow: inset 0 1px 0 rgba(229,134,119,0.5), 0 1px 0 rgba(0,0,0,.15);
 }
-.option-tree-ui-button.button-secondary.hover,
-.option-tree-ui-button.button-secondary:hover,
-.option-tree-ui-button.button-secondary.focus,
-.option-tree-ui-button.button-secondary:focus {
+.prince-ui-button.button-secondary.hover,
+.prince-ui-button.button-secondary:hover,
+.prince-ui-button.button-secondary.focus,
+.prince-ui-button.button-secondary:focus {
   background: #9b3221;
   border-color: #7f291b;
   color: #fff;
@@ -2705,17 +2705,17 @@ select.option-tree-ui-select option {
   -moz-box-shadow: inset 0 1px 0 rgba(229,134,119,0.5), 0 1px 0 rgba(0,0,0,.15);
   box-shadow: inset 0 1px 0 rgba(229,134,119,0.6);
 }
-.option-tree-ui-button.button-secondary.focus,
-.option-tree-ui-button.button-secondary:focus {
+.prince-ui-button.button-secondary.focus,
+.prince-ui-button.button-secondary:focus {
   border-color: #4f160d;
   -webkit-box-shadow: inset 0 1px 0 rgba(229,134,119,0.6), 1px 1px 2px rgba(0,0,0,0.4);
   -moz-box-shadow: inset 0 1px 0 rgba(229,134,119,0.6), 1px 1px 2px rgba(0,0,0,0.4);
   box-shadow: inset 0 1px 0 rgba(229,134,119,0.6), 1px 1px 2px rgba(0,0,0,0.4);
 }
-.option-tree-ui-button.button-secondary.active,
-.option-tree-ui-button.button-secondary.active:hover,
-.option-tree-ui-button.button-secondary.active:focus,
-.option-tree-ui-button.button-secondary:active {
+.prince-ui-button.button-secondary.active,
+.prince-ui-button.button-secondary.active:hover,
+.prince-ui-button.button-secondary.active:focus,
+.prince-ui-button.button-secondary:active {
   background: #b73b27;
   border-color: #7f291b;
   color: rgba(255,255,255,0.95);
@@ -2724,19 +2724,19 @@ select.option-tree-ui-select option {
   box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
   vertical-align: top;
 }
-.option-tree-ui-button.right {
+.prince-ui-button.right {
   float: right;
 }
-.option-tree-ui-button.hug-left {
+.prince-ui-button.hug-left {
   margin-left: 0px;
 }
-.option-tree-ui-button.hug-right {
+.prince-ui-button.hug-right {
   margin-right: 0px;
 }
-.option-tree-ui-button.pad {
+.prince-ui-button.pad {
   padding: 0px 21px;
 }
-.option-tree-ui-button.left-item {
+.prince-ui-button.left-item {
   margin: 5px 0 5px 5px;
   -webkit-border-top-right-radius: 0px;
   -webkit-border-bottom-right-radius: 0px;
@@ -2745,13 +2745,13 @@ select.option-tree-ui-select option {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-.option-tree-ui-button.center-item {
+.prince-ui-button.center-item {
   margin: 5px 0 5px -1px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-.option-tree-ui-button.right-item {
+.prince-ui-button.right-item {
   margin: 5px 5px 5px -1px;
   -webkit-border-top-left-radius: 0px;
   -webkit-border-bottom-left-radius: 0px;
@@ -2760,7 +2760,7 @@ select.option-tree-ui-select option {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-.option-tree-ui-buttons {
+.prince-ui-buttons {
   background: #fff;
   border: 1px solid #ccc;
   margin: 11px 5px 0 2px;
@@ -2775,21 +2775,21 @@ select.option-tree-ui-select option {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.option-tree-ui-buttons.alt {
+.prince-ui-buttons.alt {
   background: #f5f5f5;
   border-color: #dfdfdf;
 }
-.option-tree-ui-buttons:before,
-.option-tree-ui-buttons:after {
+.prince-ui-buttons:before,
+.prince-ui-buttons:after {
   content: "\0020";
   display: block;
   height: 0;
   visibility: hidden;
 }
-.option-tree-ui-buttons:after {
+.prince-ui-buttons:after {
   clear: both;
 }
-.option-tree-ui-buttons {
+.prince-ui-buttons {
   zoom: 1;
 }
 button.reset-settings {
@@ -2798,10 +2798,10 @@ button.reset-settings {
   left: 8px;
 }
 
-/* -------------------------------------------------- 
-  :: OptionTree UI Button Icons 
+/* --------------------------------------------------
+  :: Prince UI Button Icons
   ---------------------------------------------------*/
-.option-tree-ui-button .icon {
+.prince-ui-button .icon {
   color: #3a3a3a;
   display: inline-block;
   float: left;
@@ -2814,85 +2814,85 @@ button.reset-settings {
   text-indent: 0;
   width: 18px;
 }
-button.option-tree-ui-button .icon {
+button.prince-ui-button .icon {
   margin-top: -3px;
 }
-.option-tree-ui-button.light .icon {
+.prince-ui-button.light .icon {
   color: #fff;
   opacity: 0.9;
 }
-.option-tree-ui-button.active .icon,
-.option-tree-ui-button:hover .icon {
+.prince-ui-button.active .icon,
+.prince-ui-button:hover .icon {
   opacity: 1;
 }
-.option-tree-ui-button .icon.right-label {
+.prince-ui-button .icon.right-label {
   margin-right: 10px;
 }
-.option-tree-ui-button .icon.left-label {
+.prince-ui-button .icon.left-label {
   margin-left: 10px;
   float: right;
 }
-.option-tree-ui-button .upload {
+.prince-ui-button .upload {
   background-position: -0px -0px;
 }
-.option-tree-ui-button .trash-can {
+.prince-ui-button .trash-can {
   background-position: -18px -0px;
 }
-.option-tree-ui-button .pencil,
-.option-tree-ui-button .check {
+.prince-ui-button .pencil,
+.prince-ui-button .check {
   background-position: -36px -0px;
 }
-.option-tree-ui-button:hover .pencil,
-.option-tree-ui-button:hover .check,
-.option-tree-ui-button.active .pencil,
-.option-tree-ui-button.active .check {
+.prince-ui-button:hover .pencil,
+.prince-ui-button:hover .check,
+.prince-ui-button.active .pencil,
+.prince-ui-button.active .check {
   background-position: -54px -0px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: WP 3.8 Fixes (via Github @AlxMedia)
   ---------------------------------------------------*/
-#option-tree-settings-api #poststuff,
-#option-tree-settings-api #post-body-content {
+#prince-settings-api #poststuff,
+#prince-settings-api #post-body-content {
   min-width: 0;
 }
-#option-tree-settings-api #poststuff h3 {
+#prince-settings-api #poststuff h3 {
   font-family: inherit !important;
 }
-#option-tree-settings-api .postbox {
+#prince-settings-api .postbox {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
-#option-tree-settings-api p input[type="checkbox"],
-#option-tree-settings-api p input[type="radio"] {
+#prince-settings-api p input[type="checkbox"],
+#prince-settings-api p input[type="radio"] {
   margin-top: 2px;
 }
-#option-tree-settings-api .format-setting.type-checkbox p,
-#option-tree-settings-api .format-setting.type-radio p {
+#prince-settings-api .format-setting.type-checkbox p,
+#prince-settings-api .format-setting.type-radio p {
   margin: 0.3em 0 !important;
 }
-input.option-tree-ui-upload-input,
-input.option-tree-ui-input {
+input.prince-ui-upload-input,
+input.prince-ui-input {
   padding-top: 5px;
   padding-bottom: 5px;
 }
 @media screen and ( max-width: 782px ) {
-  #option-tree-settings-api p input[type="checkbox"],
-  #option-tree-settings-api p input[type="radio"] {
+  #prince-settings-api p input[type="checkbox"],
+  #prince-settings-api p input[type="radio"] {
     margin-top: -3px;
   }
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Gallery
   ---------------------------------------------------*/
-ul.ot-gallery-list {
+ul.prince-gallery-list {
   float: left;
   margin: 0;
   width: 100%;
 }
-ul.ot-gallery-list li {
+ul.prince-gallery-list li {
   background: none repeat scroll 0 0 white;
   border: 1px solid #bbb;
   float: left;
@@ -2902,53 +2902,53 @@ ul.ot-gallery-list li {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-ul.ot-gallery-list li img {
+ul.prince-gallery-list li img {
   display: block;
   margin: 0;
 }
 
-.ot-gallery-buttons {
+.prince-gallery-buttons {
   float: left;
   width: 100%;
 }
-.ot-gallery-buttons a.option-tree-ui-button {
+.prince-gallery-buttons a.prince-ui-button {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Google Fonts
   ---------------------------------------------------*/
-.option-tree-google-font-family,
-.option-tree-google-font-variants,
-.option-tree-google-font-subsets {
+.prince-google-font-family,
+.prince-google-font-variants,
+.prince-google-font-subsets {
   float: left;
   width: 20%;
 }
-.option-tree-google-font-family {
+.prince-google-font-family {
   width: 100%;
 }
-#option-tree-settings-api p.checkbox-wrap,
-#post-body .ot-metabox-panels p.checkbox-wrap {
+#prince-settings-api p.checkbox-wrap,
+#post-body .prince-metabox-panels p.checkbox-wrap {
   display: block;
   float: left;
   margin: 0.3em 0 !important;
   width: 100%;
 }
 @media screen and ( max-width: 1020px ) {
-  .option-tree-google-font-variants,
-  .option-tree-google-font-subsets {
+  .prince-google-font-variants,
+  .prince-google-font-subsets {
     width: 33%;
   }
 }
 @media screen and ( max-width: 782px ) {
-  .option-tree-google-font-variants,
-  .option-tree-google-font-subsets {
+  .prince-google-font-variants,
+  .prince-google-font-subsets {
     width: 50%;
   }
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: On/Off Switch
   ---------------------------------------------------*/
 .on-off-switch .slide-button {
@@ -3055,17 +3055,17 @@ ul.ot-gallery-list li img {
   }
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Simple Input Append & Prepend
   ---------------------------------------------------*/
-.ot-input-append,
-.ot-input-prepend {
+.prince-input-append,
+.prince-input-prepend {
   display: inline-block;
   vertical-align: middle;
   font-size: 0;
   white-space: nowrap;
 }
-.ot-input-append input {
+.prince-input-append input {
   position: relative;
   margin-bottom: 0;
   *margin-left: 0;
@@ -3074,12 +3074,12 @@ ul.ot-gallery-list li img {
   -moz-border-radius: 0 2px 2px 0;
   border-radius: 0 2px 2px 0;
 }
-.ot-input-append input:focus,
-.ot-input-prepend input:focus {
+.prince-input-append input:focus,
+.prince-input-prepend input:focus {
   z-index: 2;
 }
-.ot-input-append .ot-add-on,
-.ot-input-prepend .ot-add-on {
+.prince-input-append .prince-add-on,
+.prince-input-prepend .prince-add-on {
   display: inline-block;
   width: auto;
   height: 27px;
@@ -3093,21 +3093,21 @@ ul.ot-gallery-list li img {
   background-color: #f7f7f7;
   border: 1px solid #ccc;
 }
-.ot-input-prepend input {
+.prince-input-prepend input {
   border-left: 0 !important;
 }
-.ot-input-prepend .ot-add-on:first-child {
+.prince-input-prepend .prince-add-on:first-child {
   -webkit-border-radius: 2px 0 0 2px;
   -moz-border-radius: 2px 0 0 2px;
   border-radius: 2px 0 0 2px;
 }
-.ot-input-append input {
+.prince-input-append input {
   border-right: 0 !important;
   -webkit-border-radius: 2px 0 0 2px;
   -moz-border-radius: 2px 0 0 2px;
   border-radius: 2px 0 0 2px;
 }
-.ot-input-append input + .btn-group .btn:first-child {
+.prince-input-append input + .btn-group .btn:first-child {
   -webkit-border-top-left-radius: 0;
   -moz-border-radius-topleft: 0;
   border-top-left-radius: 0;
@@ -3115,34 +3115,34 @@ ul.ot-gallery-list li img {
   -moz-border-radius-bottomleft: 0;
   border-bottom-left-radius: 0;
 }
-.ot-input-append .ot-add-on:last-child {
+.prince-input-append .prince-add-on:last-child {
   -webkit-border-radius: 0 2px 2px 0;
   -moz-border-radius: 0 2px 2px 0;
   border-radius: 0 2px 2px 0;
 }
-.ot-input-prepend.ot-input-append input {
+.prince-input-prepend.prince-input-append input {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
 }
-.ot-input-prepend.ot-input-append .ot-add-on:first-child {
+.prince-input-prepend.prince-input-append .prince-add-on:first-child {
   -webkit-border-radius: 2px 0 0 2px;
   -moz-border-radius: 2px 0 0 2px;
   border-radius: 2px 0 0 2px;
 }
-.ot-input-prepend.ot-input-append .ot-add-on:last-child {
+.prince-input-prepend.prince-input-append .prince-add-on:last-child {
   -webkit-border-radius: 0 2px 2px 0;
   -moz-border-radius: 0 2px 2px 0;
   border-radius: 0 2px 2px 0;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: CSS Editor
   ---------------------------------------------------*/
-#option-tree-settings-api pre.ot-css-editor,
-#poststuff .type-css pre.ot-css-editor,
-#option-tree-settings-api pre.ot-javascript-editor,
-#poststuff .type-javascript pre.ot-javascript-editor {
+#prince-settings-api pre.prince-css-editor,
+#poststuff .type-css pre.prince-css-editor,
+#prince-settings-api pre.prince-javascript-editor,
+#poststuff .type-javascript pre.prince-javascript-editor {
   bottom: 0;
   height: 280px;
   left: 0;
@@ -3150,7 +3150,7 @@ ul.ot-gallery-list li img {
   right: 0;
   top: 0;
 }
-#option-tree-settings-api pre.ace-chrome,
+#prince-settings-api pre.ace-chrome,
 #poststuff .type-css pre.ace-chrome,
 #poststuff .type-javascript pre.ace-chrome {
   background-color: #fff !important;
@@ -3159,7 +3159,7 @@ ul.ot-gallery-list li img {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-#option-tree-settings-api pre.ace-chrome:hover,
+#prince-settings-api pre.ace-chrome:hover,
 #poststuff .type-css pre.ace-chrome:hover,
 #poststuff .type-javascript pre.ace-chrome:hover {
   border-color: #bbb !important;
@@ -3167,7 +3167,7 @@ ul.ot-gallery-list li img {
   -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
 }
-#option-tree-settings-api pre.ace-chrome.ace_focus,
+#prince-settings-api pre.ace-chrome.ace_focus,
 #poststuff .type-css pre.ace-chrome.ace_focus,
 #poststuff .type-javascript pre.ace-chrome.ace_focus {
   border-color: #999 !important;
@@ -3176,7 +3176,7 @@ ul.ot-gallery-list li img {
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.0980392);
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Date Picker
   ---------------------------------------------------*/
 .ui-datepicker {
@@ -3215,7 +3215,7 @@ ul.ot-gallery-list li img {
 .ui-datepicker-next {
   color: #ccc;
   display: inline-block;
-  font-family: "option-tree-font";
+  font-family: "prince-font";
   font-size: 16px;
   width: 30px;
   height: 30px;
@@ -3584,7 +3584,7 @@ a.ui-datepicker-next {
   color: #fff !important;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Time Picker
   ---------------------------------------------------*/
 .ui-timepicker-div {
@@ -3754,17 +3754,17 @@ a.ui-datepicker-next {
   border-color: #e75546;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Meta Box Tabs
   ---------------------------------------------------*/
-.ot-metabox-tabs.ui-tabs {
+.prince-metabox-tabs.ui-tabs {
   overflow: hidden;
   position: relative;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-wrapper {
+.prince-metabox-tabs.ui-tabs .prince-metabox-wrapper {
   overflow: hidden;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-panels {
+.prince-metabox-tabs.ui-tabs .prince-metabox-panels {
   background: white;
   border: 1px solid #ccc;
   margin: 7px 0 1px 0;
@@ -3775,15 +3775,15 @@ a.ui-datepicker-next {
   -moz-border-radius: 2px;
   border-radius: 2px;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav {
+.prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav {
   float: left;
   list-style: none;
   margin: 0 -1px 0 0;
   padding: 18px 0 12px 0;
   width: 151px;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li,
-.ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-focus {
+.prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li,
+.prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-focus {
   background: none;
   border: 1px solid transparent;
   border-right-width: 0px;
@@ -3796,12 +3796,12 @@ a.ui-datepicker-next {
   -moz-border-radius: 2px 0 0 2px;
   border-radius: 2px 0 0 2px;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active {
+.prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-active {
   background: white;
   border-color: #ccc;
   color: black;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li a {
+.prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li a {
   color: #21759b;
   display: block;
   line-height: 18px;
@@ -3809,39 +3809,39 @@ a.ui-datepicker-next {
   padding: 5px 5px 5px 12px;
   text-decoration: none;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li a:hover {
+.prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li a:hover {
   color: black;
   outline: none;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active a {
+.prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-active a {
   color: black;
   outline: none;
 }
-.ot-metabox-tabs.ui-tabs .ot-metabox-panel {
+.prince-metabox-tabs.ui-tabs .prince-metabox-panel {
   clear: both;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Theme Option & Side Metabox Tabs
   ---------------------------------------------------*/
-.ot-theme-option-tabs.ui-tabs
-#side-sortables .ot-metabox-tabs.ui-tabs {
+.prince-theme-option-tabs.ui-tabs
+#side-sortables .prince-metabox-tabs.ui-tabs {
   position: relative;
 }
-.ot-theme-option-tabs.ui-tabs .inside,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-wrapper {
+.prince-theme-option-tabs.ui-tabs .inside,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-wrapper {
   overflow: hidden;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-panels,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-panels {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-panels,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-panels {
   border: 0;
   margin: 0;
   overflow: hidden;
   padding: 0;
   width: 100%;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-nav.ui-tabs-nav,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav {
   border-bottom: 1px solid #ccc;
   float: none;
   font-size: 12px !important;
@@ -3851,11 +3851,11 @@ a.ui-datepicker-next {
   padding: 0;
   width: 100%;
 }
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav {
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav {
   margin-top: 10px;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li.ui-state-default,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-default {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-nav.ui-tabs-nav li.ui-state-default,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-default {
   background: #fafafa;
   border: 1px solid #ccc;
   border-width: 1px 1px 0px 1px;
@@ -3868,14 +3868,14 @@ a.ui-datepicker-next {
   -moz-border-radius: 2px 2px 0 0;
   border-radius: 2px 2px 0 0;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li:hover,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li:hover {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-nav.ui-tabs-nav li:hover,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li:hover {
   background: #f1f1f1;
   border: 1px solid #ccc;
   border-width: 1px 1px 0px 1px;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li.ui-state-active,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-nav.ui-tabs-nav li.ui-state-active,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-active {
   background: white;
   border-color: #ccc;
   border-width: 1px 1px 0px 1px;
@@ -3885,8 +3885,8 @@ a.ui-datepicker-next {
   -moz-border-radius: 2px 2px 0 0;
   border-radius: 2px 2px 0 0;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li a,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li a {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-nav.ui-tabs-nav li a,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li a {
   color: #21759b;
   display: block;
   line-height: 18px;
@@ -3894,44 +3894,44 @@ a.ui-datepicker-next {
   padding: 6px 12px 5px 12px !important;
   text-decoration: none;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li a:hover,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li a:hover {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-nav.ui-tabs-nav li a:hover,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li a:hover {
   color: black;
   outline: none;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-nav.ui-tabs-nav li.ui-state-active a,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active a {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-nav.ui-tabs-nav li.ui-state-active a,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-active a {
   color: black;
   outline: none;
   padding: 6px 12px 6px 12px !important;
 }
-.ot-theme-option-tabs.ui-tabs .ot-theme-option-panel,
-#side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-panel {
+.prince-theme-option-tabs.ui-tabs .prince-theme-option-panel,
+#side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-panel {
   clear: both;
 }
-#side-sortables .ot-metabox-tabs.ui-tabs .format-setting .description,
-#side-sortables .ot-metabox-tabs.ui-tabs .format-setting .format-setting-inner {
+#side-sortables .prince-metabox-tabs.ui-tabs .format-setting .description,
+#side-sortables .prince-metabox-tabs.ui-tabs .format-setting .format-setting-inner {
   width: 100%;
 }
 
-/* -------------------------------------------------- 
+/* --------------------------------------------------
   :: Metabox Tabs for Small Screens & Mobile Devices
   ---------------------------------------------------*/
 @media screen and ( max-width: 1020px ) {
-  .ot-metabox-tabs.ui-tabs {
+  .prince-metabox-tabs.ui-tabs {
     position: relative;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-wrapper {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-wrapper {
     overflow: hidden;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-panels {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-panels {
     border: 0;
     margin: 0;
     overflow: hidden;
     padding: 0;
     width: 100%;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav {
     border-bottom: 1px solid #ccc;
     float: none;
     font-size: 12px !important;
@@ -3941,10 +3941,10 @@ a.ui-datepicker-next {
     padding: 0;
     width: 100%;
   }
-  #side-sortables .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav {
+  #side-sortables .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav {
     margin-top: 10px;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li {
     background: #fafafa;
     border: 1px solid #ccc !important;
     border-width: 1px 1px 0px 1px !important;
@@ -3957,10 +3957,10 @@ a.ui-datepicker-next {
     -moz-border-radius: 2px 2px 0 0;
     border-radius: 2px 2px 0 0;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li:hover {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li:hover {
     background: #f1f1f1;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-active {
     background: white;
     color: black;
     padding: 0;
@@ -3968,7 +3968,7 @@ a.ui-datepicker-next {
     -moz-border-radius: 2px 2px 0 0;
     border-radius: 2px 2px 0 0;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li a {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li a {
     color: #21759b;
     display: block;
     line-height: 18px;
@@ -3976,16 +3976,24 @@ a.ui-datepicker-next {
     padding: 6px 12px 5px 12px !important;
     text-decoration: none;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li a:hover {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li a:hover {
     color: black;
     outline: none;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-nav.ui-tabs-nav li.ui-state-active a {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-active a {
     color: black;
     outline: none;
     padding: 6px 12px 6px 12px !important;
   }
-  .ot-metabox-tabs.ui-tabs .ot-metabox-panel {
+  .prince-metabox-tabs.ui-tabs .prince-metabox-panel {
     clear: both;
   }
 }
+
+/**
+* =======================
+* Extra Custom CSS
+* ======================
+*/
+
+@import "extra";

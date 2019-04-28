@@ -5,14 +5,14 @@
 add_action( 'init', 'custom_theme_options' );
 
 /**
- * Build the custom settings & update OptionTree.
+ * Build the custom settings & update Prince.
  *
  * @return    void
  * @since     2.0
  */
 function custom_theme_options() {
 
-  /* OptionTree is not loaded yet, or this is not an admin request */
+  /* Prince is not loaded yet, or this is not an admin request */
   if ( ! function_exists( 'prince_settings_id' ) || ! is_admin() )
     return false;
 
@@ -23,7 +23,7 @@ function custom_theme_options() {
   
   /**
    * Custom settings array that will eventually be 
-   * passes to the OptionTree Settings API Class.
+   * passes to the Prince Settings API Class.
    */
   $custom_settings = array( 
     'contextual_help' => array( 
@@ -46,7 +46,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_background',
         'label'       => __( 'Background', 'theme-text-domain' ),
-        'desc'        => sprintf( __( 'The Background option type is for adding background styles to your theme either dynamically via the CSS option type below or manually with %s. The Background option type has filters that allow you to remove fields or change the defaults. For example, you can filter %s to remove unwanted fields from all Background options or an individual one. You can also filter %s. These filters allow you to fine tune the select lists for your specific needs.', 'theme-text-domain' ), '<code>ot_get_option()</code>', '<code>prince_recognized_background_fields</code>', '<code>ot_recognized_background_repeat</code>, <code>ot_recognized_background_attachment</code>, <code>ot_recognized_background_position</code>, ' . __( 'and', 'theme-text-domain' ) . ' <code>ot_type_background_size_choices</code>' ),
+        'desc'        => sprintf( __( 'The Background option type is for adding background styles to your theme either dynamically via the CSS option type below or manually with %s. The Background option type has filters that allow you to remove fields or change the defaults. For example, you can filter %s to remove unwanted fields from all Background options or an individual one. You can also filter %s. These filters allow you to fine tune the select lists for your specific needs.', 'theme-text-domain' ), '<code>prince_get_option()</code>', '<code>prince_recognized_background_fields</code>', '<code>prince_recognized_background_repeat</code>, <code>prince_recognized_background_attachment</code>, <code>prince_recognized_background_position</code>, ' . __( 'and', 'theme-text-domain' ) . ' <code>prince_type_background_size_choices</code>' ),
         'std'         => '',
         'type'        => 'background',
         'section'     => 'option_types',
@@ -163,8 +163,8 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_colorpicker_opacity',
         'label'       => __( 'Colorpicker Opacity', 'theme-text-domain' ),
-        'desc'        => __( 'Colorpicker Opacity', 'option-tree-theme' ),
-        'desc'        => sprintf( __( 'The Colorpicker Opacity option type saves an rgba color value for use in CSS. To add opacity to other colorpickers add the %s class to the %s array.', 'prince-text-domain' ), '<code>ot-colorpicker-opacity</code>', '<code>$args</code>' ),
+        'desc'        => __( 'Colorpicker Opacity', 'prince-theme' ),
+        'desc'        => sprintf( __( 'The Colorpicker Opacity option type saves an rgba color value for use in CSS. To add opacity to other colorpickers add the %s class to the %s array.', 'prince-text-domain' ), '<code>prince-colorpicker-opacity</code>', '<code>$args</code>' ),
         'std'         => '',
         'type'        => 'colorpicker-opacity',
         'section'     => 'option_types',
@@ -179,7 +179,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_css',
         'label'       => __( 'CSS', 'theme-text-domain' ),
-        'desc'        => '<p>' . sprintf( __( 'The CSS option type is a textarea that when used properly can add dynamic CSS to your theme from within OptionTree. Unfortunately, due server limitations you will need to create a file named %s at the root level of your theme and change permissions using %s so the server can write to the file. I have had the most success setting this single file to %s but feel free to play around with permissions until everything is working. A good starting point is %s. When the server can save to the file, CSS will automatically be updated when you save your Theme Options.', 'theme-text-domain' ), '<code>dynamic.css</code>', '<code>chmod</code>', '<code>0777</code>', '<code>0666</code>' ) . '</p><p>' . sprintf( __( 'This example assumes you have an option with the ID of %1$s. Which means this option will automatically insert the value of %1$s into the %2$s when the Theme Options are saved.', 'theme-text-domain' ), '<code>demo_background</code>', '<code>dynamic.css</code>' ) . '</p>',
+        'desc'        => '<p>' . sprintf( __( 'The CSS option type is a textarea that when used properly can add dynamic CSS to your theme from within Prince. Unfortunately, due server limitations you will need to create a file named %s at the root level of your theme and change permissions using %s so the server can write to the file. I have had the most success setting this single file to %s but feel free to play around with permissions until everything is working. A good starting point is %s. When the server can save to the file, CSS will automatically be updated when you save your Theme Options.', 'theme-text-domain' ), '<code>dynamic.css</code>', '<code>chmod</code>', '<code>0777</code>', '<code>0666</code>' ) . '</p><p>' . sprintf( __( 'This example assumes you have an option with the ID of %1$s. Which means this option will automatically insert the value of %1$s into the %2$s when the Theme Options are saved.', 'theme-text-domain' ), '<code>demo_background</code>', '<code>dynamic.css</code>' ) . '</p>',
         'std'         => '#custom {
   {{demo_background}}
 }',
@@ -286,7 +286,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_gallery_shortcode',
         'label'       => __( 'Gallery Shortcode', 'theme-text-domain' ),
-        'desc'        => sprintf( __( 'The Gallery option type can also be saved as a shortcode by adding %s to the class attribute. Using the Gallery option type in this manner will result in a better user experience as you\'re able to save the link, column, and order settings.', 'theme-text-domain' ), '<code>ot-gallery-shortcode</code>' ),
+        'desc'        => sprintf( __( 'The Gallery option type can also be saved as a shortcode by adding %s to the class attribute. Using the Gallery option type in this manner will result in a better user experience as you\'re able to save the link, column, and order settings.', 'theme-text-domain' ), '<code>prince-gallery-shortcode</code>' ),
         'std'         => '',
         'type'        => 'gallery',
         'section'     => 'option_types',
@@ -294,14 +294,14 @@ function custom_theme_options() {
         'post_type'   => '',
         'taxonomy'    => '',
         'min_max_step'=> '',
-        'class'       => 'ot-gallery-shortcode',
+        'class'       => 'prince-gallery-shortcode',
         'condition'   => '',
         'operator'    => 'and'
       ),
       array(
         'id'          => 'demo_google_fonts',
         'label'       => __( 'Google Fonts', 'theme-text-domain' ),
-        'desc'        => sprintf( __( 'The Google Fonts option type will dynamically enqueue any number of Google Web Fonts into the document %1$s. As well, once the option has been saved each font family will automatically be inserted into the %2$s array for the Typography option type. You can further modify the font stack by using the %3$s filter, which is passed the %4$s, %5$s, and %6$s parameters. The %6$s parameter is being passed from %7$s, so it will be the ID of a Typography option type. This will allow you to add additional web safe fonts to individual font families on an as-need basis.', 'theme-text-domain' ), '<code>HEAD</code>', '<code>font-family</code>', '<code>ot_google_font_stack</code>', '<code>$font_stack</code>', '<code>$family</code>', '<code>$field_id</code>', '<code>ot_recognized_font_families</code>' ),
+        'desc'        => sprintf( __( 'The Google Fonts option type will dynamically enqueue any number of Google Web Fonts into the document %1$s. As well, once the option has been saved each font family will automatically be inserted into the %2$s array for the Typography option type. You can further modify the font stack by using the %3$s filter, which is passed the %4$s, %5$s, and %6$s parameters. The %6$s parameter is being passed from %7$s, so it will be the ID of a Typography option type. This will allow you to add additional web safe fonts to individual font families on an as-need basis.', 'theme-text-domain' ), '<code>HEAD</code>', '<code>font-family</code>', '<code>prince_google_font_stack</code>', '<code>$font_stack</code>', '<code>$family</code>', '<code>$field_id</code>', '<code>prince_recognized_font_families</code>' ),
         'std'         => array( 
           array(
             'family'    => 'opensans',
@@ -383,7 +383,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_measurement',
         'label'       => __( 'Measurement', 'theme-text-domain' ),
-        'desc'        => sprintf( __( 'The Measurement option type is a mix of input and select fields. The text input excepts a value and the select lets you choose the unit of measurement to add to that value. Currently the default units are %s, %s, %s, and %s. However, you can change them with the %s filter.', 'theme-text-domain' ), '<code>px</code>', '<code>%</code>', '<code>em</code>', '<code>pt</code>', '<code>ot_measurement_unit_types</code>' ),
+        'desc'        => sprintf( __( 'The Measurement option type is a mix of input and select fields. The text input excepts a value and the select lets you choose the unit of measurement to add to that value. Currently the default units are %s, %s, %s, and %s. However, you can change them with the %s filter.', 'theme-text-domain' ), '<code>px</code>', '<code>%</code>', '<code>em</code>', '<code>pt</code>', '<code>prince_measurement_unit_types</code>' ),
         'std'         => '',
         'type'        => 'measurement',
         'section'     => 'option_types',
@@ -520,7 +520,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_radio_image',
         'label'       => __( 'Radio Image', 'theme-text-domain' ),
-        'desc'        => sprintf( __( 'the Radio Images option type is primarily used for layouts. However, you can filter the image list using %s. As well, you can add your own custom images using the choices array.', 'theme-text-domain' ), '<code>ot_radio_images</code>' ),
+        'desc'        => sprintf( __( 'the Radio Images option type is primarily used for layouts. However, you can filter the image list using %s. As well, you can add your own custom images using the choices array.', 'theme-text-domain' ), '<code>prince_radio_images</code>' ),
         'std'         => 'right-sidebar',
         'type'        => 'radio-image',
         'section'     => 'option_types',
@@ -572,7 +572,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_sidebar_select',
         'label'       => __( 'Sidebar Select', 'theme-text-domain' ),
-        'desc'        => '<p>' . sprintf(  __( 'This option type makes it possible for users to select a WordPress registered sidebar to use on a specific area. By using the two provided filters, %s, and %s we can be selective about which sidebars are available on a specific content area.', 'theme-text-domain' ), '<code>ot_recognized_sidebars</code>', '<code>ot_recognized_sidebars_{$field_id}</code>' ) . '</p><p>' . sprintf( __( 'For example, if we create a WordPress theme that provides the ability to change the Blog Sidebar and we don\'t want to have the footer sidebars available on this area, we can unset those sidebars either manually or by using a regular expression if we have a common name like %s.', 'theme-text-domain' ), '<code>footer-sidebar-$i</code>' ) . '</p>',
+        'desc'        => '<p>' . sprintf(  __( 'This option type makes it possible for users to select a WordPress registered sidebar to use on a specific area. By using the two provided filters, %s, and %s we can be selective about which sidebars are available on a specific content area.', 'theme-text-domain' ), '<code>prince_recognized_sidebars</code>', '<code>prince_recognized_sidebars_{$field_id}</code>' ) . '</p><p>' . sprintf( __( 'For example, if we create a WordPress theme that provides the ability to change the Blog Sidebar and we don\'t want to have the footer sidebars available on this area, we can unset those sidebars either manually or by using a regular expression if we have a common name like %s.', 'theme-text-domain' ), '<code>footer-sidebar-$i</code>' ) . '</p>',
         'std'         => '',
         'type'        => 'sidebar-select',
         'section'     => 'option_types',
@@ -587,7 +587,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_social_links',
         'label'       => __( 'Social Links', 'theme-text-domain' ),
-        'desc'        => '<p>' . sprintf( __( 'The Social Links option type utilizes a drag & drop interface to create a list of social links. There are a few filters that make extending this option type easy. You can set the %s filter to %s and turn off loading default values. Use the %s filter to change the default values that are loaded. To filter the settings array use the %s filter.', 'theme-text-domain' ), '<code>ot_type_social_links_load_defaults</code>', '<code>false</code>', '<code>ot_type_social_links_defaults</code>', '<code>ot_social_links_settings</code>' ) . '</p>',
+        'desc'        => '<p>' . sprintf( __( 'The Social Links option type utilizes a drag & drop interface to create a list of social links. There are a few filters that make extending this option type easy. You can set the %s filter to %s and turn off loading default values. Use the %s filter to change the default values that are loaded. To filter the settings array use the %s filter.', 'theme-text-domain' ), '<code>prince_type_social_links_load_defaults</code>', '<code>false</code>', '<code>prince_type_social_links_defaults</code>', '<code>prince_social_links_settings</code>' ) . '</p>',
         'std'         => '',
         'type'        => 'social-links',
         'section'     => 'option_types',
@@ -752,7 +752,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_typography',
         'label'       => __( 'Typography', 'theme-text-domain' ),
-        'desc'        => sprintf( __( 'The Typography option type is for adding typography styles to your theme either dynamically via the CSS option type above or manually with %s. The Typography option type has filters that allow you to remove fields or change the defaults. For example, you can filter %s to remove unwanted fields from all Background options or an individual one. You can also filter %s. These filters allow you to fine tune the select lists for your specific needs.', 'theme-text-domain' ), '<code>ot_get_option()</code>', '<code>ot_recognized_typography_fields</code>', '<code>ot_recognized_font_families</code>, <code>ot_recognized_font_sizes</code>, <code>ot_recognized_font_styles</code>, <code>ot_recognized_font_variants</code>, <code>ot_recognized_font_weights</code>, <code>ot_recognized_letter_spacing</code>, <code>ot_recognized_line_heights</code>, <code>ot_recognized_text_decorations</code> ' . __( 'and', 'theme-text-domain' ) . ' <code>ot_recognized_text_transformations</code>' ),
+        'desc'        => sprintf( __( 'The Typography option type is for adding typography styles to your theme either dynamically via the CSS option type above or manually with %s. The Typography option type has filters that allow you to remove fields or change the defaults. For example, you can filter %s to remove unwanted fields from all Background options or an individual one. You can also filter %s. These filters allow you to fine tune the select lists for your specific needs.', 'theme-text-domain' ), '<code>prince_get_option()</code>', '<code>prince_recognized_typography_fields</code>', '<code>prince_recognized_font_families</code>, <code>prince_recognized_font_sizes</code>, <code>prince_recognized_font_styles</code>, <code>prince_recognized_font_variants</code>, <code>prince_recognized_font_weights</code>, <code>prince_recognized_letter_spacing</code>, <code>prince_recognized_line_heights</code>, <code>prince_recognized_text_decorations</code> ' . __( 'and', 'theme-text-domain' ) . ' <code>prince_recognized_text_transformations</code>' ),
         'std'         => '',
         'type'        => 'typography',
         'section'     => 'option_types',
@@ -767,7 +767,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_upload',
         'label'       => __( 'Upload', 'theme-text-domain' ),
-        'desc'        => sprintf( __( 'The Upload option type is used to upload any WordPress supported media. After uploading, users are required to press the "%s" button in order to populate the input with the URI of that media. There is one caveat of this feature. If you import the theme options and have uploaded media on one site the old URI will not reflect the URI of your new site. You will have to re-upload or %s any media to your new server and change the URIs if necessary.', 'theme-text-domain' ), apply_filters( 'prince_upload_text', __( 'Send to OptionTree', 'theme-text-domain' ) ), 'FTP' ),
+        'desc'        => sprintf( __( 'The Upload option type is used to upload any WordPress supported media. After uploading, users are required to press the "%s" button in order to populate the input with the URI of that media. There is one caveat of this feature. If you import the theme options and have uploaded media on one site the old URI will not reflect the URI of your new site. You will have to re-upload or %s any media to your new server and change the URIs if necessary.', 'theme-text-domain' ), apply_filters( 'prince_upload_text', __( 'Send to Prince', 'theme-text-domain' ) ), 'FTP' ),
         'std'         => '',
         'type'        => 'upload',
         'section'     => 'option_types',
@@ -782,7 +782,7 @@ function custom_theme_options() {
       array(
         'id'          => 'demo_upload_attachment_id',
         'label'       => __( 'Upload Attachment ID', 'theme-text-domain' ),
-        'desc'        => sprintf( __( 'The Upload option type can also be saved as an attachment ID by adding %s to the class attribute.', 'theme-text-domain' ), '<code>ot-upload-attachment-id</code>' ),
+        'desc'        => sprintf( __( 'The Upload option type can also be saved as an attachment ID by adding %s to the class attribute.', 'theme-text-domain' ), '<code>prince-upload-attachment-id</code>' ),
         'std'         => '',
         'type'        => 'upload',
         'section'     => 'option_types',
@@ -790,7 +790,7 @@ function custom_theme_options() {
         'post_type'   => '',
         'taxonomy'    => '',
         'min_max_step'=> '',
-        'class'       => 'ot-upload-attachment-id',
+        'class'       => 'prince-upload-attachment-id',
         'condition'   => '',
         'operator'    => 'and'
       )
@@ -805,8 +805,8 @@ function custom_theme_options() {
     update_option( prince_settings_id(), $custom_settings );
   }
   
-  /* Lets OptionTree know the UI Builder is being overridden */
-  global $ot_has_custom_theme_options;
-  $ot_has_custom_theme_options = true;
+  /* Lets Prince know the UI Builder is being overridden */
+  global $prince_has_custom_theme_options;
+  $prince_has_custom_theme_options = true;
   
 }

@@ -1,19 +1,19 @@
 <?php
 /**
  * Plugin Name: Options
- * Plugin URI:  https://github.com/valendesigns/option-tree/
+ * Plugin URI:  https://github.com/valendesigns/prince/
  * Description: Theme Options UI Builder for WordPress. A simple way to create & save Theme Options and Meta Boxes for free or premium themes.
  * Version:     2.6.0
  * Author:      Derek Herman
  * Author URI:  http://valendesigns.com
  * License:     GPLv3
- * Text Domain: option-tree
+ * Text Domain: prince
  */
 include __DIR__ . '/includes/settings-functions.php';
 /**
- * This is the OptionTree loader class.
+ * This is the Prince loader class.
  *
- * @package   OptionTree
+ * @package   Prince
  * @author    Derek Herman <derek@valendesigns.com>
  * @copyright Copyright (c) 2013, Derek Herman
  */
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		}
 
 		/**
-		 * Load OptionTree on the 'after_setup_theme' action. Then filters will
+		 * Load Prince on the 'after_setup_theme' action. Then filters will
 		 * be availble to the theme, and not only when in Theme Mode.
 		 *
 		 * @return    void
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		/**
 		 * Constants
 		 *
-		 * Defines the constants for use within OptionTree. Constants
+		 * Defines the constants for use within Prince. Constants
 		 * are prefixed with 'OT_' to avoid any naming collisions.
 		 *
 		 * @return    void
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			add_action( 'admin_init', 'prince_create_media_post', 8 );
 
 			/* Google Fonts front-end CSS */
-			add_action( 'wp_enqueue_scripts', 'ot_load_google_fonts_css', 1 );
+			add_action( 'wp_enqueue_scripts', 'prince_load_google_fonts_css', 1 );
 
 			/* dynamic front-end CSS */
 			add_action( 'wp_enqueue_scripts', 'prince_load_dynamic_css', 999 );
@@ -166,7 +166,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			add_action( 'wp_ajax_add_social_links', array( $this, 'add_social_links' ) );
 
 			/* AJAX call to retrieve Google Font data */
-			add_action( 'wp_ajax_ot_google_font', array( $this, 'retrieve_google_font' ) );
+			add_action( 'wp_ajax_prince_google_font', array( $this, 'retrieve_google_font' ) );
 
 			// Adds the temporary hacktastic shortcode
 			add_filter( 'media_view_settings', array( $this, 'shortcode' ), 10, 2 );
@@ -243,7 +243,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 				return $settings;
 			}
 
-			// Set the OptionTree post ID
+			// Set the Prince post ID
 			if ( ! is_object( $post ) ) {
 				$post_id = isset( $_GET['post'] ) ? $_GET['post'] : ( isset( $_GET['post_ID'] ) ? $_GET['post_ID'] : 0 );
 				if ( $post_id == 0 && function_exists( 'prince_get_media_post_ID' ) ) {
@@ -258,7 +258,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			}
 
 			// Set the fake shortcode
-			$settings['ot_gallery'] = array( 'shortcode' => "[gallery id='{$settings['post']['id']}']" );
+			$settings['prince_gallery'] = array( 'shortcode' => "[gallery id='{$settings['post']['id']}']" );
 
 			// Return settings
 			return $settings;
@@ -332,9 +332,9 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			if ( $pagenow == apply_filters( 'prince_theme_options_parent_slug', 'themes.php' ) && 'default' == $domain && 'Insert into post' == $text ) {
 
 				// Once is enough.
-				remove_filter( 'gettext', array( $this, 'ot_change_image_button' ) );
+				remove_filter( 'gettext', array( $this, 'prince_change_image_button' ) );
 
-				return apply_filters( 'prince_upload_text', __( 'Send to OptionTree', 'prince-text-domain' ) );
+				return apply_filters( 'prince_upload_text', __( 'Send to Prince', 'prince-text-domain' ) );
 
 			}
 
@@ -345,13 +345,13 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 	}
 
 	/**
-	 * Instantiate the OptionTree loader class.
+	 * Instantiate the Prince loader class.
 	 *
 	 * @since     2.0
 	 */
 
 	$settings_loader = new Settings_Loader();
 
-	require_once __DIR__ . '/theme-mode/demo-theme-options.php';
+	require_once __DIR__ . '/demo/prince-theme-options.php';
 
 }

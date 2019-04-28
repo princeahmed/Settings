@@ -1,15 +1,15 @@
 <?php
 /**
- * OptionTree Settings.
+ * Prince Settings.
  *
- * @package OptionTree
+ * @package Prince
  */
 
 
 if ( ! class_exists( 'Settings' ) ) {
 
 	/**
-	 * OptionTree Settings class.
+	 * Prince Settings class.
 	 *
 	 * This class loads all the methods and helpers specific to a Settings page.
 	 */
@@ -241,36 +241,36 @@ if ( ! class_exists( 'Settings' ) ) {
 
 						echo prince_alert_message( $page ); // phpcs:ignore
 
-						settings_errors( 'option-tree' );
+						settings_errors( 'prince' );
 
 						// Header.
-						echo '<div id="option-tree-header-wrap">';
+						echo '<div id="prince-header-wrap">';
 
-						echo '<ul id="option-tree-header">';
+						echo '<ul id="prince-header">';
 
-						$link = '<a href="https://wordpress.org/plugins/option-tree/" target="_blank">' . esc_html__( 'OptionTree', 'prince-text-domain' ) . '</a>';
-						echo '<li id="option-tree-logo">' . wp_kses_post( apply_filters( 'prince_header_logo_link', $link, $page['id'] ) ) . '</li>';
+						$link = '<a href="https://wordpress.org/plugins/prince/" target="_blank">' . esc_html__( 'Prince', 'prince-text-domain' ) . '</a>';
+						echo '<li id="prince-logo">' . wp_kses_post( apply_filters( 'prince_header_logo_link', $link, $page['id'] ) ) . '</li>';
 
-						echo '<li id="option-tree-version"><span>' . esc_html( apply_filters( 'prince_header_version_text', 'OptionTree ' , $page['id'] ) ) . '</span></li>';
+						echo '<li id="prince-version"><span>' . esc_html( apply_filters( 'prince_header_version_text', 'Prince ' , $page['id'] ) ) . '</span></li>';
 
 						// Add additional theme specific links here.
-						do_action( 'ot_header_list', $page['id'] );
+						do_action( 'prince_header_list', $page['id'] );
 
 						echo '</ul>';
 						echo '</div>';
 
 						// Remove forms on the custom settings pages.
 						if ( $show_buttons ) {
-							echo '<form action="options.php" method="post" id="option-tree-settings-api">';
+							echo '<form action="options.php" method="post" id="prince-settings-api">';
 							settings_fields( $option['id'] );
 						} else {
-							echo '<div id="option-tree-settings-api">';
+							echo '<div id="prince-settings-api">';
 						}
 
 						// Sub Header.
-						echo '<div id="option-tree-sub-header">';
+						echo '<div id="prince-sub-header">';
 						if ( $show_buttons ) {
-							echo '<button class="option-tree-ui-button button button-primary right">' . esc_html( $page['button_text'] ) . '</button>';
+							echo '<button class="prince-ui-button button button-primary right">' . esc_html( $page['button_text'] ) . '</button>';
 						}
 						echo '</div>';
 
@@ -283,7 +283,9 @@ if ( ! class_exists( 'Settings' ) ) {
 
 							// Loop through page sections.
 							foreach ( (array) $page['sections'] as $section ) {
-								echo '<li id="tab_' . esc_attr( $section['id'] ) . '"><a href="#section_' . esc_attr( $section['id'] ) . '">' . wp_kses_post( $section['title'] ) . '</a></li>';
+								$icon = !empty($section['icon']) ? '<i class="'.$section['icon'].'"></i> ' : '';
+
+								echo '<li id="tab_' . esc_attr( $section['id'] ) . '"><a href="#section_' . esc_attr( $section['id'] ) . '">' . $icon . wp_kses_post( $section['title'] ) . '</a></li>';
 							}
 
 							echo '</ul>';
@@ -311,9 +313,9 @@ if ( ! class_exists( 'Settings' ) ) {
 						// Buttons.
 						if ( $show_buttons ) {
 
-							echo '<div class="option-tree-ui-buttons">';
+							echo '<div class="prince-ui-buttons">';
 
-							echo '<button class="option-tree-ui-button button button-primary right">' . esc_html( $page['button_text'] ) . '</button>';
+							echo '<button class="prince-ui-button button button-primary right">' . esc_html( $page['button_text'] ) . '</button>';
 
 							echo '</div>';
 						}
@@ -330,7 +332,7 @@ if ( ! class_exists( 'Settings' ) ) {
 
 							echo '<input type="hidden" name="action" value="reset" />';
 
-							echo '<button type="submit" class="option-tree-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Options', 'prince-text-domain' ) . '">' . esc_html__( 'Reset Options', 'prince-text-domain' ) . '</button>';
+							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Options', 'prince-text-domain' ) . '">' . esc_html__( 'Reset Options', 'prince-text-domain' ) . '</button>';
 
 							echo '</form>';
 						}
@@ -567,7 +569,7 @@ if ( ! class_exists( 'Settings' ) ) {
 										'std'       => '',
 										'type'      => 'text',
 										'rows'      => '',
-										'class'     => 'option-tree-setting-title',
+										'class'     => 'prince-setting-title',
 										'post_type' => '',
 										'choices'   => array(),
 									),
@@ -679,7 +681,7 @@ if ( ! class_exists( 'Settings' ) ) {
 											$id = $setting['id'] . '_' . $ckey . '_' . $key;
 
 											if ( ! in_array( $id, $wpml_ids, true ) ) {
-												ot_wpml_unregister_string( $id );
+												prince_wpml_unregister_string( $id );
 											}
 										}
 									}
@@ -705,7 +707,7 @@ if ( ! class_exists( 'Settings' ) ) {
 											$id = $setting['id'] . '_' . $ckey . '_' . $key;
 
 											if ( ! in_array( $id, $wpml_ids, true ) ) {
-												ot_wpml_unregister_string( $id );
+												prince_wpml_unregister_string( $id );
 											}
 										}
 									}
@@ -842,7 +844,7 @@ if ( ! class_exists( 'Settings' ) ) {
 				 * @param string $page       The page slug.
 				 * @param string $section_id The section ID.
 				 */
-				do_action( 'ot_do_settings_fields_before', $page, $section_id );
+				do_action( 'prince_do_settings_fields_before', $page, $section_id );
 
 				$this->do_settings_fields( $page, $section_id );
 
@@ -854,7 +856,7 @@ if ( ! class_exists( 'Settings' ) ) {
 				 * @param string $page       The page slug.
 				 * @param string $section_id The section ID.
 				 */
-				do_action( 'ot_do_settings_fields_after', $page, $section_id );
+				do_action( 'prince_do_settings_fields_after', $page, $section_id );
 
 				echo '</div>';
 
