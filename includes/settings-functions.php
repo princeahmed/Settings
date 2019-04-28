@@ -943,7 +943,7 @@ if ( ! function_exists( 'prince_admin_styles' ) ) {
 		wp_enqueue_style( 'wp-color-picker' );
 
 		/* load admin styles */
-		wp_enqueue_style( 'ot-admin-css', OT_URL . 'assets/css/ot-admin.css', false, false );
+		wp_enqueue_style( 'ot-admin-css', OT_URL . 'assets/prince.min.css', false, false );
 
 		/* load the RTL stylesheet */
 		$wp_styles->add_data( 'ot-admin-css', 'rtl', true );
@@ -1018,23 +1018,13 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 		/* load Ace Editor for CSS Editing */
 		wp_enqueue_script( 'ace-editor', 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js', null, '1.1.3' );
 
-		/* load jQuery UI timepicker addon */
-		wp_enqueue_script( 'jquery-ui-timepicker', OT_URL . 'assets/js/vendor/jquery/jquery-ui-timepicker.js', array(
-			'jquery',
-			'jquery-ui-slider',
-			'jquery-ui-datepicker'
-		), '1.4.3' );
-
 		/* load all the required scripts */
-		wp_enqueue_script( 'ot-admin-js', OT_URL . 'assets/js/ot-admin.js', array(
+		wp_enqueue_script( 'prince', OT_URL . 'assets/prince.min.js', array(
 			'jquery',
 			'jquery-ui-tabs',
-			'jquery-ui-sortable',
 			'jquery-ui-slider',
-			'wp-color-picker',
-			'ace-editor',
 			'jquery-ui-datepicker',
-			'jquery-ui-timepicker'
+			'wp-color-picker',
 		), false );
 
 		/* create localized JS array */
@@ -1060,7 +1050,7 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 		);
 
 		/* localized script attached to 'option_tree' */
-		wp_localize_script( 'ot-admin-js', 'option_tree', $localized_array );
+		wp_localize_script( 'prince', 'option_tree', $localized_array );
 
 		/* execute scripts after actions */
 		do_action( 'ot_admin_scripts_after' );
@@ -4427,7 +4417,7 @@ if ( ! function_exists( 'prince_fetch_google_fonts' ) ) {
 				'sort'   => $prince_google_fonts_sort
 			);
 
-			trace($prince_google_fonts_query_args);
+			trace( $prince_google_fonts_query_args );
 
 			/* Build and make the request */
 			$prince_google_fonts_query    = esc_url_raw( add_query_arg( $prince_google_fonts_query_args, $prince_google_fonts_api_url ) );

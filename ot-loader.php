@@ -352,6 +352,6 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 
 	$settings_loader = new Settings_Loader();
 
-	require_once __DIR__ . '/assets.bk/theme-mode/demo-theme-options.php';
+	require_once __DIR__ . '/theme-mode/demo-theme-options.php';
 
 }

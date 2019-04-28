@@ -1,46 +1,20 @@
 const webpack = require('webpack');
 const path = require('path');
-const glob = require('glob');
-const pkg = require('./package.json');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const glob = require('glob-all');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const FileManagerPlugin = require('filemanager-webpack-plugin');
-const wpPot = require('wp-pot');
 
 //project Mode Development|Production
 const mode = 'development';
 
-//run only on --build command
-const build = process.argv[2] === '--build' ? new FileManagerPlugin({
-    onEnd: {
-        copy: [
-            { source: './src', destination: './build' }
-        ],
-        archive: [
-            { source: './src/images', destination: './build/images.zip' }
-        ]
-    }
-}) : () => {return false};
-
-const wppot = process.argv[2] === '--build' ? () => {
-    new wpPot({
-        destFile: 'file.pot',
-        domain: 'domain',
-        package: 'Example project',
-    });
-} : () => {return false};
-
 module.exports = {
+
     mode: mode,
-    entry: {
-        public: [
-           __dirname + '/src/css/ot-admin.css'
-        ]
-    },
+    entry: { prince: __dirname + '/src/prince.js' },
 
     output: {
-        filename: mode === 'production' ? '[name].min.js' : '[name].[chunkhash].js',
+        filename: '[name].min.js' ,
         path: path.resolve(__dirname, './assets')
     },
 
@@ -69,13 +43,12 @@ module.exports = {
                 })
             },
             {
-                test: /\.(jpg|png|gif)$/,
+                test: /\.(jpg|png|gif|ttf|eot|svg|woff)$/,
                 use: [
                     {
-                        loader: mode === 'production' ? 'url-loader' : 'file-loader',
+                        loader: 'file-loader',
                         options: {
-                            name: '[name].[ext]',
-                            limit: mode === 'production' ? 8192 : false
+                            name: '[name].[ext]'
                         }
                     },
                     {
@@ -93,14 +66,14 @@ module.exports = {
 
     plugins: [
 
-        new ExtractTextPlugin(mode === 'production' ? '[name].min.css' : '[name].[chunkhash].css'),
+        new ExtractTextPlugin('[name].min.css'),
 
         new webpack.LoaderOptionsPlugin({
-            minimize: mode === 'production'
+            minimize: true
         }),
 
         new PurgecssPlugin({
-            paths: glob.sync('**/*.php')
+            paths: glob.sync(['./src/js/ot-admin.js', './includes/*.php'])
         }),
 
         new CleanWebpackPlugin({
@@ -109,21 +82,7 @@ module.exports = {
             dry: false,
             cleanStaleWebpackAssets: true,
             watch: false
-        }),
-
-        function () {
-            this.plugin('done', stats => {
-                require('fs').writeFileSync(
-                    path.join(__dirname, 'assets/manifest.json'),
-                    JSON.stringify(stats.toJson().assetsByChunkName)
-                );
-            });
-        }
-
-       // build,
-
-       // wppot
-
+        })
 
     ]
 };
