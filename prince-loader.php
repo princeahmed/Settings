@@ -9,7 +9,8 @@
  * License:     GPLv3
  * Text Domain: prince
  */
-include __DIR__ . '/includes/settings-functions.php';
+
+
 /**
  * This is the Prince loader class.
  *
@@ -51,6 +52,9 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			/* include the required admin files */
 			$this->admin_includes();
 
+			/* include the required frontend files*/
+			$this->includes();
+
 			/* hook into WordPress */
 			$this->hooks();
 		}
@@ -67,8 +71,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @since     2.0
 		 */
 		private function constants() {
-			define( 'OT_DIR', plugin_dir_path( __FILE__ ) );
-			define( 'OT_URL', plugin_dir_url( __FILE__ ) );
+			define( 'PRINCE_ASSETS_URL', trailingslashit(plugin_dir_url( __FILE__ ).'/assets') );
 		}
 
 		/**
@@ -90,10 +93,10 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 
 			/* global include files */
 			$files = array(
+				'admin-functions',
+				'settings-types',
 				'settings-api',
 				'meta-box-api',
-				'settings-types',
-				'settings-functions',
 			);
 
 			/* require the files */
@@ -104,6 +107,11 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			/* Registers the Theme Option page */
 			add_action( 'init', 'prince_register_theme_options_page' );
 
+		}
+
+		/* include frontend files */
+		public function includes(){
+			include( __DIR__ . "\includes" . DIRECTORY_SEPARATOR . "frontend-functions.php" );
 		}
 
 		/**
@@ -126,7 +134,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 
 
 			/* Adds the Theme Option page to the admin bar */
-			add_action( 'admin_bar_menu', 'prince_register_theme_options_admin_bar_menu', 999 );
+			add_action( 'admin_bar_menu', 'prince_register_theme_options_admin_bar_menu', 10 );
 
 			/* prepares the after save do_action */
 			add_action( 'admin_init', 'prince_after_theme_options_save', 1 );
@@ -141,7 +149,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			add_action( 'admin_init', 'prince_create_media_post', 8 );
 
 			/* Google Fonts front-end CSS */
-			add_action( 'wp_enqueue_scripts', 'prince_load_google_fonts_css', 1 );
+			add_action( 'wp_enqueue_scripts', 'prince_load_google_fonts_css', 11 );
 
 			/* dynamic front-end CSS */
 			add_action( 'wp_enqueue_scripts', 'prince_load_dynamic_css', 999 );
@@ -312,6 +320,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 					'variants' => prince_recognized_google_font_variants( $_POST['field_id'], $_POST['family'] ),
 					'subsets'  => prince_recognized_google_font_subsets( $_POST['field_id'], $_POST['family'] )
 				) );
+
 				exit();
 
 			}
@@ -353,5 +362,6 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 	$settings_loader = new Settings_Loader();
 
 	require_once __DIR__ . '/demo/prince-theme-options.php';
+	require_once __DIR__ . '/demo/demo-meta-boxes.php';
 
 }

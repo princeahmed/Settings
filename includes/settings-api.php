@@ -248,10 +248,10 @@ if ( ! class_exists( 'Settings' ) ) {
 
 						echo '<ul id="prince-header">';
 
-						$link = '<a href="https://wordpress.org/plugins/prince/" target="_blank">' . esc_html__( 'Prince', 'prince-text-domain' ) . '</a>';
+						$link = '<a href="https://wordpress.org/plugins/prince/" target="_blank"> <img src="' . PRINCE_ASSETS_URL . 'Prince-Crown-Logo-White-50x44.png"> </a>';
 						echo '<li id="prince-logo">' . wp_kses_post( apply_filters( 'prince_header_logo_link', $link, $page['id'] ) ) . '</li>';
 
-						echo '<li id="prince-version"><span>' . esc_html( apply_filters( 'prince_header_version_text', 'Prince ' , $page['id'] ) ) . '</span></li>';
+						echo '<li id="prince-version"><span>' . esc_html( apply_filters( 'prince_header_version_text', 'Prince', $page['id'] ) ) . '</span></li>';
 
 						// Add additional theme specific links here.
 						do_action( 'prince_header_list', $page['id'] );
@@ -283,7 +283,7 @@ if ( ! class_exists( 'Settings' ) ) {
 
 							// Loop through page sections.
 							foreach ( (array) $page['sections'] as $section ) {
-								$icon = !empty($section['icon']) ? '<i class="'.$section['icon'].'"></i> ' : '';
+								$icon = ! empty( $section['icon'] ) ? '<i class="' . $section['icon'] . '"></i> ' : '';
 
 								echo '<li id="tab_' . esc_attr( $section['id'] ) . '"><a href="#section_' . esc_attr( $section['id'] ) . '">' . $icon . wp_kses_post( $section['title'] ) . '</a></li>';
 							}
@@ -531,6 +531,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		 * Sanitize callback for register_setting()
 		 *
 		 * @param mixed $input The setting input.
+		 *
 		 * @return string
 		 *
 		 * @access public
@@ -558,7 +559,10 @@ if ( ! class_exists( 'Settings' ) ) {
 							$current_options  = get_option( $option['id'] );
 
 							// Validate setting.
-							if ( is_array( $input[ $setting['id'] ] ) && in_array( $setting['type'], array( 'list-item', 'slider' ), true ) ) {
+							if ( is_array( $input[ $setting['id'] ] ) && in_array( $setting['type'], array(
+									'list-item',
+									'slider'
+								), true ) ) {
 
 								// Required title setting.
 								$required_setting = array(
@@ -605,7 +609,7 @@ if ( ! class_exists( 'Settings' ) ) {
 
 											// Validate setting.
 											$input[ $setting['id'] ][ $k ][ $sub_setting['id'] ] = prince_validate_setting( $input[ $setting['id'] ][ $k ][ $sub_setting['id'] ], $sub_setting['type'], $sub_setting['id'], $wpml_id );
-											$has_value = true;
+											$has_value                                           = true;
 										}
 									}
 
@@ -649,7 +653,7 @@ if ( ! class_exists( 'Settings' ) ) {
 
 											if ( ! empty( $input_safe ) ) {
 												$input[ $setting['id'] ][ $k ][ $sub_setting['id'] ] = $input_safe;
-												$has_value = true;
+												$has_value                                           = true;
 											}
 										}
 									}
@@ -664,7 +668,10 @@ if ( ! class_exists( 'Settings' ) ) {
 						}
 
 						// Unregister WPML strings that were deleted from lists and sliders.
-						if ( isset( $current_settings['settings'] ) && isset( $setting['type'] ) && in_array( $setting['type'], array( 'list-item', 'slider' ), true ) ) {
+						if ( isset( $current_settings['settings'] ) && isset( $setting['type'] ) && in_array( $setting['type'], array(
+								'list-item',
+								'slider'
+							), true ) ) {
 
 							if ( ! isset( $wpml_ids ) ) {
 								$wpml_ids = array();
@@ -725,6 +732,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		 * Helper function to get the pages array for an option
 		 *
 		 * @param  array $option Option array.
+		 *
 		 * @return mixed
 		 *
 		 * @access public
@@ -751,6 +759,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		 * Helper function to get the sections array for a page
 		 *
 		 * @param  array $page Page array.
+		 *
 		 * @return mixed
 		 *
 		 * @access public
@@ -777,6 +786,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		 * Helper function to get the settings array for a page
 		 *
 		 * @param  array $page Page array.
+		 *
 		 * @return mixed
 		 *
 		 * @access public
@@ -806,6 +816,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		 * @global $wp_settings_fields   Storage array of settings fields and info about their pages/sections.
 		 *
 		 * @param  string $page The slug name of the page whos settings sections you want to output.
+		 *
 		 * @return string
 		 *
 		 * @access public
@@ -841,7 +852,7 @@ if ( ! class_exists( 'Settings' ) ) {
 				 *
 				 * @since 2.6.0
 				 *
-				 * @param string $page       The page slug.
+				 * @param string $page The page slug.
 				 * @param string $section_id The section ID.
 				 */
 				do_action( 'prince_do_settings_fields_before', $page, $section_id );
@@ -853,7 +864,7 @@ if ( ! class_exists( 'Settings' ) ) {
 				 *
 				 * @since 2.6.0
 				 *
-				 * @param string $page       The page slug.
+				 * @param string $page The page slug.
 				 * @param string $section_id The section ID.
 				 */
 				do_action( 'prince_do_settings_fields_after', $page, $section_id );
@@ -870,8 +881,9 @@ if ( ! class_exists( 'Settings' ) ) {
 		 *
 		 * @global $wp_settings_fields Storage array of settings fields and their pages/sections
 		 *
-		 * @param  string $page    Slug title of the admin page who's settings fields you want to show.
+		 * @param  string $page Slug title of the admin page who's settings fields you want to show.
 		 * @param  string $section Slug title of the settings section who's fields you want to show.
+		 *
 		 * @return string
 		 *
 		 * @access public
@@ -890,8 +902,13 @@ if ( ! class_exists( 'Settings' ) ) {
 
 				if ( isset( $field['args']['condition'] ) && ! empty( $field['args']['condition'] ) ) {
 
-					$conditions  = ' data-condition="' . esc_attr( $field['args']['condition'] ) . '"';
-					$conditions .= isset( $field['args']['operator'] ) && in_array( $field['args']['operator'], array( 'and', 'AND', 'or', 'OR' ), true ) ? ' data-operator="' . esc_attr( $field['args']['operator'] ) . '"' : '';
+					$conditions = ' data-condition="' . esc_attr( $field['args']['condition'] ) . '"';
+					$conditions .= isset( $field['args']['operator'] ) && in_array( $field['args']['operator'], array(
+						'and',
+						'AND',
+						'or',
+						'OR'
+					), true ) ? ' data-operator="' . esc_attr( $field['args']['operator'] ) . '"' : '';
 				}
 
 				// Build the setting CSS class.
@@ -958,6 +975,7 @@ if ( ! class_exists( 'Settings' ) ) {
 					}
 				}
 			}
+
 			return false;
 		}
 	}

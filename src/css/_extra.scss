@@ -1,21 +1,35 @@
-.wrap.settings-wrap{
-  .ui-tabs-nav{
+.wrap.settings-wrap, .prince-metabox-wrapper {
+  .ui-tabs-nav {
     margin-top: -15px;
-    &>li{
+
+    & > li {
       margin-left: 3px;
 
-      &>a{
-        border-bottom: 1px dashed #ddd;
-        padding: 8px 5px 8px 12px;
+      & > a {
+        border-bottom: 1px dashed #ddd !important;
+        padding: 8px 5px 8px 12px !important;
+
+        &:focus {
+          box-shadow: none !important;
+        }
       }
 
-      &.ui-tabs-active{
-        background: #000 !important;
-        &>a{
-          color: #fff;
-          &:hover{
+      &.ui-tabs-active, &.ui-state-active {
+        background: #333 !important;
+
+        & > a {
+          color: #fff !important;
+          border-bottom: 1px solid transparent !important;
+
+          &:hover {
             color: darken(#fff, 15%);
           }
+        }
+      }
+
+      &:last-child {
+        & > a {
+          border-bottom: 1px solid transparent !important;
         }
       }
 
@@ -24,6 +38,6 @@
 }
 
 //reset btn
-button.reset-settings{
+button.reset-settings {
   margin-top: -8px !important;
 }

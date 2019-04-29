@@ -1245,19 +1245,11 @@
   padding: 3px 12px 3px 13px;
   width: 20px;
 }
-#prince-header #prince-logo a:before {
-  content: "\e785";
-  font: normal 20px/1 "prince-font" !important;
-  speak: none;
-  padding: 2px 0;
-  height: 24px;
-  width: 20px;
-  display: inline-block;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-transition: all .1s ease-in-out;
-  -moz-transition:    all .1s ease-in-out;
-  transition:         all .1s ease-in-out;
+#prince-header #prince-logo a>img {
+  position: absolute;
+  top: 0;
+  height: 80%;
+  margin: 2px -3px 0 -3px;
 }
 #prince-header li#prince-logo:hover {
   background-color: #222;
@@ -1277,6 +1269,7 @@
   height: 24px;
   line-height: 24px;
   padding: 3px 12px 3px 12px;
+  color: #fff;
 }
 #prince-header #theme-version:before {
   border-right: 1px solid #000;
@@ -3760,6 +3753,7 @@ a.ui-datepicker-next {
 .prince-metabox-tabs.ui-tabs {
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 .prince-metabox-tabs.ui-tabs .prince-metabox-wrapper {
   overflow: hidden;
@@ -3778,22 +3772,21 @@ a.ui-datepicker-next {
 .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav {
   float: left;
   list-style: none;
-  margin: 0 -1px 0 0;
-  padding: 18px 0 12px 0;
+  margin: 7px -1px 0 0;
+  padding: 0;
   width: 151px;
+  border: 1px solid #ddd;
 }
 .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li,
 .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-focus {
   background: none;
   border: 1px solid transparent;
-  border-right-width: 0px;
+  border-right-width: 0;
   display: block;
   margin: 0;
   outline: 0;
-  padding: 1px 0;
+  padding: 0;
   width: 150px;
-  -webkit-border-radius: 2px 0 0 2px;
-  -moz-border-radius: 2px 0 0 2px;
   border-radius: 2px 0 0 2px;
 }
 .prince-metabox-tabs.ui-tabs .prince-metabox-nav.ui-tabs-nav li.ui-state-active {
