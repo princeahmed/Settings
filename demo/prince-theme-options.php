@@ -1,9 +1,9 @@
-<span class="prince-icon-dashboard"></span>
 <?php
+
 /**
  * Initialize the custom Theme Options.
  */
-add_action( 'init', 'prince_theme_options' );
+//add_action( 'init', 'prince_theme_options' );
 
 /**
  * Build the custom settings & update Prince.
@@ -27,6 +27,7 @@ function prince_theme_options() {
 	 * Custom settings array that will eventually be
 	 * passes to the Prince Settings API Class.
 	 */
+
 	$custom_settings = array(
 		'contextual_help' => array(
 			'content' => array(
