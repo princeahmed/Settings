@@ -42,7 +42,7 @@
 /**
  * Custom Theme Option page
  */
-# add_filter( 'prince_use_theme_options', '__return_true' );
+# add_filter( 'prince_use_settings', '__return_true' );
 
 /**
  * Meta Boxes

@@ -1,22 +1,23 @@
 <?php
 /**
- * Plugin Name: Options
- * Plugin URI:  https://github.com/valendesigns/prince/
+ * Plugin Name: Prince Settings
+ * Plugin URI:  https://github.com/princeahmed/prince/
  * Description: Settings UI Builder for WordPress. A simple way to create & save Settings and Meta Boxes for free or premium themes.
- * Version:     2.6.0
- * Author:      Derek Herman
- * Author URI:  http://valendesigns.com
+ * Version:     1.0.0
+ * Author:      Prince Ahmed
+ * Author URI:  http://princeahmed.com
  * License:     GPLv3
- * Text Domain: prince
+ * Text Domain: prince-text-doamin
  */
 
+//todo: change the text domain with the plugin's text domain
 
 /**
- * This is the Prince loader class.
+ * This is the Settings loader class.
  *
  * @package   Prince
- * @author    Derek Herman <derek@valendesigns.com>
- * @copyright Copyright (c) 2013, Derek Herman
+ * @author    Prince Ahmed <israilahmed5@gmail.com>
+ * @copyright Copyright (c) 2019, Prince Ahmed
  */
 if ( ! class_exists( 'Settings_Loader' ) ) {
 
@@ -30,10 +31,10 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    void
 		 *
 		 * @access    public
-		 * @since     2.0
+		 * @since     1.0.0
 		 */
 		public function __construct() {
-			add_action( 'plugins_loaded', array( $this, 'load_option_tree' ), 1 );
+			add_action( 'plugins_loaded', array( $this, 'load_prince_settings' ), 1 );
 		}
 
 		/**
@@ -43,9 +44,9 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    void
 		 *
 		 * @access    public
-		 * @since     2.1.2
+		 * @since     1.0.0.2
 		 */
-		public function load_option_tree() {
+		public function load_prince_settings() {
 			/* setup the constants */
 			$this->constants();
 
@@ -68,7 +69,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    void
 		 *
 		 * @access    private
-		 * @since     2.0
+		 * @since     1.0.0
 		 */
 		private function constants() {
 			define( 'PRINCE_ASSETS_URL', trailingslashit(plugin_dir_url( __FILE__ ).'/assets') );
@@ -82,7 +83,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    void
 		 *
 		 * @access    private
-		 * @since     2.0
+		 * @since     1.0.0
 		 */
 		private function admin_includes() {
 
@@ -105,7 +106,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			}
 
 			/* Registers the Theme Option page */
-			add_action( 'init', 'prince_register_theme_options_page' );
+			add_action( 'init', 'prince_register_settings_page' );
 
 		}
 
@@ -120,7 +121,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    void
 		 *
 		 * @access    public
-		 * @since     2.0
+		 * @since     1.0.0
 		 */
 		private function hooks() {
 
@@ -134,10 +135,10 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 
 
 			/* Adds the Theme Option page to the admin bar */
-			add_action( 'admin_bar_menu', 'prince_register_theme_options_admin_bar_menu', 10 );
+			add_action( 'admin_bar_menu', 'prince_register_settings_admin_bar_menu', 10 );
 
 			/* prepares the after save do_action */
-			add_action( 'admin_init', 'prince_after_theme_options_save', 1 );
+			add_action( 'admin_init', 'prince_after_settings_save', 1 );
 
 			/* default settings */
 			add_action( 'admin_init', 'prince_default_settings', 2 );
@@ -155,7 +156,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 			add_action( 'wp_enqueue_scripts', 'prince_load_dynamic_css', 999 );
 
 			/* insert theme CSS dynamically */
-			add_action( 'prince_after_theme_options_save', 'prince_save_css' );
+			add_action( 'prince_after_settings_save', 'prince_save_css' );
 
 			/* AJAX call to create a new contextual help */
 			add_action( 'wp_ajax_add_the_contextual_help', array( $this, 'add_the_contextual_help' ) );
@@ -242,7 +243,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    array
 		 *
 		 * @access    public
-		 * @since     2.2.0
+		 * @since     1.0.0
 		 */
 		public function shortcode( $settings, $post ) {
 			global $pagenow;
@@ -279,7 +280,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    string
 		 *
 		 * @access    public
-		 * @since     2.2.0
+		 * @since     1.0.0
 		 */
 		public function ajax_gallery_update() {
 
@@ -308,7 +309,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    array
 		 *
 		 * @access    public
-		 * @since     2.5.0
+		 * @since     1.0.0
 		 */
 		public function retrieve_google_font() {
 
@@ -333,12 +334,12 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 		 * @return    string
 		 *
 		 * @access    public
-		 * @since     2.1
+		 * @since     1.0.0
 		 */
 		public function change_image_button( $translation, $text, $domain ) {
 			global $pagenow;
 
-			if ( $pagenow == apply_filters( 'prince_theme_options_parent_slug', 'themes.php' ) && 'default' == $domain && 'Insert into post' == $text ) {
+			if ( $pagenow == apply_filters( 'prince_settings_parent_slug', 'themes.php' ) && 'default' == $domain && 'Insert into post' == $text ) {
 
 				// Once is enough.
 				remove_filter( 'gettext', array( $this, 'prince_change_image_button' ) );
@@ -356,7 +357,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 	/**
 	 * Instantiate the Prince loader class.
 	 *
-	 * @since     2.0
+	 * @since     1.0.0
 	 */
 
 	$settings_loader = new Settings_Loader();

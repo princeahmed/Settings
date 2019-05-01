@@ -5,8 +5,8 @@
  * This class loads all the methods and helpers specific to build a meta box.
  *
  * @package   Prince
- * @author    Derek Herman <derek@valendesigns.com>
- * @copyright Copyright (c) 2013, Derek Herman
+ * @author    Prince Ahmed <israilahmed5@gmail.com>
+ * @copyright Copyright (c) 2019, Prince Ahmed
  */
 if ( ! class_exists( 'MetaBox' ) ) {
 

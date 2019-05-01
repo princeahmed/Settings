@@ -61,7 +61,7 @@ if ( ! class_exists( 'Settings' ) ) {
 			/**
 			 * Filter the `admin_menu` action hook priority.
 			 *
-			 * @since 2.5.0
+			 * @since     1.0.0
 			 *
 			 * @param int $priority The priority. Default '10'.
 			 */
@@ -850,7 +850,7 @@ if ( ! class_exists( 'Settings' ) ) {
 				/**
 				 * Hook to insert arbitrary markup before the `do_settings_fields` method.
 				 *
-				 * @since 2.6.0
+				 * @since     1.0.0
 				 *
 				 * @param string $page The page slug.
 				 * @param string $section_id The section ID.
@@ -862,7 +862,7 @@ if ( ! class_exists( 'Settings' ) ) {
 				/**
 				 * Hook to insert arbitrary markup after the `do_settings_fields` method.
 				 *
-				 * @since 2.6.0
+				 * @since     1.0.0
 				 *
 				 * @param string $page The page slug.
 				 * @param string $section_id The section ID.

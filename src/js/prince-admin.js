@@ -3,10 +3,10 @@
  *
  * Dependencies: jQuery, jQuery UI, ColorPicker
  *
- * @author Derek Herman (derek@valendesigns.com)
+ * @author Prince Ahmed (israilahmed5@gmail.com)
  */
 (function ($) {
-    OT_UI = {
+    PRINCE = {
         processing: false,
         init: function () {
             this.init_hide_body();
@@ -75,7 +75,7 @@
                         stop: function (evt, ui) {
                             setTimeout(
                                 function () {
-                                    OT_UI.update_ids(elm);
+                                    PRINCE.update_ids(elm);
                                 },
                                 200
                             )
@@ -87,27 +87,27 @@
         init_add: function () {
             $(document).on('click', '.prince-section-add', function (e) {
                 e.preventDefault();
-                OT_UI.add(this, 'section');
+                PRINCE.add(this, 'section');
             });
             $(document).on('click', '.prince-setting-add', function (e) {
                 e.preventDefault();
-                OT_UI.add(this, 'setting');
+                PRINCE.add(this, 'setting');
             });
             $(document).on('click', '.prince-help-add', function (e) {
                 e.preventDefault();
-                OT_UI.add(this, 'the_contextual_help');
+                PRINCE.add(this, 'the_contextual_help');
             });
             $(document).on('click', '.prince-choice-add', function (e) {
                 e.preventDefault();
-                OT_UI.add(this, 'choice');
+                PRINCE.add(this, 'choice');
             });
             $(document).on('click', '.prince-list-item-add', function (e) {
                 e.preventDefault();
-                OT_UI.add(this, 'list_item');
+                PRINCE.add(this, 'list_item');
             });
             $(document).on('click', '.prince-social-links-add', function (e) {
                 e.preventDefault();
-                OT_UI.add(this, 'social_links');
+                PRINCE.add(this, 'social_links');
             });
             $(document).on('click', '.prince-list-item-setting-add', function (e) {
                 e.preventDefault();
@@ -115,21 +115,21 @@
                     alert(option_tree.setting_limit);
                     return false;
                 }
-                OT_UI.add(this, 'list_item_setting');
+                PRINCE.add(this, 'list_item_setting');
             });
         },
         init_edit: function () {
             $(document).on('click', '.prince-setting-edit', function (e) {
                 e.preventDefault();
                 if ($(this).parents().hasClass('prince-setting-body')) {
-                    OT_UI.init_remove_active($(this), 'child');
-                    OT_UI.init_hide_body($(this), 'child');
+                    PRINCE.init_remove_active($(this), 'child');
+                    PRINCE.init_hide_body($(this), 'child');
                 } else {
-                    OT_UI.init_remove_active($(this), 'parent');
-                    OT_UI.init_hide_body($(this), 'parent');
+                    PRINCE.init_remove_active($(this), 'parent');
+                    PRINCE.init_hide_body($(this), 'parent');
                 }
                 $(this).toggleClass('active');
-                OT_UI.init_hide_body($(this), 'toggle');
+                PRINCE.init_hide_body($(this), 'toggle');
             });
         },
         init_remove: function () {
@@ -142,9 +142,9 @@
                 var agree = confirm(option_tree.remove_agree);
                 if (agree) {
                     var list = $(this).parents('ul');
-                    OT_UI.remove(this);
+                    PRINCE.remove(this);
                     setTimeout(function () {
-                        OT_UI.update_ids(list);
+                        PRINCE.update_ids(list);
                     }, 200);
                 }
                 return false;
@@ -152,7 +152,7 @@
         },
         init_edit_title: function () {
             $(document).on('keyup', '.prince-setting-title', function () {
-                OT_UI.edit_title(this);
+                PRINCE.edit_title(this);
             });
             // Automatically fill option IDs with clean versions of their respective option labels
             $(document).on('blur', '.prince-setting-title', function () {
@@ -164,7 +164,7 @@
         },
         init_edit_id: function () {
             $(document).on('keyup', '.section-id', function () {
-                OT_UI.update_id(this);
+                PRINCE.update_id(this);
             });
         },
         init_activate_layout: function () {
@@ -246,11 +246,11 @@
                     },
                     complete: function (data) {
                         if (type === 'choice' || type === 'list_item_setting') {
-                            OT_UI.init_remove_active(list, 'child-add');
-                            OT_UI.init_hide_body(list, 'child-add');
+                            PRINCE.init_remove_active(list, 'child-add');
+                            PRINCE.init_hide_body(list, 'child-add');
                         } else {
-                            OT_UI.init_remove_active();
-                            OT_UI.init_hide_body();
+                            PRINCE.init_remove_active();
+                            PRINCE.init_hide_body();
                         }
                         var listItem = $('<li class="ui-state-default ' + list_class + '">' + data.responseText + '</li>');
                         list.append(listItem);
@@ -258,12 +258,12 @@
                         list.children().last().find('.prince-setting-body').toggle();
                         list.children().last().find('.prince-setting-title').focus();
                         if (type !== 'the_contextual_help') {
-                            OT_UI.update_ids(list);
+                            PRINCE.update_ids(list);
                         }
-                        OT_UI.init_sortable(listItem);
-                        OT_UI.init_select_wrapper(listItem);
-                        OT_UI.init_numeric_slider(listItem);
-                        OT_UI.parse_condition();
+                        PRINCE.init_sortable(listItem);
+                        PRINCE.init_select_wrapper(listItem);
+                        PRINCE.init_numeric_slider(listItem);
+                        PRINCE.parse_condition();
                         self.processing = false;
                     }
                 });
@@ -286,7 +286,7 @@
                 clearTimeout(e.timer);
             }
             this.timer = setTimeout(function () {
-                OT_UI.update_ids($(e).parents('ul'));
+                PRINCE.update_ids($(e).parents('ul'));
             }, 100);
             return true;
         },
@@ -330,13 +330,13 @@
             $('.format-settings[id^="setting_"][data-condition]').each(function () {
 
                 var passed;
-                var conditions = OT_UI.match_conditions($(this).data('condition'));
+                var conditions = PRINCE.match_conditions($(this).data('condition'));
                 var operator = ($(this).data('operator') || 'and').toLowerCase();
 
                 $.each(conditions, function (index, condition) {
 
                     var target = $('#setting_' + condition.check);
-                    var targetEl = !!target.length && target.find(OT_UI.condition_objects()).first();
+                    var targetEl = !!target.length && target.find(PRINCE.condition_objects()).first();
 
                     if (!target.length || (!targetEl.length && condition.value.toString() != '')) {
                         return;
@@ -405,18 +405,18 @@
                 };
             })();
 
-            $('.format-settings[id^="setting_"]').on('change.conditionals, keyup.conditionals', OT_UI.condition_objects(), function (e) {
+            $('.format-settings[id^="setting_"]').on('change.conditionals, keyup.conditionals', PRINCE.condition_objects(), function (e) {
                 if (e.type === 'keyup') {
                     // handle keyup event only once every 500ms
                     delay(function () {
-                        OT_UI.parse_condition();
+                        PRINCE.parse_condition();
                     }, 500);
                 } else {
-                    OT_UI.parse_condition();
+                    PRINCE.parse_condition();
                 }
-                OT_UI.load_editors();
+                PRINCE.load_editors();
             });
-            OT_UI.parse_condition();
+            PRINCE.parse_condition();
         },
         init_upload: function () {
             $(document).on('click', '.prince_upload_media', function () {
@@ -467,7 +467,7 @@
                             href = $(html).attr('href');
                         }
                         var image = /\.(?:jpe?g|png|gif|ico)$/i;
-                        if (href.match(image) && OT_UI.url_exists(href)) {
+                        if (href.match(image) && PRINCE.url_exists(href)) {
                             btnContent += '<div class="prince-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
                         }
                         btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon prince-icon-minus-circle"></span>' + option_tree.remove_media_text + '</a>';
@@ -475,7 +475,7 @@
                         $('#' + field_id + '_media').remove();
                         $('#' + field_id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + field_id + '_media" />');
                         $('#' + field_id + '_media').append(btnContent).slideDown();
-                        OT_UI.fix_upload_parent();
+                        PRINCE.fix_upload_parent();
                         tb_remove();
                         window.clearInterval(intval);
                         window.send_to_editor = backup;
@@ -489,7 +489,7 @@
                 event.preventDefault();
                 var agree = confirm(option_tree.remove_agree);
                 if (agree) {
-                    OT_UI.remove_image(this);
+                    PRINCE.remove_image(this);
                     return false;
                 }
                 return false;
@@ -507,7 +507,7 @@
             if (val != src) {
                 img.attr('src', val);
             }
-            if (val !== '' && (typeof src == 'undefined' || src == false) && OT_UI.url_exists(val)) {
+            if (val !== '' && (typeof src == 'undefined' || src == false) && PRINCE.url_exists(val)) {
                 var image = /\.(?:jpe?g|png|gif|ico)$/i;
                 if (val.match(image)) {
                     btnContent += '<div class="prince-ui-image-wrap"><img src="' + val + '" alt="" /></div>';
@@ -517,7 +517,7 @@
                 $('#' + id + '_media').remove();
                 $('#' + id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + id + '_media" />');
                 $('#' + id + '_media').append(btnContent).slideDown();
-            } else if (val == '' || !OT_UI.url_exists(val)) {
+            } else if (val == '' || !PRINCE.url_exists(val)) {
                 $(elm).parent().next('.prince-ui-media-wrap').remove();
             }
         },
@@ -543,7 +543,7 @@
                         hidden.val($(this).slider('value'));
                     },
                     change: function () {
-                        OT_UI.parse_condition();
+                        PRINCE.parse_condition();
                     }
                 });
             });
@@ -659,10 +659,10 @@
         bind_colorpicker: function (field_id) {
             $('#' + field_id).wpColorPicker({
                 change: function () {
-                    OT_UI.parse_condition();
+                    PRINCE.parse_condition();
                 },
                 clear: function () {
-                    OT_UI.parse_condition();
+                    PRINCE.parse_condition();
                 }
             });
         },
@@ -685,7 +685,7 @@
         fix_upload_parent: function () {
             $('.prince-ui-upload-input').not('.prince-upload-attachment-id').on('focus blur', function () {
                 $(this).parent('.prince-ui-upload-parent').toggleClass('focus');
-                OT_UI.init_upload_fix(this);
+                PRINCE.init_upload_fix(this);
             });
         },
         remove_image: function (e) {
@@ -756,8 +756,8 @@
             });
         },
         load_editors: function () {
-            OT_UI.css_editor_mode();
-            OT_UI.javascript_editor_mode();
+            PRINCE.css_editor_mode();
+            PRINCE.javascript_editor_mode();
         },
         url_exists: function (url) {
             var link = document.createElement('a')
@@ -777,7 +777,7 @@
         }
     };
     $(document).ready(function () {
-        OT_UI.init();
+        PRINCE.init();
     });
 })(jQuery);
 
@@ -830,7 +830,7 @@
                             $(elm).parent().append('<a href="#" class="prince-ui-button button button-secondary hug-left prince-gallery-delete">' + option_tree.delete + '</a>');
                         }
                         $(elm).text(option_tree.edit);
-                        OT_UI.parse_condition();
+                        PRINCE.parse_condition();
                     }
                 })
             })
@@ -899,7 +899,7 @@
                 $(elm).parents('.format-setting-inner').children('.prince-gallery-list').remove();
                 $(elm).next('.prince-gallery-edit').text(option_tree.create);
                 $(elm).remove();
-                OT_UI.parse_condition();
+                PRINCE.parse_condition();
 
             }
 
@@ -972,7 +972,7 @@
                         if ($(this).find('.prince-metabox-panels').css('padding') == '12px' && child < parent) {
                             $(this).find('.prince-metabox-panels').css({minHeight: minHeight})
                         }
-                        OT_UI.load_editors();
+                        PRINCE.load_editors();
                     }
                 })
 
@@ -1042,7 +1042,7 @@
                 // Create the tabs
                 $(this).find('.prince-settings-tabs').tabs({
                     activate: function (event, ui) {
-                        OT_UI.load_editors();
+                        PRINCE.load_editors();
                     }
                 })
 

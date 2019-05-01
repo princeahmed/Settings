@@ -12,7 +12,7 @@ add_action( 'admin_init', 'custom_meta_boxes' );
  *
  * You can find all the available option types in demo-theme-options.php.
  *
- * @since 2.0
+ * @since     1.0.0
  */
 function custom_meta_boxes() {
 

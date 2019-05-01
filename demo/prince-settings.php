@@ -3,15 +3,15 @@
 /**
  * Initialize the custom Settings.
  */
-add_action( 'init', 'prince_theme_options' );
+add_action( 'init', 'prince_settings' );
 
 /**
  * Build the custom settings & update Prince.
  *
  * @return    void
- * @since     2.0
+ * @since     1.0.0
  */
-function prince_theme_options() {
+function prince_settings() {
 
 	/* Prince is not loaded yet, or this is not an admin request */
 	if ( ! function_exists( 'prince_settings_id' ) || ! is_admin() ) {
@@ -910,7 +910,7 @@ function prince_theme_options() {
 	}
 
 	/* Lets Prince know the UI Builder is being overridden */
-	global $prince_has_custom_theme_options;
-	$prince_has_custom_theme_options = true;
+	global $prince_has_custom_settings;
+	$prince_has_custom_settings = true;
 
 }

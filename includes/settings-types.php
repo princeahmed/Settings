@@ -3,9 +3,9 @@
  * Functions used to build each option type.
  *
  * @package   Prince
- * @author    Derek Herman <derek@valendesigns.com>
- * @copyright Copyright (c) 2013, Derek Herman
- * @since     2.0
+ * @author    Prince Ahmed <israilahmed5@gmail.com>
+ * @copyright Copyright (c) 2019, Prince Ahmed
+ * @since     1.0.0
  */
 
 /**
@@ -28,7 +28,7 @@
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_display_by_type' ) ) {
 
@@ -61,7 +61,7 @@ if ( ! function_exists( 'prince_display_by_type' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_background' ) ) {
 
@@ -114,7 +114,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 			echo '<div class="prince-ui-colorpicker-input-wrap">';
 
 			/* colorpicker JS */
-			echo '<script>jQuery(document).ready(function($) { OT_UI.bind_colorpicker("' . esc_attr( $field_id ) . '-picker"); });</script>';
+			echo '<script>jQuery(document).ready(function($) { PRINCE.bind_colorpicker("' . esc_attr( $field_id ) . '-picker"); });</script>';
 
 			/* set background color */
 			$background_color = isset( $field_value['background-color'] ) ? esc_attr( $field_value['background-color'] ) : '';
@@ -284,7 +284,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
  * @return    string    The markup.
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_border' ) ) {
 
@@ -366,7 +366,7 @@ if ( ! function_exists( 'prince_type_border' ) ) {
 			echo '<div class="prince-ui-colorpicker-input-wrap">';
 
 			/* colorpicker JS */
-			echo '<script>jQuery(document).ready(function($) { OT_UI.bind_colorpicker("' . esc_attr( $field_id ) . '-picker"); });</script>';
+			echo '<script>jQuery(document).ready(function($) { PRINCE.bind_colorpicker("' . esc_attr( $field_id ) . '-picker"); });</script>';
 
 			/* set color */
 			$color = isset( $field_value['color'] ) ? esc_attr( $field_value['color'] ) : '';
@@ -396,7 +396,7 @@ if ( ! function_exists( 'prince_type_border' ) ) {
  * @return    string    The markup.
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_box_shadow' ) ) {
 
@@ -479,7 +479,7 @@ if ( ! function_exists( 'prince_type_box_shadow' ) ) {
 			echo '<div class="prince-ui-colorpicker-input-wrap">';
 
 			/* colorpicker JS */
-			echo '<script>jQuery(document).ready(function($) { OT_UI.bind_colorpicker("' . esc_attr( $field_id ) . '-picker"); });</script>';
+			echo '<script>jQuery(document).ready(function($) { PRINCE.bind_colorpicker("' . esc_attr( $field_id ) . '-picker"); });</script>';
 
 			/* set color */
 			$color = isset( $field_value['color'] ) ? esc_attr( $field_value['color'] ) : '';
@@ -509,7 +509,7 @@ if ( ! function_exists( 'prince_type_box_shadow' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_category_checkbox' ) ) {
 
@@ -563,7 +563,7 @@ if ( ! function_exists( 'prince_type_category_checkbox' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_category_select' ) ) {
 
@@ -620,7 +620,7 @@ if ( ! function_exists( 'prince_type_category_select' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_checkbox' ) ) {
 
@@ -669,7 +669,7 @@ if ( ! function_exists( 'prince_type_checkbox' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  * @updated   2.2.0
  */
 if ( ! function_exists( 'prince_type_colorpicker' ) ) {
@@ -695,7 +695,7 @@ if ( ! function_exists( 'prince_type_colorpicker' ) ) {
 		echo '<div class="prince-ui-colorpicker-input-wrap">';
 
 		/* colorpicker JS */
-		echo '<script>jQuery(document).ready(function($) { OT_UI.bind_colorpicker("' . esc_attr( $field_id ) . '"); });</script>';
+		echo '<script>jQuery(document).ready(function($) { PRINCE.bind_colorpicker("' . esc_attr( $field_id ) . '"); });</script>';
 
 		/* set the default color */
 		$std = $field_std ? 'data-default-color="' . $field_std . '"' : '';
@@ -723,7 +723,7 @@ if ( ! function_exists( 'prince_type_colorpicker' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_colorpicker_opacity' ) ) {
 
@@ -746,7 +746,7 @@ if ( ! function_exists( 'prince_type_colorpicker_opacity' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_css' ) ) {
 
@@ -791,7 +791,7 @@ if ( ! function_exists( 'prince_type_css' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_custom_post_type_checkbox' ) ) {
 
@@ -855,7 +855,7 @@ if ( ! function_exists( 'prince_type_custom_post_type_checkbox' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_custom_post_type_select' ) ) {
 
@@ -922,7 +922,7 @@ if ( ! function_exists( 'prince_type_custom_post_type_select' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.3
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_date_picker' ) ) {
 
@@ -940,7 +940,7 @@ if ( ! function_exists( 'prince_type_date_picker' ) ) {
 		/**
 		 * Filter the addition of the readonly attribute.
 		 *
-		 * @since 2.5.0
+		 * @since     1.0.0
 		 *
 		 * @param bool $is_readonly Whether to add the 'readonly' attribute. Default 'false'.
 		 * @param string $field_id The field ID.
@@ -951,7 +951,7 @@ if ( ! function_exists( 'prince_type_date_picker' ) ) {
 		echo '<div class="format-setting type-date-picker ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
 
 		/* date picker JS */
-		echo '<script>jQuery(document).ready(function($) { OT_UI.bind_date_picker("' . esc_attr( $field_id ) . '", "' . esc_attr( $date_format ) . '"); });</script>';
+		echo '<script>jQuery(document).ready(function($) { PRINCE.bind_date_picker("' . esc_attr( $field_id ) . '", "' . esc_attr( $date_format ) . '"); });</script>';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -980,7 +980,7 @@ if ( ! function_exists( 'prince_type_date_picker' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.3
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_date_time_picker' ) ) {
 
@@ -998,7 +998,7 @@ if ( ! function_exists( 'prince_type_date_time_picker' ) ) {
 		/**
 		 * Filter the addition of the readonly attribute.
 		 *
-		 * @since 2.5.0
+		 * @since     1.0.0
 		 *
 		 * @param bool $is_readonly Whether to add the 'readonly' attribute. Default 'false'.
 		 * @param string $field_id The field ID.
@@ -1009,7 +1009,7 @@ if ( ! function_exists( 'prince_type_date_time_picker' ) ) {
 		echo '<div class="format-setting type-date-time-picker ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
 
 		/* date time picker JS */
-		echo '<script>jQuery(document).ready(function($) { OT_UI.bind_date_time_picker("' . esc_attr( $field_id ) . '", "' . esc_attr( $date_format ) . '"); });</script>';
+		echo '<script>jQuery(document).ready(function($) { PRINCE.bind_date_time_picker("' . esc_attr( $field_id ) . '", "' . esc_attr( $date_format ) . '"); });</script>';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1038,7 +1038,7 @@ if ( ! function_exists( 'prince_type_date_time_picker' ) ) {
  * @return    string    The markup.
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_dimension' ) ) {
 
@@ -1121,7 +1121,7 @@ if ( ! function_exists( 'prince_type_dimension' ) ) {
  * @return    string    The gallery metabox markup.
  *
  * @access    public
- * @since     2.2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_gallery' ) ) {
 
@@ -1218,7 +1218,7 @@ if ( ! function_exists( 'prince_type_gallery' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_google_fonts' ) ) {
 
@@ -1349,7 +1349,7 @@ if ( ! function_exists( 'prince_type_google_fonts' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_javascript' ) ) {
 
@@ -1394,7 +1394,7 @@ if ( ! function_exists( 'prince_type_javascript' ) ) {
  * @return    string    The markup.
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_link_color' ) ) {
 
@@ -1434,7 +1434,7 @@ if ( ! function_exists( 'prince_type_link_color' ) ) {
 				echo '<label for="' . esc_attr( $field_id ) . '-picker-' . $type . '" class="prince-ui-colorpicker-label">' . esc_attr( $label ) . '</label>';
 
 				/* colorpicker JS */
-				echo '<script>jQuery(document).ready(function($) { OT_UI.bind_colorpicker("' . esc_attr( $field_id ) . '-picker-' . $type . '"); });</script>';
+				echo '<script>jQuery(document).ready(function($) { PRINCE.bind_colorpicker("' . esc_attr( $field_id ) . '-picker-' . $type . '"); });</script>';
 
 				/* set color */
 				$color = isset( $field_value[ $type ] ) ? esc_attr( $field_value[ $type ] ) : '';
@@ -1469,7 +1469,7 @@ if ( ! function_exists( 'prince_type_link_color' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_list_item' ) ) {
 
@@ -1556,7 +1556,7 @@ if ( ! function_exists( 'prince_type_list_item' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_measurement' ) ) {
 
@@ -1612,7 +1612,7 @@ if ( ! function_exists( 'prince_type_measurement' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.1
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_numeric_slider' ) ) {
 
@@ -1665,7 +1665,7 @@ if ( ! function_exists( 'prince_type_numeric_slider' ) ) {
  * @return    string    The gallery metabox markup.
  *
  * @access    public
- * @since     2.2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_on_off' ) ) {
 
@@ -1692,7 +1692,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
 				/**
 				 * Filter the value of the On button.
 				 *
-				 * @since 2.5.0
+				 * @since     1.0.0
 				 *
 				 * @param string The On button value. Default 'on'.
 				 * @param string $field_id The field ID.
@@ -1702,7 +1702,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
 				/**
 				 * Filter the label of the On button.
 				 *
-				 * @since 2.5.0
+				 * @since     1.0.0
 				 *
 				 * @param string The On button label. Default 'On'.
 				 * @param string $field_id The field ID.
@@ -1714,7 +1714,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
 				/**
 				 * Filter the value of the Off button.
 				 *
-				 * @since 2.5.0
+				 * @since     1.0.0
 				 *
 				 * @param string The Off button value. Default 'off'.
 				 * @param string $field_id The field ID.
@@ -1724,7 +1724,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
 				/**
 				 * Filter the label of the Off button.
 				 *
-				 * @since 2.5.0
+				 * @since     1.0.0
 				 *
 				 * @param string The Off button label. Default 'Off'.
 				 * @param string $field_id The field ID.
@@ -1737,7 +1737,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
 		/**
 		 * Filter the width of the On/Off switch.
 		 *
-		 * @since 2.5.0
+		 * @since     1.0.0
 		 *
 		 * @param string The switch width. Default '100px'.
 		 * @param string $field_id The field ID.
@@ -1775,7 +1775,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_page_checkbox' ) ) {
 
@@ -1836,7 +1836,7 @@ if ( ! function_exists( 'prince_type_page_checkbox' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_page_select' ) ) {
 
@@ -1900,7 +1900,7 @@ if ( ! function_exists( 'prince_type_page_select' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_post_checkbox' ) ) {
 
@@ -1961,7 +1961,7 @@ if ( ! function_exists( 'prince_type_post_checkbox' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_post_select' ) ) {
 
@@ -2025,7 +2025,7 @@ if ( ! function_exists( 'prince_type_post_select' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_radio' ) ) {
 
@@ -2069,7 +2069,7 @@ if ( ! function_exists( 'prince_type_radio' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_radio_image' ) ) {
 
@@ -2109,7 +2109,7 @@ if ( ! function_exists( 'prince_type_radio_image' ) ) {
 			/**
 			 * Filter the image attributes.
 			 *
-			 * @since 2.5.3
+			 * @since     1.0.0
 			 *
 			 * @param string $attributes The image attributes.
 			 * @param string $field_id The field ID.
@@ -2141,7 +2141,7 @@ if ( ! function_exists( 'prince_type_radio_image' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_select' ) ) {
 
@@ -2201,7 +2201,7 @@ if ( ! function_exists( 'prince_type_select' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.1
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_sidebar_select' ) ) {
 
@@ -2267,7 +2267,7 @@ if ( ! function_exists( 'prince_type_sidebar_select' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_slider' ) ) {
 
@@ -2341,7 +2341,7 @@ if ( ! function_exists( 'prince_type_slider' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.4.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_social_links' ) ) {
 
@@ -2508,7 +2508,7 @@ if ( ! function_exists( 'prince_type_social_links' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_spacing' ) ) {
 
@@ -2611,7 +2611,7 @@ if ( ! function_exists( 'prince_type_spacing' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.3.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_tab' ) ) {
 
@@ -2641,7 +2641,7 @@ if ( ! function_exists( 'prince_type_tab' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_tag_checkbox' ) ) {
 
@@ -2695,7 +2695,7 @@ if ( ! function_exists( 'prince_type_tag_checkbox' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_tag_select' ) ) {
 
@@ -2752,7 +2752,7 @@ if ( ! function_exists( 'prince_type_tag_select' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_taxonomy_checkbox' ) ) {
 
@@ -2812,7 +2812,7 @@ if ( ! function_exists( 'prince_type_taxonomy_checkbox' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_taxonomy_select' ) ) {
 
@@ -2875,7 +2875,7 @@ if ( ! function_exists( 'prince_type_taxonomy_select' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_text' ) ) {
 
@@ -2917,7 +2917,7 @@ if ( ! function_exists( 'prince_type_text' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_textarea' ) ) {
 
@@ -2971,7 +2971,7 @@ if ( ! function_exists( 'prince_type_textarea' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_textarea_simple' ) ) {
 
@@ -3021,7 +3021,7 @@ if ( ! function_exists( 'prince_type_textarea_simple' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_textblock' ) ) {
 
@@ -3052,7 +3052,7 @@ if ( ! function_exists( 'prince_type_textblock' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_textblock_titled' ) ) {
 
@@ -3083,7 +3083,7 @@ if ( ! function_exists( 'prince_type_textblock_titled' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_typography' ) ) {
 
@@ -3125,7 +3125,7 @@ if ( ! function_exists( 'prince_type_typography' ) ) {
 			echo '<div class="prince-ui-colorpicker-input-wrap">';
 
 			/* colorpicker JS */
-			echo '<script>jQuery(document).ready(function($) { OT_UI.bind_colorpicker("' . esc_attr( $field_id ) . '-picker"); });</script>';
+			echo '<script>jQuery(document).ready(function($) { PRINCE.bind_colorpicker("' . esc_attr( $field_id ) . '-picker"); });</script>';
 
 			/* set background color */
 			$background_color = isset( $field_value['font-color'] ) ? esc_attr( $field_value['font-color'] ) : '';
@@ -3254,7 +3254,7 @@ if ( ! function_exists( 'prince_type_typography' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_type_upload' ) ) {
 

@@ -7,9 +7,9 @@
  * and not in the front end.
  *
  * @package   Prince
- * @author    Derek Herman <derek@valendesigns.com>
- * @copyright Copyright (c) 2013, Derek Herman
- * @since     2.0
+ * @author    Prince Ahmed <israilahmed5@gmail.com>
+ * @copyright Copyright (c) 2019, Prince Ahmed
+ * @since     1.0.0
  */
 
 /**
@@ -20,11 +20,11 @@
  * @return    void
  *
  * @access    public
- * @since     2.1
+ * @since     1.0.0
  */
-if ( ! function_exists( 'prince_register_theme_options_page' ) ) {
+if ( ! function_exists( 'prince_register_settings_page' ) ) {
 
-	function prince_register_theme_options_page() {
+	function prince_register_settings_page() {
 
 		/* get the settings array */
 		$get_settings = get_option( prince_settings_id() );
@@ -46,20 +46,20 @@ if ( ! function_exists( 'prince_register_theme_options_page' ) ) {
 						'id'    => prince_options_id(),
 						'pages' => array(
 							array(
-								'id'              => 'prince_theme_options',
-								'parent_slug'     => apply_filters( 'prince_theme_options_parent_slug', 'themes.php' ),
-								'page_title'      => apply_filters( 'prince_theme_options_page_title', __( 'Settings', 'prince-text-domain' ) ),
-								'menu_title'      => apply_filters( 'prince_theme_options_menu_title', __( 'Settings', 'prince-text-domain' ) ),
-								'capability'      => $caps = apply_filters( 'prince_theme_options_capability', 'edit_theme_options' ),
-								'menu_slug'       => apply_filters( 'prince_theme_options_menu_slug', 'prince-settings' ),
-								'icon_url'        => apply_filters( 'prince_theme_options_icon_url', null ),
-								'position'        => apply_filters( 'prince_theme_options_position', null ),
-								'updated_message' => apply_filters( 'prince_theme_options_updated_message', __( 'Settings updated.', 'prince-text-domain' ) ),
-								'reset_message'   => apply_filters( 'prince_theme_options_reset_message', __( 'Settings reset.', 'prince-text-domain' ) ),
-								'button_text'     => apply_filters( 'prince_theme_options_button_text', __( 'Save Changes', 'prince-text-domain' ) ),
-								'contextual_help' => apply_filters( 'prince_theme_options_contextual_help', $contextual_help ),
-								'sections'        => apply_filters( 'prince_theme_options_sections', $sections ),
-								'settings'        => apply_filters( 'prince_theme_options_settings', $settings )
+								'id'              => 'prince_settings',
+								'parent_slug'     => apply_filters( 'prince_settings_parent_slug', 'themes.php' ),
+								'page_title'      => apply_filters( 'prince_settings_page_title', __( 'Settings', 'prince-text-domain' ) ),
+								'menu_title'      => apply_filters( 'prince_settings_menu_title', __( 'Settings', 'prince-text-domain' ) ),
+								'capability'      => $caps = apply_filters( 'prince_settings_capability', 'edit_theme_options' ),
+								'menu_slug'       => apply_filters( 'prince_settings_menu_slug', 'prince-settings' ),
+								'icon_url'        => apply_filters( 'prince_settings_icon_url', null ),
+								'position'        => apply_filters( 'prince_settings_position', null ),
+								'updated_message' => apply_filters( 'prince_settings_updated_message', __( 'Settings updated.', 'prince-text-domain' ) ),
+								'reset_message'   => apply_filters( 'prince_settings_reset_message', __( 'Settings reset.', 'prince-text-domain' ) ),
+								'button_text'     => apply_filters( 'prince_settings_button_text', __( 'Save Changes', 'prince-text-domain' ) ),
+								'contextual_help' => apply_filters( 'prince_settings_contextual_help', $contextual_help ),
+								'sections'        => apply_filters( 'prince_settings_sections', $sections ),
+								'settings'        => apply_filters( 'prince_settings_settings', $settings )
 							)
 						)
 					)
@@ -83,12 +83,12 @@ if ( ! function_exists( 'prince_register_theme_options_page' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.1
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_register_settings_page' ) ) {
 
 	function prince_register_settings_page() {
-		global $prince_has_custom_theme_options;
+		global $prince_has_custom_settings;
 
 
 		// Create the filterable pages array
@@ -97,7 +97,7 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 				'id'          => 'ot',
 				'page_title'  => __( 'Prince', 'prince-text-domain' ),
 				'menu_title'  => __( 'Prince', 'prince-text-domain' ),
-				'capability'  => 'edit_theme_options',
+				'capability'  => 'edit_settings',
 				'menu_slug'   => 'prince-settings',
 				'icon_url'    => null,
 				'position'    => 61,
@@ -108,7 +108,7 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 				'parent_slug'     => 'prince-settings',
 				'page_title'      => __( 'Settings', 'prince-text-domain' ),
 				'menu_title'      => __( 'Settings', 'prince-text-domain' ),
-				'capability'      => 'edit_theme_options',
+				'capability'      => 'edit_settings',
 				'menu_slug'       => 'prince-settings',
 				'icon_url'        => null,
 				'position'        => null,
@@ -202,7 +202,7 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 				'parent_slug'     => 'prince-settings',
 				'page_title'      => __( 'Documentation', 'prince-text-domain' ),
 				'menu_title'      => __( 'Documentation', 'prince-text-domain' ),
-				'capability'      => 'edit_theme_options',
+				'capability'      => 'edit_settings',
 				'menu_slug'       => 'prince-documentation',
 				'icon_url'        => null,
 				'position'        => null,
@@ -318,23 +318,23 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
-if ( ! function_exists( 'prince_after_theme_options_save' ) ) {
+if ( ! function_exists( 'prince_after_settings_save' ) ) {
 
-	function prince_after_theme_options_save() {
+	function prince_after_settings_save() {
 
 		$page    = isset( $_REQUEST['page'] ) ? $_REQUEST['page'] : '';
 		$updated = isset( $_REQUEST['settings-updated'] ) && $_REQUEST['settings-updated'] == 'true' ? true : false;
 
 		/* only execute after the Settings are saved */
-		if ( apply_filters( 'prince_theme_options_menu_slug', 'prince-settings' ) == $page && $updated ) {
+		if ( apply_filters( 'prince_settings_menu_slug', 'prince-settings' ) == $page && $updated ) {
 
 			/* grab a copy of the Settings */
 			$options = get_option( prince_options_id() );
 
 			/* execute the action hook and pass the Settings to it */
-			do_action( 'prince_after_theme_options_save', $options );
+			do_action( 'prince_after_settings_save', $options );
 
 		}
 
@@ -358,7 +358,7 @@ if ( ! function_exists( 'prince_after_theme_options_save' ) ) {
  * @return    mixed
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_validate_setting' ) ) {
 
@@ -641,7 +641,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_admin_styles' ) ) {
 
@@ -668,7 +668,7 @@ if ( ! function_exists( 'prince_admin_styles' ) ) {
 		/**
 		 * Filter the screen IDs used to dequeue `jquery-ui-css`.
 		 *
-		 * @since 2.5.0
+		 * @since     1.0.0
 		 *
 		 * @param array $screen_ids An array of screen IDs.
 		 */
@@ -701,7 +701,7 @@ if ( ! function_exists( 'prince_admin_styles' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_admin_scripts' ) ) {
 
@@ -869,7 +869,7 @@ if ( ! function_exists( 'prince_create_media_post' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_default_settings' ) ) {
 
@@ -1019,7 +1019,7 @@ if ( ! function_exists( 'prince_default_settings' ) ) {
 				}
 
 				/* execute the action hook and pass the Settings to it */
-				do_action( 'prince_before_theme_options_save', $options );
+				do_action( 'prince_before_settings_save', $options );
 
 				/* update the option tree array */
 				update_option( prince_options_id(), $options );
@@ -1038,7 +1038,7 @@ if ( ! function_exists( 'prince_default_settings' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_save_css' ) ) {
 
@@ -1084,7 +1084,7 @@ if ( ! function_exists( 'prince_save_css' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_save_settings' ) ) {
 
@@ -1314,7 +1314,7 @@ if ( ! function_exists( 'prince_save_settings' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_validate_settings_array' ) ) {
 
@@ -1429,7 +1429,7 @@ if ( ! function_exists( 'prince_validate_settings_array' ) ) {
  * @return    mixed
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_alert_message' ) ) {
 
@@ -1546,7 +1546,7 @@ if ( ! function_exists( 'prince_alert_message' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_option_types_array' ) ) {
 
@@ -1612,7 +1612,7 @@ if ( ! function_exists( 'prince_option_types_array' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 
 if ( ! function_exists( 'prince_google_font_stack' ) ) {
@@ -1689,7 +1689,7 @@ if ( ! function_exists( 'prince_recognized_font_families' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0.12
+ * @since     1.0.0.12
  */
 if ( ! function_exists( 'prince_recognized_font_sizes' ) ) {
 
@@ -1820,7 +1820,7 @@ if ( ! function_exists( 'prince_recognized_font_weights' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0.12
+ * @since     1.0.0.12
  */
 if ( ! function_exists( 'prince_recognized_letter_spacing' ) ) {
 
@@ -1855,7 +1855,7 @@ if ( ! function_exists( 'prince_recognized_letter_spacing' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0.12
+ * @since     1.0.0.12
  */
 if ( ! function_exists( 'prince_recognized_line_heights' ) ) {
 
@@ -1890,7 +1890,7 @@ if ( ! function_exists( 'prince_recognized_line_heights' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0.10
+ * @since     1.0.0.10
  */
 if ( ! function_exists( 'prince_recognized_text_decorations' ) ) {
 
@@ -1921,7 +1921,7 @@ if ( ! function_exists( 'prince_recognized_text_decorations' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0.10
+ * @since     1.0.0.10
  */
 if ( ! function_exists( 'prince_recognized_text_transformations' ) ) {
 
@@ -2041,7 +2041,7 @@ if ( ! function_exists( 'prince_recognized_background_position' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_border_style_types' ) ) {
 
@@ -2072,7 +2072,7 @@ if ( ! function_exists( 'prince_recognized_border_style_types' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_border_unit_types' ) ) {
 
@@ -2099,7 +2099,7 @@ if ( ! function_exists( 'prince_recognized_border_unit_types' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_dimension_unit_types' ) ) {
 
@@ -2126,7 +2126,7 @@ if ( ! function_exists( 'prince_recognized_dimension_unit_types' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_spacing_unit_types' ) ) {
 
@@ -2151,7 +2151,7 @@ if ( ! function_exists( 'prince_recognized_spacing_unit_types' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_google_font_families' ) ) {
 
@@ -2189,7 +2189,7 @@ if ( ! function_exists( 'prince_recognized_google_font_families' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_google_font_variants' ) ) {
 
@@ -2218,7 +2218,7 @@ if ( ! function_exists( 'prince_recognized_google_font_variants' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_google_font_subsets' ) ) {
 
@@ -2280,7 +2280,7 @@ if ( ! function_exists( 'prince_measurement_unit_types' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_radio_images' ) ) {
 
@@ -2335,7 +2335,7 @@ function prince_radio_images( $field_id = '' ) {
  * @return    array
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_list_item_settings' ) ) {
 
@@ -2395,7 +2395,7 @@ if ( ! function_exists( 'prince_list_item_settings' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_slider_settings' ) ) {
 
@@ -2472,7 +2472,7 @@ if ( ! function_exists( 'prince_slider_settings' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.4.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_social_links_settings' ) ) {
 
@@ -2849,7 +2849,7 @@ if ( ! function_exists( 'prince_insert_css_with_markers' ) ) {
 					/**
 					 * Filter the `dynamic.css` fallback value.
 					 *
-					 * @since 2.5.3
+					 * @since     1.0.0
 					 *
 					 * @param string $fallback The default CSS fallback value.
 					 * @param string $option_id The option ID.
@@ -2953,7 +2953,7 @@ if ( ! function_exists( 'prince_insert_css_with_markers' ) ) {
  * @return    bool    True on write success, false on failure.
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_remove_old_css' ) ) {
 
@@ -3694,7 +3694,7 @@ if ( ! function_exists( 'prince_list_item_view' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.4.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_social_links_view' ) ) {
 
@@ -3818,7 +3818,7 @@ if ( ! function_exists( 'prince_social_links_view' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_sanitize_option_id' ) ) {
 
@@ -3836,7 +3836,7 @@ if ( ! function_exists( 'prince_sanitize_option_id' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_convert_string_to_array' ) ) {
 
@@ -3937,7 +3937,7 @@ if ( ! function_exists( 'prince_stripslashes' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.0.12
+ * @since     1.0.0.12
  */
 if ( ! function_exists( 'prince_range' ) ) {
 	function prince_range( $start, $limit, $step = 1 ) {
@@ -3964,7 +3964,7 @@ if ( ! function_exists( 'prince_range' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0.13
+ * @since     1.0.0.13
  */
 if ( ! function_exists( 'prince_encode' ) ) {
 	function prince_encode( $value ) {
@@ -3982,7 +3982,7 @@ if ( ! function_exists( 'prince_encode' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.0.13
+ * @since     1.0.0.13
  */
 if ( ! function_exists( 'prince_decode' ) ) {
 	function prince_decode( $value ) {
@@ -4003,7 +4003,7 @@ if ( ! function_exists( 'prince_decode' ) ) {
  * @return    mixed     String or array
  *
  * @access    public
- * @since     2.0.15
+ * @since     1.0.0.15
  */
 if ( ! function_exists( 'prince_filter_std_value' ) ) {
 	function prince_filter_std_value( $value = '', $std = '' ) {
@@ -4042,7 +4042,7 @@ if ( ! function_exists( 'prince_filter_std_value' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_set_google_fonts' ) ) {
 	function prince_set_google_fonts( $id = '', $value = '' ) {
@@ -4068,7 +4068,7 @@ if ( ! function_exists( 'prince_set_google_fonts' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_update_google_fonts_after_save' ) ) {
 	function prince_update_google_fonts_after_save( $options ) {
@@ -4084,7 +4084,7 @@ if ( ! function_exists( 'prince_update_google_fonts_after_save' ) ) {
 
 	}
 }
-add_action( 'prince_after_theme_options_save', 'prince_update_google_fonts_after_save', 1 );
+add_action( 'prince_after_settings_save', 'prince_update_google_fonts_after_save', 1 );
 
 /**
  * Helper function to fetch the Google fonts array.
@@ -4095,7 +4095,7 @@ add_action( 'prince_after_theme_options_save', 'prince_update_google_fonts_after
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_fetch_google_fonts' ) ) {
 	function prince_fetch_google_fonts( $normalize = true, $force_rebuild = false ) {
@@ -4184,7 +4184,7 @@ if ( ! function_exists( 'prince_fetch_google_fonts' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_normalize_google_fonts' ) ) {
 	function prince_normalize_google_fonts( $google_fonts ) {
@@ -4236,7 +4236,7 @@ if ( ! function_exists( 'prince_normalize_google_fonts' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.4.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_meta_box_post_format_gallery' ) ) {
 	function prince_meta_box_post_format_gallery( $pages = 'post' ) {
@@ -4281,7 +4281,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_gallery' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.4.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_meta_box_post_format_link' ) ) {
 	function prince_meta_box_post_format_link( $pages = 'post' ) {
@@ -4332,7 +4332,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_link' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.4.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_meta_box_post_format_quote' ) ) {
 	function prince_meta_box_post_format_quote( $pages = 'post' ) {
@@ -4397,7 +4397,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_quote' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.4.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_meta_box_post_format_video' ) ) {
 	function prince_meta_box_post_format_video( $pages = 'post' ) {
@@ -4441,7 +4441,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_video' ) ) {
  * @return    array
  *
  * @access    public
- * @since     2.4.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_meta_box_post_format_audio' ) ) {
 	function prince_meta_box_post_format_audio( $pages = 'post' ) {
@@ -4484,7 +4484,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_audio' ) ) {
  * @return    string    The option type.
  *
  * @access    public
- * @since     2.4.2
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_get_option_type_by_id' ) ) {
 

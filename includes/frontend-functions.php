@@ -9,7 +9,7 @@
  * @return    string
  *
  * @access    public
- * @since     2.3.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_options_id' ) ) {
 
@@ -27,7 +27,7 @@ if ( ! function_exists( 'prince_options_id' ) ) {
  * @return    string
  *
  * @access    public
- * @since     2.3.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_settings_id' ) ) {
 
@@ -51,7 +51,7 @@ if ( ! function_exists( 'prince_settings_id' ) ) {
  * @return    mixed
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_get_option' ) ) {
 
@@ -85,7 +85,7 @@ if ( ! function_exists( 'prince_get_option' ) ) {
  * @return    mixed
  *
  * @access    public
- * @since     2.2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_echo_option' ) ) {
 
@@ -103,7 +103,7 @@ if ( ! function_exists( 'prince_echo_option' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_load_dynamic_css' ) ) {
 
@@ -121,7 +121,7 @@ if ( ! function_exists( 'prince_load_dynamic_css' ) ) {
 		 *
 		 * Example: add_filter( 'prince_load_dynamic_css', '__return_false' );
 		 *
-		 * @since 2.5.5
+		 * @since     1.0.0
 		 *
 		 * @param bool $load_dynamic_css Default is `true`.
 		 *
@@ -187,7 +187,7 @@ if ( ! function_exists( 'prince_load_dynamic_css' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.5.0
+ * @since     1.0.0
  */
 if ( ! function_exists( 'prince_load_google_fonts_css' ) ) {
 
@@ -266,21 +266,21 @@ if ( ! function_exists( 'prince_load_google_fonts_css' ) ) {
  * @return    void
  *
  * @access    public
- * @since     2.1
+ * @since     1.0.0
  */
-if ( ! function_exists( 'prince_register_theme_options_admin_bar_menu' ) ) {
+if ( ! function_exists( 'prince_register_settings_admin_bar_menu' ) ) {
 
-	function prince_register_theme_options_admin_bar_menu( $wp_admin_bar ) {
+	function prince_register_settings_admin_bar_menu( $wp_admin_bar ) {
 
-		if ( ! current_user_can( apply_filters( 'prince_theme_options_capability', 'edit_theme_options' ) ) || ! is_admin_bar_showing() ) {
+		if ( ! current_user_can( apply_filters( 'prince_settings_capability', 'edit_theme_options' ) ) || ! is_admin_bar_showing() ) {
 			return;
 		}
 
 		$wp_admin_bar->add_node( array(
 			'parent' => 'appearance',
-			'id'     => apply_filters( 'prince_theme_options_menu_slug', 'prince-settings' ),
-			'title'  => apply_filters( 'prince_theme_options_page_title', __( 'Settings', 'prince-text-domain' ) ),
-			'href'   => admin_url( apply_filters( 'prince_theme_options_parent_slug', 'themes.php' ) . '?page=' . apply_filters( 'prince_theme_options_menu_slug', 'prince-settings' ) )
+			'id'     => apply_filters( 'prince_settings_menu_slug', 'prince-settings' ),
+			'title'  => apply_filters( 'prince_settings_page_title', __( 'Settings', 'prince-text-domain' ) ),
+			'href'   => admin_url( apply_filters( 'prince_settings_parent_slug', 'themes.php' ) . '?page=' . apply_filters( 'prince_settings_menu_slug', 'prince-settings' ) )
 		) );
 
 	}
