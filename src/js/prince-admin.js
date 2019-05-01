@@ -1002,17 +1002,17 @@
 
     $(document).on('ready', function () {
 
-        // Loop over the theme options
+        // Loop over the Settings
         $('#prince-settings-api .inside').each(function () {
 
             // Only if there is a tab option
             if ($(this).find('.type-tab').length) {
 
-                // Add .prince-theme-option-panels
-                $(this).find('.type-tab').parents('.inside').wrapInner('<div class="prince-theme-option-panels" />')
+                // Add .prince-settings-panels
+                $(this).find('.type-tab').parents('.inside').wrapInner('<div class="prince-settings-panels" />')
 
-                // Wrap with .prince-theme-option-tabs & add .prince-theme-option-nav before .prince-theme-option-panels
-                $(this).find('.prince-theme-option-panels').wrap('<div class="prince-theme-option-tabs" />').before('<ul class="prince-theme-option-nav" />')
+                // Wrap with .prince-settings-tabs & add .prince-settings-nav before .prince-settings-panels
+                $(this).find('.prince-settings-panels').wrap('<div class="prince-settings-tabs" />').before('<ul class="prince-settings-nav" />')
 
                 // Loop over settings and build the tabs nav
                 $(this).find('.format-settings').each(function () {
@@ -1023,7 +1023,7 @@
 
                         // Add a class, hide & append nav item
                         $(this).addClass('is-panel').hide()
-                        $(this).parents('.prince-theme-option-panels').prev('.prince-theme-option-nav').append('<li><a href="#' + id + '">' + title + '</a></li>')
+                        $(this).parents('.prince-settings-panels').prev('.prince-settings-nav').append('<li><a href="#' + id + '">' + title + '</a></li>')
 
                     } else {
 
@@ -1040,14 +1040,14 @@
                 })
 
                 // Create the tabs
-                $(this).find('.prince-theme-option-tabs').tabs({
+                $(this).find('.prince-settings-tabs').tabs({
                     activate: function (event, ui) {
                         OT_UI.load_editors();
                     }
                 })
 
                 // Move the orphaned settings to the top
-                $(this).find('.prince-theme-option-panels > .format-settings').prependTo($(this).find('.prince-theme-option-tabs'))
+                $(this).find('.prince-settings-panels > .format-settings').prependTo($(this).find('.prince-settings-tabs'))
 
             }
 

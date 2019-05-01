@@ -76,7 +76,7 @@ if ( ! class_exists( 'Settings' ) ) {
 			// Register settings.
 			add_action( 'admin_init', array( $this, 'add_settings' ) );
 
-			// Reset options.
+			// Reset Settings.
 			add_action( 'admin_init', array( $this, 'reset_options' ), 10 );
 
 			// Initialize settings.
@@ -332,7 +332,7 @@ if ( ! class_exists( 'Settings' ) ) {
 
 							echo '<input type="hidden" name="action" value="reset" />';
 
-							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Options', 'prince-text-domain' ) . '">' . esc_html__( 'Reset Options', 'prince-text-domain' ) . '</button>';
+							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Settings', 'prince-text-domain' ) . '">' . esc_html__( 'Reset Settings', 'prince-text-domain' ) . '</button>';
 
 							echo '</form>';
 						}
@@ -969,7 +969,7 @@ if ( ! class_exists( 'Settings' ) ) {
 						// Verify page.
 						if ( isset( $_GET['page'] ) && $_GET['page'] === $page['menu_slug'] ) {
 
-							// Reset options.
+							// Reset Settings.
 							delete_option( $option['id'] );
 						}
 					}

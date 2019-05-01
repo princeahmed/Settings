@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Initialize the custom Theme Options.
+ * Initialize the custom Settings.
  */
-//add_action( 'init', 'prince_theme_options' );
+add_action( 'init', 'prince_theme_options' );
 
 /**
  * Build the custom settings & update Prince.
@@ -15,7 +15,7 @@ function prince_theme_options() {
 
 	/* Prince is not loaded yet, or this is not an admin request */
 	if ( ! function_exists( 'prince_settings_id' ) || ! is_admin() ) {
-		return false;
+		return;
 	}
 
 	/**

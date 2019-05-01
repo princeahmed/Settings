@@ -38,7 +38,7 @@ if ( ! function_exists( 'prince_register_theme_options_page' ) ) {
 		/* contexual_help array */
 		$contextual_help = isset( $get_settings['contextual_help'] ) ? $get_settings['contextual_help'] : array();
 
-		/* build the Theme Options */
+		/* build the Settings */
 		if ( function_exists( 'prince_register_settings' ) ) {
 
 			prince_register_settings( array(
@@ -48,14 +48,14 @@ if ( ! function_exists( 'prince_register_theme_options_page' ) ) {
 							array(
 								'id'              => 'prince_theme_options',
 								'parent_slug'     => apply_filters( 'prince_theme_options_parent_slug', 'themes.php' ),
-								'page_title'      => apply_filters( 'prince_theme_options_page_title', __( 'Theme Options', 'prince-text-domain' ) ),
-								'menu_title'      => apply_filters( 'prince_theme_options_menu_title', __( 'Theme Options', 'prince-text-domain' ) ),
+								'page_title'      => apply_filters( 'prince_theme_options_page_title', __( 'Settings', 'prince-text-domain' ) ),
+								'menu_title'      => apply_filters( 'prince_theme_options_menu_title', __( 'Settings', 'prince-text-domain' ) ),
 								'capability'      => $caps = apply_filters( 'prince_theme_options_capability', 'edit_theme_options' ),
-								'menu_slug'       => apply_filters( 'prince_theme_options_menu_slug', 'prince-theme-options' ),
+								'menu_slug'       => apply_filters( 'prince_theme_options_menu_slug', 'prince-settings' ),
 								'icon_url'        => apply_filters( 'prince_theme_options_icon_url', null ),
 								'position'        => apply_filters( 'prince_theme_options_position', null ),
-								'updated_message' => apply_filters( 'prince_theme_options_updated_message', __( 'Theme Options updated.', 'prince-text-domain' ) ),
-								'reset_message'   => apply_filters( 'prince_theme_options_reset_message', __( 'Theme Options reset.', 'prince-text-domain' ) ),
+								'updated_message' => apply_filters( 'prince_theme_options_updated_message', __( 'Settings updated.', 'prince-text-domain' ) ),
+								'reset_message'   => apply_filters( 'prince_theme_options_reset_message', __( 'Settings reset.', 'prince-text-domain' ) ),
 								'button_text'     => apply_filters( 'prince_theme_options_button_text', __( 'Save Changes', 'prince-text-domain' ) ),
 								'contextual_help' => apply_filters( 'prince_theme_options_contextual_help', $contextual_help ),
 								'sections'        => apply_filters( 'prince_theme_options_sections', $sections ),
@@ -112,14 +112,14 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 				'menu_slug'       => 'prince-settings',
 				'icon_url'        => null,
 				'position'        => null,
-				'updated_message' => __( 'Theme Options updated.', 'prince-text-domain' ),
-				'reset_message'   => __( 'Theme Options reset.', 'prince-text-domain' ),
+				'updated_message' => __( 'Settings updated.', 'prince-text-domain' ),
+				'reset_message'   => __( 'Settings reset.', 'prince-text-domain' ),
 				'button_text'     => __( 'Save Settings', 'prince-text-domain' ),
 				'show_buttons'    => false,
 				'sections'        => array(
 					array(
 						'id'    => 'create_setting',
-						'title' => __( 'Theme Options UI', 'prince-text-domain' )
+						'title' => __( 'Settings UI', 'prince-text-domain' )
 					),
 					array(
 						'id'    => 'import',
@@ -137,7 +137,7 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 				'settings'        => array(
 					array(
 						'id'      => 'theme_options_ui_text',
-						'label'   => __( 'Theme Options UI Builder', 'prince-text-domain' ),
+						'label'   => __( 'Settings UI Builder', 'prince-text-domain' ),
 						'type'    => 'theme_options_ui',
 						'section' => 'create_setting'
 					),
@@ -155,7 +155,7 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 					),
 					array(
 						'id'      => 'import_data_text',
-						'label'   => __( 'Theme Options', 'prince-text-domain' ),
+						'label'   => __( 'Settings', 'prince-text-domain' ),
 						'type'    => 'import-data',
 						'section' => 'import'
 					),
@@ -179,7 +179,7 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 					),
 					array(
 						'id'      => 'export_data_text',
-						'label'   => __( 'Theme Options', 'prince-text-domain' ),
+						'label'   => __( 'Settings', 'prince-text-domain' ),
 						'type'    => 'export-data',
 						'section' => 'export'
 					),
@@ -206,8 +206,8 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 				'menu_slug'       => 'prince-documentation',
 				'icon_url'        => null,
 				'position'        => null,
-				'updated_message' => __( 'Theme Options updated.', 'prince-text-domain' ),
-				'reset_message'   => __( 'Theme Options reset.', 'prince-text-domain' ),
+				'updated_message' => __( 'Settings updated.', 'prince-text-domain' ),
+				'reset_message'   => __( 'Settings reset.', 'prince-text-domain' ),
 				'button_text'     => __( 'Save Settings', 'prince-text-domain' ),
 				'show_buttons'    => false,
 				'sections'        => array(
@@ -313,7 +313,7 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 }
 
 /**
- * Runs directly after the Theme Options are save.
+ * Runs directly after the Settings are save.
  *
  * @return    void
  *
@@ -327,13 +327,13 @@ if ( ! function_exists( 'prince_after_theme_options_save' ) ) {
 		$page    = isset( $_REQUEST['page'] ) ? $_REQUEST['page'] : '';
 		$updated = isset( $_REQUEST['settings-updated'] ) && $_REQUEST['settings-updated'] == 'true' ? true : false;
 
-		/* only execute after the theme options are saved */
-		if ( apply_filters( 'prince_theme_options_menu_slug', 'prince-theme-options' ) == $page && $updated ) {
+		/* only execute after the Settings are saved */
+		if ( apply_filters( 'prince_theme_options_menu_slug', 'prince-settings' ) == $page && $updated ) {
 
-			/* grab a copy of the theme options */
+			/* grab a copy of the Settings */
 			$options = get_option( prince_options_id() );
 
-			/* execute the action hook and pass the theme options to it */
+			/* execute the action hook and pass the Settings to it */
 			do_action( 'prince_after_theme_options_save', $options );
 
 		}
@@ -675,7 +675,7 @@ if ( ! function_exists( 'prince_admin_styles' ) ) {
 		$screen_ids = apply_filters( 'prince_dequeue_jquery_ui_css_screen_ids', array(
 			'toplevel_page_prince-settings',
 			'Prince_page_prince-documentation',
-			'appearance_page_prince-theme-options'
+			'appearance_page_prince-settings'
 		) );
 
 		/* Remove styles added by the WP Review plugin and any custom pages added through filtering */
@@ -1018,7 +1018,7 @@ if ( ! function_exists( 'prince_default_settings' ) ) {
 
 				}
 
-				/* execute the action hook and pass the theme options to it */
+				/* execute the action hook and pass the Settings to it */
 				do_action( 'prince_before_theme_options_save', $options );
 
 				/* update the option tree array */
@@ -3170,7 +3170,7 @@ if ( ! function_exists( 'prince_sections_view' ) ) {
       <div class="prince-setting-body">
         <div class="format-settings">
           <div class="format-setting type-text">
-            <div class="description">' . __( '<strong>Section Title</strong>: Displayed as a menu item on the Theme Options page.', 'prince-text-domain' ) . '</div>
+            <div class="description">' . __( '<strong>Section Title</strong>: Displayed as a menu item on the Settings page.', 'prince-text-domain' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][title]" value="' . ( isset( $section['title'] ) ? esc_attr( $section['title'] ) : '' ) . '" class="widefat prince-ui-input prince-setting-title section-title" autocomplete="off" />
             </div>
@@ -3239,7 +3239,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
       <div class="prince-setting-body">
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>Label</strong>: Displayed as the label of a form element on the Theme Options page.', 'prince-text-domain' ) . '</div>
+            <div class="description">' . __( '<strong>Label</strong>: Displayed as the label of a form element on the Settings page.', 'prince-text-domain' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][label]" value="' . ( isset( $setting['label'] ) ? esc_attr( $setting['label'] ) : '' ) . '" class="widefat prince-ui-input prince-setting-title" autocomplete="off" />
             </div>
@@ -3266,7 +3266,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-textarea wide-desc">
-            <div class="description">' . __( '<strong>Description</strong>: Enter a detailed description for the users to read on the Theme Options page, HTML is allowed. This is also where you enter content for both the Textblock & Textblock Titled option types.', 'prince-text-domain' ) . '</div>
+            <div class="description">' . __( '<strong>Description</strong>: Enter a detailed description for the users to read on the Settings page, HTML is allowed. This is also where you enter content for both the Textblock & Textblock Titled option types.', 'prince-text-domain' ) . '</div>
             <div class="format-setting-inner">
               <textarea class="textarea" rows="10" cols="40" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][desc]">' . ( isset( $setting['desc'] ) ? esc_html( $setting['desc'] ) : '' ) . '</textarea>
             </div>
@@ -3468,7 +3468,7 @@ if ( ! function_exists( 'prince_contextual_help_view' ) ) {
       <div class="prince-setting-body">
         <div class="format-settings">
           <div class="format-setting type-text no-desc">
-            <div class="description">' . __( '<strong>Title</strong>: Displayed as a contextual help menu item on the Theme Options page.', 'prince-text-domain' ) . '</div>
+            <div class="description">' . __( '<strong>Title</strong>: Displayed as a contextual help menu item on the Settings page.', 'prince-text-domain' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][title]" value="' . ( isset( $content['title'] ) ? esc_attr( $content['title'] ) : '' ) . '" class="widefat prince-ui-input prince-setting-title" autocomplete="off" />
             </div>

@@ -4,7 +4,7 @@
  */
 
 /**
- * Theme Options ID
+ * Settings ID
  *
  * @return    string
  *
@@ -278,9 +278,9 @@ if ( ! function_exists( 'prince_register_theme_options_admin_bar_menu' ) ) {
 
 		$wp_admin_bar->add_node( array(
 			'parent' => 'appearance',
-			'id'     => apply_filters( 'prince_theme_options_menu_slug', 'prince-theme-options' ),
-			'title'  => apply_filters( 'prince_theme_options_page_title', __( 'Theme Options', 'prince-text-domain' ) ),
-			'href'   => admin_url( apply_filters( 'prince_theme_options_parent_slug', 'themes.php' ) . '?page=' . apply_filters( 'prince_theme_options_menu_slug', 'prince-theme-options' ) )
+			'id'     => apply_filters( 'prince_theme_options_menu_slug', 'prince-settings' ),
+			'title'  => apply_filters( 'prince_theme_options_page_title', __( 'Settings', 'prince-text-domain' ) ),
+			'href'   => admin_url( apply_filters( 'prince_theme_options_parent_slug', 'themes.php' ) . '?page=' . apply_filters( 'prince_theme_options_menu_slug', 'prince-settings' ) )
 		) );
 
 	}

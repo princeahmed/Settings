@@ -15,7 +15,7 @@
 # add_filter( 'prince_show_pages', '__return_true' );
 
 /**
- * Show Theme Options UI Builder
+ * Show Settings UI Builder
  */
 # add_filter( 'prince_show_options_ui', '__return_true' );
 
@@ -65,6 +65,6 @@
 # require( trailingslashit( get_template_directory() ) . 'prince/prince-loader.php' );
 
 /**
- * Theme Options
+ * Settings
  */
 # require( trailingslashit( get_template_directory() ) . 'admin/theme-options.php' );

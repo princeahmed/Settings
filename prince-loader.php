@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Options
  * Plugin URI:  https://github.com/valendesigns/prince/
- * Description: Theme Options UI Builder for WordPress. A simple way to create & save Theme Options and Meta Boxes for free or premium themes.
+ * Description: Settings UI Builder for WordPress. A simple way to create & save Settings and Meta Boxes for free or premium themes.
  * Version:     2.6.0
  * Author:      Derek Herman
  * Author URI:  http://valendesigns.com
@@ -361,7 +361,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 
 	$settings_loader = new Settings_Loader();
 
-	require_once __DIR__ . '/demo/prince-theme-options.php';
+	require_once __DIR__ . '/demo/prince-settings.php';
 	require_once __DIR__ . '/demo/demo-meta-boxes.php';
 
 }

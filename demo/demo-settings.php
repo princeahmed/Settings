@@ -1,6 +1,6 @@
 <?php
 /**
- * Initialize the custom Theme Options.
+ * Initialize the custom Settings.
  *
  * @package Prince
  */
@@ -182,7 +182,7 @@ function custom_theme_options() {
 			array(
 				'id'           => 'demo_css',
 				'label'        => __( 'CSS', 'theme-text-domain' ),
-				'desc'         => '<p>' . sprintf( __( 'The CSS option type is a textarea that when used properly can add dynamic CSS to your theme from within Prince. Unfortunately, due server limitations you will need to create a file named %1$s at the root level of your theme and change permissions using %2$s so the server can write to the file. I have had the most success setting this single file to %3$s but feel free to play around with permissions until everything is working. A good starting point is %4$s. When the server can save to the file, CSS will automatically be updated when you save your Theme Options.', 'theme-text-domain' ), '<code>dynamic.css</code>', '<code>chmod</code>', '<code>0777</code>', '<code>0666</code>' ) . '</p><p>' . sprintf( __( 'This example assumes you have an option with the ID of %1$s. Which means this option will automatically insert the value of %1$s into the %2$s when the Theme Options are saved.', 'theme-text-domain' ), '<code>demo_background</code>', '<code>dynamic.css</code>' ) . '</p>',
+				'desc'         => '<p>' . sprintf( __( 'The CSS option type is a textarea that when used properly can add dynamic CSS to your theme from within Prince. Unfortunately, due server limitations you will need to create a file named %1$s at the root level of your theme and change permissions using %2$s so the server can write to the file. I have had the most success setting this single file to %3$s but feel free to play around with permissions until everything is working. A good starting point is %4$s. When the server can save to the file, CSS will automatically be updated when you save your Settings.', 'theme-text-domain' ), '<code>dynamic.css</code>', '<code>chmod</code>', '<code>0777</code>', '<code>0666</code>' ) . '</p><p>' . sprintf( __( 'This example assumes you have an option with the ID of %1$s. Which means this option will automatically insert the value of %1$s into the %2$s when the Settings are saved.', 'theme-text-domain' ), '<code>demo_background</code>', '<code>dynamic.css</code>' ) . '</p>',
 				'std'          => '#custom {
   {{demo_background}}
 }',
@@ -770,7 +770,7 @@ function custom_theme_options() {
 			array(
 				'id'           => 'demo_upload',
 				'label'        => __( 'Upload', 'theme-text-domain' ),
-				'desc'         => sprintf( __( 'The Upload option type is used to upload any WordPress supported media. After uploading, users are required to press the "%1$s" button in order to populate the input with the URI of that media. There is one caveat of this feature. If you import the theme options and have uploaded media on one site the old URI will not reflect the URI of your new site. You will have to re-upload or %2$s any media to your new server and change the URIs if necessary.', 'theme-text-domain' ), apply_filters( 'prince_upload_text', __( 'Send to Prince', 'theme-text-domain' ) ), 'FTP' ),
+				'desc'         => sprintf( __( 'The Upload option type is used to upload any WordPress supported media. After uploading, users are required to press the "%1$s" button in order to populate the input with the URI of that media. There is one caveat of this feature. If you import the Settings and have uploaded media on one site the old URI will not reflect the URI of your new site. You will have to re-upload or %2$s any media to your new server and change the URIs if necessary.', 'theme-text-domain' ), apply_filters( 'prince_upload_text', __( 'Send to Prince', 'theme-text-domain' ) ), 'FTP' ),
 				'std'          => '',
 				'type'         => 'upload',
 				'section'      => 'option_types',
