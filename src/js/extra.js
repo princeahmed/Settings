@@ -7,32 +7,41 @@
             $('.ui-state-default').click(prince.setActiveTab);
         },
 
+        /* set active tab on click */
         setActiveTab: function () {
             $('.ui-state-default').removeClass('ui-tabs-active ui-state-active');
             $('#post-body-content>div').hide();
 
             $(this).addClass('ui-tabs-active ui-state-active');
-            $('#'+$(this).attr('aria-controls')).show();
-            $('#'+$(this).attr('aria-controls')+' .prince-settings-nav>li:first-child').addClass('ui-tabs-active ui-state-active');
-            const $id = $(this).attr('id');
 
-            if(typeof(Storage) !== 'undefined'){
-                localStorage.setItem('activeTab', $id);
+            const $aria_controls = $('#' + $(this).attr('aria-controls'));
+            $aria_controls.show();
+            $aria_controls.find('.prince-settings-nav>li:first-child').addClass('ui-tabs-active ui-state-active');
+
+            const $tab_id = $(this).attr('id');
+
+            if (typeof (Storage) !== 'undefined') {
+                localStorage.setItem('prince_settings_active_tab', $tab_id);
             }
         },
 
-        handleActiveTab: function () {
+        /* handle active tab after load */
+        handleActiveTab:  () => {
             $('.ui-state-default').removeClass('ui-tabs-active ui-state-active');
             $('#post-body-content>div').hide();
 
-            const $id = localStorage.getItem('activeTab');
-            const $tab = $('#'+$id);
 
-            if($tab){
+            let $tab_id = localStorage.getItem('prince_settings_active_tab');
+            $tab_id = $tab_id ? $tab_id : $('.ui-tabs>ul>li:first-child').attr('id');
+
+            const $tab = $('#' + $tab_id);
+
+            if ($tab) {
                 $tab.addClass('ui-tabs-active ui-state-active');
-                $('#'+$tab.attr('aria-controls')).show();
-
+                $('#' + $tab.attr('aria-controls')).show();
             }
+
+            $('#post-body-content').show();
         }
     };
 
