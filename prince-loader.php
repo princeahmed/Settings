@@ -19,9 +19,11 @@
  * @author    Prince Ahmed <israilahmed5@gmail.com>
  * @copyright Copyright (c) 2019, Prince Ahmed
  */
-if ( ! class_exists( 'Settings_Loader' ) ) {
+namespace Prince\Settings;
 
-	class Settings_Loader {
+if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
+
+	class Loader {
 
 		/**
 		 * PHP5 constructor method.
@@ -360,7 +362,7 @@ if ( ! class_exists( 'Settings_Loader' ) ) {
 	 * @since     1.0.0
 	 */
 
-	$settings_loader = new Settings_Loader();
+	$settings_loader = new Loader();
 
 	require_once __DIR__ . '/demo/prince-settings.php';
 	require_once __DIR__ . '/demo/demo-meta-boxes.php';
