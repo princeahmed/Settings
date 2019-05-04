@@ -10,7 +10,7 @@
         /* set active tab on click */
         setActiveTab: function () {
             $('.ui-state-default').removeClass('ui-tabs-active ui-state-active');
-            $('#post-body-content>div').hide();
+            $('#page-prince_settings #post-body-content>div').hide();
 
             $(this).addClass('ui-tabs-active ui-state-active');
 
@@ -28,7 +28,7 @@
         /* handle active tab after load */
         handleActiveTab:  () => {
             $('.ui-state-default').removeClass('ui-tabs-active ui-state-active');
-            $('#post-body-content>div').hide();
+            $('#page-prince_settings #post-body-content>div').hide();
 
             let $tab_id = localStorage.getItem('prince_settings_active_tab');
             $tab_id = $tab_id ? $tab_id : $('.ui-tabs>ul>li:first-child').attr('id');
@@ -40,7 +40,7 @@
                 $('#' + $tab.attr('aria-controls')).show();
             }
 
-            $('#post-body-content').show();
+            $('#page-prince_settings #post-body-content').show();
         }
     };
 
