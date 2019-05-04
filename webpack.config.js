@@ -1,88 +1,25 @@
-const webpack = require('webpack');
 const path = require('path');
-const glob = require('glob-all');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const modeConfig = env => require(`./src/build-utils/webpack.${env}`)(env);
+const webpackMerge = require('webpack-merge');
+const cleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-//project Mode Development|Production
-const mode = 'development';
+module.exports = ({mode} = {mode: 'development'}) => {
 
-module.exports = {
+    return webpackMerge({
+        mode,
 
-    mode: mode,
-    entry: { prince: __dirname + '/src/prince.js' },
+        entry: { prince: __dirname + '/src/prince.js' },
 
-    output: {
-        filename: '[name].min.js' ,
-        path: path.resolve(__dirname, './assets')
-    },
+        output: {
+            path: path.resolve(__dirname, './assets'),
+            filename: '[name].min.js'
+        },
 
-    module: {
-        rules: [
-            {
-                test: /\.(css|scss)$/,
-                use: ExtractTextPlugin.extract({
-                    use: [
-                        'css-loader',
-                        // Loader for webpack to process CSS with PostCSS
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                plugins: function () {
-                                    return [
-                                        require('autoprefixer')
-                                    ];
-                                }
-                            }
-                        },
-                        // Loads a SASS/SCSS file and compiles it to CSS
-                        'sass-loader'
-                    ],
-                    fallback: 'style-loader'
-                })
-            },
-            {
-                test: /\.(jpg|png|gif|ttf|eot|svg|woff)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]'
-                        }
-                    },
-                    {
-                        loader: 'image-webpack-loader',
-                    }
-                ]
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            }
+        plugins: [
+            new cleanWebpackPlugin(),
+            new MiniCssExtractPlugin({filename: '[name].min.css'})
         ]
-    },
 
-    plugins: [
-
-        new ExtractTextPlugin('[name].min.css'),
-
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        }),
-
-        new PurgecssPlugin({
-            paths: glob.sync(['./src/js/prince-admin.js', './includes/*.php'])
-        }),
-
-        new CleanWebpackPlugin({
-            root: __dirname,
-            verbose: true,
-            dry: false,
-            cleanStaleWebpackAssets: true,
-            watch: false
-        })
-
-    ]
+    }, modeConfig(mode));
 };

@@ -4,7 +4,7 @@
 
         init: () => {
             prince.handleActiveTab();
-            $('.ui-state-default').click(prince.setActiveTab);
+            $('.ui-tabs>ul>li').click(prince.setActiveTab);
         },
 
         /* set active tab on click */
@@ -29,7 +29,6 @@
         handleActiveTab:  () => {
             $('.ui-state-default').removeClass('ui-tabs-active ui-state-active');
             $('#post-body-content>div').hide();
-
 
             let $tab_id = localStorage.getItem('prince_settings_active_tab');
             $tab_id = $tab_id ? $tab_id : $('.ui-tabs>ul>li:first-child').attr('id');
