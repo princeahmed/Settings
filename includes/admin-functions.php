@@ -1304,6 +1304,61 @@ if ( ! function_exists( 'prince_save_settings' ) ) {
 }
 
 /**
+ * Unregister WPML strings based on settings changing.
+ *
+ * @param array $settings The array of settings.
+ *
+ * @access public
+ * @since  2.7.0
+ */
+if ( ! function_exists( 'prince_wpml_unregister' ) ) {
+
+	function prince_wpml_unregister( $settings = array() ) {
+
+		// WPML unregister ID's that have been removed.
+		if ( function_exists( 'icl_unregister_string' ) ) {
+
+			$current = get_option( prince_settings_id() );
+			$options = get_option( prince_options_id() );
+
+			if ( isset( $current['settings'] ) ) {
+
+				// Empty ID array.
+				$new_ids = array();
+
+				// Build the WPML IDs array.
+				foreach ( $settings['settings'] as $setting ) {
+					if ( $setting['id'] ) {
+						$new_ids[] = $setting['id'];
+					}
+				}
+
+				// Remove missing IDs from WPML.
+				foreach ( $current['settings'] as $current_setting ) {
+					if ( ! in_array( $current_setting['id'], $new_ids, true ) ) {
+						if ( ! empty( $options[ $current_setting['id'] ] ) && in_array( $current_setting['type'], array( 'list-item', 'slider' ), true ) ) {
+							foreach ( $options[ $current_setting['id'] ] as $key => $value ) {
+								foreach ( $value as $ckey => $cvalue ) {
+									prince_wpml_unregister_string( $current_setting['id'] . '_' . $ckey . '_' . $key );
+								}
+							}
+						} elseif ( ! empty( $options[ $current_setting['id'] ] ) && 'social-icons' === $current_setting['type'] ) {
+							foreach ( $options[ $current_setting['id'] ] as $key => $value ) {
+								foreach ( $value as $ckey => $cvalue ) {
+									prince_wpml_unregister_string( $current_setting['id'] . '_' . $ckey . '_' . $key );
+								}
+							}
+						} else {
+							prince_wpml_unregister_string( $current_setting['id'] );
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/**
  * Validate the settings array before save.
  *
  * This function will loop over the settings array as many
@@ -2284,7 +2339,7 @@ if ( ! function_exists( 'prince_measurement_unit_types' ) ) {
  */
 if ( ! function_exists( 'prince_radio_images' ) ) {
 
-function prince_radio_images( $field_id = '' ) {
+	function prince_radio_images( $field_id = '' ) {
 
 		return apply_filters( 'prince_radio_images', array(
 			array(
@@ -4223,6 +4278,41 @@ if ( ! function_exists( 'prince_normalize_google_fonts' ) ) {
 
 		return $prince_normalized_google_fonts;
 
+	}
+}
+
+/**
+ * Helper function to register a WPML string.
+ *
+ * @param string $id    The string ID.
+ * @param string $value The string value.
+ *
+ * @access public
+ * @since  2.1
+ */
+if ( ! function_exists( 'prince_wpml_register_string' ) ) {
+
+	function prince_wpml_register_string( $id, $value ) {
+		if ( function_exists( 'icl_register_string' ) ) {
+			icl_register_string( 'Theme Options', $id, $value );
+		}
+	}
+}
+
+/**
+ * Helper function to unregister a WPML string.
+ *
+ * @param string $id The string ID.
+ *
+ * @access public
+ * @since  2.1
+ */
+if ( ! function_exists( 'prince_wpml_unregister_string' ) ) {
+
+	function prince_wpml_unregister_string( $id ) {
+		if ( function_exists( 'icl_unregister_string' ) ) {
+			icl_unregister_string( 'Theme Options', $id );
+		}
 	}
 }
 

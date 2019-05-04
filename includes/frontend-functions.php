@@ -98,6 +98,81 @@ if ( ! function_exists( 'prince_echo_option' ) ) {
 }
 
 /**
+ * Filter the return values through WPML
+ *
+ * @param  array  $options   The current options.
+ * @param  string $option_id The option ID.
+ * @return mixed
+ *
+ * @access public
+ * @since  1.0.0
+ */
+if ( ! function_exists( 'prince_wpml_filter' ) ) {
+
+	function prince_wpml_filter( $options, $option_id ) {
+
+		// Return translated strings using WMPL.
+		if ( function_exists( 'icl_t' ) ) {
+
+			$settings = get_option( ot_settings_id() );
+
+			if ( isset( $settings['settings'] ) ) {
+
+				foreach ( $settings['settings'] as $setting ) {
+
+					// List Item & Slider.
+					if ( $option_id === $setting['id'] && in_array( $setting['type'], array( 'list-item', 'slider' ), true ) ) {
+
+						foreach ( $options[ $option_id ] as $key => $value ) {
+
+							foreach ( $value as $ckey => $cvalue ) {
+
+								$id      = $option_id . '_' . $ckey . '_' . $key;
+								$_string = icl_t( 'Theme Options', $id, $cvalue );
+
+								if ( ! empty( $_string ) ) {
+
+									$options[ $option_id ][ $key ][ $ckey ] = $_string;
+								}
+							}
+						}
+
+						// List Item & Slider.
+					} elseif ( $option_id === $setting['id'] && 'social-links' === $setting['type'] ) {
+
+						foreach ( $options[ $option_id ] as $key => $value ) {
+
+							foreach ( $value as $ckey => $cvalue ) {
+
+								$id      = $option_id . '_' . $ckey . '_' . $key;
+								$_string = icl_t( 'Settings', $id, $cvalue );
+
+								if ( ! empty( $_string ) ) {
+
+									$options[ $option_id ][ $key ][ $ckey ] = $_string;
+								}
+							}
+						}
+
+						// All other acceptable option types.
+					} elseif ( $option_id === $setting['id'] && in_array( $setting['type'], apply_filters( 'prince_wpml_option_types', array( 'text', 'textarea', 'textarea-simple' ) ), true ) ) {
+
+						$_string = icl_t( 'Theme Options', $option_id, $options[ $option_id ] );
+
+						if ( ! empty( $_string ) ) {
+
+							$options[ $option_id ] = $_string;
+						}
+					}
+				}
+			}
+		}
+
+		return $options[ $option_id ];
+	}
+}
+
+/**
  * Enqueue the dynamic CSS.
  *
  * @return    void
