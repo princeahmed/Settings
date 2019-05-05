@@ -2537,17 +2537,12 @@ if ( ! function_exists( 'prince_social_links_settings' ) ) {
 			array(
 				'id'    => 'name',
 				'label' => __( 'Name', 'prince-text-domain' ),
-				'desc'  => __( 'Enter the name of the social website.', 'prince-text-domain' ),
+				'desc'  => sprintf(__( 'Enter the name/ title that will be shown in the title attribute of the link. %s', 'prince-text-domain' ), '<br><code>Example: Website, Facebook, Twitter etc</code>'),
 				'std'   => '',
 				'type'  => 'text',
 				'class' => 'prince-setting-title'
 			),
-			array(
-				'id'    => 'title',
-				'label' => 'Title',
-				'desc'  => __( 'Enter the text shown in the title attribute of the link.', 'prince-text-domain' ),
-				'type'  => 'text'
-			),
+
 			array(
 				'id'    => 'href',
 				'label' => 'Link',

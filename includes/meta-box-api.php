@@ -113,9 +113,21 @@ if ( ! class_exists( 'MetaBox' ) ) {
 					'field_operator'     => isset( $field['operator'] ) ? $field['operator'] : 'and',
 					'field_choices'      => isset( $field['choices'] ) ? $field['choices'] : array(),
 					'field_settings'     => isset( $field['settings'] ) && ! empty( $field['settings'] ) ? $field['settings'] : array(),
+					'field_attrs'        => '',
 					'post_id'            => $post->ID,
 					'meta'               => true
 				);
+
+				if ( isset($field['attrs']) && ! empty( array_filter( $field['attrs'] ) ) ) {
+					$attrs = '';
+					foreach ( array_filter( $field['attrs'] ) as $key => $value ) {
+						$attrs .= ' ' . $key . '="' . $value . '" ';
+					}
+
+					$_args['field_attrs'] = $attrs;
+
+
+				}
 
 				$conditions = '';
 
@@ -134,7 +146,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 
 				/* only allow simple textarea due to DOM issues with wp_editor() */
 				if ( apply_filters( 'prince_override_forced_textarea_simple', false, $field['id'] ) == false && $_args['type'] == 'textarea' ) {
-					$_args['type'] = 'textarea-simple';
+					//$_args['type'] = 'textarea-simple';
 				}
 
 				// Build the setting CSS class

@@ -60,12 +60,30 @@
     }
   }
 
-  button[type=submit]{
+  button[type=submit] {
     cursor: pointer;
   }
 
-  #post-body-content{
+  #post-body-content {
     display: none;
   }
 
+  /* Type social links styles */
+  ul[data-type="social-links"] {
+    .format-settings {
+      padding: 0;
+
+      .description, .format-setting-inner {
+        width: 100%;
+      }
+
+      .format-setting-label {
+        margin: 0;
+
+        & > h3 {
+          margin: 0;
+        }
+      }
+    }
+  }
 }

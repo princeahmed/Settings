@@ -2162,15 +2162,15 @@ if ( ! function_exists( 'prince_type_select' ) ) {
 		/* filter choices array */
 		$field_choices = apply_filters( 'prince_type_select_choices', $field_choices, $field_id );
 
+
 		/* format setting inner wrapper */
 		echo '<div class="format-setting-inner">';
 
 		/* build select */
 		echo '<select name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
-		foreach ( (array) $field_choices as $choice ) {
-			if ( isset( $choice['value'] ) && isset( $choice['label'] ) ) {
-				echo '<option value="' . esc_attr( $choice['value'] ) . '"' . selected( $field_value, $choice['value'], false ) . '>' . esc_attr( $choice['label'] ) . '</option>';
-			}
+		foreach ( (array) $field_choices as $value => $label ) {
+			echo '<option value="' . esc_attr( $value ) . '"' . selected( $field_value, $value, false ) . '>' . esc_attr( $label ) . '</option>';
+
 		}
 
 		echo '</select>';
@@ -2453,7 +2453,7 @@ if ( ! function_exists( 'prince_type_social_links' ) ) {
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
 
 		/* format setting inner wrapper */
-		echo '<div class="format-setting-inner">';
+		echo '<div class="format-setting-inner type-social-links">';
 
 		/* pass the settings array arround */
 		echo '<input type="hidden" name="' . esc_attr( $field_id ) . '_settings_array" id="' . esc_attr( $field_id ) . '_settings_array" value="' . prince_encode( serialize( $field_settings ) ) . '" />';
@@ -2896,8 +2896,10 @@ if ( ! function_exists( 'prince_type_text' ) ) {
 		/* format setting inner wrapper */
 		echo '<div class="format-setting-inner">';
 
+		$field_attrs = isset( $field_attrs ) ? $field_attrs : '';
+
 		/* build text input */
-		echo '<input type="text" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" />';
+		echo '<input type="text" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" ' . $field_attrs . ' />';
 
 		echo '</div>';
 
@@ -2938,13 +2940,14 @@ if ( ! function_exists( 'prince_type_textarea' ) ) {
 		/* format setting inner wrapper */
 		echo '<div class="format-setting-inner">';
 
+
 		/* build textarea */
 		wp_editor(
 			$field_value,
 			esc_attr( $field_id ),
 			array(
 				'editor_class'  => esc_attr( $field_class ),
-				'wpautop'       => apply_filters( 'prince_wpautop', false, $field_id ),
+				'wpautop'       => apply_filters( 'prince_wpautop', true, $field_id ),
 				'media_buttons' => apply_filters( 'prince_media_buttons', true, $field_id ),
 				'textarea_name' => esc_attr( $field_name ),
 				'textarea_rows' => esc_attr( $field_rows ),
