@@ -743,7 +743,7 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 		$localized_array = array(
 			'ajax'                  => admin_url( 'admin-ajax.php' ),
 			'nonce'                 => wp_create_nonce( 'option_tree' ),
-			'upload_text'           => apply_filters( 'prince_upload_text', __( 'Send to Prince', 'prince-text-domain' ) ),
+			'upload_text'           => apply_filters( 'prince_upload_text', __( 'Done', 'prince-text-domain' ) ),
 			'remove_media_text'     => __( 'Remove Media', 'prince-text-domain' ),
 			'reset_agree'           => __( 'Are you sure you want to reset back to the defaults?', 'prince-text-domain' ),
 			'remove_no'             => __( 'You can\'t remove this! But you can edit the values.', 'prince-text-domain' ),
@@ -3211,10 +3211,10 @@ if ( ! function_exists( 'prince_sections_view' ) ) {
       <div class="open">' . ( isset( $section['title'] ) ? esc_attr( $section['title'] ) : 'Section ' . ( $key + 1 ) ) . '</div>
       <div class="button-section">
         <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'edit', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-pencil"></span>' . __( 'Edit', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-text-domain' ) . '
         </a>
         <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-trash-o"></span>' . __( 'Delete', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-text-domain' ) . '
         </a>
       </div>
       <div class="prince-setting-body">
@@ -3280,10 +3280,10 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
       <div class="open">' . ( isset( $setting['label'] ) ? esc_attr( $setting['label'] ) : 'Setting ' . ( $key + 1 ) ) . '</div>
       <div class="button-section">
         <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-pencil"></span>' . __( 'Edit', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-text-domain' ) . '
         </a>
         <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-trash-o"></span>' . __( 'Delete', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-text-domain' ) . '
         </a>
       </div>
       <div class="prince-setting-body">
@@ -3324,7 +3324,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-textblock wide-desc">
-            <div class="description">' . __( '<strong>Choices</strong>: This will only affect the following option types: Checkbox, Radio, Select & Select Image.', 'prince-text-domain' ) . '</div>
+            <div class="description">' . __( '<strong>Choices</strong>: This will only affect the following option types: Checkbox, Radio, Select & Done.', 'prince-text-domain' ) . '</div>
             <div class="format-setting-inner">
               <ul class="prince-setting-wrap prince-sortable" data-name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . ']">
                 ' . ( isset( $setting['choices'] ) ? prince_loop_through_choices( $name . '[' . $key . ']', $setting['choices'] ) : '' ) . '
@@ -3443,10 +3443,10 @@ if ( ! function_exists( 'prince_choices_view' ) ) {
       <div class="open">' . ( isset( $choice['label'] ) ? esc_attr( $choice['label'] ) : 'Choice ' . ( $key + 1 ) ) . '</div>
       <div class="button-section">
         <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-pencil"></span>' . __( 'Edit', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-text-domain' ) . '
         </a>
         <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-trash-o"></span>' . __( 'Delete', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-text-domain' ) . '
         </a>
       </div>
       <div class="prince-setting-body">
@@ -3509,10 +3509,10 @@ if ( ! function_exists( 'prince_contextual_help_view' ) ) {
       <div class="open">' . ( isset( $content['title'] ) ? esc_attr( $content['title'] ) : 'Content ' . ( $key + 1 ) ) . '</div>
       <div class="button-section">
         <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-pencil"></span>' . __( 'Edit', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-text-domain' ) . '
         </a>
         <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-trash-o"></span>' . __( 'Delete', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-text-domain' ) . '
         </a>
       </div>
       <div class="prince-setting-body">
@@ -3603,10 +3603,10 @@ if ( ! function_exists( 'prince_list_item_view' ) ) {
       <div class="open">' . ( isset( $list_item['title'] ) ? esc_attr( $list_item['title'] ) : '' ) . '</div>
       <div class="button-section">
         <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-pencil"></span>' . __( 'Edit', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-text-domain' ) . '
         </a>
         <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-trash-o"></span>' . __( 'Delete', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-text-domain' ) . '
         </a>
       </div>
       <div class="prince-setting-body">';
@@ -3762,10 +3762,10 @@ if ( ! function_exists( 'prince_social_links_view' ) ) {
       <div class="open">' . ( isset( $list_item['name'] ) ? esc_attr( $list_item['name'] ) : '' ) . '</div>
       <div class="button-section">
         <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-pencil"></span>' . __( 'Edit', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-text-domain' ) . '
         </a>
         <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-text-domain' ) . '">
-          <span class="icon prince-icon-trash-o"></span>' . __( 'Delete', 'prince-text-domain' ) . '
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-text-domain' ) . '
         </a>
       </div>
       <div class="prince-setting-body">';

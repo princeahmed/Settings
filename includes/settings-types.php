@@ -240,7 +240,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 			echo '<input type="text" name="' . esc_attr( $field_name ) . '[background-image]" id="' . esc_attr( $field_id ) . '" value="' . ( isset( $field_value['background-image'] ) ? esc_attr( $field_value['background-image'] ) : '' ) . '" class="widefat prince-ui-upload-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'background-image', 'prince-text-domain' ) . '" />';
 
 			/* add media button */
-			echo '<a href="javascript:void(0);" class="prince_upload_media prince-ui-button button button-primary light" rel="' . $post_id . '" title="' . __( 'Add Media', 'prince-text-domain' ) . '"><span class="icon prince-icon-plus-circle"></span>' . __( 'Add Media', 'prince-text-domain' ) . '</a>';
+			echo '<a href="javascript:void(0);" class="prince_upload_media prince-ui-button button button-primary light" rel="' . $post_id . '" title="' . __( 'Add Media', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-plus-alt"></span>' . __( 'Add Media', 'prince-text-domain' ) . '</a>';
 
 			echo '</div>';
 
@@ -258,7 +258,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 					echo '<div class="prince-ui-image-wrap"><img src="' . esc_url( $field_value['background-image'] ) . '" alt="" /></div>';
 				}
 
-				echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-text-domain' ) . '"><span class="icon prince-icon-minus-circle"></span>' . __( 'Remove Media', 'prince-text-domain' ) . '</a>';
+				echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-trash"></span>' . __( 'Remove Media', 'prince-text-domain' ) . '</a>';
 
 				echo '</div>';
 
@@ -1263,7 +1263,7 @@ if ( ! function_exists( 'prince_type_google_fonts' ) ) {
 			/* build font family */
 			$family = isset( $value['family'] ) ? $value['family'] : '';
 			echo '<div class="prince-google-font-family">';
-			echo '<a href="javascript:void(0);" class="js-remove-google-font prince-ui-button button button-secondary light" title="' . __( 'Remove Google Font', 'prince-text-domain' ) . '"><span class="icon prince-icon-minus-circle"/>' . __( 'Remove Google Font', 'prince-text-domain' ) . '</a>';
+			echo '<a href="javascript:void(0);" class="js-remove-google-font prince-ui-button button button-secondary light" title="' . __( 'Remove Google Font', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-trash"/>' . __( 'Remove Google Font', 'prince-text-domain' ) . '</a>';
 			echo '<select name="' . esc_attr( $field_name ) . '[' . $key . '][family]" id="' . esc_attr( $field_id ) . '-' . $key . '" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 			echo '<option value="">' . __( '-- Choose One --', 'prince-text-domain' ) . '</option>';
 			foreach ( prince_recognized_google_font_families( $field_id ) as $family_key => $family_value ) {
@@ -1306,7 +1306,7 @@ if ( ! function_exists( 'prince_type_google_fonts' ) ) {
 
 		/* build font family */
 		echo '<div class="prince-google-font-family">';
-		echo '<a href="javascript:void(0);" class="js-remove-google-font prince-ui-button button button-secondary light" title="' . __( 'Remove Google Font', 'prince-text-domain' ) . '"><span class="icon prince-icon-minus-circle"/>' . __( 'Remove Google Font', 'prince-text-domain' ) . '</a>';
+		echo '<a href="javascript:void(0);" class="js-remove-google-font prince-ui-button button button-secondary light" title="' . __( 'Remove Google Font', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-trash"/>' . __( 'Remove Google Font', 'prince-text-domain' ) . '</a>';
 		echo '<select name="' . esc_attr( $field_name ) . '[%key%][family]" id="' . esc_attr( $field_id ) . '-%key%" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 		echo '<option value="">' . __( '-- Choose One --', 'prince-text-domain' ) . '</option>';
 		foreach ( prince_recognized_google_font_families( $field_id ) as $family_key => $family_value ) {
@@ -3299,7 +3299,7 @@ if ( ! function_exists( 'prince_type_upload' ) ) {
 		echo '<input type="text" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="widefat prince-ui-upload-input ' . esc_attr( $field_class ) . '" />';
 
 		/* add media button */
-		echo '<a href="javascript:void(0);" class="prince_upload_media prince-ui-button button button-primary light" rel="' . $post_id . '" title="' . __( 'Add Media', 'prince-text-domain' ) . '"><span class="icon prince-icon-plus-circle"></span>' . __( 'Add Media', 'prince-text-domain' ) . '</a>';
+		echo '<a href="javascript:void(0);" class="prince_upload_media prince-ui-button button button-primary light" rel="' . $post_id . '" title="' . __( 'Add Media', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-plus-alt"></span>' . __( 'Add Media', 'prince-text-domain' ) . '</a>';
 
 		echo '</div>';
 
@@ -3317,7 +3317,7 @@ if ( ! function_exists( 'prince_type_upload' ) ) {
 				echo '<div class="prince-ui-image-wrap"><img src="' . esc_url( $field_value ) . '" alt="" /></div>';
 			}
 
-			echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-text-domain' ) . '"><span class="icon prince-icon-minus-circle"></span>' . __( 'Remove Media', 'prince-text-domain' ) . '</a>';
+			echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-trash"></span>' . __( 'Remove Media', 'prince-text-domain' ) . '</a>';
 
 			echo '</div>';
 

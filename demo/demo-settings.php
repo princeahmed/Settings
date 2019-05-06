@@ -770,7 +770,7 @@ function custom_settings() {
 			array(
 				'id'           => 'demo_upload',
 				'label'        => __( 'Upload', 'theme-text-domain' ),
-				'desc'         => sprintf( __( 'The Upload option type is used to upload any WordPress supported media. After uploading, users are required to press the "%1$s" button in order to populate the input with the URI of that media. There is one caveat of this feature. If you import the Settings and have uploaded media on one site the old URI will not reflect the URI of your new site. You will have to re-upload or %2$s any media to your new server and change the URIs if necessary.', 'theme-text-domain' ), apply_filters( 'prince_upload_text', __( 'Send to Prince', 'theme-text-domain' ) ), 'FTP' ),
+				'desc'         => sprintf( __( 'The Upload option type is used to upload any WordPress supported media. After uploading, users are required to press the "%1$s" button in order to populate the input with the URI of that media. There is one caveat of this feature. If you import the Settings and have uploaded media on one site the old URI will not reflect the URI of your new site. You will have to re-upload or %2$s any media to your new server and change the URIs if necessary.', 'theme-text-domain' ), apply_filters( 'prince_upload_text', __( 'Done', 'theme-text-domain' ) ), 'FTP' ),
 				'std'          => '',
 				'type'         => 'upload',
 				'section'      => 'option_types',

@@ -346,7 +346,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 				// Once is enough.
 				remove_filter( 'gettext', array( $this, 'prince_change_image_button' ) );
 
-				return apply_filters( 'prince_upload_text', __( 'Send to Prince', 'prince-text-domain' ) );
+				return apply_filters( 'prince_upload_text', __( 'Done', 'prince-text-domain' ) );
 
 			}
 

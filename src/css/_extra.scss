@@ -60,6 +60,19 @@
     }
   }
 
+  .prince-metabox-nav > li.ui-state-active {
+    background: #333 !important;
+
+    & > a {
+      border-bottom: 1px dashed #ddd !important;
+      padding: 8px 5px 8px 12px !important;
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+  }
+
   button[type=submit] {
     cursor: pointer;
   }
