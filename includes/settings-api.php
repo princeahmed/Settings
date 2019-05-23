@@ -328,7 +328,7 @@ if ( ! class_exists( 'Settings' ) ) {
 							echo '<form method="post" action="' . esc_url_raw( str_replace( '&settings-updated=true', '', $_SERVER['REQUEST_URI'] ) ) . '">'; // phpcs:ignore
 
 							// Form nonce.
-							wp_nonce_field( 'option_tree_reset_form', 'option_tree_reset_nonce' );
+							wp_nonce_field( 'prince_reset_form', 'prince_reset_nonce' );
 
 							echo '<input type="hidden" name="action" value="reset" />';
 
@@ -958,7 +958,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		public function reset_options() {
 
 			// Check for reset action.
-			if ( isset( $_POST['option_tree_reset_nonce'] ) && wp_verify_nonce( $_POST['option_tree_reset_nonce'], 'option_tree_reset_form' ) ) { // phpcs:ignore
+			if ( isset( $_POST['prince_reset_nonce'] ) && wp_verify_nonce( $_POST['prince_reset_nonce'], 'prince_reset_form' ) ) { // phpcs:ignore
 
 				// Loop through options.
 				foreach ( (array) $this->options as $option ) {

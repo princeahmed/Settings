@@ -73,6 +73,32 @@ if ( ! function_exists( 'prince_get_option' ) ) {
 
 }
 
+if ( ! function_exists( 'prince_get_meta' ) ) {
+
+	function prince_get_meta( $post_id, $meta_key, $default = '' ) {
+
+		/* get the saved meta value */
+		$meta = get_post_meta( $post_id, $meta_key, true );
+
+		/* look for the saved value */
+		if ( ! empty( $meta ) ) {
+			return $meta;
+		}
+
+		return $default;
+
+	}
+
+}
+
+if ( ! function_exists( 'prince_echo_meta' ) ) {
+
+	function prince_echo_meta( $post_id, $meta_key, $default = '' ) {
+		echo prince_get_meta( $post_id, $meta_key, $default );
+	}
+
+}
+
 /**
  * Echo Option.
  *
@@ -100,8 +126,9 @@ if ( ! function_exists( 'prince_echo_option' ) ) {
 /**
  * Filter the return values through WPML
  *
- * @param  array  $options   The current options.
+ * @param  array $options The current options.
  * @param  string $option_id The option ID.
+ *
  * @return mixed
  *
  * @access public
@@ -121,7 +148,10 @@ if ( ! function_exists( 'prince_wpml_filter' ) ) {
 				foreach ( $settings['settings'] as $setting ) {
 
 					// List Item & Slider.
-					if ( $option_id === $setting['id'] && in_array( $setting['type'], array( 'list-item', 'slider' ), true ) ) {
+					if ( $option_id === $setting['id'] && in_array( $setting['type'], array(
+							'list-item',
+							'slider'
+						), true ) ) {
 
 						foreach ( $options[ $option_id ] as $key => $value ) {
 
@@ -155,7 +185,11 @@ if ( ! function_exists( 'prince_wpml_filter' ) ) {
 						}
 
 						// All other acceptable option types.
-					} elseif ( $option_id === $setting['id'] && in_array( $setting['type'], apply_filters( 'prince_wpml_option_types', array( 'text', 'textarea', 'textarea-simple' ) ), true ) ) {
+					} elseif ( $option_id === $setting['id'] && in_array( $setting['type'], apply_filters( 'prince_wpml_option_types', array(
+							'text',
+							'textarea',
+							'textarea-simple'
+						) ), true ) ) {
 
 						$_string = icl_t( 'Theme Options', $option_id, $options[ $option_id ] );
 

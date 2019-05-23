@@ -260,8 +260,8 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 						'section' => 'functions'
 					),
 					array(
-						'id'      => 'functions_get_option_tree',
-						'label'   => __( 'Function Reference:get_option_tree()', 'prince-text-domain' ),
+						'id'      => 'functions_get_prince',
+						'label'   => __( 'Function Reference:get_prince()', 'prince-text-domain' ),
 						'type'    => 'get-prince',
 						'section' => 'functions'
 					),
@@ -742,7 +742,7 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 		/* create localized JS array */
 		$localized_array = array(
 			'ajax'                  => admin_url( 'admin-ajax.php' ),
-			'nonce'                 => wp_create_nonce( 'option_tree' ),
+			'nonce'                 => wp_create_nonce( 'prince' ),
 			'upload_text'           => apply_filters( 'prince_upload_text', __( 'Done', 'prince-text-domain' ) ),
 			'remove_media_text'     => __( 'Remove Media', 'prince-text-domain' ),
 			'reset_agree'           => __( 'Are you sure you want to reset back to the defaults?', 'prince-text-domain' ),
@@ -761,8 +761,8 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 			'with'                  => __( 'Image', 'prince-text-domain' )
 		);
 
-		/* localized script attached to 'option_tree' */
-		wp_localize_script( 'prince', 'option_tree', $localized_array );
+		/* localized script attached to 'prince' */
+		wp_localize_script( 'prince', 'prince', $localized_array );
 
 		/* execute scripts after actions */
 		do_action( 'prince_admin_scripts_after' );
@@ -881,7 +881,7 @@ if ( ! function_exists( 'prince_default_settings' ) ) {
 			$section_count  = 0;
 			$settings_count = 0;
 			$settings       = array();
-			$table_name     = $wpdb->prefix . 'option_tree';
+			$table_name     = $wpdb->prefix . 'prince';
 
 			if ( $wpdb->get_var( $wpdb->prepare( "SHOW TABLES LIKE %s", $table_name ) ) == $table_name && $old_settings = $wpdb->get_results( "SELECT * FROM $table_name ORDER BY item_sort ASC" ) ) {
 
@@ -1091,7 +1091,7 @@ if ( ! function_exists( 'prince_save_settings' ) ) {
 	function prince_save_settings() {
 
 		/* check and verify import settings nonce */
-		if ( isset( $_POST['option_tree_settings_nonce'] ) && wp_verify_nonce( $_POST['option_tree_settings_nonce'], 'option_tree_settings_form' ) ) {
+		if ( isset( $_POST['prince_settings_nonce'] ) && wp_verify_nonce( $_POST['prince_settings_nonce'], 'prince_settings_form' ) ) {
 
 			/* settings value */
 			$settings = isset( $_POST[ prince_settings_id() ] ) ? $_POST[ prince_settings_id() ] : '';
@@ -2345,32 +2345,32 @@ if ( ! function_exists( 'prince_radio_images' ) ) {
 			array(
 				'value' => 'left-sidebar',
 				'label' => __( 'Left Sidebar', 'prince-text-domain' ),
-				'src'   => PRINCE_ASSETS_URL . 'images/layout/left-sidebar.png'
+				'src'   => PRINCE_ASSETS_URL . 'princeleft-sidebar.png'
 			),
 			array(
 				'value' => 'right-sidebar',
 				'label' => __( 'Right Sidebar', 'prince-text-domain' ),
-				'src'   => PRINCE_ASSETS_URL . 'images/layout/right-sidebar.png'
+				'src'   => PRINCE_ASSETS_URL . 'princeright-sidebar.png'
 			),
 			array(
 				'value' => 'full-width',
 				'label' => __( 'Full Width (no sidebar)', 'prince-text-domain' ),
-				'src'   => PRINCE_ASSETS_URL . 'images/full-width.png'
+				'src'   => PRINCE_ASSETS_URL . 'princefull-width.png'
 			),
 			array(
 				'value' => 'dual-sidebar',
 				'label' => __( 'Dual Sidebar', 'prince-text-domain' ),
-				'src'   => PRINCE_ASSETS_URL . 'images/dual-sidebar.png'
+				'src'   => PRINCE_ASSETS_URL . 'princedual-sidebar.png'
 			),
 			array(
 				'value' => 'left-dual-sidebar',
 				'label' => __( 'Left Dual Sidebar', 'prince-text-domain' ),
-				'src'   => PRINCE_ASSETS_URL . 'images/left-dual-sidebar.png'
+				'src'   => PRINCE_ASSETS_URL . 'princeleft-dual-sidebar.png'
 			),
 			array(
 				'value' => 'right-dual-sidebar',
 				'label' => __( 'Right Dual Sidebar', 'prince-text-domain' ),
-				'src'   => PRINCE_ASSETS_URL . 'images/right-dual-sidebar.png'
+				'src'   => PRINCE_ASSETS_URL . 'princeright-dual-sidebar.png'
 			)
 		), $field_id );
 
@@ -2565,7 +2565,7 @@ if ( ! function_exists( 'prince_social_links_settings' ) ) {
  * but still retains surrounding data.
  *
  * @param     string $field_id The CSS option field ID.
- * @param     array $options The current option_tree array.
+ * @param     array $options The current prince array.
  *
  * @return    bool    True on write success, false on failure.
  *

@@ -112,7 +112,7 @@
             $(document).on('click', '.prince-list-item-setting-add', function (e) {
                 e.preventDefault();
                 if ($(this).parents('ul').parents('ul').hasClass('ui-sortable')) {
-                    alert(option_tree.setting_limit);
+                    alert(prince.setting_limit);
                     return false;
                 }
                 PRINCE.add(this, 'list_item_setting');
@@ -136,10 +136,10 @@
             $(document).on('click', '.prince-setting-remove', function (event) {
                 event.preventDefault();
                 if ($(this).parents('li').hasClass('ui-state-disabled')) {
-                    alert(option_tree.remove_no);
+                    alert(prince.remove_no);
                     return false;
                 }
-                var agree = confirm(option_tree.remove_agree);
+                var agree = confirm(prince.remove_agree);
                 if (agree) {
                     var list = $(this).parents('ul');
                     PRINCE.remove(this);
@@ -175,7 +175,7 @@
                 $('.active-layout-input').attr({'value': active});
             });
             $(document).on('change', '#prince-options-layouts-form select', function () {
-                var agree = confirm(option_tree.activate_layout_agree);
+                var agree = confirm(prince.activate_layout_agree);
                 if (agree) {
                     $('#prince-options-layouts-form').submit();
                 } else {
@@ -232,7 +232,7 @@
                     });
                 }
                 $.ajax({
-                    url: option_tree.ajax,
+                    url: prince.ajax,
                     type: 'post',
                     data: {
                         action: 'add_' + type,
@@ -242,7 +242,7 @@
                         get_option: get_option,
                         settings: settings,
                         type: type,
-                        nonce: option_tree.nonce
+                        nonce: prince.nonce
                     },
                     complete: function (data) {
                         if (type === 'choice' || type === 'list_item_setting') {
@@ -428,7 +428,7 @@
                     window.prince_media_frame = window.prince_media_frame || new wp.media.view.MediaFrame.Select({
                         title: $(this).attr('title'),
                         button: {
-                            text: option_tree.upload_text
+                            text: prince.upload_text
                         },
                         multiple: false
                     });
@@ -441,7 +441,7 @@
                         if (mime.match(regex)) {
                             btnContent += '<div class="prince-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
                         }
-                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span>' + option_tree.remove_media_text + '</a>';
+                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span>' + prince.remove_media_text + '</a>';
                         $('#' + field_id).val((save_attachment_id ? attachment_id : href));
                         $('#' + field_id + '_media').remove();
                         $('#' + field_id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + field_id + '_media" />');
@@ -455,7 +455,7 @@
                                 if ($('#TB_iframeContent').length > 0 && $('#TB_iframeContent').attr('src').indexOf("&field_id=") !== -1) {
                                     $('#TB_iframeContent').contents().find('#tab-type_url').hide();
                                 }
-                                $('#TB_iframeContent').contents().find('.savesend .button').val(option_tree.upload_text);
+                                $('#TB_iframeContent').contents().find('.savesend .button').val(prince.upload_text);
                             }, 50);
                     tb_show('', 'media-upload.php?post_id=' + post_id + '&field_id=' + field_id + '&type=image&TB_iframe=1');
                     window.send_to_editor = function (html) {
@@ -470,7 +470,7 @@
                         if (href.match(image) && PRINCE.url_exists(href)) {
                             btnContent += '<div class="prince-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
                         }
-                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span>' + option_tree.remove_media_text + '</a>';
+                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span>' + prince.remove_media_text + '</a>';
                         $('#' + field_id).val(href);
                         $('#' + field_id + '_media').remove();
                         $('#' + field_id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + field_id + '_media" />');
@@ -487,7 +487,7 @@
         init_upload_remove: function () {
             $(document).on('click', '.prince-ui-remove-media', function (event) {
                 event.preventDefault();
-                var agree = confirm(option_tree.remove_agree);
+                var agree = confirm(prince.remove_agree);
                 if (agree) {
                     PRINCE.remove_image(this);
                     return false;
@@ -512,7 +512,7 @@
                 if (val.match(image)) {
                     btnContent += '<div class="prince-ui-image-wrap"><img src="' + val + '" alt="" /></div>';
                 }
-                btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + option_tree.remove_media_text + '"><span class="icon dashicons dashicons-trash">' + option_tree.remove_media_text + '</span></a>';
+                btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash">' + prince.remove_media_text + '</span></a>';
                 $('#' + id).val(val);
                 $('#' + id + '_media').remove();
                 $('#' + id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + id + '_media" />');
@@ -613,7 +613,7 @@
             $(document).on('change', '.prince-google-font-family select', function () {
                 var input = $(this);
                 $.ajax({
-                    url: option_tree.ajax,
+                    url: prince.ajax,
                     type: 'POST',
                     dataType: 'json',
                     data: {
@@ -670,15 +670,15 @@
             $('#' + field_id).datepicker({
                 showOtherMonths: true,
                 showButtonPanel: true,
-                currentText: option_tree.date_current,
-                closeText: option_tree.date_close,
+                currentText: prince.date_current,
+                closeText: prince.date_close,
                 dateFormat: date_format
             });
         },
         bind_date_time_picker: function (field_id, date_format) {
             $('#' + field_id).datetimepicker({
                 showOtherMonths: true,
-                closeText: option_tree.date_close,
+                closeText: prince.date_close,
                 dateFormat: date_format
             });
         },
@@ -712,7 +712,7 @@
         },
         reset_settings: function () {
             $(document).on("click", ".reset-settings", function (event) {
-                var agree = confirm(option_tree.reset_agree);
+                var agree = confirm(prince.reset_agree);
                 if (agree) {
                     return true;
                 } else {
@@ -827,9 +827,9 @@
                             input.val(shortcode);
                         }
                         if ($(elm).parent().children('.prince-gallery-delete').length <= 0) {
-                            $(elm).parent().append('<a href="#" class="prince-ui-button button button-secondary hug-left prince-gallery-delete">' + option_tree.delete + '</a>');
+                            $(elm).parent().append('<a href="#" class="prince-ui-button button button-secondary hug-left prince-gallery-delete">' + prince.delete + '</a>');
                         }
-                        $(elm).text(option_tree.edit);
+                        $(elm).text(prince.edit);
                         PRINCE.parse_condition();
                     }
                 })
@@ -893,11 +893,11 @@
 
         , remove: function (elm) {
 
-            if (confirm(option_tree.confirm)) {
+            if (confirm(prince.confirm)) {
 
                 $(elm).parents('.format-setting-inner').children('.prince-gallery-value').attr('value', '');
                 $(elm).parents('.format-setting-inner').children('.prince-gallery-list').remove();
-                $(elm).next('.prince-gallery-edit').text(option_tree.create);
+                $(elm).next('.prince-gallery-edit').text(prince.create);
                 $(elm).remove();
                 PRINCE.parse_condition();
 

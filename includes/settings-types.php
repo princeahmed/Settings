@@ -1506,7 +1506,7 @@ if ( ! function_exists( 'prince_type_list_item' ) ) {
 		echo '<input type="hidden" name="' . esc_attr( $field_id ) . '_settings_array" id="' . esc_attr( $field_id ) . '_settings_array" value="' . prince_encode( serialize( $field_settings ) ) . '" />';
 
 		/**
-		 * settings pages have array wrappers like 'option_tree'.
+		 * settings pages have array wrappers like 'prince'.
 		 * So we need that value to create a proper array to save to.
 		 * This is only for NON metabox settings.
 		 */
@@ -2292,7 +2292,7 @@ if ( ! function_exists( 'prince_type_slider' ) ) {
 		echo '<input type="hidden" name="' . esc_attr( $field_id ) . '_settings_array" id="' . esc_attr( $field_id ) . '_settings_array" value="' . prince_encode( serialize( $field_settings ) ) . '" />';
 
 		/**
-		 * settings pages have array wrappers like 'option_tree'.
+		 * settings pages have array wrappers like 'prince'.
 		 * So we need that value to create a proper array to save to.
 		 * This is only for NON metabox settings.
 		 */
@@ -2459,7 +2459,7 @@ if ( ! function_exists( 'prince_type_social_links' ) ) {
 		echo '<input type="hidden" name="' . esc_attr( $field_id ) . '_settings_array" id="' . esc_attr( $field_id ) . '_settings_array" value="' . prince_encode( serialize( $field_settings ) ) . '" />';
 
 		/**
-		 * settings pages have array wrappers like 'option_tree'.
+		 * settings pages have array wrappers like 'prince'.
 		 * So we need that value to create a proper array to save to.
 		 * This is only for NON metabox settings.
 		 */

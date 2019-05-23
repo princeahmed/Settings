@@ -9,7 +9,10 @@ module.exports = ({mode} = {mode: 'development'}) => {
     return webpackMerge({
         mode,
 
-        entry: { prince: __dirname + '/src/prince.js' },
+        entry: {
+            admin: __dirname + '/src/admin.js',
+            frontend: __dirname + '/src/frontend.js',
+        },
 
         output: {
             path: path.resolve(__dirname, './assets'),
