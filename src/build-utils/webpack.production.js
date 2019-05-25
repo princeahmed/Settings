@@ -67,7 +67,6 @@ module.exports = () => ({
                 copy: [
                     {source: './assets', destination: './build/assets'},
                     {source: './includes', destination: './build/includes'},
-                    {source: './templates', destination: './build/templates'},
                     {source: './demo', destination: './build/demo'},
                     {source: './*.php', destination: './build'}
                 ],

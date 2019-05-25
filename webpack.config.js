@@ -10,8 +10,7 @@ module.exports = ({mode} = {mode: 'development'}) => {
         mode,
 
         entry: {
-            admin: __dirname + '/src/admin.js',
-            frontend: __dirname + '/src/frontend.js',
+            prince: __dirname + '/src/prince.js'
         },
 
         output: {
