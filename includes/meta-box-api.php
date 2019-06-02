@@ -204,6 +204,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 		 * @since     1.0
 		 */
 		function save_meta_box( $post_id, $post_object ) {
+
 			global $pagenow;
 
 			/* don't save if $_POST is empty */
@@ -297,7 +298,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 						}
 
 						/* set up new data with validated data */
-						$new = $_POST[ $field['id'] ];
+						$new = sanitize_textarea_field($_POST[ $field['id'] ]);
 
 					} else if ( $field['type'] == 'social-links' ) {
 
@@ -325,7 +326,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 						}
 
 						/* set up new data with validated data */
-						$new = $_POST[ $field['id'] ];
+						$new = sanitize_textarea_field($_POST[ $field['id'] ]);
 
 					} else {
 
