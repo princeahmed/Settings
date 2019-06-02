@@ -1,4 +1,7 @@
 <?php
+
+namespace Prince\Settings;
+
 /**
  * Prince Meta Box API
  *
@@ -298,7 +301,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 						}
 
 						/* set up new data with validated data */
-						$new = sanitize_textarea_field($_POST[ $field['id'] ]);
+						$new = prince_validate_setting( $_POST[ $field['id'] ], $field['type'], $field['id'] );
 
 					} else if ( $field['type'] == 'social-links' ) {
 
@@ -326,7 +329,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 						}
 
 						/* set up new data with validated data */
-						$new = sanitize_textarea_field($_POST[ $field['id'] ]);
+						$new = prince_validate_setting( $_POST[ $field['id'] ], $field['type'], $field['id'] );
 
 					} else {
 
@@ -363,30 +366,6 @@ if ( ! class_exists( 'MetaBox' ) ) {
 
 		}
 
-	}
-
-}
-
-/**
- * This method instantiates the meta box class & builds the UI.
- *
- * @uses     MetaBox()
- *
- * @param    array    Array of arguments to create a meta box
- *
- * @return   void
- *
- * @access   public
- * @since    2.0
- */
-if ( ! function_exists( 'prince_register_meta_box' ) ) {
-
-	function prince_register_meta_box( $args ) {
-		if ( ! $args ) {
-			return;
-		}
-
-		$prince_meta_box = new MetaBox( $args );
 	}
 
 }

@@ -4603,3 +4603,27 @@ if ( ! function_exists( 'prince_get_option_type_by_id' ) ) {
 	}
 
 }
+
+/**
+ * This method instantiates the meta box class & builds the UI.
+ *
+ * @uses     MetaBox()
+ *
+ * @param    array    Array of arguments to create a meta box
+ *
+ * @return   void
+ *
+ * @access   public
+ * @since    2.0
+ */
+if ( ! function_exists( 'prince_register_meta_box' ) ) {
+
+	function prince_register_meta_box( $args ) {
+		if ( ! $args ) {
+			return;
+		}
+
+		$prince_meta_box = new Prince\Settings\MetaBox( $args );
+	}
+
+}
