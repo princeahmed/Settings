@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = () => ({
 
@@ -21,6 +22,18 @@ module.exports = () => ({
                 exclude: '/node_modules/'
             }
         ]
-    }
+    },
+
+    plugins: [
+        new FileManagerPlugin({
+
+            onEnd: {
+                copy: [
+                    //todo uncomment when need css & js editor
+                    //{source: './src/vendor/ace.min.js', destination: './assets/ace.min.js'}
+                ]
+            }
+        })
+    ]
 
 });

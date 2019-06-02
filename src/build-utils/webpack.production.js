@@ -69,6 +69,8 @@ module.exports = () => ({
                     {source: './includes', destination: './build/includes'},
                     {source: './demo', destination: './build/demo'},
                     {source: './*.php', destination: './build'}
+                    //todo uncomment when need css & js editor
+                    //{source: './src/vendor/ace.min.js', destination: './assets/ace.min.js'}
                 ],
 
                 archive: [

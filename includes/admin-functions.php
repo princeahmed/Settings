@@ -728,7 +728,8 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 		wp_enqueue_script( 'wp-color-picker' );
 
 		/* load Ace Editor for CSS Editing */
-		wp_enqueue_script( 'ace-editor', 'https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js', null, '1.1.3' );
+		//todo uncomment when need css & js editor
+		//wp_enqueue_script( 'ace-editor', PRINCE_ASSETS_URL.'/ace.min.js', null, '1.1.3' );
 
 		/* load all the required scripts */
 		wp_enqueue_script( 'prince', PRINCE_ASSETS_URL . 'prince.min.js', array(

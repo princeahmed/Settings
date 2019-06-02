@@ -30,8 +30,9 @@
             this.fix_textarea();
             this.replicate_ajax();
             this.reset_settings();
-            this.css_editor_mode();
-            this.javascript_editor_mode();
+            //todo uncomment when need css & js editor
+            //this.css_editor_mode();
+            //this.javascript_editor_mode();
         },
         init_hide_body: function (elm, type) {
             var css = '.prince-setting-body';
