@@ -55,7 +55,7 @@ module.exports = () => ({
         }),
 
         new PurgecssPlugin({
-            paths: glob.sync(['./src/js/prince-admin.js', './includes/*.php'])
+            paths: glob.sync(['./src/js/*.js', './includes/*.php'])
         }),
 
         new FileManagerPlugin({
