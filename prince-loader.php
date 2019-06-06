@@ -19,6 +19,7 @@
  * @author    Prince Ahmed <israilahmed5@gmail.com>
  * @copyright Copyright (c) 2019, Prince Ahmed
  */
+
 namespace Prince\Settings;
 
 if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
@@ -74,7 +75,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 		 * @since     1.0.0
 		 */
 		private function constants() {
-			define( 'PRINCE_ASSETS_URL', trailingslashit(plugin_dir_url( __FILE__ ).'/assets') );
+			define( 'PRINCE_ASSETS_URL', trailingslashit( plugin_dir_url( __FILE__ ) . '/assets' ) );
 		}
 
 		/**
@@ -113,7 +114,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 		}
 
 		/* include frontend files */
-		public function includes(){
+		public function includes() {
 			include( __DIR__ . "\includes" . DIRECTORY_SEPARATOR . "frontend-functions.php" );
 		}
 
@@ -239,8 +240,8 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 		 * the real attachment IDs on the fly. Here we just need to
 		 * pass in the post ID to get the ball rolling.
 		 *
-		 * @param     array     The current settings
-		 * @param     object    The post object
+		 * @param array     The current settings
+		 * @param object    The post object
 		 *
 		 * @return    array
 		 *
@@ -320,8 +321,8 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 				prince_fetch_google_fonts();
 
 				echo json_encode( array(
-					'variants' => prince_recognized_google_font_variants( $_POST['field_id'], $_POST['family'] ),
-					'subsets'  => prince_recognized_google_font_subsets( $_POST['field_id'], $_POST['family'] )
+					'variants' => prince_recognized_google_font_variants( esc_attr( $_POST['field_id'] ), esc_attr( $_POST['family'] ) ),
+					'subsets'  => prince_recognized_google_font_subsets( esc_attr( $_POST['field_id'] ), esc_attr( $_POST['family'] ) )
 				) );
 
 				exit();

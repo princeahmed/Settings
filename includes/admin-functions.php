@@ -15,11 +15,11 @@
 /**
  * Registers the Theme Option page
  *
- * @uses      prince_register_settings()
- *
  * @return    void
  *
  * @access    public
+ * @uses      prince_register_settings()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_register_settings_page' ) ) {
@@ -78,11 +78,11 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 /**
  * Registers the Settings page
  *
- * @uses      prince_register_settings()
- *
  * @return    void
  *
  * @access    public
+ * @uses      prince_register_settings()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_register_settings_page' ) ) {
@@ -350,10 +350,10 @@ if ( ! function_exists( 'prince_after_settings_save' ) ) {
  * ones users are going to input data into; because they
  * can't be trusted.
  *
- * @param     mixed     Setting value
- * @param     string    Setting type
- * @param     string    Setting field ID
- * @param     string    WPML field ID
+ * @param mixed     Setting value
+ * @param string    Setting type
+ * @param string    Setting field ID
+ * @param string    WPML field ID
  *
  * @return    mixed
  *
@@ -373,9 +373,9 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 		if ( 'background' == $type ) {
 
-			$input['background-color'] = prince_validate_setting( $input['background-color'], 'colorpicker', $field_id );
+			$input['background-color'] = prince_validate_setting( esc_attr( $input['background-color'] ), 'colorpicker', $field_id );
 
-			$input['background-image'] = prince_validate_setting( $input['background-image'], 'upload', $field_id );
+			$input['background-image'] = prince_validate_setting( esc_url( $input['background-image'] ), 'upload', $field_id );
 
 			// Loop over array and check for values
 			foreach ( (array) $input as $key => $value ) {
@@ -427,19 +427,19 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 			$input['inset'] = isset( $input['inset'] ) ? 'inset' : '';
 
 			// Validate offset-x
-			$input['offset-x'] = prince_validate_setting( $input['offset-x'], 'text', $field_id );
+			$input['offset-x'] = prince_validate_setting( esc_attr( $input['offset-x'] ), 'text', $field_id );
 
 			// Validate offset-y
-			$input['offset-y'] = prince_validate_setting( $input['offset-y'], 'text', $field_id );
+			$input['offset-y'] = prince_validate_setting( esc_attr( $input['offset-y'] ), 'text', $field_id );
 
 			// Validate blur-radius
-			$input['blur-radius'] = prince_validate_setting( $input['blur-radius'], 'text', $field_id );
+			$input['blur-radius'] = prince_validate_setting( esc_attr( $input['blur-radius'] ), 'text', $field_id );
 
 			// Validate spread-radius
-			$input['spread-radius'] = prince_validate_setting( $input['spread-radius'], 'text', $field_id );
+			$input['spread-radius'] = prince_validate_setting( esc_attr( $input['spread-radius'] ), 'text', $field_id );
 
 			// Validate color
-			$input['color'] = prince_validate_setting( $input['color'], 'colorpicker', $field_id );
+			$input['color'] = prince_validate_setting( esc_attr( $input['color'] ), 'colorpicker', $field_id );
 
 			// Unset keys with empty values.
 			foreach ( $input as $key => $value ) {
@@ -472,7 +472,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 			}
 
 			// Validate color
-			$input = prince_validate_setting( $input, 'colorpicker', $field_id );
+			$input = prince_validate_setting( esc_attr($input), 'colorpicker', $field_id );
 
 		} else if ( in_array( $type, array( 'css', 'javascript', 'text', 'textarea', 'textarea-simple' ) ) ) {
 
@@ -604,7 +604,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 		} else if ( 'gallery' == $type ) {
 
-			$input = trim( $input );
+			$input = esc_attr(trim( $input ));
 
 		} else if ( 'social-links' == $type ) {
 
@@ -668,9 +668,10 @@ if ( ! function_exists( 'prince_admin_styles' ) ) {
 		/**
 		 * Filter the screen IDs used to dequeue `jquery-ui-css`.
 		 *
+		 * @param array $screen_ids An array of screen IDs.
+		 *
 		 * @since     1.0.0
 		 *
-		 * @param array $screen_ids An array of screen IDs.
 		 */
 		$screen_ids = apply_filters( 'prince_dequeue_jquery_ui_css_screen_ids', array(
 			'toplevel_page_prince-settings',
@@ -694,13 +695,13 @@ if ( ! function_exists( 'prince_admin_styles' ) ) {
 /**
  * Setup the default admin scripts
  *
- * @uses      add_thickbox()          Include Thickbox for file uploads
- * @uses      wp_enqueue_script()     Add Prince scripts
- * @uses      wp_localize_script()    Used to include arbitrary Javascript data
- *
  * @return    void
  *
  * @access    public
+ * @uses      wp_enqueue_script()     Add Prince scripts
+ * @uses      wp_localize_script()    Used to include arbitrary Javascript data
+ *
+ * @uses      add_thickbox()          Include Thickbox for file uploads
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_admin_scripts' ) ) {
@@ -775,11 +776,11 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 /**
  * Returns the ID of a custom post type by post_title.
  *
- * @uses        get_results()
- *
  * @return      int
  *
  * @access      public
+ * @uses        get_results()
+ *
  * @since       2.0
  */
 if ( ! function_exists( 'prince_get_media_post_ID' ) ) {
@@ -815,11 +816,11 @@ if ( ! function_exists( 'prince_get_media_post_ID' ) ) {
 /**
  * Register custom post type & create the media post used to attach images.
  *
- * @uses        get_results()
- *
  * @return      void
  *
  * @access      public
+ * @uses        get_results()
+ *
  * @since       2.0
  */
 if ( ! function_exists( 'prince_create_media_post' ) ) {
@@ -1337,7 +1338,10 @@ if ( ! function_exists( 'prince_wpml_unregister' ) ) {
 				// Remove missing IDs from WPML.
 				foreach ( $current['settings'] as $current_setting ) {
 					if ( ! in_array( $current_setting['id'], $new_ids, true ) ) {
-						if ( ! empty( $options[ $current_setting['id'] ] ) && in_array( $current_setting['type'], array( 'list-item', 'slider' ), true ) ) {
+						if ( ! empty( $options[ $current_setting['id'] ] ) && in_array( $current_setting['type'], array(
+								'list-item',
+								'slider'
+							), true ) ) {
 							foreach ( $options[ $current_setting['id'] ] as $key => $value ) {
 								foreach ( $value as $ckey => $cvalue ) {
 									prince_wpml_unregister_string( $current_setting['id'] . '_' . $ckey . '_' . $key );
@@ -1365,7 +1369,7 @@ if ( ! function_exists( 'prince_wpml_unregister' ) ) {
  * This function will loop over the settings array as many
  * times as it takes to validate every sub setting.
  *
- * @param     array $settings The array of settings.
+ * @param array $settings The array of settings.
  *
  * @return    array
  *
@@ -1480,7 +1484,7 @@ if ( ! function_exists( 'prince_validate_settings_array' ) ) {
 /**
  * Helper function to display alert messages.
  *
- * @param     array     Page array
+ * @param array     Page array
  *
  * @return    mixed
  *
@@ -1662,8 +1666,8 @@ if ( ! function_exists( 'prince_option_types_array' ) ) {
 /**
  * Filters the typography font-family to add Google fonts dynamically.
  *
- * @param     array $families An array of all recognized font families.
- * @param     string $field_id ID of the feild being filtered.
+ * @param array $families An array of all recognized font families.
+ * @param string $field_id ID of the feild being filtered.
  *
  * @return    array
  *
@@ -1704,11 +1708,11 @@ add_filter( 'prince_recognized_font_families', 'prince_google_font_stack', 1, 2 
  * while values are ready for display in html.
  * Renamed in version 2.0 to avoid name collisions.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.1.8
  * @updated   2.0
  */
@@ -1738,13 +1742,13 @@ if ( ! function_exists( 'prince_recognized_font_families' ) ) {
  *
  * Returns an array of all recognized font sizes.
  *
- * @uses      apply_filters()
- *
- * @param     string $field_id ID that's passed to the filters.
+ * @param string $field_id ID that's passed to the filters.
  *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0.12
  */
 if ( ! function_exists( 'prince_recognized_font_sizes' ) ) {
@@ -1774,11 +1778,11 @@ if ( ! function_exists( 'prince_recognized_font_sizes' ) ) {
  * Returns an array of all recognized font styles.
  * Renamed in version 2.0 to avoid name collisions.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.1.8
  * @updated   2.0
  */
@@ -1803,11 +1807,11 @@ if ( ! function_exists( 'prince_recognized_font_styles' ) ) {
  * Returns an array of all recognized font variants.
  * Renamed in version 2.0 to avoid name collisions.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.1.8
  * @updated   2.0
  */
@@ -1831,11 +1835,11 @@ if ( ! function_exists( 'prince_recognized_font_variants' ) ) {
  * Returns an array of all recognized font weights.
  * Renamed in version 2.0 to avoid name collisions.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.1.8
  * @updated   2.0
  */
@@ -1869,13 +1873,13 @@ if ( ! function_exists( 'prince_recognized_font_weights' ) ) {
  *
  * Returns an array of all recognized line heights.
  *
- * @uses      apply_filters()
- *
- * @param     string $field_id ID that's passed to the filters.
+ * @param string $field_id ID that's passed to the filters.
  *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0.12
  */
 if ( ! function_exists( 'prince_recognized_letter_spacing' ) ) {
@@ -1904,13 +1908,13 @@ if ( ! function_exists( 'prince_recognized_letter_spacing' ) ) {
  *
  * Returns an array of all recognized line heights.
  *
- * @uses      apply_filters()
- *
- * @param     string $field_id ID that's passed to the filters.
+ * @param string $field_id ID that's passed to the filters.
  *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0.12
  */
 if ( ! function_exists( 'prince_recognized_line_heights' ) ) {
@@ -1941,11 +1945,11 @@ if ( ! function_exists( 'prince_recognized_line_heights' ) ) {
  * Keys are intended to be stored in the database
  * while values are ready for display in html.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0.10
  */
 if ( ! function_exists( 'prince_recognized_text_decorations' ) ) {
@@ -1972,11 +1976,11 @@ if ( ! function_exists( 'prince_recognized_text_decorations' ) ) {
  * Keys are intended to be stored in the database
  * while values are ready for display in html.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0.10
  */
 if ( ! function_exists( 'prince_recognized_text_transformations' ) ) {
@@ -2001,11 +2005,11 @@ if ( ! function_exists( 'prince_recognized_text_transformations' ) ) {
  * Returns an array of all recognized background repeat values.
  * Renamed in version 2.0 to avoid name collisions.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.1.8
  * @updated   2.0
  */
@@ -2031,11 +2035,11 @@ if ( ! function_exists( 'prince_recognized_background_repeat' ) ) {
  * Returns an array of all recognized background attachment values.
  * Renamed in version 2.0 to avoid name collisions.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.1.8
  * @updated   2.0
  */
@@ -2059,11 +2063,11 @@ if ( ! function_exists( 'prince_recognized_background_attachment' ) ) {
  * Returns an array of all recognized background position values.
  * Renamed in version 2.0 to avoid name collisions.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.1.8
  * @updated   2.0
  */
@@ -2092,11 +2096,11 @@ if ( ! function_exists( 'prince_recognized_background_position' ) ) {
  *
  * Returns an array of all available style types.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_border_style_types' ) ) {
@@ -2123,11 +2127,11 @@ if ( ! function_exists( 'prince_recognized_border_style_types' ) ) {
  *
  * Returns an array of all available unit types.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_border_unit_types' ) ) {
@@ -2150,11 +2154,11 @@ if ( ! function_exists( 'prince_recognized_border_unit_types' ) ) {
  *
  * Returns an array of all available unit types.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_dimension_unit_types' ) ) {
@@ -2177,11 +2181,11 @@ if ( ! function_exists( 'prince_recognized_dimension_unit_types' ) ) {
  *
  * Returns an array of all available unit types.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_spacing_unit_types' ) ) {
@@ -2202,11 +2206,11 @@ if ( ! function_exists( 'prince_recognized_spacing_unit_types' ) ) {
 /**
  * Recognized Google font families
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_google_font_families' ) ) {
@@ -2240,11 +2244,11 @@ if ( ! function_exists( 'prince_recognized_google_font_families' ) ) {
 /**
  * Recognized Google font variants
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_google_font_variants' ) ) {
@@ -2269,11 +2273,11 @@ if ( ! function_exists( 'prince_recognized_google_font_variants' ) ) {
 /**
  * Recognized Google font subsets
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_recognized_google_font_subsets' ) ) {
@@ -2301,11 +2305,11 @@ if ( ! function_exists( 'prince_recognized_google_font_subsets' ) ) {
  * Returns an array of all available unit types.
  * Renamed in version 2.0 to avoid name collisions.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.1.8
  * @updated   2.0
  */
@@ -2331,11 +2335,11 @@ if ( ! function_exists( 'prince_measurement_unit_types' ) ) {
  * You can filter this function to change the images
  * on a per option basis.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_radio_images' ) ) {
@@ -2386,11 +2390,11 @@ if ( ! function_exists( 'prince_radio_images' ) ) {
  * You can filter this function to change the settings
  * on a per option basis.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_list_item_settings' ) ) {
@@ -2446,11 +2450,11 @@ if ( ! function_exists( 'prince_list_item_settings' ) ) {
  * You can filter this function to change the settings
  * on a per option basis.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_slider_settings' ) ) {
@@ -2523,11 +2527,11 @@ if ( ! function_exists( 'prince_slider_settings' ) ) {
  * You can filter this function to change the settings
  * on a per option basis.
  *
- * @uses      apply_filters()
- *
  * @return    array
  *
  * @access    public
+ * @uses      apply_filters()
+ *
  * @since     1.0.0
  */
 if ( ! function_exists( 'prince_social_links_settings' ) ) {
@@ -2538,7 +2542,7 @@ if ( ! function_exists( 'prince_social_links_settings' ) ) {
 			array(
 				'id'    => 'name',
 				'label' => __( 'Name', 'prince-text-domain' ),
-				'desc'  => sprintf(__( 'Enter the name/ title that will be shown in the title attribute of the link. %s', 'prince-text-domain' ), '<br><code>Example: Website, Facebook, Twitter etc</code>'),
+				'desc'  => sprintf( __( 'Enter the name/ title that will be shown in the title attribute of the link. %s', 'prince-text-domain' ), '<br><code>Example: Website, Facebook, Twitter etc</code>' ),
 				'std'   => '',
 				'type'  => 'text',
 				'class' => 'prince-setting-title'
@@ -2565,8 +2569,8 @@ if ( ! function_exists( 'prince_social_links_settings' ) ) {
  * BEGIN and END field_id markers. Replaces existing marked info,
  * but still retains surrounding data.
  *
- * @param     string $field_id The CSS option field ID.
- * @param     array $options The current prince array.
+ * @param string $field_id The CSS option field ID.
+ * @param array $options The current prince array.
  *
  * @return    bool    True on write success, false on failure.
  *
@@ -2900,12 +2904,13 @@ if ( ! function_exists( 'prince_insert_css_with_markers' ) ) {
 					/**
 					 * Filter the `dynamic.css` fallback value.
 					 *
-					 * @since     1.0.0
-					 *
 					 * @param string $fallback The default CSS fallback value.
 					 * @param string $option_id The option ID.
 					 * @param string $option_type The option type.
 					 * @param string $option_key The option array key.
+					 *
+					 * @since     1.0.0
+					 *
 					 */
 					$fallback = apply_filters( 'prince_insert_css_with_markers_fallback', $fallback, $option_id, $option_type, $option_key );
 
@@ -2999,7 +3004,7 @@ if ( ! function_exists( 'prince_insert_css_with_markers' ) ) {
  *
  * Removes CSS when the textarea is empty, but still retains surrounding styles.
  *
- * @param     string $field_id The CSS option field ID.
+ * @param string $field_id The CSS option field ID.
  *
  * @return    bool    True on write success, false on failure.
  *
@@ -3082,7 +3087,7 @@ if ( ! function_exists( 'prince_remove_old_css' ) ) {
  *
  * Normalize & Convert all line-endings to UNIX format.
  *
- * @param     string $css
+ * @param string $css
  *
  * @return    string
  *
@@ -3109,7 +3114,7 @@ if ( ! function_exists( 'prince_normalize_css' ) ) {
 /**
  * Helper function to loop over the option types.
  *
- * @param    array $type The current option type.
+ * @param array $type The current option type.
  *
  * @return   string
  *
@@ -3140,8 +3145,8 @@ if ( ! function_exists( 'prince_loop_through_option_types' ) ) {
 /**
  * Helper function to loop over choices.
  *
- * @param    string $name The form element name.
- * @param    array $choices The array of choices.
+ * @param string $name The form element name.
+ * @param array $choices The array of choices.
  *
  * @return   string
  *
@@ -3166,8 +3171,8 @@ if ( ! function_exists( 'prince_loop_through_choices' ) ) {
 /**
  * Helper function to loop over sub settings.
  *
- * @param    string $name The form element name.
- * @param    array $settings The array of settings.
+ * @param string $name The form element name.
+ * @param array $settings The array of settings.
  *
  * @return   string
  *
@@ -3195,8 +3200,8 @@ if ( ! function_exists( 'prince_loop_through_sub_settings' ) ) {
  * This function is used in AJAX to add a new section
  * and when section have already been added and saved.
  *
- * @param    int $key The array key for the current element.
- * @param    array    An array of values for the current section.
+ * @param int $key The array key for the current element.
+ * @param array    An array of values for the current section.
  *
  * @return   void
  *
@@ -3248,8 +3253,8 @@ if ( ! function_exists( 'prince_sections_view' ) ) {
  * This function is used in AJAX to add a new setting
  * and when settings have already been added and saved.
  *
- * @param    int $key The array key for the current element.
- * @param    array    An array of values for the current section.
+ * @param int $key The array key for the current element.
+ * @param array    An array of values for the current section.
  *
  * @return   void
  *
@@ -3426,9 +3431,9 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
  * This function is used in AJAX to add a new choice
  * and when choices have already been added and saved.
  *
- * @param    string $name The form element name.
- * @param    array $key The array key for the current element.
- * @param    array    An array of values for the current choice.
+ * @param string $name The form element name.
+ * @param array $key The array key for the current element.
+ * @param array    An array of values for the current choice.
  *
  * @return   void
  *
@@ -3493,8 +3498,8 @@ if ( ! function_exists( 'prince_choices_view' ) ) {
  * This function is used in AJAX to add a new section
  * and when section have already been added and saved.
  *
- * @param    int $key The array key for the current element.
- * @param    array    An array of values for the current section.
+ * @param int $key The array key for the current element.
+ * @param array    An array of values for the current section.
  *
  * @return   void
  *
@@ -3554,9 +3559,9 @@ if ( ! function_exists( 'prince_contextual_help_view' ) ) {
  * This function is used in AJAX to add a new list items
  * and when they have already been added and saved.
  *
- * @param     string $name The form field name.
- * @param     int $key The array key for the current element.
- * @param     array     An array of values for the current list item.
+ * @param string $name The form field name.
+ * @param int $key The array key for the current element.
+ * @param array     An array of values for the current list item.
  *
  * @return   void
  *
@@ -3738,9 +3743,9 @@ if ( ! function_exists( 'prince_list_item_view' ) ) {
  * This function is used in AJAX to add a new list items
  * and when they have already been added and saved.
  *
- * @param     string $name The form field name.
- * @param     int $key The array key for the current element.
- * @param     array     An array of values for the current list item.
+ * @param string $name The form field name.
+ * @param int $key The array key for the current element.
+ * @param array     An array of values for the current list item.
  *
  * @return    void
  *
@@ -3864,7 +3869,7 @@ if ( ! function_exists( 'prince_social_links_view' ) ) {
 /**
  * Helper function to validate option ID's
  *
- * @param     string $input The string to sanitize.
+ * @param string $input The string to sanitize.
  *
  * @return    string
  *
@@ -3933,7 +3938,7 @@ if ( ! function_exists( 'prince_convert_string_to_array' ) ) {
 /**
  * Custom stripslashes from single value or array.
  *
- * @param       mixed $input
+ * @param mixed $input
  *
  * @return      mixed
  *
@@ -3979,9 +3984,9 @@ if ( ! function_exists( 'prince_stripslashes' ) ) {
  * the "E" power when creating a range from negative to positive.
  * This function attempts to fix that by setting that number back to "0".
  *
- * @param     string $start First value of the sequence.
- * @param     string $limit The sequence is ended upon reaching the limit value.
- * @param     string $step If a step value is given, it will be used as the increment
+ * @param string $start First value of the sequence.
+ * @param string $limit The sequence is ended upon reaching the limit value.
+ * @param string $step If a step value is given, it will be used as the increment
  *                      between elements in the sequence. step should be given as a
  *                      positive number. If not specified, step will default to 1.
  *
@@ -4048,8 +4053,8 @@ if ( ! function_exists( 'prince_decode' ) ) {
 /**
  * Helper function to filter standard option values.
  *
- * @param     mixed $value Saved string or array value
- * @param     mixed $std Standard string or array value
+ * @param mixed $value Saved string or array value
+ * @param mixed $std Standard string or array value
  *
  * @return    mixed     String or array
  *
@@ -4087,8 +4092,8 @@ if ( ! function_exists( 'prince_filter_std_value' ) ) {
 /**
  * Helper function to set the Google fonts array.
  *
- * @param     string $id The option ID.
- * @param     bool $value The option value
+ * @param string $id The option ID.
+ * @param bool $value The option value
  *
  * @return    void
  *
@@ -4114,7 +4119,7 @@ if ( ! function_exists( 'prince_set_google_fonts' ) ) {
 /**
  * Helper function to remove unused options from the Google fonts array.
  *
- * @param     array $options The array of saved options.
+ * @param array $options The array of saved options.
  *
  * @return    array
  *
@@ -4140,8 +4145,8 @@ add_action( 'prince_after_settings_save', 'prince_update_google_fonts_after_save
 /**
  * Helper function to fetch the Google fonts array.
  *
- * @param     bool $normalize Whether or not to return a normalized array. Default 'true'.
- * @param     bool $force_rebuild Whether or not to force the array to be rebuilt. Default 'false'.
+ * @param bool $normalize Whether or not to return a normalized array. Default 'true'.
+ * @param bool $force_rebuild Whether or not to force the array to be rebuilt. Default 'false'.
  *
  * @return    array
  *
@@ -4230,7 +4235,7 @@ if ( ! function_exists( 'prince_fetch_google_fonts' ) ) {
 /**
  * Helper function to normalize the Google fonts array.
  *
- * @param     array $google_fonts An array of fonts to nrmalize.
+ * @param array $google_fonts An array of fonts to nrmalize.
  *
  * @return    array
  *
@@ -4280,7 +4285,7 @@ if ( ! function_exists( 'prince_normalize_google_fonts' ) ) {
 /**
  * Helper function to register a WPML string.
  *
- * @param string $id    The string ID.
+ * @param string $id The string ID.
  * @param string $value The string value.
  *
  * @access public
@@ -4315,7 +4320,7 @@ if ( ! function_exists( 'prince_wpml_unregister_string' ) ) {
 /**
  * Returns an array with the post format gallery meta box.
  *
- * @param     mixed $pages Excepts a comma separated string or array of
+ * @param mixed $pages Excepts a comma separated string or array of
  *                      post_types and is what tells the metabox where to
  *                      display. Default 'post'.
  *
@@ -4360,7 +4365,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_gallery' ) ) {
 /**
  * Returns an array with the post format link metabox.
  *
- * @param     mixed $pages Excepts a comma separated string or array of
+ * @param mixed $pages Excepts a comma separated string or array of
  *                      post_types and is what tells the metabox where to
  *                      display. Default 'post'.
  *
@@ -4411,7 +4416,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_link' ) ) {
 /**
  * Returns an array with the post format quote metabox.
  *
- * @param     mixed $pages Excepts a comma separated string or array of
+ * @param mixed $pages Excepts a comma separated string or array of
  *                      post_types and is what tells the metabox where to
  *                      display. Default 'post'.
  *
@@ -4476,7 +4481,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_quote' ) ) {
 /**
  * Returns an array with the post format video metabox.
  *
- * @param     mixed $pages Excepts a comma separated string or array of
+ * @param mixed $pages Excepts a comma separated string or array of
  *                      post_types and is what tells the metabox where to
  *                      display. Default 'post'.
  *
@@ -4520,7 +4525,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_video' ) ) {
 /**
  * Returns an array with the post format audio metabox.
  *
- * @param     mixed $pages Excepts a comma separated string or array of
+ * @param mixed $pages Excepts a comma separated string or array of
  *                      post_types and is what tells the metabox where to
  *                      display. Default 'post'.
  *
@@ -4564,7 +4569,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_audio' ) ) {
 /**
  * Returns the option type by ID.
  *
- * @param     string $option_id The option ID
+ * @param string $option_id The option ID
  *
  * @return    string    $settings_id The settings array ID
  * @return    string    The option type.
@@ -4607,13 +4612,13 @@ if ( ! function_exists( 'prince_get_option_type_by_id' ) ) {
 /**
  * This method instantiates the meta box class & builds the UI.
  *
- * @uses     MetaBox()
- *
- * @param    array    Array of arguments to create a meta box
+ * @param array    Array of arguments to create a meta box
  *
  * @return   void
  *
  * @access   public
+ * @uses     MetaBox()
+ *
  * @since    2.0
  */
 if ( ! function_exists( 'prince_register_meta_box' ) ) {
