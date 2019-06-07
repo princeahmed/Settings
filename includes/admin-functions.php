@@ -373,9 +373,9 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 		if ( 'background' == $type ) {
 
-			$input['background-color'] = prince_validate_setting( esc_attr( $input['background-color'] ), 'colorpicker', $field_id );
+			$input['background-color'] = prince_validate_setting(  $input['background-color'] , 'colorpicker', $field_id );
 
-			$input['background-image'] = prince_validate_setting( esc_url( $input['background-image'] ), 'upload', $field_id );
+			$input['background-image'] = prince_validate_setting(  $input['background-image'] , 'upload', $field_id );
 
 			// Loop over array and check for values
 			foreach ( (array) $input as $key => $value ) {
@@ -427,19 +427,19 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 			$input['inset'] = isset( $input['inset'] ) ? 'inset' : '';
 
 			// Validate offset-x
-			$input['offset-x'] = prince_validate_setting( esc_attr( $input['offset-x'] ), 'text', $field_id );
+			$input['offset-x'] = prince_validate_setting(  $input['offset-x'] , 'text', $field_id );
 
 			// Validate offset-y
-			$input['offset-y'] = prince_validate_setting( esc_attr( $input['offset-y'] ), 'text', $field_id );
+			$input['offset-y'] = prince_validate_setting(  $input['offset-y'] , 'text', $field_id );
 
 			// Validate blur-radius
-			$input['blur-radius'] = prince_validate_setting( esc_attr( $input['blur-radius'] ), 'text', $field_id );
+			$input['blur-radius'] = prince_validate_setting(  $input['blur-radius'] , 'text', $field_id );
 
 			// Validate spread-radius
-			$input['spread-radius'] = prince_validate_setting( esc_attr( $input['spread-radius'] ), 'text', $field_id );
+			$input['spread-radius'] = prince_validate_setting(  $input['spread-radius'] , 'text', $field_id );
 
 			// Validate color
-			$input['color'] = prince_validate_setting( esc_attr( $input['color'] ), 'colorpicker', $field_id );
+			$input['color'] = prince_validate_setting(  $input['color'] , 'colorpicker', $field_id );
 
 			// Unset keys with empty values.
 			foreach ( $input as $key => $value ) {
@@ -472,7 +472,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 			}
 
 			// Validate color
-			$input = prince_validate_setting( esc_attr($input), 'colorpicker', $field_id );
+			$input = prince_validate_setting( $input, 'colorpicker', $field_id );
 
 		} else if ( in_array( $type, array( 'css', 'javascript', 'text', 'textarea', 'textarea-simple' ) ) ) {
 
