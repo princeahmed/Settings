@@ -99,4 +99,18 @@
       }
     }
   }
+
+  //on-off switch styles
+
+  .on-off-switch{
+    &.disabled{
+      background: #ddd;
+
+      input:last-of-type:checked ~ .slide-button {
+        background: indianred;
+        border-color: transparent;
+      }
+    }
+  }
+
 }

@@ -37,6 +37,7 @@ function custom_meta_boxes() {
 				'label' => __( 'Show Gallery', 'theme-text-domain' ),
 				'id'    => 'demo_show_gallery',
 				'type'  => 'on-off',
+				'class'  => 'disabled',
 				'desc'  => sprintf( __( 'Shows the Gallery when set to %s.', 'theme-text-domain' ), '<code>on</code>' ),
 				'std'   => 'off',
 			),

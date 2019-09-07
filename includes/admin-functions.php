@@ -67,7 +67,9 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 			);
 
 			// Filters the options.php to add the minimum user capabilities.
-			add_filter( 'option_page_capability_' . prince_options_id(), create_function( '$caps', "return '$caps';" ), 999 );
+			add_filter( 'option_page_capability_' . prince_options_id(), function ( $caps ) {
+				return $caps;
+			}, 999 );
 
 		}
 
@@ -373,9 +375,9 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 		if ( 'background' == $type ) {
 
-			$input['background-color'] = prince_validate_setting(  $input['background-color'] , 'colorpicker', $field_id );
+			$input['background-color'] = prince_validate_setting( $input['background-color'], 'colorpicker', $field_id );
 
-			$input['background-image'] = prince_validate_setting(  $input['background-image'] , 'upload', $field_id );
+			$input['background-image'] = prince_validate_setting( $input['background-image'], 'upload', $field_id );
 
 			// Loop over array and check for values
 			foreach ( (array) $input as $key => $value ) {
@@ -427,19 +429,19 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 			$input['inset'] = isset( $input['inset'] ) ? 'inset' : '';
 
 			// Validate offset-x
-			$input['offset-x'] = prince_validate_setting(  $input['offset-x'] , 'text', $field_id );
+			$input['offset-x'] = prince_validate_setting( $input['offset-x'], 'text', $field_id );
 
 			// Validate offset-y
-			$input['offset-y'] = prince_validate_setting(  $input['offset-y'] , 'text', $field_id );
+			$input['offset-y'] = prince_validate_setting( $input['offset-y'], 'text', $field_id );
 
 			// Validate blur-radius
-			$input['blur-radius'] = prince_validate_setting(  $input['blur-radius'] , 'text', $field_id );
+			$input['blur-radius'] = prince_validate_setting( $input['blur-radius'], 'text', $field_id );
 
 			// Validate spread-radius
-			$input['spread-radius'] = prince_validate_setting(  $input['spread-radius'] , 'text', $field_id );
+			$input['spread-radius'] = prince_validate_setting( $input['spread-radius'], 'text', $field_id );
 
 			// Validate color
-			$input['color'] = prince_validate_setting(  $input['color'] , 'colorpicker', $field_id );
+			$input['color'] = prince_validate_setting( $input['color'], 'colorpicker', $field_id );
 
 			// Unset keys with empty values.
 			foreach ( $input as $key => $value ) {
@@ -604,7 +606,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 		} else if ( 'gallery' == $type ) {
 
-			$input = esc_attr(trim( $input ));
+			$input = trim( $input );
 
 		} else if ( 'social-links' == $type ) {
 

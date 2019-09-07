@@ -15,7 +15,7 @@ if ( ! function_exists( 'prince_options_id' ) ) {
 
 	function prince_options_id() {
 
-		return apply_filters( 'prince_options_id', 'option_tree' );
+		return apply_filters( 'prince_options_id', 'wp_radio_settings' );
 
 	}
 
@@ -33,7 +33,7 @@ if ( ! function_exists( 'prince_settings_id' ) ) {
 
 	function prince_settings_id() {
 
-		return apply_filters( 'prince_settings_id', 'option_tree_settings' );
+		return apply_filters( 'prince_settings_id', 'wp_radio_prince_settings' );
 
 	}
 

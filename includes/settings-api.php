@@ -248,7 +248,7 @@ if ( ! class_exists( 'Settings' ) ) {
 
 						echo '<ul id="prince-header">';
 
-						$link = '<a href="https://wordpress.org/plugins/prince/" target="_blank"> <img src="' . PRINCE_ASSETS_URL . 'Prince-Crown-Logo-White-50x44.png"> </a>';
+						$link = '<a href="http://wordpress.org/plugins/wp-radio" target="_blank"> <img src="' . PRINCE_ASSETS_URL . 'Prince-Crown-Logo-White-50x44.png"> </a>';
 						echo '<li id="prince-logo">' . wp_kses_post( apply_filters( 'prince_header_logo_link', $link, $page['id'] ) ) . '</li>';
 
 						echo '<li id="prince-version"><span>' . esc_html( apply_filters( 'prince_header_version_text', 'Prince', $page['id'] ) ) . '</span></li>';
