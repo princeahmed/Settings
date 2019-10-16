@@ -442,7 +442,7 @@
                         if (mime.match(regex)) {
                             btnContent += '<div class="prince-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
                         }
-                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span>' + prince.remove_media_text + '</a>';
+                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span></a>';
                         $('#' + field_id).val((save_attachment_id ? attachment_id : href));
                         $('#' + field_id + '_media').remove();
                         $('#' + field_id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + field_id + '_media" />');
@@ -471,7 +471,7 @@
                         if (href.match(image) && PRINCE.url_exists(href)) {
                             btnContent += '<div class="prince-ui-image-wrap"><img src="' + href + '" alt="" /></div>';
                         }
-                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span>' + prince.remove_media_text + '</a>';
+                        btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span></a>';
                         $('#' + field_id).val(href);
                         $('#' + field_id + '_media').remove();
                         $('#' + field_id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + field_id + '_media" />');
@@ -513,7 +513,7 @@
                 if (val.match(image)) {
                     btnContent += '<div class="prince-ui-image-wrap"><img src="' + val + '" alt="" /></div>';
                 }
-                btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash">' + prince.remove_media_text + '</span></a>';
+                btnContent += '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' + prince.remove_media_text + '"><span class="icon dashicons dashicons-trash"></span></a>';
                 $('#' + id).val(val);
                 $('#' + id + '_media').remove();
                 $('#' + id).parent().parent('div').append('<div class="prince-ui-media-wrap" id="' + id + '_media" />');

@@ -258,7 +258,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 					echo '<div class="prince-ui-image-wrap"><img src="' . esc_url( $field_value['background-image'] ) . '" alt="" /></div>';
 				}
 
-				echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-trash"></span>' . __( 'Remove Media', 'prince-text-domain' ) . '</a>';
+				echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-trash"></span></a>';
 
 				echo '</div>';
 
@@ -2914,6 +2914,50 @@ if ( ! function_exists( 'prince_type_text' ) ) {
 }
 
 /**
+ * Number option type.
+ *
+ * See @prince_display_by_type to see the full list of available arguments.
+ *
+ * @param     array     An array of arguments.
+ *
+ * @return    string
+ *
+ * @access    public
+ * @since     1.0.0
+ */
+if ( ! function_exists( 'prince_type_number' ) ) {
+
+	function prince_type_number( $args = array() ) {
+
+		/* turns arguments array into variables */
+		extract( $args );
+
+		/* verify a description */
+		$has_desc = $field_desc ? true : false;
+
+		/* format setting outer wrapper */
+		echo '<div class="format-setting type-text ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+
+		/* description */
+		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
+
+		/* format setting inner wrapper */
+		echo '<div class="format-setting-inner">';
+
+		$field_attrs = isset( $field_attrs ) ? $field_attrs : '';
+
+		/* build text input */
+		echo '<input type="number" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" ' . $field_attrs . ' />';
+
+		echo '</div>';
+
+		echo '</div>';
+
+	}
+
+}
+
+/**
  * Textarea option type.
  *
  * See @prince_display_by_type to see the full list of available arguments.
@@ -3321,7 +3365,7 @@ if ( ! function_exists( 'prince_type_upload' ) ) {
 				echo '<div class="prince-ui-image-wrap"><img src="' . esc_url( $field_value ) . '" alt="" /></div>';
 			}
 
-			echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-trash"></span>' . __( 'Remove Media', 'prince-text-domain' ) . '</a>';
+			echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-text-domain' ) . '"><span class="icon dashicons dashicons-trash"></span></a>';
 
 			echo '</div>';
 

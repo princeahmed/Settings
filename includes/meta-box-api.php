@@ -211,7 +211,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 			global $pagenow;
 
 			/* don't save if $_POST is empty */
-			if ( empty( $_POST ) || ( isset( $_POST['vc_inline'] ) && $_POST['vc_inline'] == true ) ) {
+			if ( empty( $_POST ) || ( isset( $_POST['vc_inline'] ) && esc_attr($_POST['vc_inline']) == true ) ) {
 				return $post_id;
 			}
 
@@ -236,7 +236,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 			}
 
 			/* check permissions */
-			if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
+			if ( isset( $_POST['post_type'] ) && 'page' == esc_attr($_POST['post_type']) ) {
 				if ( ! current_user_can( 'edit_page', $post_id ) ) {
 					return $post_id;
 				}
@@ -273,7 +273,7 @@ if ( ! class_exists( 'MetaBox' ) ) {
 						);
 
 						/* get the settings array */
-						$settings = isset( $_POST[ $field['id'] . '_settings_array' ] ) ? unserialize( prince_decode( $_POST[ $field['id'] . '_settings_array' ] ) ) : array();
+						$settings = isset( $_POST[ $field['id'] . '_settings_array' ] ) ? unserialize( prince_decode( esc_attr($_POST[ $field['id'] . '_settings_array' ]) ) ) : array();
 
 						/* settings are empty for some odd ass reason get the defaults */
 						if ( empty( $settings ) ) {
@@ -329,12 +329,12 @@ if ( ! class_exists( 'MetaBox' ) ) {
 						}
 
 						/* set up new data with validated data */
-						$new = prince_validate_setting( $_POST[ $field['id'] ], $field['type'], $field['id'] );
+						$new = prince_validate_setting( esc_attr($_POST[ $field['id'] ]), $field['type'], $field['id'] );
 
 					} else {
 
 						/* run through validattion */
-						$new = prince_validate_setting( $_POST[ $field['id'] ], $field['type'], $field['id'] );
+						$new = prince_validate_setting( esc_attr($_POST[ $field['id'] ]), $field['type'], $field['id'] );
 
 					}
 

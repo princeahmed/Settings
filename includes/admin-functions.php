@@ -326,8 +326,8 @@ if ( ! function_exists( 'prince_after_settings_save' ) ) {
 
 	function prince_after_settings_save() {
 
-		$page    = isset( $_REQUEST['page'] ) ? $_REQUEST['page'] : '';
-		$updated = isset( $_REQUEST['settings-updated'] ) && $_REQUEST['settings-updated'] == 'true' ? true : false;
+		$page    = isset( $_REQUEST['page'] ) ? esc_attr($_REQUEST['page']) : '';
+		$updated = isset( $_REQUEST['settings-updated'] ) && esc_html($_REQUEST['settings-updated']) == 'true' ? true : false;
 
 		/* only execute after the Settings are saved */
 		if ( apply_filters( 'prince_settings_menu_slug', 'prince-settings' ) == $page && $updated ) {
@@ -1098,7 +1098,7 @@ if ( ! function_exists( 'prince_save_settings' ) ) {
 		if ( isset( $_POST['prince_settings_nonce'] ) && wp_verify_nonce( $_POST['prince_settings_nonce'], 'prince_settings_form' ) ) {
 
 			/* settings value */
-			$settings = isset( $_POST[ prince_settings_id() ] ) ? $_POST[ prince_settings_id() ] : '';
+			$settings = isset( $_POST[ prince_settings_id() ] ) ? esc_attr($_POST[ prince_settings_id() ]) : '';
 
 			/* validate sections */
 			if ( isset( $settings['sections'] ) ) {
@@ -1296,7 +1296,7 @@ if ( ! function_exists( 'prince_save_settings' ) ) {
 			wp_redirect( esc_url_raw( add_query_arg( array(
 				'action'  => 'save-settings',
 				'message' => $message
-			), $_POST['_wp_http_referer'] ) ) );
+			), esc_html($_POST['_wp_http_referer'] )) ) );
 			exit;
 
 		}
@@ -1507,9 +1507,9 @@ if ( ! function_exists( 'prince_alert_message' ) ) {
 			return $before;
 		}
 
-		$action  = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : '';
-		$message = isset( $_REQUEST['message'] ) ? $_REQUEST['message'] : '';
-		$updated = isset( $_REQUEST['settings-updated'] ) ? $_REQUEST['settings-updated'] : '';
+		$action  = isset( $_REQUEST['action'] ) ? esc_attr($_REQUEST['action']) : '';
+		$message = isset( $_REQUEST['message'] ) ? esc_attr($_REQUEST['message']) : '';
+		$updated = isset( $_REQUEST['settings-updated'] ) ? esc_attr($_REQUEST['settings-updated']) : '';
 
 		if ( $action == 'save-settings' ) {
 
