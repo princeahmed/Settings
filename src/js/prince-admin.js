@@ -799,7 +799,7 @@
                 , editing: true
                 , multiple: true
                 , selection: selection
-            })
+            });
 
             this._frame.on('update', function () {
                 var controller = prince_gallery._frame.states.get('gallery-edit')
@@ -834,7 +834,7 @@
                         PRINCE.parse_condition();
                     }
                 })
-            })
+            });
 
             return this._frame
 
@@ -906,7 +906,7 @@
 
         }
 
-    }
+    };
 
     // Gallery delete
     $(document).on('click.prince_gallery.data-api', '.prince-gallery-delete', function (e) {
@@ -918,6 +918,154 @@
     $(document).on('click.prince_gallery.data-api', '.prince-gallery-edit', function (e) {
         e.preventDefault()
         prince_gallery.open($(this))
+    })
+
+}(window.jQuery);
+
+/* Playlist */
+!function ($) {
+
+    prince_playlist = {
+
+        type: '',
+
+        frame: function (elm) {
+
+            var selection = this.select(elm);
+
+            this._frame = wp.media({
+                id: 'prince-playlist-frame'
+                , frame: 'post'
+                , state: prince_playlist.type + 'playlist-edit'
+                , title: wp.media.view.l10n.editPlaylistTitle
+                , editing: true
+                , multiple: true
+                , selection: selection
+            });
+
+            this._frame.on('update', function () {
+                var controller = prince_playlist._frame.states.get('playlist-edit')
+                    , library = controller.get('library')
+                    , ids = library.pluck('id')
+                    , parent = $(elm).parents('.format-setting-inner')
+                    , input = parent.children('.prince-playlist-value')
+                    , shortcode = wp.media.playlist.shortcode(selection).string().replace(/\"/g, "'");
+
+                input.attr('value', ids);
+
+                if (parent.children('.prince-playlist-list').length <= 0) {
+                    input.after('<ul class="prince-playlist-list" />');
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: ajaxurl,
+                    dataType: 'html',
+                    data: {
+                        action: 'playlist_update'
+                        , ids: ids
+                    },
+                    success: function (res) {
+                        parent.children('.prince-playlist-list').html(res);
+                        if (input.hasClass('prince-playlist-shortcode')) {
+                            input.val(shortcode);
+                        }
+                        if ($(elm).parent().children('.prince-playlist-delete').length <= 0) {
+                            $(elm).parent().append('<a href="#" class="prince-ui-button button button-secondary hug-left prince-playlist-delete">' + prince.deletePlaylist + '</a>');
+                        }
+                        $(elm).text(prince.editPlaylist);
+                        PRINCE.parse_condition();
+                    }
+                })
+            });
+
+            return this._frame
+
+        }
+
+        , select: function (elm) {
+            var input = $(elm).parents('.format-setting-inner').children('.prince-playlist-value')
+                , ids = input.attr('value')
+                , _shortcode = input.hasClass('prince-playlist-shortcode') ? ids : '[playlist ids=\'' + ids + '\]'
+                ,
+                shortcode = wp.shortcode.next('playlist', (ids ? _shortcode : wp.media.view.settings.prince_playlist.shortcode))
+                , defaultPostId = wp.media.playlist.defaults.id
+                , attachments
+                , selection;
+
+            // Bail if we didn't match the shortcode or all of the content.
+            if (!shortcode) {
+                return;
+            }
+
+            // Ignore the rest of the match object.
+            shortcode = shortcode.shortcode;
+
+            if (_.isUndefined(shortcode.get('id')) && !_.isUndefined(defaultPostId)) {
+                shortcode.set('id', defaultPostId);
+            }
+
+            if (_.isUndefined(shortcode.get('ids')) && !input.hasClass('prince-playlist-shortcode') && ids) {
+                shortcode.set('ids', ids);
+            }
+
+            if (_.isUndefined(shortcode.get('ids'))) {
+                shortcode.set('ids', '0');
+            }
+            attachments = wp.media.playlist.attachments(shortcode);
+
+            selection = new wp.media.model.Selection(attachments.models, {
+                props: attachments.props.toJSON()
+                , multiple: true
+            });
+
+            selection.playlist = attachments.playlist;
+
+            // Fetch the query's attachments, and then break ties from the query to allow for sorting.
+            selection.more().done(function () {
+                selection.props.set({query: false});
+                selection.unmirror();
+                selection.props.unset('orderby')
+            });
+
+            return selection
+
+        }
+
+        , open: function (elm) {
+
+            prince_playlist.frame(elm).open()
+
+        }
+
+        , remove: function (elm) {
+
+            if (confirm(prince.confirmPlaylist)) {
+
+                $(elm).parents('.format-setting-inner').children('.prince-playlist-value').attr('value', '');
+                $(elm).parents('.format-setting-inner').children('.prince-playlist-list').remove();
+                $(elm).next('.prince-playlist-edit').text(prince.createPlaylist);
+                $(elm).remove();
+                PRINCE.parse_condition();
+
+            }
+
+        }
+
+    };
+
+    // Playlist Delete
+    $(document).on('click.prince_playlist.data-api', '.prince-playlist-delete', function (e) {
+        e.preventDefault();
+        prince_playlist.type = $(this).attr('data-type') === 'video' ? 'video-' : '';
+        prince_playlist.remove($(this))
+    });
+
+    // Playlist Edit
+    $(document).on('click.prince_playlist.data-api', '.prince-playlist-edit', function (e) {
+        e.preventDefault();
+        prince_playlist.type = $(this).attr('data-type') === 'video' ? 'video-' : '';
+        prince_playlist.open($(this))
     })
 
 }(window.jQuery);

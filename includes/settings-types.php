@@ -1211,6 +1211,121 @@ if ( ! function_exists( 'prince_type_gallery' ) ) {
 }
 
 /**
+ * Playlist option type
+ *
+ * See @prince_display_by_type to see the full list of available arguments
+ *
+ * @param array the options arguments
+ *
+ * @return string the gallery metabox markup
+ *
+ * @access public
+ *
+ * @since 1.0.0
+ */
+
+if ( ! function_exists( 'prince_type_playlist' ) ) {
+
+	function prince_type_playlist( $args = [] ) {
+		// Turns arguments array into variables
+		extract( $args );
+
+		// Check Playlist type from settings['type']
+		$playlist_type = ! empty( $field_settings['type'] ) && 'video' == $field_settings['type'] ? 'video' : 'audio';
+
+		// Verify a description
+		$has_desc = $field_desc ? true : false;
+
+		// Format setting outer wrapper
+		echo '<div class="format-setting type-playlist ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+
+		// Description
+		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
+
+		// Format setting inner wrapper
+		echo '<div class="format-setting-inner">';
+
+		// Setup the post type
+		$post_type = isset( $field_post_type ) ? explode( ',', $field_post_type ) : array( 'post' );
+
+		$field_value = trim( $field_value );
+
+		// Saved values
+		echo '<input type="hidden" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="prince-playlist-value ' . esc_attr( $field_class ) . '" />';
+
+		// Search the string for the IDs
+		preg_match( '/ids=\'(.*?)\'/', $field_value, $matches );
+
+		// Turn the field value into an array of IDs
+		if ( isset( $matches[1] ) ) {
+
+			// Found the IDs in the shortcode
+			$ids = explode( ',', $matches[1] );
+
+		} else {
+
+			// The string is only IDs
+			$ids = ! empty( $field_value ) && $field_value != '' ? explode( ',', $field_value ) : array();
+
+		}
+
+		// Has attachment IDs
+		if ( ! empty( $ids ) ) {
+
+			echo '<ul class="prince-playlist-list attachments">';
+
+			foreach ( $ids as $id ) {
+
+				if ( $id == '' ) {
+					continue;
+				}
+
+				?>
+
+                <li class="attachment">
+                    <div class="attachment-preview">
+                        <div class="thumbnail">
+                            <div class="centered">
+                                <img src="<?php echo includes_url( 'images/media/' . $playlist_type . '.png' ); ?>" class="icon" draggable="false" alt="">
+                            </div>
+                            <div class="filename">
+                                <div>
+									<?php
+									$file = get_attached_file( $id );
+									echo esc_html( wp_basename( $file ) );
+									?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+				<?php
+			}
+
+			echo '</ul>';
+
+			echo '
+          <div class="prince-playlist-buttons">
+            <a href="#" class="prince-ui-button button button-secondary hug-left prince-playlist-delete"  data-type="' . $playlist_type . '">' . __( 'Delete Playlist', 'prince-text-domain' ) . '</a>
+            <a href="#" class="prince-ui-button button button-primary right hug-right prince-playlist-edit"  data-type="' . $playlist_type . '">' . __( 'Edit Playlist', 'prince-text-domain' ) . '</a>
+          </div>';
+
+		} else {
+			echo '<div class="prince-playlist-buttons">
+		            <a href="#" class="prince-ui-button button button-primary right hug-right prince-playlist-edit" data-type="' . $playlist_type . '">' . __( 'Create Playlist', 'prince-text-domain' ) . '</a>
+		          </div>';
+
+		}
+
+		echo '</div>';
+
+		echo '</div>';
+
+	}
+}
+
+/**
  * Google Fonts option type.
  *
  * See @prince_display_by_type to see the full list of available arguments.

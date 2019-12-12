@@ -326,8 +326,8 @@ if ( ! function_exists( 'prince_after_settings_save' ) ) {
 
 	function prince_after_settings_save() {
 
-		$page    = isset( $_REQUEST['page'] ) ? esc_attr($_REQUEST['page']) : '';
-		$updated = isset( $_REQUEST['settings-updated'] ) && esc_html($_REQUEST['settings-updated']) == 'true' ? true : false;
+		$page    = isset( $_REQUEST['page'] ) ? esc_attr( $_REQUEST['page'] ) : '';
+		$updated = isset( $_REQUEST['settings-updated'] ) && esc_html( $_REQUEST['settings-updated'] ) == 'true' ? true : false;
 
 		/* only execute after the Settings are saved */
 		if ( apply_filters( 'prince_settings_menu_slug', 'prince-settings' ) == $page && $updated ) {
@@ -755,9 +755,13 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 			'activate_layout_agree' => __( 'Are you sure you want to activate this layout?', 'prince-text-domain' ),
 			'setting_limit'         => __( 'Sorry, you can\'t have settings three levels deep.', 'prince-text-domain' ),
 			'delete'                => __( 'Delete Gallery', 'prince-text-domain' ),
+			'deletePlaylist'        => __( 'Delete Playlist', 'prince-text-domain' ),
 			'edit'                  => __( 'Edit Gallery', 'prince-text-domain' ),
+			'editPlaylist'          => __( 'Edit Playlist', 'prince-text-domain' ),
 			'create'                => __( 'Create Gallery', 'prince-text-domain' ),
+			'createPlaylist'        => __( 'Create Playlist', 'prince-text-domain' ),
 			'confirm'               => __( 'Are you sure you want to delete this Gallery?', 'prince-text-domain' ),
+			'confirmPlaylist'       => __( 'Are you sure you want to delete this Playlist?', 'prince-text-domain' ),
 			'date_current'          => __( 'Today', 'prince-text-domain' ),
 			'date_time_current'     => __( 'Now', 'prince-text-domain' ),
 			'date_close'            => __( 'Close', 'prince-text-domain' ),
@@ -1098,7 +1102,7 @@ if ( ! function_exists( 'prince_save_settings' ) ) {
 		if ( isset( $_POST['prince_settings_nonce'] ) && wp_verify_nonce( $_POST['prince_settings_nonce'], 'prince_settings_form' ) ) {
 
 			/* settings value */
-			$settings = isset( $_POST[ prince_settings_id() ] ) ? esc_attr($_POST[ prince_settings_id() ]) : '';
+			$settings = isset( $_POST[ prince_settings_id() ] ) ? esc_attr( $_POST[ prince_settings_id() ] ) : '';
 
 			/* validate sections */
 			if ( isset( $settings['sections'] ) ) {
@@ -1296,7 +1300,7 @@ if ( ! function_exists( 'prince_save_settings' ) ) {
 			wp_redirect( esc_url_raw( add_query_arg( array(
 				'action'  => 'save-settings',
 				'message' => $message
-			), esc_html($_POST['_wp_http_referer'] )) ) );
+			), esc_html( $_POST['_wp_http_referer'] ) ) ) );
 			exit;
 
 		}
@@ -1507,9 +1511,9 @@ if ( ! function_exists( 'prince_alert_message' ) ) {
 			return $before;
 		}
 
-		$action  = isset( $_REQUEST['action'] ) ? esc_attr($_REQUEST['action']) : '';
-		$message = isset( $_REQUEST['message'] ) ? esc_attr($_REQUEST['message']) : '';
-		$updated = isset( $_REQUEST['settings-updated'] ) ? esc_attr($_REQUEST['settings-updated']) : '';
+		$action  = isset( $_REQUEST['action'] ) ? esc_attr( $_REQUEST['action'] ) : '';
+		$message = isset( $_REQUEST['message'] ) ? esc_attr( $_REQUEST['message'] ) : '';
+		$updated = isset( $_REQUEST['settings-updated'] ) ? esc_attr( $_REQUEST['settings-updated'] ) : '';
 
 		if ( $action == 'save-settings' ) {
 

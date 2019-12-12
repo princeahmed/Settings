@@ -185,6 +185,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 
 			// AJAX update
 			add_action( 'wp_ajax_gallery_update', array( $this, 'ajax_gallery_update' ) );
+			add_action( 'wp_ajax_playlist_update', array( $this, 'ajax_playlist_update' ) );
 
 			/* Modify the media uploader button */
 			add_filter( 'gettext', array( $this, 'change_image_button' ), 10, 3 );
@@ -229,7 +230,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 		 */
 		public function add_social_links() {
 			check_ajax_referer( 'prince', 'nonce' );
-			prince_social_links_view( esc_attr($_REQUEST['name']), esc_attr($_REQUEST['count']), array(), esc_attr($_REQUEST['post_id']), esc_attr($_REQUEST['get_option']), unserialize( prince_decode( esc_attr($_REQUEST['settings']) ) ), esc_attr($_REQUEST['type']) );
+			prince_social_links_view( esc_attr( $_REQUEST['name'] ), esc_attr( $_REQUEST['count'] ), array(), esc_attr( $_REQUEST['post_id'] ), esc_attr( $_REQUEST['get_option'] ), unserialize( prince_decode( esc_attr( $_REQUEST['settings'] ) ) ), esc_attr( $_REQUEST['type'] ) );
 			die();
 		}
 
@@ -257,7 +258,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 
 			// Set the Prince post ID
 			if ( ! is_object( $post ) ) {
-				$post_id = isset( $_GET['post'] ) ? sanitize_text_field($_GET['post']) : ( isset( $_GET['post_ID'] ) ? sanitize_text_field($_GET['post_ID']) : 0 );
+				$post_id = isset( $_GET['post'] ) ? sanitize_text_field( $_GET['post'] ) : ( isset( $_GET['post_ID'] ) ? sanitize_text_field( $_GET['post_ID'] ) : 0 );
 				if ( $post_id == 0 && function_exists( 'prince_get_media_post_ID' ) ) {
 					$post_id = prince_get_media_post_ID();
 				}
@@ -270,7 +271,8 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 			}
 
 			// Set the fake shortcode
-			$settings['prince_gallery'] = array( 'shortcode' => "[gallery id='{$settings['post']['id']}']" );
+			$settings['prince_gallery']  = array( 'shortcode' => "[gallery id='{$settings['post']['id']}']" );
+			$settings['prince_playlist'] = array( 'shortcode' => "[playlist id='{$settings['post']['id']}']" );
 
 			// Return settings
 			return $settings;
@@ -293,11 +295,45 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 
 				foreach ( $_POST['ids'] as $id ) {
 
-					$thumbnail = wp_get_attachment_image_src( intval($id), 'thumbnail' );
+					$thumbnail = wp_get_attachment_image_src( intval( $id ), 'thumbnail' );
 
 					$return .= '<li><img  src="' . $thumbnail[0] . '" width="75" height="75" /></li>';
 
 				}
+
+				echo $return;
+				exit();
+
+			}
+
+		}
+
+
+		public function ajax_playlist_update() {
+
+			if ( ! empty( $_POST['ids'] ) ) {
+
+				$return = '';
+
+				foreach ( $_POST['ids'] as $id ) { ?>
+					<li class="attachment">
+						<div class="attachment-preview">
+							<div class="thumbnail">
+								<div class="centered">
+									<img src="<?php echo includes_url('images/media/audio.png'); ?>" class="icon" draggable="false" alt="">
+								</div>
+								<div class="filename">
+									<div>
+										<?php
+										$file = get_attached_file( $id );
+										echo esc_html( wp_basename( $file ) );
+										?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				<?php }
 
 				echo $return;
 				exit();
@@ -365,8 +401,9 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 
 	$settings_loader = new Loader();
 
-	require_once __DIR__ . '/demo/prince-settings.php';
-	require_once __DIR__ . '/demo/demo-meta-boxes.php';
-	require_once __DIR__ . '/demo/demo-settings.php';
+	//require_once __DIR__ . '/demo/prince-settings.php';
+	//require_once __DIR__ . '/demo/demo-meta-boxes.php';
+	//require_once __DIR__ . '/demo/demo-settings.php';
+	require_once __DIR__ . '/demo/new-settings.php';
 
 }
