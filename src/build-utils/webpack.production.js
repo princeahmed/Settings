@@ -1,7 +1,4 @@
 const webpack = require('webpack');
-const pkg = require('../../package');
-const glob = require('glob-all');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 
@@ -54,10 +51,6 @@ module.exports = () => ({
             minimize: true
         }),
 
-        new PurgecssPlugin({
-            paths: glob.sync(['./src/js/*.js', './includes/*.php'])
-        }),
-
         new FileManagerPlugin({
             onStart: {
                 delete: ['./build']
@@ -74,7 +67,7 @@ module.exports = () => ({
                 ],
 
                 archive: [
-                    {source: './build', destination: `./build/${pkg.name}-${pkg.version}.zip`}
+                    {source: './build', destination: `./build/prince-settings.zip`}
                 ]
             }
         })
