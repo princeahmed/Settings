@@ -3091,6 +3091,49 @@ if ( ! function_exists( 'prince_type_number' ) ) {
 }
 
 /**
+ * Function option type.
+ *
+ * See @prince_display_by_type to see the full list of available arguments.
+ *
+ * @param array     An array of arguments.
+ *
+ * @return    string
+ *
+ * @access    public
+ * @since     1.0.0
+ */
+if ( ! function_exists( 'prince_type_function' ) ) {
+
+	function prince_type_function( $args = array() ) {
+
+		/* turns arguments array into variables */
+		extract( $args );
+
+		/* verify a description */
+		$has_desc = $field_desc ? true : false;
+
+		/* format setting outer wrapper */
+		echo '<div class="format-setting type-text ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+
+		/* description */
+		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
+
+		/* format setting inner wrapper */
+		echo '<div class="format-setting-inner">';
+
+		$params = ! empty( $field_settings['params'] ) ? $field_settings['params'] : [];
+
+		call_user_func_array( esc_attr( $field_settings['function'] ), $params );
+
+		echo '</div>';
+
+		echo '</div>';
+
+	}
+
+}
+
+/**
  * Textarea option type.
  *
  * See @prince_display_by_type to see the full list of available arguments.

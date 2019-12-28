@@ -4191,7 +4191,6 @@ if ( ! function_exists( 'prince_fetch_google_fonts' ) ) {
 				'sort'   => $prince_google_fonts_sort
 			);
 
-			trace( $prince_google_fonts_query_args );
 
 			/* Build and make the request */
 			$prince_google_fonts_query    = esc_url_raw( add_query_arg( $prince_google_fonts_query_args, $prince_google_fonts_api_url ) );
