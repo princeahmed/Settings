@@ -97,6 +97,7 @@ function prince_settings() {
 				'label'   => 'On/ Off',
 				'desc'    => 'On/ Off Your Top Header',
 				'std'     => 'off',
+				'block'         => true,
 				'type'    => 'on-off',
 				'section' => 'top_header_menu'
 			),
@@ -107,6 +108,7 @@ function prince_settings() {
 				'desc'    => 'Enter Your Email Address',
 				'std'     => 'hello@hello.com',
 				'type'    => 'text',
+				'block'         => true,
 				'section' => 'top_header_menu'
 			),
 
@@ -123,6 +125,7 @@ function prince_settings() {
 				'label'    => 'Social Icons and Address',
 				'desc'     => 'Enter Your Social Icons',
 				'std'      => '',
+				'block'      => true,
 				'type'     => 'list-item',
 				'section'  => 'top_header_menu',
 				'settings' => array(
@@ -131,11 +134,13 @@ function prince_settings() {
 						'label' => 'Social Icons',
 						'title' => 'Social Icon Type',
 						'desc'  => 'Enter Your Social Icon. Use Font-awesome classes for creating icon. e.g for facebook use <b>fa fa-facebook-square </b>',
-						'std'   => 'fa fa-',
+						'std'   => 'fa fa-a',
+						'block'      => true,
 						'type'  => 'text'
 					),
 					array(
 						'id'    => 'top_header_menu_socials_link',
+						'block'      => true,
 						'label' => 'Social Icons Link',
 						'title' => 'Social Icons Link',
 						'desc'  => 'Enter Your Social Icon Link. . e.g for facebook use <b>www.facebook.com/6611.prince</b>',

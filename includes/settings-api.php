@@ -61,9 +61,10 @@ if ( ! class_exists( 'Settings' ) ) {
 			/**
 			 * Filter the `admin_menu` action hook priority.
 			 *
+			 * @param int $priority The priority. Default '10'.
+			 *
 			 * @since     1.0.0
 			 *
-			 * @param int $priority The priority. Default '10'.
 			 */
 			$priority = apply_filters( 'prince_admin_menu_priority', 10 );
 
@@ -437,7 +438,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		/**
 		 * Callback for add_settings_field() to build each setting by type
 		 *
-		 * @param  array $args Setting object array.
+		 * @param array $args Setting object array.
 		 *
 		 * @access public
 		 * @since  2.0
@@ -466,6 +467,8 @@ if ( ! class_exists( 'Settings' ) ) {
 				'field_name'         => $get_option . '[' . $id . ']',
 				'field_value'        => $field_value,
 				'field_desc'         => $desc,
+				//filed and label block
+				'field_block'        => isset( $block ) ? true : false,
 				'field_std'          => isset( $std ) ? $std : '',
 				'field_rows'         => isset( $rows ) && ! empty( $rows ) ? $rows : 15,
 				'field_post_type'    => isset( $post_type ) && ! empty( $post_type ) ? $post_type : 'post',
@@ -731,7 +734,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		/**
 		 * Helper function to get the pages array for an option
 		 *
-		 * @param  array $option Option array.
+		 * @param array $option Option array.
 		 *
 		 * @return mixed
 		 *
@@ -758,7 +761,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		/**
 		 * Helper function to get the sections array for a page
 		 *
-		 * @param  array $page Page array.
+		 * @param array $page Page array.
 		 *
 		 * @return mixed
 		 *
@@ -785,7 +788,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		/**
 		 * Helper function to get the settings array for a page
 		 *
-		 * @param  array $page Page array.
+		 * @param array $page Page array.
 		 *
 		 * @return mixed
 		 *
@@ -812,14 +815,14 @@ if ( ! class_exists( 'Settings' ) ) {
 		/**
 		 * Prints out all settings sections added to a particular settings page
 		 *
-		 * @global $wp_settings_sections Storage array of all settings sections added to admin pages.
-		 * @global $wp_settings_fields   Storage array of settings fields and info about their pages/sections.
-		 *
-		 * @param  string $page The slug name of the page whos settings sections you want to output.
+		 * @param string $page The slug name of the page whos settings sections you want to output.
 		 *
 		 * @return string
 		 *
 		 * @access public
+		 * @global $wp_settings_sections Storage array of all settings sections added to admin pages.
+		 * @global $wp_settings_fields   Storage array of settings fields and info about their pages/sections.
+		 *
 		 * @since  2.0
 		 */
 		public function do_settings_sections( $page ) {
@@ -850,10 +853,11 @@ if ( ! class_exists( 'Settings' ) ) {
 				/**
 				 * Hook to insert arbitrary markup before the `do_settings_fields` method.
 				 *
-				 * @since     1.0.0
-				 *
 				 * @param string $page The page slug.
 				 * @param string $section_id The section ID.
+				 *
+				 * @since     1.0.0
+				 *
 				 */
 				do_action( 'prince_do_settings_fields_before', $page, $section_id );
 
@@ -862,10 +866,11 @@ if ( ! class_exists( 'Settings' ) ) {
 				/**
 				 * Hook to insert arbitrary markup after the `do_settings_fields` method.
 				 *
-				 * @since     1.0.0
-				 *
 				 * @param string $page The page slug.
 				 * @param string $section_id The section ID.
+				 *
+				 * @since     1.0.0
+				 *
 				 */
 				do_action( 'prince_do_settings_fields_after', $page, $section_id );
 
@@ -879,14 +884,14 @@ if ( ! class_exists( 'Settings' ) ) {
 		/**
 		 * Print out the settings fields for a particular settings section
 		 *
-		 * @global $wp_settings_fields Storage array of settings fields and their pages/sections
-		 *
-		 * @param  string $page Slug title of the admin page who's settings fields you want to show.
-		 * @param  string $section Slug title of the settings section who's fields you want to show.
+		 * @param string $page Slug title of the admin page who's settings fields you want to show.
+		 * @param string $section Slug title of the settings section who's fields you want to show.
 		 *
 		 * @return string
 		 *
 		 * @access public
+		 * @global $wp_settings_fields Storage array of settings fields and their pages/sections
+		 *
 		 * @since  2.0
 		 */
 		public function do_settings_fields( $page, $section ) {
@@ -951,9 +956,9 @@ if ( ! class_exists( 'Settings' ) ) {
 		 * Resets page options before the screen is displayed
 		 *
 		 * @access public
+		 * @return bool
 		 * @since  2.0
 		 *
-		 * @return bool
 		 */
 		public function reset_options() {
 
@@ -987,11 +992,11 @@ if ( ! function_exists( 'prince_register_settings' ) ) {
 	/**
 	 * This method instantiates the settings class & builds the UI.
 	 *
-	 * @uses Settings()
-	 *
 	 * @param array $args Array of arguments to create settings.
 	 *
 	 * @access public
+	 * @uses Settings()
+	 *
 	 * @since  2.0
 	 */
 	function prince_register_settings( $args ) {

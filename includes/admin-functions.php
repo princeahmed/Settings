@@ -3655,6 +3655,7 @@ if ( ! function_exists( 'prince_list_item_view' ) ) {
 				'field_value'        => $field_value,
 				'field_desc'         => isset( $field['desc'] ) ? $field['desc'] : '',
 				'field_std'          => isset( $field['std'] ) ? $field['std'] : '',
+				'field_block'        => isset( $field['block'] ) ? true : false,
 				'field_rows'         => isset( $field['rows'] ) ? $field['rows'] : 10,
 				'field_post_type'    => isset( $field['post_type'] ) && ! empty( $field['post_type'] ) ? $field['post_type'] : 'post',
 				'field_taxonomy'     => isset( $field['taxonomy'] ) && ! empty( $field['taxonomy'] ) ? $field['taxonomy'] : 'category',

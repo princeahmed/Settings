@@ -72,6 +72,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 
 		/* verify a description */
 		$has_desc = $field_desc ? true : false;
+		$block = $field_block ? true : false;
 
 		/* If an attachment ID is stored here fetch its URL and replace the value */
 		if ( isset( $field_value['background-image'] ) && wp_attachment_is_image( $field_value['background-image'] ) ) {
@@ -88,7 +89,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 		}
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-background ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-background ' .( $has_desc ? 'has-desc' : 'no-desc' ). '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -297,7 +298,7 @@ if ( ! function_exists( 'prince_type_border' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-border ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-border ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -409,7 +410,7 @@ if ( ! function_exists( 'prince_type_box_shadow' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-box-shadow ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-box-shadow ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -522,7 +523,7 @@ if ( ! function_exists( 'prince_type_category_checkbox' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-category-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-category-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -576,7 +577,7 @@ if ( ! function_exists( 'prince_type_category_select' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-category-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-category-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -633,7 +634,7 @@ if ( ! function_exists( 'prince_type_checkbox' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -683,7 +684,7 @@ if ( ! function_exists( 'prince_type_colorpicker' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-colorpicker ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-colorpicker ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -759,7 +760,7 @@ if ( ! function_exists( 'prince_type_css' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-css simple ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-css simple ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -804,7 +805,7 @@ if ( ! function_exists( 'prince_type_custom_post_type_checkbox' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-custom-post-type-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-custom-post-type-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -868,7 +869,7 @@ if ( ! function_exists( 'prince_type_custom_post_type_select' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-custom-post-type-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-custom-post-type-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -949,7 +950,7 @@ if ( ! function_exists( 'prince_type_date_picker' ) ) {
 		$is_readonly = apply_filters( 'prince_type_date_picker_readonly', false, $field_id );
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-date-picker ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-date-picker ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* date picker JS */
 		echo '<script>jQuery(document).ready(function($) { PRINCE.bind_date_picker("' . esc_attr( $field_id ) . '", "' . esc_attr( $date_format ) . '"); });</script>';
@@ -1008,7 +1009,7 @@ if ( ! function_exists( 'prince_type_date_time_picker' ) ) {
 		$is_readonly = apply_filters( 'prince_type_date_time_picker_readonly', false, $field_id );
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-date-time-picker ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-date-time-picker ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* date time picker JS */
 		echo '<script>jQuery(document).ready(function($) { PRINCE.bind_date_time_picker("' . esc_attr( $field_id ) . '", "' . esc_attr( $date_format ) . '"); });</script>';
@@ -1053,7 +1054,7 @@ if ( ! function_exists( 'prince_type_dimension' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-dimension ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-dimension ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1136,7 +1137,7 @@ if ( ! function_exists( 'prince_type_gallery' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		// Format setting outer wrapper
-		echo '<div class="format-setting type-gallery ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-gallery ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		// Description
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1237,7 +1238,7 @@ if ( ! function_exists( 'prince_type_playlist' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		// Format setting outer wrapper
-		echo '<div class="format-setting type-playlist ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-playlist ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		// Description
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1348,7 +1349,7 @@ if ( ! function_exists( 'prince_type_google_fonts' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-google-font ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-google-font ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1479,7 +1480,7 @@ if ( ! function_exists( 'prince_type_javascript' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-javascript simple ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-javascript simple ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1524,7 +1525,7 @@ if ( ! function_exists( 'prince_type_link_color' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-link-color ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-link-color ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1611,7 +1612,7 @@ if ( ! function_exists( 'prince_type_list_item' ) ) {
 		}
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-list-item ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-list-item ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1686,7 +1687,7 @@ if ( ! function_exists( 'prince_type_measurement' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-measurement ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-measurement ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1747,7 +1748,7 @@ if ( ! function_exists( 'prince_type_numeric_slider' ) ) {
 		$step     = isset( $_options[2] ) ? $_options[2] : 1;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-numeric-slider ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-numeric-slider ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1796,7 +1797,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-radio ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-radio ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1914,7 +1915,7 @@ if ( ! function_exists( 'prince_type_page_checkbox' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-page-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-page-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -1975,7 +1976,7 @@ if ( ! function_exists( 'prince_type_page_select' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-page-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-page-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2039,7 +2040,7 @@ if ( ! function_exists( 'prince_type_post_checkbox' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-post-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-post-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2100,7 +2101,7 @@ if ( ! function_exists( 'prince_type_post_select' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-post-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-post-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2164,7 +2165,7 @@ if ( ! function_exists( 'prince_type_radio' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-radio ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-radio ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2208,7 +2209,7 @@ if ( ! function_exists( 'prince_type_radio_image' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-radio-image ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-radio-image ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2281,7 +2282,7 @@ if ( ! function_exists( 'prince_type_select' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2341,7 +2342,7 @@ if ( ! function_exists( 'prince_type_sidebar_select' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-sidebar-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-sidebar-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2407,7 +2408,7 @@ if ( ! function_exists( 'prince_type_slider' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-slider ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-slider ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2574,7 +2575,7 @@ if ( ! function_exists( 'prince_type_social_links' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-social-list-item ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-social-list-item ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2648,7 +2649,7 @@ if ( ! function_exists( 'prince_type_spacing' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-spacing ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-spacing ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2781,7 +2782,7 @@ if ( ! function_exists( 'prince_type_tag_checkbox' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-tag-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-tag-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2835,7 +2836,7 @@ if ( ! function_exists( 'prince_type_tag_select' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-tag-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-tag-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2892,7 +2893,7 @@ if ( ! function_exists( 'prince_type_taxonomy_checkbox' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-taxonomy-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-taxonomy-checkbox type-checkbox ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -2952,7 +2953,7 @@ if ( ! function_exists( 'prince_type_taxonomy_select' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-tag-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-tag-select ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -3015,7 +3016,7 @@ if ( ! function_exists( 'prince_type_text' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-text ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-text ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -3059,7 +3060,7 @@ if ( ! function_exists( 'prince_type_number' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-text ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-text ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -3113,7 +3114,7 @@ if ( ! function_exists( 'prince_type_function' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-text ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-text ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -3124,6 +3125,17 @@ if ( ! function_exists( 'prince_type_function' ) ) {
 		$params = ! empty( $field_settings['params'] ) ? $field_settings['params'] : [];
 
 		call_user_func_array( esc_attr( $field_settings['function'] ), $params );
+
+		if ( isset( $field_settings['input'] ) ) {
+			printf(
+				'<input type="hidden" name="%1$s" id="%2$s" value="%3$s" class="widefat prince-ui-input %4$s" %5$s />',
+				esc_attr( $field_name ),
+				esc_attr( $field_id ),
+				esc_attr( $field_value ),
+				esc_attr( $field_class ),
+				$field_attrs
+			);
+		}
 
 		echo '</div>';
 
@@ -3156,7 +3168,7 @@ if ( ! function_exists( 'prince_type_textarea' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-textarea ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' fill-area">';
+		echo '<div class="format-setting type-textarea ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . ' fill-area">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -3211,7 +3223,7 @@ if ( ! function_exists( 'prince_type_textarea_simple' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-textarea simple ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-textarea simple ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -3323,7 +3335,7 @@ if ( ! function_exists( 'prince_type_typography' ) ) {
 		$has_desc = $field_desc ? true : false;
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-typography ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-typography ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';
@@ -3508,7 +3520,7 @@ if ( ! function_exists( 'prince_type_upload' ) ) {
 		}
 
 		/* format setting outer wrapper */
-		echo '<div class="format-setting type-upload ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . '">';
+		echo '<div class="format-setting type-upload ' . ( $has_desc ? 'has-desc' : 'no-desc' ) . ' ' . ($field_block ? 'block' : '') . '">';
 
 		/* description */
 		echo $has_desc ? '<div class="description">' . htmlspecialchars_decode( $field_desc ) . '</div>' : '';

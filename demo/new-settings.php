@@ -49,20 +49,6 @@ function prince_settings() {
 		'settings'        => array(
 
 			array(
-				'id'       => 'function',
-				'label'    => 'function',
-				'desc'     => 'function',
-				'type'     => 'function',
-				'section'  => 'options',
-				'settings' => [
-					'function' => 'my_func',
-					'params'   => [
-						'name' => 'prince',
-						'age'  => 34,
-					],
-				],
-			),
-			array(
 				'id'       => 'playlist',
 				'label'    => 'Playlist',
 				'desc'     => 'Playlist',

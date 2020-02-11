@@ -401,9 +401,9 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 
 	$settings_loader = new Loader();
 
-	//require_once __DIR__ . '/demo/prince-settings.php';
+	require_once __DIR__ . '/demo/prince-settings.php';
 	//require_once __DIR__ . '/demo/demo-meta-boxes.php';
 	//require_once __DIR__ . '/demo/demo-settings.php';
-	require_once __DIR__ . '/demo/new-settings.php';
+	//require_once __DIR__ . '/demo/new-settings.php';
 
 }

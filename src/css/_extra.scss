@@ -1,4 +1,23 @@
 .wrap.settings-wrap, .prince-metabox-wrapper {
+
+  #prince-sub-header {
+    z-index: 3;
+  }
+
+  #prince-sub-header + .ui-tabs.ui-widget-content {
+    background: #313852 !important;
+    //display: flex;
+
+    .ui-tabs-nav {
+      //background: #2eb3a7;
+    }
+
+  }
+
+  .ui-tabs-panel, .prince-setting-body {
+    background: #313852 !important;
+  }
+
   .ui-tabs-nav {
     margin-top: -15px;
 
@@ -6,7 +25,7 @@
       margin-left: 3px;
 
       & > a {
-        border-bottom: 1px dashed #ddd !important;
+        border-bottom: 1px solid #ddd !important;
         padding: 8px 5px 8px 12px !important;
 
         &:focus {
@@ -38,13 +57,25 @@
 
   /* Header Tabs */
   #poststuff {
+    margin: 0;
+    padding-top: 0;
+    flex: 1;
+
+    .postbox {
+      margin: 0;
+    }
+
     .prince-settings-nav {
+      margin: -1px 0 0 -1px;
+      height: 35px;
+
       & > li {
         margin: 0;
         border-radius: 0;
         border-right: 1px solid transparent;
 
         & > .ui-tabs-anchor {
+          padding: 8px 12px !important;
           border-bottom: 1px solid #ccc !important;
         }
 
@@ -64,7 +95,7 @@
     background: #333 !important;
 
     & > a {
-      border-bottom: 1px dashed #ddd !important;
+      border-bottom: 1px solid #ddd !important;
       padding: 8px 5px 8px 12px !important;
 
       &:focus {
@@ -88,6 +119,7 @@
 
       .description, .format-setting-inner {
         width: 100%;
+        color: white;
       }
 
       .format-setting-label {
@@ -95,15 +127,15 @@
 
         & > h3 {
           margin: 0;
+          color: white;
         }
       }
     }
   }
 
   //on-off switch styles
-
-  .on-off-switch{
-    &.disabled{
+  .on-off-switch {
+    &.disabled {
       background: #ddd;
 
       input:last-of-type:checked ~ .slide-button {
@@ -113,10 +145,68 @@
     }
   }
 
-  .format-setting-label{
-    h3{
-      margin: 0;
+  .format-setting-wrap {
+    border: 1px solid #999;
+    padding: 10px;
+    margin: 10px;
+
+    .format-setting {
+
+      .description, .list-item-description{
+        color: white;
+      }
+
+      &.block {
+        display: flex;
+        flex-flow: column;
+
+        & > * {
+          width: 100%;
+        }
+      }
+    }
+
+    .format-setting-label {
+      margin: 0 0 5px;
+      padding: 0;
+      border: none;
+
+      h3 {
+        margin: 0;
+        padding: 0 !important;
+        color: white !important;
+      }
+
     }
   }
 
+  .prince-sortable .format-settings {
+    padding: 10px;
+    border: 1px solid #999;
+    margin: 10px 0;
+    width: 97.5%;
+  }
+
+}
+
+.field-block-wrap {
+  .format-setting {
+    display: flex;
+    flex-flow: column;
+
+    .description {
+      width: 100%;
+      color: white;
+    }
+
+    .format-setting-inner {
+      width: 100%;
+    }
+
+  }
+}
+
+.prince-settings-panels {
+  background: #313852;
+  color: white;
 }
