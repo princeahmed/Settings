@@ -6,14 +6,14 @@
  */
 
 
-if ( ! class_exists( 'Settings' ) ) {
+if ( ! class_exists( 'Prince_Settings' ) ) {
 
 	/**
 	 * Prince Settings class.
 	 *
 	 * This class loads all the methods and helpers specific to a Settings page.
 	 */
-	class Settings {
+	class Prince_Settings {
 
 		/**
 		 * An array of options.
@@ -249,7 +249,7 @@ if ( ! class_exists( 'Settings' ) ) {
 
 						echo '<ul id="prince-header">';
 
-						$link = '<a href="http://wordpress.org/plugins/wp-radio" target="_blank"> <img src="' . PRINCE_ASSETS_URL . 'Prince-Crown-Logo-White-50x44.png"> </a>';
+						$link = '<a href="http://wordpress.org/plugins/wp-radio" target="_blank"> <img src="' . __prefix_settings_assets_url . 'Prince-Crown-Logo-White-50x44.png"> </a>';
 						echo '<li id="prince-logo">' . wp_kses_post( apply_filters( 'prince_header_logo_link', $link, $page['id'] ) ) . '</li>';
 
 						echo '<li id="prince-version"><span>' . esc_html( apply_filters( 'prince_header_version_text', 'Prince', $page['id'] ) ) . '</span></li>';
@@ -333,7 +333,7 @@ if ( ! class_exists( 'Settings' ) ) {
 
 							echo '<input type="hidden" name="action" value="reset" />';
 
-							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Settings', 'prince-text-domain' ) . '">' . esc_html__( 'Reset Settings', 'prince-text-domain' ) . '</button>';
+							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Settings', 'notification-plus' ) . '">' . esc_html__( 'Reset Settings', 'notification-plus' ) . '</button>';
 
 							echo '</form>';
 						}
@@ -571,7 +571,7 @@ if ( ! class_exists( 'Settings' ) ) {
 								$required_setting = array(
 									array(
 										'id'        => 'title',
-										'label'     => __( 'Title', 'prince-text-domain' ),
+										'label'     => __( 'Title', 'notification-plus' ),
 										'desc'      => '',
 										'std'       => '',
 										'type'      => 'text',
@@ -1004,6 +1004,6 @@ if ( ! function_exists( 'prince_register_settings' ) ) {
 			return;
 		}
 
-		new Settings( $args );
+		new Prince_Settings( $args );
 	}
 }

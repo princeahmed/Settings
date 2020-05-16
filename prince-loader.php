@@ -20,11 +20,9 @@
  * @copyright Copyright (c) 2019, Prince Ahmed
  */
 
-namespace Prince\Settings;
+if ( ! class_exists( 'Prince_Settings_Loader' ) ) {
 
-if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
-
-	class Loader {
+	class Prince_Settings_Loader {
 
 		/**
 		 * PHP5 constructor method.
@@ -75,7 +73,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 		 * @since     1.0.0
 		 */
 		private function constants() {
-			define( 'PRINCE_ASSETS_URL', trailingslashit( plugin_dir_url( __FILE__ ) . '/assets' ) );
+			define( '__prefix_settings_assets_url', trailingslashit( plugin_dir_url( __FILE__ ) . '/assets' ) );
 		}
 
 		/**
@@ -137,8 +135,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 			add_action( 'admin_print_styles-post.php', 'prince_admin_styles', 11 );
 
 
-			/* Adds the Theme Option page to the admin bar */
-			add_action( 'admin_bar_menu', 'prince_register_settings_admin_bar_menu', 10 );
+			/* Adds the Theme Option page to the admin bar */ //add_action( 'admin_bar_menu', 'prince_register_settings_admin_bar_menu', 10 );
 
 			/* prepares the after save do_action */
 			add_action( 'admin_init', 'prince_after_settings_save', 1 );
@@ -161,8 +158,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 			/* insert theme CSS dynamically */
 			add_action( 'prince_after_settings_save', 'prince_save_css' );
 
-			/* AJAX call to create a new contextual help */
-			add_action( 'wp_ajax_add_the_contextual_help', array( $this, 'add_the_contextual_help' ) );
+			/* AJAX call to create a new contextual help */ //add_action( 'wp_ajax_add_the_contextual_help', array( $this, 'add_the_contextual_help' ) );
 
 			/* AJAX call to create a new choice */
 			add_action( 'wp_ajax_add_choice', array( $this, 'add_choice' ) );
@@ -316,23 +312,23 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 				$return = '';
 
 				foreach ( $_POST['ids'] as $id ) { ?>
-					<li class="attachment">
-						<div class="attachment-preview">
-							<div class="thumbnail">
-								<div class="centered">
-									<img src="<?php echo includes_url('images/media/audio.png'); ?>" class="icon" draggable="false" alt="">
-								</div>
-								<div class="filename">
-									<div>
+                    <li class="attachment">
+                        <div class="attachment-preview">
+                            <div class="thumbnail">
+                                <div class="centered">
+                                    <img src="<?php echo includes_url( 'images/media/audio.png' ); ?>" class="icon" draggable="false" alt="">
+                                </div>
+                                <div class="filename">
+                                    <div>
 										<?php
 										$file = get_attached_file( $id );
 										echo esc_html( wp_basename( $file ) );
 										?>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 				<?php }
 
 				echo $return;
@@ -383,7 +379,7 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 				// Once is enough.
 				remove_filter( 'gettext', array( $this, 'prince_change_image_button' ) );
 
-				return apply_filters( 'prince_upload_text', __( 'Done', 'prince-text-domain' ) );
+				return apply_filters( 'prince_upload_text', __( 'Done', 'notification-plus' ) );
 
 			}
 
@@ -399,11 +395,11 @@ if ( ! class_exists( 'Prince\Settings\Loader' ) ) {
 	 * @since     1.0.0
 	 */
 
-	$settings_loader = new Loader();
+	$settings_loader = new Prince_Settings_Loader();
 
-	require_once __DIR__ . '/demo/prince-settings.php';
+	//require_once __DIR__ . '/demo/prince-settings.php';
 	//require_once __DIR__ . '/demo/demo-meta-boxes.php';
-	//require_once __DIR__ . '/demo/demo-settings.php';
+	require_once __DIR__ . '/demo/demo-settings.php';
 	//require_once __DIR__ . '/demo/new-settings.php';
 
 }

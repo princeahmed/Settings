@@ -15,7 +15,7 @@ if ( ! function_exists( 'prince_options_id' ) ) {
 
 	function prince_options_id() {
 
-		return apply_filters( 'prince_options_id', 'wp_radio_settings' );
+		return apply_filters( '__prefix_options_id', 'prince_options' );
 
 	}
 
@@ -33,7 +33,7 @@ if ( ! function_exists( 'prince_settings_id' ) ) {
 
 	function prince_settings_id() {
 
-		return apply_filters( 'prince_settings_id', 'wp_radio_prince_settings' );
+		return apply_filters( '__prefix_settings_id', '__prefix_settings' );
 
 	}
 
@@ -45,8 +45,8 @@ if ( ! function_exists( 'prince_settings_id' ) ) {
  * Helper function to return the option value.
  * If no value has been saved, it returns $default.
  *
- * @param     string    The option ID.
- * @param     string    The default option value.
+ * @param string    The option ID.
+ * @param string    The default option value.
  *
  * @return    mixed
  *
@@ -105,8 +105,8 @@ if ( ! function_exists( 'prince_echo_meta' ) ) {
  * Helper function to echo the option value.
  * If no value has been saved, it echos $default.
  *
- * @param     string    The option ID.
- * @param     string    The default option value.
+ * @param string    The option ID.
+ * @param string    The default option value.
  *
  * @return    mixed
  *
@@ -126,8 +126,8 @@ if ( ! function_exists( 'prince_echo_option' ) ) {
 /**
  * Filter the return values through WPML
  *
- * @param  array $options The current options.
- * @param  string $option_id The option ID.
+ * @param array $options The current options.
+ * @param string $option_id The option ID.
  *
  * @return mixed
  *
@@ -230,11 +230,11 @@ if ( ! function_exists( 'prince_load_dynamic_css' ) ) {
 		 *
 		 * Example: add_filter( 'prince_load_dynamic_css', '__return_false' );
 		 *
-		 * @since     1.0.0
-		 *
 		 * @param bool $load_dynamic_css Default is `true`.
 		 *
 		 * @return bool
+		 * @since     1.0.0
+		 *
 		 */
 		if ( false === (bool) apply_filters( 'prince_load_dynamic_css', true ) ) {
 			return;
@@ -388,8 +388,8 @@ if ( ! function_exists( 'prince_register_settings_admin_bar_menu' ) ) {
 		$wp_admin_bar->add_node( array(
 			'parent' => 'appearance',
 			'id'     => apply_filters( 'prince_settings_menu_slug', 'prince-settings' ),
-			'title'  => apply_filters( 'prince_settings_page_title', __( 'Settings', 'prince-text-domain' ) ),
-			'href'   => admin_url( apply_filters( 'prince_settings_parent_slug', 'themes.php' ) . '?page=' . apply_filters( 'prince_settings_menu_slug', 'prince-settings' ) )
+			'title'  => apply_filters( 'prince_settings_page_title', __( 'Settings', 'notification-plus' ) ),
+			'href'   => admin_url( apply_filters( '__prefix_settings_parent_slug', 'themes.php' ) . '?page=' . apply_filters( '__prefix_settings_menu_slug', 'prince-settings' ) )
 		) );
 
 	}
