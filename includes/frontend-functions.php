@@ -388,7 +388,7 @@ if ( ! function_exists( 'prince_register_settings_admin_bar_menu' ) ) {
 		$wp_admin_bar->add_node( array(
 			'parent' => 'appearance',
 			'id'     => apply_filters( 'prince_settings_menu_slug', 'prince-settings' ),
-			'title'  => apply_filters( 'prince_settings_page_title', __( 'Settings', 'notification-plus' ) ),
+			'title'  => apply_filters( 'prince_settings_page_title', __( 'Settings', 'prince-settings' ) ),
 			'href'   => admin_url( apply_filters( '__prefix_settings_parent_slug', 'themes.php' ) . '?page=' . apply_filters( '__prefix_settings_menu_slug', 'prince-settings' ) )
 		) );
 

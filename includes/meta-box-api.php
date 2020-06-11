@@ -259,7 +259,7 @@ if ( ! class_exists( 'Prince_Settings_MetaBox' ) ) {
 						$required_setting = array(
 							array(
 								'id'        => 'title',
-								'label'     => __( 'Title', 'notification-plus' ),
+								'label'     => __( 'Title', 'prince-settings' ),
 								'desc'      => '',
 								'std'       => '',
 								'type'      => 'text',

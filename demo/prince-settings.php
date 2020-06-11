@@ -33,55 +33,55 @@ function prince_settings() {
 			'content' => array(
 				array(
 					'id'      => 'option_types_help',
-					'title'   => __( 'Option Types', 'notification-plus' ),
-					'content' => '<p>' . __( 'Help content goes here!', 'notification-plus' ) . '</p>'
+					'title'   => __( 'Option Types', 'prince-settings' ),
+					'content' => '<p>' . __( 'Help content goes here!', 'prince-settings' ) . '</p>'
 				)
 			),
-			'sidebar' => '<p>' . __( 'Sidebar content goes here!', 'notification-plus' ) . '</p>'
+			'sidebar' => '<p>' . __( 'Sidebar content goes here!', 'prince-settings' ) . '</p>'
 		),
 		'sections'        => array(
 			array(
 				'id'    => 'top_header_menu',
 				'icon'  => 'prince-icon-dashboard',
-				'title' => __( 'Top Header Menus', 'notification-plus' )
+				'title' => __( 'Top Header Menus', 'prince-settings' )
 			),
 			array(
 				'id'    => 'site_info',
-				'title' => __( 'Site Info', 'notification-plus' )
+				'title' => __( 'Site Info', 'prince-settings' )
 			),
 			array(
 				'id'    => 'header',
-				'title' => __( 'Hero Section', 'notification-plus' )
+				'title' => __( 'Hero Section', 'prince-settings' )
 			),
 			array(
 				'id'    => 'services',
-				'title' => __( 'Services Section', 'notification-plus' )
+				'title' => __( 'Services Section', 'prince-settings' )
 			),
 			array(
 				'id'    => 'expertise',
-				'title' => __( 'Expertise Section', 'notification-plus' )
+				'title' => __( 'Expertise Section', 'prince-settings' )
 			),
 			array(
 				'id'    => 'skills',
-				'title' => __( 'Skills Section', 'notification-plus' )
+				'title' => __( 'Skills Section', 'prince-settings' )
 			),
 
 			array(
 				'id'    => 'portfolios',
-				'title' => __( 'Portfolios Section', 'notification-plus' )
+				'title' => __( 'Portfolios Section', 'prince-settings' )
 			),
 			array(
 				'id'    => 'testimonals',
-				'title' => __( 'Testimonials Section', 'notification-plus' )
+				'title' => __( 'Testimonials Section', 'prince-settings' )
 			),
 
 			array(
 				'id'    => 'call_to_action',
-				'title' => __( 'Call To Action Section', 'notification-plus' )
+				'title' => __( 'Call To Action Section', 'prince-settings' )
 			),
 			array(
 				'id'    => 'about',
-				'title' => __( 'About Page', 'notification-plus' )
+				'title' => __( 'About Page', 'prince-settings' )
 			),
 
 		),

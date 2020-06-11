@@ -44,7 +44,7 @@ if ( ! function_exists( 'prince_display_by_type' ) ) {
 		if ( function_exists( $function_name_by_type ) ) {
 			call_user_func( $function_name_by_type, $args );
 		} else {
-			echo '<p>' . __( 'Sorry, this function does not exist', 'notification-plus' ) . '</p>';
+			echo '<p>' . __( 'Sorry, this function does not exist', 'prince-settings' ) . '</p>';
 		}
 
 	}
@@ -134,7 +134,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 
 			echo '<select name="' . esc_attr( $field_name ) . '[background-repeat]" id="' . esc_attr( $field_id ) . '-repeat" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 
-			echo '<option value="">' . __( 'background-repeat', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'background-repeat', 'prince-settings' ) . '</option>';
 			foreach ( prince_recognized_background_repeat( $field_id ) as $key => $value ) {
 
 				echo '<option value="' . esc_attr( $key ) . '" ' . selected( $background_repeat, $key, false ) . '>' . esc_attr( $value ) . '</option>';
@@ -152,7 +152,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 
 			echo '<select name="' . esc_attr( $field_name ) . '[background-attachment]" id="' . esc_attr( $field_id ) . '-attachment" class="prince-ui-select ' . $field_class . '">';
 
-			echo '<option value="">' . __( 'background-attachment', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'background-attachment', 'prince-settings' ) . '</option>';
 
 			foreach ( prince_recognized_background_attachment( $field_id ) as $key => $value ) {
 
@@ -171,7 +171,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 
 			echo '<select name="' . esc_attr( $field_name ) . '[background-position]" id="' . esc_attr( $field_id ) . '-position" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 
-			echo '<option value="">' . __( 'background-position', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'background-position', 'prince-settings' ) . '</option>';
 
 			foreach ( prince_recognized_background_position( $field_id ) as $key => $value ) {
 
@@ -224,7 +224,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 
 			} else {
 
-				echo '<input type="text" name="' . esc_attr( $field_name ) . '[background-size]" id="' . esc_attr( $field_id ) . '-size" value="' . ( isset( $field_value['background-size'] ) ? esc_attr( $field_value['background-size'] ) : '' ) . '" class="widefat prince-background-size-input prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'background-size', 'notification-plus' ) . '" />';
+				echo '<input type="text" name="' . esc_attr( $field_name ) . '[background-size]" id="' . esc_attr( $field_id ) . '-size" value="' . ( isset( $field_value['background-size'] ) ? esc_attr( $field_value['background-size'] ) : '' ) . '" class="widefat prince-background-size-input prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'background-size', 'prince-settings' ) . '" />';
 
 			}
 
@@ -238,10 +238,10 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 			echo '<div class="prince-ui-upload-parent">';
 
 			/* input */
-			echo '<input type="text" name="' . esc_attr( $field_name ) . '[background-image]" id="' . esc_attr( $field_id ) . '" value="' . ( isset( $field_value['background-image'] ) ? esc_attr( $field_value['background-image'] ) : '' ) . '" class="widefat prince-ui-upload-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'background-image', 'notification-plus' ) . '" />';
+			echo '<input type="text" name="' . esc_attr( $field_name ) . '[background-image]" id="' . esc_attr( $field_id ) . '" value="' . ( isset( $field_value['background-image'] ) ? esc_attr( $field_value['background-image'] ) : '' ) . '" class="widefat prince-ui-upload-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'background-image', 'prince-settings' ) . '" />';
 
 			/* add media button */
-			echo '<a href="javascript:void(0);" class="prince_upload_media prince-ui-button button button-primary light" rel="' . $post_id . '" title="' . __( 'Add Media', 'notification-plus' ) . '"><span class="icon dashicons dashicons-plus-alt"></span>' . __( 'Add Media', 'notification-plus' ) . '</a>';
+			echo '<a href="javascript:void(0);" class="prince_upload_media prince-ui-button button button-primary light" rel="' . $post_id . '" title="' . __( 'Add Media', 'prince-settings' ) . '"><span class="icon dashicons dashicons-plus-alt"></span>' . __( 'Add Media', 'prince-settings' ) . '</a>';
 
 			echo '</div>';
 
@@ -259,7 +259,7 @@ if ( ! function_exists( 'prince_type_background' ) ) {
 					echo '<div class="prince-ui-image-wrap"><img src="' . esc_url( $field_value['background-image'] ) . '" alt="" /></div>';
 				}
 
-				echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'notification-plus' ) . '"><span class="icon dashicons dashicons-trash"></span></a>';
+				echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-settings' ) . '"><span class="icon dashicons dashicons-trash"></span></a>';
 
 				echo '</div>';
 
@@ -319,7 +319,7 @@ if ( ! function_exists( 'prince_type_border' ) ) {
 
 			$width = isset( $field_value['width'] ) ? esc_attr( $field_value['width'] ) : '';
 
-			echo '<div class="prince-option-group prince-option-group--one-sixth"><input type="text" name="' . esc_attr( $field_name ) . '[width]" id="' . esc_attr( $field_id ) . '-width" value="' . esc_attr( $width ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'width', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group prince-option-group--one-sixth"><input type="text" name="' . esc_attr( $field_name ) . '[width]" id="' . esc_attr( $field_id ) . '-width" value="' . esc_attr( $width ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'width', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -330,7 +330,7 @@ if ( ! function_exists( 'prince_type_border' ) ) {
 
 			echo '<select name="' . esc_attr( $field_name ) . '[unit]" id="' . esc_attr( $field_id ) . '-unit" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 
-			echo '<option value="">' . __( 'unit', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'unit', 'prince-settings' ) . '</option>';
 
 			foreach ( prince_recognized_border_unit_types( $field_id ) as $unit ) {
 				echo '<option value="' . esc_attr( $unit ) . '"' . ( isset( $field_value['unit'] ) ? selected( $field_value['unit'], $unit, false ) : '' ) . '>' . esc_attr( $unit ) . '</option>';
@@ -349,7 +349,7 @@ if ( ! function_exists( 'prince_type_border' ) ) {
 
 			echo '<select name="' . esc_attr( $field_name ) . '[style]" id="' . esc_attr( $field_id ) . '-style" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 
-			echo '<option value="">' . __( 'style', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'style', 'prince-settings' ) . '</option>';
 
 			foreach ( prince_recognized_border_style_types( $field_id ) as $key => $style ) {
 				echo '<option value="' . esc_attr( $key ) . '"' . ( isset( $field_value['style'] ) ? selected( $field_value['style'], $key, false ) : '' ) . '>' . esc_attr( $style ) . '</option>';
@@ -443,7 +443,7 @@ if ( ! function_exists( 'prince_type_box_shadow' ) ) {
 
 			$offset_x = isset( $field_value['offset-x'] ) ? esc_attr( $field_value['offset-x'] ) : '';
 
-			echo '<div class="prince-option-group prince-option-group--one-fifth"><span class="prince-icon-arrows-h prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[offset-x]" id="' . esc_attr( $field_id ) . '-offset-x" value="' . $offset_x . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'offset-x', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group prince-option-group--one-fifth"><span class="prince-icon-arrows-h prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[offset-x]" id="' . esc_attr( $field_id ) . '-offset-x" value="' . $offset_x . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'offset-x', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -452,7 +452,7 @@ if ( ! function_exists( 'prince_type_box_shadow' ) ) {
 
 			$offset_y = isset( $field_value['offset-y'] ) ? esc_attr( $field_value['offset-y'] ) : '';
 
-			echo '<div class="prince-option-group prince-option-group--one-fifth"><span class="prince-icon-arrows-v prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[offset-y]" id="' . esc_attr( $field_id ) . '-offset-y" value="' . $offset_y . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'offset-y', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group prince-option-group--one-fifth"><span class="prince-icon-arrows-v prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[offset-y]" id="' . esc_attr( $field_id ) . '-offset-y" value="' . $offset_y . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'offset-y', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -461,7 +461,7 @@ if ( ! function_exists( 'prince_type_box_shadow' ) ) {
 
 			$blur_radius = isset( $field_value['blur-radius'] ) ? esc_attr( $field_value['blur-radius'] ) : '';
 
-			echo '<div class="prince-option-group prince-option-group--one-fifth"><span class="prince-icon-circle prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[blur-radius]" id="' . esc_attr( $field_id ) . '-blur-radius" value="' . $blur_radius . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'blur-radius', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group prince-option-group--one-fifth"><span class="prince-icon-circle prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[blur-radius]" id="' . esc_attr( $field_id ) . '-blur-radius" value="' . $blur_radius . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'blur-radius', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -470,7 +470,7 @@ if ( ! function_exists( 'prince_type_box_shadow' ) ) {
 
 			$spread_radius = isset( $field_value['spread-radius'] ) ? esc_attr( $field_value['spread-radius'] ) : '';
 
-			echo '<div class="prince-option-group prince-option-group--one-fifth"><span class="prince-icon-arrows-alt prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[spread-radius]" id="' . esc_attr( $field_id ) . '-spread-radius" value="' . $spread_radius . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'spread-radius', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group prince-option-group--one-fifth"><span class="prince-icon-arrows-alt prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[spread-radius]" id="' . esc_attr( $field_id ) . '-spread-radius" value="' . $spread_radius . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'spread-radius', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -543,7 +543,7 @@ if ( ! function_exists( 'prince_type_category_checkbox' ) ) {
 				echo '</p>';
 			}
 		} else {
-			echo '<p>' . __( 'No Categories Found', 'notification-plus' ) . '</p>';
+			echo '<p>' . __( 'No Categories Found', 'prince-settings' ) . '</p>';
 		}
 
 		echo '</div>';
@@ -593,12 +593,12 @@ if ( ! function_exists( 'prince_type_category_select' ) ) {
 
 		/* has cats */
 		if ( ! empty( $categories ) ) {
-			echo '<option value="">-- ' . __( 'Choose One', 'notification-plus' ) . ' --</option>';
+			echo '<option value="">-- ' . __( 'Choose One', 'prince-settings' ) . ' --</option>';
 			foreach ( $categories as $category ) {
 				echo '<option value="' . esc_attr( $category->term_id ) . '"' . selected( $field_value, $category->term_id, false ) . '>' . esc_attr( $category->name ) . '</option>';
 			}
 		} else {
-			echo '<option value="">' . __( 'No Categories Found', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'No Categories Found', 'prince-settings' ) . '</option>';
 		}
 
 		echo '</select>';
@@ -835,7 +835,7 @@ if ( ! function_exists( 'prince_type_custom_post_type_checkbox' ) ) {
 				echo '</p>';
 			}
 		} else {
-			echo '<p>' . __( 'No Posts Found', 'notification-plus' ) . '</p>';
+			echo '<p>' . __( 'No Posts Found', 'prince-settings' ) . '</p>';
 		}
 
 		echo '</div>';
@@ -894,13 +894,13 @@ if ( ! function_exists( 'prince_type_custom_post_type_select' ) ) {
 
 		/* has posts */
 		if ( is_array( $my_posts ) && ! empty( $my_posts ) ) {
-			echo '<option value="">-- ' . __( 'Choose One', 'notification-plus' ) . ' --</option>';
+			echo '<option value="">-- ' . __( 'Choose One', 'prince-settings' ) . ' --</option>';
 			foreach ( $my_posts as $my_post ) {
 				$post_title = '' != $my_post->post_title ? $my_post->post_title : 'Untitled';
 				echo '<option value="' . esc_attr( $my_post->ID ) . '"' . selected( $field_value, $my_post->ID, false ) . '>' . $post_title . '</option>';
 			}
 		} else {
-			echo '<option value="">' . __( 'No Posts Found', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'No Posts Found', 'prince-settings' ) . '</option>';
 		}
 
 		echo '</select>';
@@ -1074,7 +1074,7 @@ if ( ! function_exists( 'prince_type_dimension' ) ) {
 
 			$width = isset( $field_value['width'] ) ? esc_attr( $field_value['width'] ) : '';
 
-			echo '<div class="prince-option-group prince-option-group--one-third"><span class="prince-icon-arrows-h prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[width]" id="' . esc_attr( $field_id ) . '-width" value="' . esc_attr( $width ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'width', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group prince-option-group--one-third"><span class="prince-icon-arrows-h prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[width]" id="' . esc_attr( $field_id ) . '-width" value="' . esc_attr( $width ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'width', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -1083,7 +1083,7 @@ if ( ! function_exists( 'prince_type_dimension' ) ) {
 
 			$height = isset( $field_value['height'] ) ? esc_attr( $field_value['height'] ) : '';
 
-			echo '<div class="prince-option-group prince-option-group--one-third"><span class="prince-icon-arrows-v prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[height]" id="' . esc_attr( $field_id ) . '-height" value="' . esc_attr( $height ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'height', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group prince-option-group--one-third"><span class="prince-icon-arrows-v prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[height]" id="' . esc_attr( $field_id ) . '-height" value="' . esc_attr( $height ) . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'height', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -1094,7 +1094,7 @@ if ( ! function_exists( 'prince_type_dimension' ) ) {
 
 			echo '<select name="' . esc_attr( $field_name ) . '[unit]" id="' . esc_attr( $field_id ) . '-unit" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 
-			echo '<option value="">' . __( 'unit', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'unit', 'prince-settings' ) . '</option>';
 
 			foreach ( prince_recognized_dimension_unit_types( $field_id ) as $unit ) {
 				echo '<option value="' . esc_attr( $unit ) . '"' . ( isset( $field_value['unit'] ) ? selected( $field_value['unit'], $unit, false ) : '' ) . '>' . esc_attr( $unit ) . '</option>';
@@ -1190,15 +1190,15 @@ if ( ! function_exists( 'prince_type_gallery' ) ) {
 
 			echo '
           <div class="prince-gallery-buttons">
-            <a href="#" class="prince-ui-button button button-secondary hug-left prince-gallery-delete">' . __( 'Delete Gallery', 'notification-plus' ) . '</a>
-            <a href="#" class="prince-ui-button button button-primary right hug-right prince-gallery-edit">' . __( 'Edit Gallery', 'notification-plus' ) . '</a>
+            <a href="#" class="prince-ui-button button button-secondary hug-left prince-gallery-delete">' . __( 'Delete Gallery', 'prince-settings' ) . '</a>
+            <a href="#" class="prince-ui-button button button-primary right hug-right prince-gallery-edit">' . __( 'Edit Gallery', 'prince-settings' ) . '</a>
           </div>';
 
 		} else {
 
 			echo '
           <div class="prince-gallery-buttons">
-            <a href="#" class="prince-ui-button button button-primary right hug-right prince-gallery-edit">' . __( 'Create Gallery', 'notification-plus' ) . '</a>
+            <a href="#" class="prince-ui-button button button-primary right hug-right prince-gallery-edit">' . __( 'Create Gallery', 'prince-settings' ) . '</a>
           </div>';
 
 		}
@@ -1308,13 +1308,13 @@ if ( ! function_exists( 'prince_type_playlist' ) ) {
 
 			echo '
           <div class="prince-playlist-buttons">
-            <a href="#" class="prince-ui-button button button-secondary hug-left prince-playlist-delete"  data-type="' . $playlist_type . '">' . __( 'Delete Playlist', 'notification-plus' ) . '</a>
-            <a href="#" class="prince-ui-button button button-primary right hug-right prince-playlist-edit"  data-type="' . $playlist_type . '">' . __( 'Edit Playlist', 'notification-plus' ) . '</a>
+            <a href="#" class="prince-ui-button button button-secondary hug-left prince-playlist-delete"  data-type="' . $playlist_type . '">' . __( 'Delete Playlist', 'prince-settings' ) . '</a>
+            <a href="#" class="prince-ui-button button button-primary right hug-right prince-playlist-edit"  data-type="' . $playlist_type . '">' . __( 'Edit Playlist', 'prince-settings' ) . '</a>
           </div>';
 
 		} else {
 			echo '<div class="prince-playlist-buttons">
-		            <a href="#" class="prince-ui-button button button-primary right hug-right prince-playlist-edit" data-type="' . $playlist_type . '">' . __( 'Create Playlist', 'notification-plus' ) . '</a>
+		            <a href="#" class="prince-ui-button button button-primary right hug-right prince-playlist-edit" data-type="' . $playlist_type . '">' . __( 'Create Playlist', 'prince-settings' ) . '</a>
 		          </div>';
 
 		}
@@ -1381,9 +1381,9 @@ if ( ! function_exists( 'prince_type_google_fonts' ) ) {
 			/* build font family */
 			$family = isset( $value['family'] ) ? $value['family'] : '';
 			echo '<div class="prince-google-font-family">';
-			echo '<a href="javascript:void(0);" class="js-remove-google-font prince-ui-button button button-secondary light" title="' . __( 'Remove Google Font', 'notification-plus' ) . '"><span class="icon dashicons dashicons-trash"/>' . __( 'Remove Google Font', 'notification-plus' ) . '</a>';
+			echo '<a href="javascript:void(0);" class="js-remove-google-font prince-ui-button button button-secondary light" title="' . __( 'Remove Google Font', 'prince-settings' ) . '"><span class="icon dashicons dashicons-trash"/>' . __( 'Remove Google Font', 'prince-settings' ) . '</a>';
 			echo '<select name="' . esc_attr( $field_name ) . '[' . $key . '][family]" id="' . esc_attr( $field_id ) . '-' . $key . '" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
-			echo '<option value="">' . __( '-- Choose One --', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( '-- Choose One --', 'prince-settings' ) . '</option>';
 			foreach ( prince_recognized_google_font_families( $field_id ) as $family_key => $family_value ) {
 				echo '<option value="' . esc_attr( $family_key ) . '" ' . selected( $family, $family_key, false ) . '>' . esc_html( $family_value ) . '</option>';
 			}
@@ -1424,9 +1424,9 @@ if ( ! function_exists( 'prince_type_google_fonts' ) ) {
 
 		/* build font family */
 		echo '<div class="prince-google-font-family">';
-		echo '<a href="javascript:void(0);" class="js-remove-google-font prince-ui-button button button-secondary light" title="' . __( 'Remove Google Font', 'notification-plus' ) . '"><span class="icon dashicons dashicons-trash"/>' . __( 'Remove Google Font', 'notification-plus' ) . '</a>';
+		echo '<a href="javascript:void(0);" class="js-remove-google-font prince-ui-button button button-secondary light" title="' . __( 'Remove Google Font', 'prince-settings' ) . '"><span class="icon dashicons dashicons-trash"/>' . __( 'Remove Google Font', 'prince-settings' ) . '</a>';
 		echo '<select name="' . esc_attr( $field_name ) . '[%key%][family]" id="' . esc_attr( $field_id ) . '-%key%" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
-		echo '<option value="">' . __( '-- Choose One --', 'notification-plus' ) . '</option>';
+		echo '<option value="">' . __( '-- Choose One --', 'prince-settings' ) . '</option>';
 		foreach ( prince_recognized_google_font_families( $field_id ) as $family_key => $family_value ) {
 			echo '<option value="' . esc_attr( $family_key ) . '">' . esc_html( $family_value ) . '</option>';
 		}
@@ -1447,7 +1447,7 @@ if ( ! function_exists( 'prince_type_google_fonts' ) ) {
 
 		echo '</div>';
 
-		echo '<a href="javascript:void(0);" class="js-add-google-font prince-ui-button button button-primary right hug-right" title="' . __( 'Add Google Font', 'notification-plus' ) . '">' . __( 'Add Google Font', 'notification-plus' ) . '</a>';
+		echo '<a href="javascript:void(0);" class="js-add-google-font prince-ui-button button button-primary right hug-right" title="' . __( 'Add Google Font', 'prince-settings' ) . '">' . __( 'Add Google Font', 'prince-settings' ) . '</a>';
 
 		echo '</div>';
 
@@ -1535,11 +1535,11 @@ if ( ! function_exists( 'prince_type_link_color' ) ) {
 
 		/* allow fields to be filtered */
 		$prince_recognized_link_color_fields = apply_filters( 'prince_recognized_link_color_fields', array(
-			'link'    => _x( 'Standard', 'color picker', 'notification-plus' ),
-			'hover'   => _x( 'Hover', 'color picker', 'notification-plus' ),
-			'active'  => _x( 'Active', 'color picker', 'notification-plus' ),
-			'visited' => _x( 'Visited', 'color picker', 'notification-plus' ),
-			'focus'   => _x( 'Focus', 'color picker', 'notification-plus' )
+			'link'    => _x( 'Standard', 'color picker', 'prince-settings' ),
+			'hover'   => _x( 'Hover', 'color picker', 'prince-settings' ),
+			'active'  => _x( 'Active', 'color picker', 'prince-settings' ),
+			'visited' => _x( 'Visited', 'color picker', 'prince-settings' ),
+			'focus'   => _x( 'Focus', 'color picker', 'prince-settings' )
 		), $field_id );
 
 		/* build link color fields */
@@ -1650,10 +1650,10 @@ if ( ! function_exists( 'prince_type_list_item' ) ) {
 		echo '</ul>';
 
 		/* button */
-		echo '<a href="javascript:void(0);" class="prince-list-item-add prince-ui-button button button-primary right hug-right" title="' . __( 'Add New', 'notification-plus' ) . '">' . __( 'Add New', 'notification-plus' ) . '</a>';
+		echo '<a href="javascript:void(0);" class="prince-list-item-add prince-ui-button button button-primary right hug-right" title="' . __( 'Add New', 'prince-settings' ) . '">' . __( 'Add New', 'prince-settings' ) . '</a>';
 
 		/* description */
-		$list_desc = $sortable ? __( 'You can re-order with drag & drop, the order will update after saving.', 'notification-plus' ) : '';
+		$list_desc = $sortable ? __( 'You can re-order with drag & drop, the order will update after saving.', 'prince-settings' ) : '';
 		echo '<div class="list-item-description">' . apply_filters( 'prince_list_item_description', $list_desc, $field_id ) . '</div>';
 
 		echo '</div>';
@@ -1704,7 +1704,7 @@ if ( ! function_exists( 'prince_type_measurement' ) ) {
 		/* build measurement */
 		echo '<select name="' . esc_attr( $field_name ) . '[1]" id="' . esc_attr( $field_id ) . '-1" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 
-		echo '<option value="">' . __( 'unit', 'notification-plus' ) . '</option>';
+		echo '<option value="">' . __( 'unit', 'prince-settings' ) . '</option>';
 
 		foreach ( prince_measurement_unit_types( $field_id ) as $unit ) {
 			echo '<option value="' . esc_attr( $unit ) . '"' . ( isset( $field_value[1] ) ? selected( $field_value[1], $unit, false ) : '' ) . '>' . esc_attr( $unit ) . '</option>';
@@ -1829,7 +1829,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
 				 * @since     1.0.0
 				 *
 				 */
-				'label' => apply_filters( 'prince_on_off_switch_on_label', __( 'On', 'notification-plus' ), $field_id, 'on' )
+				'label' => apply_filters( 'prince_on_off_switch_on_label', __( 'On', 'prince-settings' ), $field_id, 'on' )
 			),
 			array(
 				/**
@@ -1853,7 +1853,7 @@ if ( ! function_exists( 'prince_type_on_off' ) ) {
 				 * @since     1.0.0
 				 *
 				 */
-				'label' => apply_filters( 'prince_on_off_switch_off_label', __( 'Off', 'notification-plus' ), $field_id, 'off' )
+				'label' => apply_filters( 'prince_on_off_switch_off_label', __( 'Off', 'prince-settings' ), $field_id, 'off' )
 			)
 		);
 
@@ -1942,7 +1942,7 @@ if ( ! function_exists( 'prince_type_page_checkbox' ) ) {
 				echo '</p>';
 			}
 		} else {
-			echo '<p>' . __( 'No Pages Found', 'notification-plus' ) . '</p>';
+			echo '<p>' . __( 'No Pages Found', 'prince-settings' ) . '</p>';
 		}
 
 		echo '</div>';
@@ -1998,13 +1998,13 @@ if ( ! function_exists( 'prince_type_page_select' ) ) {
 
 		/* has pages */
 		if ( is_array( $my_posts ) && ! empty( $my_posts ) ) {
-			echo '<option value="">-- ' . __( 'Choose One', 'notification-plus' ) . ' --</option>';
+			echo '<option value="">-- ' . __( 'Choose One', 'prince-settings' ) . ' --</option>';
 			foreach ( $my_posts as $my_post ) {
 				$post_title = '' != $my_post->post_title ? $my_post->post_title : 'Untitled';
 				echo '<option value="' . esc_attr( $my_post->ID ) . '"' . selected( $field_value, $my_post->ID, false ) . '>' . $post_title . '</option>';
 			}
 		} else {
-			echo '<option value="">' . __( 'No Pages Found', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'No Pages Found', 'prince-settings' ) . '</option>';
 		}
 
 		echo '</select>';
@@ -2067,7 +2067,7 @@ if ( ! function_exists( 'prince_type_post_checkbox' ) ) {
 				echo '</p>';
 			}
 		} else {
-			echo '<p>' . __( 'No Posts Found', 'notification-plus' ) . '</p>';
+			echo '<p>' . __( 'No Posts Found', 'prince-settings' ) . '</p>';
 		}
 
 		echo '</div>';
@@ -2123,13 +2123,13 @@ if ( ! function_exists( 'prince_type_post_select' ) ) {
 
 		/* has posts */
 		if ( is_array( $my_posts ) && ! empty( $my_posts ) ) {
-			echo '<option value="">-- ' . __( 'Choose One', 'notification-plus' ) . ' --</option>';
+			echo '<option value="">-- ' . __( 'Choose One', 'prince-settings' ) . ' --</option>';
 			foreach ( $my_posts as $my_post ) {
 				$post_title = '' != $my_post->post_title ? $my_post->post_title : 'Untitled';
 				echo '<option value="' . esc_attr( $my_post->ID ) . '"' . selected( $field_value, $my_post->ID, false ) . '>' . $post_title . '</option>';
 			}
 		} else {
-			echo '<option value="">' . __( 'No Posts Found', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'No Posts Found', 'prince-settings' ) . '</option>';
 		}
 
 		echo '</select>';
@@ -2367,12 +2367,12 @@ if ( ! function_exists( 'prince_type_sidebar_select' ) ) {
 
 		/* has sidebars */
 		if ( count( $sidebars ) ) {
-			echo '<option value="">-- ' . __( 'Choose Sidebar', 'notification-plus' ) . ' --</option>';
+			echo '<option value="">-- ' . __( 'Choose Sidebar', 'prince-settings' ) . ' --</option>';
 			foreach ( $sidebars as $id => $sidebar ) {
 				echo '<option value="' . esc_attr( $id ) . '"' . selected( $field_value, $id, false ) . '>' . esc_attr( $sidebar ) . '</option>';
 			}
 		} else {
-			echo '<option value="">' . __( 'No Sidebars', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'No Sidebars', 'prince-settings' ) . '</option>';
 		}
 
 		echo '</select>';
@@ -2446,10 +2446,10 @@ if ( ! function_exists( 'prince_type_slider' ) ) {
 		echo '</ul>';
 
 		/* button */
-		echo '<a href="javascript:void(0);" class="prince-list-item-add prince-ui-button button button-primary right hug-right" title="' . __( 'Add New', 'notification-plus' ) . '">' . __( 'Add New', 'notification-plus' ) . '</a>';
+		echo '<a href="javascript:void(0);" class="prince-list-item-add prince-ui-button button button-primary right hug-right" title="' . __( 'Add New', 'prince-settings' ) . '">' . __( 'Add New', 'prince-settings' ) . '</a>';
 
 		/* description */
-		echo '<div class="list-item-description">' . __( 'You can re-order with drag & drop, the order will update after saving.', 'notification-plus' ) . '</div>';
+		echo '<div class="list-item-description">' . __( 'You can re-order with drag & drop, the order will update after saving.', 'prince-settings' ) . '</div>';
 
 		echo '</div>';
 
@@ -2483,87 +2483,87 @@ if ( ! function_exists( 'prince_type_social_links' ) ) {
 
 			$field_value = apply_filters( 'prince_type_social_links_defaults', array(
 				array(
-					'name'  => __( 'Facebook', 'notification-plus' ),
+					'name'  => __( 'Facebook', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Twitter', 'notification-plus' ),
+					'name'  => __( 'Twitter', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Google+', 'notification-plus' ),
+					'name'  => __( 'Google+', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'LinkedIn', 'notification-plus' ),
+					'name'  => __( 'LinkedIn', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Pinterest', 'notification-plus' ),
+					'name'  => __( 'Pinterest', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Youtube', 'notification-plus' ),
+					'name'  => __( 'Youtube', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Dribbble', 'notification-plus' ),
+					'name'  => __( 'Dribbble', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Github', 'notification-plus' ),
+					'name'  => __( 'Github', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Forrst', 'notification-plus' ),
+					'name'  => __( 'Forrst', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Digg', 'notification-plus' ),
+					'name'  => __( 'Digg', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Delicious', 'notification-plus' ),
+					'name'  => __( 'Delicious', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Tumblr', 'notification-plus' ),
+					'name'  => __( 'Tumblr', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Skype', 'notification-plus' ),
+					'name'  => __( 'Skype', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'SoundCloud', 'notification-plus' ),
+					'name'  => __( 'SoundCloud', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Vimeo', 'notification-plus' ),
+					'name'  => __( 'Vimeo', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'Flickr', 'notification-plus' ),
+					'name'  => __( 'Flickr', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				),
 				array(
-					'name'  => __( 'VK.com', 'notification-plus' ),
+					'name'  => __( 'VK.com', 'prince-settings' ),
 					'title' => '',
 					'href'  => ''
 				)
@@ -2613,10 +2613,10 @@ if ( ! function_exists( 'prince_type_social_links' ) ) {
 		echo '</ul>';
 
 		/* button */
-		echo '<a href="javascript:void(0);" class="prince-social-links-add prince-ui-button button button-primary right hug-right" title="' . __( 'Add New', 'notification-plus' ) . '">' . __( 'Add New', 'notification-plus' ) . '</a>';
+		echo '<a href="javascript:void(0);" class="prince-social-links-add prince-ui-button button button-primary right hug-right" title="' . __( 'Add New', 'prince-settings' ) . '">' . __( 'Add New', 'prince-settings' ) . '</a>';
 
 		/* description */
-		echo '<div class="list-item-description">' . apply_filters( 'prince_social_links_description', __( 'You can re-order with drag & drop, the order will update after saving.', 'notification-plus' ), $field_id ) . '</div>';
+		echo '<div class="list-item-description">' . apply_filters( 'prince_social_links_description', __( 'You can re-order with drag & drop, the order will update after saving.', 'prince-settings' ), $field_id ) . '</div>';
 
 		echo '</div>';
 
@@ -2671,7 +2671,7 @@ if ( ! function_exists( 'prince_type_spacing' ) ) {
 
 			$top = isset( $field_value['top'] ) ? esc_attr( $field_value['top'] ) : '';
 
-			echo '<div class="prince-option-group"><span class="prince-icon-arrow-up prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[top]" id="' . esc_attr( $field_id ) . '-top" value="' . $top . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'top', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group"><span class="prince-icon-arrow-up prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[top]" id="' . esc_attr( $field_id ) . '-top" value="' . $top . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'top', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -2680,7 +2680,7 @@ if ( ! function_exists( 'prince_type_spacing' ) ) {
 
 			$right = isset( $field_value['right'] ) ? esc_attr( $field_value['right'] ) : '';
 
-			echo '<div class="prince-option-group"><span class="prince-icon-arrow-right prince-option-group--icon"></span></span><input type="text" name="' . esc_attr( $field_name ) . '[right]" id="' . esc_attr( $field_id ) . '-right" value="' . $right . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'right', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group"><span class="prince-icon-arrow-right prince-option-group--icon"></span></span><input type="text" name="' . esc_attr( $field_name ) . '[right]" id="' . esc_attr( $field_id ) . '-right" value="' . $right . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'right', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -2689,7 +2689,7 @@ if ( ! function_exists( 'prince_type_spacing' ) ) {
 
 			$bottom = isset( $field_value['bottom'] ) ? esc_attr( $field_value['bottom'] ) : '';
 
-			echo '<div class="prince-option-group"><span class="prince-icon-arrow-down prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[bottom]" id="' . esc_attr( $field_id ) . '-bottom" value="' . $bottom . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'bottom', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group"><span class="prince-icon-arrow-down prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[bottom]" id="' . esc_attr( $field_id ) . '-bottom" value="' . $bottom . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'bottom', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -2698,7 +2698,7 @@ if ( ! function_exists( 'prince_type_spacing' ) ) {
 
 			$left = isset( $field_value['left'] ) ? esc_attr( $field_value['left'] ) : '';
 
-			echo '<div class="prince-option-group"><span class="prince-icon-arrow-left prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[left]" id="' . esc_attr( $field_id ) . '-left" value="' . $left . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'left', 'notification-plus' ) . '" /></div>';
+			echo '<div class="prince-option-group"><span class="prince-icon-arrow-left prince-option-group--icon"></span><input type="text" name="' . esc_attr( $field_name ) . '[left]" id="' . esc_attr( $field_id ) . '-left" value="' . $left . '" class="widefat prince-ui-input ' . esc_attr( $field_class ) . '" placeholder="' . __( 'left', 'prince-settings' ) . '" /></div>';
 
 		}
 
@@ -2709,7 +2709,7 @@ if ( ! function_exists( 'prince_type_spacing' ) ) {
 
 			echo '<select name="' . esc_attr( $field_name ) . '[unit]" id="' . esc_attr( $field_id ) . '-unit" class="prince-ui-select ' . esc_attr( $field_class ) . '">';
 
-			echo '<option value="">' . __( 'unit', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'unit', 'prince-settings' ) . '</option>';
 
 			foreach ( prince_recognized_spacing_unit_types( $field_id ) as $unit ) {
 				echo '<option value="' . esc_attr( $unit ) . '"' . ( isset( $field_value['unit'] ) ? selected( $field_value['unit'], $unit, false ) : '' ) . '>' . esc_attr( $unit ) . '</option>';
@@ -2802,7 +2802,7 @@ if ( ! function_exists( 'prince_type_tag_checkbox' ) ) {
 				echo '</p>';
 			}
 		} else {
-			echo '<p>' . __( 'No Tags Found', 'notification-plus' ) . '</p>';
+			echo '<p>' . __( 'No Tags Found', 'prince-settings' ) . '</p>';
 		}
 
 		echo '</div>';
@@ -2852,12 +2852,12 @@ if ( ! function_exists( 'prince_type_tag_select' ) ) {
 
 		/* has tags */
 		if ( $tags ) {
-			echo '<option value="">-- ' . __( 'Choose One', 'notification-plus' ) . ' --</option>';
+			echo '<option value="">-- ' . __( 'Choose One', 'prince-settings' ) . ' --</option>';
 			foreach ( $tags as $tag ) {
 				echo '<option value="' . esc_attr( $tag->term_id ) . '"' . selected( $field_value, $tag->term_id, false ) . '>' . esc_attr( $tag->name ) . '</option>';
 			}
 		} else {
-			echo '<option value="">' . __( 'No Tags Found', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'No Tags Found', 'prince-settings' ) . '</option>';
 		}
 
 		echo '</select>';
@@ -2919,7 +2919,7 @@ if ( ! function_exists( 'prince_type_taxonomy_checkbox' ) ) {
 				echo '</p>';
 			}
 		} else {
-			echo '<p>' . __( 'No Taxonomies Found', 'notification-plus' ) . '</p>';
+			echo '<p>' . __( 'No Taxonomies Found', 'prince-settings' ) . '</p>';
 		}
 
 		echo '</div>';
@@ -2975,12 +2975,12 @@ if ( ! function_exists( 'prince_type_taxonomy_select' ) ) {
 
 		/* has tags */
 		if ( $taxonomies ) {
-			echo '<option value="">-- ' . __( 'Choose One', 'notification-plus' ) . ' --</option>';
+			echo '<option value="">-- ' . __( 'Choose One', 'prince-settings' ) . ' --</option>';
 			foreach ( $taxonomies as $taxonomy ) {
 				echo '<option value="' . esc_attr( $taxonomy->term_id ) . '"' . selected( $field_value, $taxonomy->term_id, false ) . '>' . esc_attr( $taxonomy->name ) . '</option>';
 			}
 		} else {
-			echo '<option value="">' . __( 'No Taxonomies Found', 'notification-plus' ) . '</option>';
+			echo '<option value="">' . __( 'No Taxonomies Found', 'prince-settings' ) . '</option>';
 		}
 
 		echo '</select>';
@@ -3535,7 +3535,7 @@ if ( ! function_exists( 'prince_type_upload' ) ) {
 		echo '<input type="text" name="' . esc_attr( $field_name ) . '" id="' . esc_attr( $field_id ) . '" value="' . esc_attr( $field_value ) . '" class="widefat prince-ui-upload-input ' . esc_attr( $field_class ) . '" />';
 
 		/* add media button */
-		echo '<a href="javascript:void(0);" class="prince_upload_media prince-ui-button button button-primary light" rel="' . $post_id . '" title="' . __( 'Add Media', 'notification-plus' ) . '"><span class="icon dashicons dashicons-plus-alt"></span>' . __( 'Add Media', 'notification-plus' ) . '</a>';
+		echo '<a href="javascript:void(0);" class="prince_upload_media prince-ui-button button button-primary light" rel="' . $post_id . '" title="' . __( 'Add Media', 'prince-settings' ) . '"><span class="icon dashicons dashicons-plus-alt"></span>' . __( 'Add Media', 'prince-settings' ) . '</a>';
 
 		echo '</div>';
 
@@ -3553,7 +3553,7 @@ if ( ! function_exists( 'prince_type_upload' ) ) {
 				echo '<div class="prince-ui-image-wrap"><img src="' . esc_url( $field_value ) . '" alt="" /></div>';
 			}
 
-			echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'notification-plus' ) . '"><span class="icon dashicons dashicons-trash"></span></a>';
+			echo '<a href="javascript:(void);" class="prince-ui-remove-media prince-ui-button button button-secondary light" title="' . __( 'Remove Media', 'prince-settings' ) . '"><span class="icon dashicons dashicons-trash"></span></a>';
 
 			echo '</div>';
 

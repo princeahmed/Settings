@@ -33,17 +33,17 @@ function prince_settings() {
 			'content' => array(
 				array(
 					'id'      => 'option_types_help',
-					'title'   => __( 'Option Types', 'notification-plus' ),
-					'content' => '<p>' . __( 'Help content goes here!', 'notification-plus' ) . '</p>'
+					'title'   => __( 'Option Types', 'prince-settings' ),
+					'content' => '<p>' . __( 'Help content goes here!', 'prince-settings' ) . '</p>'
 				)
 			),
-			'sidebar' => '<p>' . __( 'Sidebar content goes here!', 'notification-plus' ) . '</p>'
+			'sidebar' => '<p>' . __( 'Sidebar content goes here!', 'prince-settings' ) . '</p>'
 		),
 		'sections'        => array(
 			array(
 				'id'    => 'options',
 				'icon'  => 'prince-icon-dashboard',
-				'title' => __( 'Options', 'notification-plus' )
+				'title' => __( 'Options', 'prince-settings' )
 			),
 		),
 		'settings'        => array(

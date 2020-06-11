@@ -379,7 +379,7 @@ if ( ! class_exists( 'Prince_Settings_Loader' ) ) {
 				// Once is enough.
 				remove_filter( 'gettext', array( $this, 'prince_change_image_button' ) );
 
-				return apply_filters( 'prince_upload_text', __( 'Done', 'notification-plus' ) );
+				return apply_filters( 'prince_upload_text', __( 'Done', 'prince-settings' ) );
 
 			}
 

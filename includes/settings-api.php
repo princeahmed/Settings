@@ -333,7 +333,7 @@ if ( ! class_exists( 'Prince_Settings' ) ) {
 
 							echo '<input type="hidden" name="action" value="reset" />';
 
-							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Settings', 'notification-plus' ) . '">' . esc_html__( 'Reset Settings', 'notification-plus' ) . '</button>';
+							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Settings', 'prince-settings' ) . '">' . esc_html__( 'Reset Settings', 'prince-settings' ) . '</button>';
 
 							echo '</form>';
 						}
@@ -571,7 +571,7 @@ if ( ! class_exists( 'Prince_Settings' ) ) {
 								$required_setting = array(
 									array(
 										'id'        => 'title',
-										'label'     => __( 'Title', 'notification-plus' ),
+										'label'     => __( 'Title', 'prince-settings' ),
 										'desc'      => '',
 										'std'       => '',
 										'type'      => 'text',
