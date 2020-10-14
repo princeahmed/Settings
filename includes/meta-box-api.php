@@ -104,6 +104,7 @@ if ( ! class_exists( 'Prince_Settings_MetaBox' ) ) {
 					'field_name'         => $field['id'],
 					'field_value'        => $field_value,
 					'field_desc'         => isset( $field['desc'] ) ? $field['desc'] : '',
+					'field_block'        => isset( $field['block'] ) ? $field['block'] : false,
 					'field_std'          => isset( $field['std'] ) ? $field['std'] : '',
 					'field_rows'         => isset( $field['rows'] ) && ! empty( $field['rows'] ) ? $field['rows'] : 10,
 					'field_post_type'    => isset( $field['post_type'] ) && ! empty( $field['post_type'] ) ? $field['post_type'] : 'post',
@@ -259,7 +260,7 @@ if ( ! class_exists( 'Prince_Settings_MetaBox' ) ) {
 						$required_setting = array(
 							array(
 								'id'        => 'title',
-								'label'     => __( 'Title', 'prince-settings' ),
+								'label'     => __( 'Title', 'wp-radio' ),
 								'desc'      => '',
 								'std'       => '',
 								'type'      => 'text',
@@ -325,7 +326,9 @@ if ( ! class_exists( 'Prince_Settings_MetaBox' ) ) {
 						}
 
 						/* set up new data with validated data */
-						$new = prince_validate_setting( esc_attr( $_POST[ $field['id'] ] ), $field['type'], $field['id'] );
+						$new = prince_validate_setting( wp_unslash( $_POST[ $field['id'] ] ),
+						                                $field['type'],
+						                                $field['id'] );
 
 					} else {
 

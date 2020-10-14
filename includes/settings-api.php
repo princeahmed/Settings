@@ -250,9 +250,9 @@ if ( ! class_exists( 'Prince_Settings' ) ) {
 						echo '<ul id="prince-header">';
 
 						$link = '<a href="http://wordpress.org/plugins/wp-radio" target="_blank"> <img src="' . __prefix_settings_assets_url . 'Prince-Crown-Logo-White-50x44.png"> </a>';
-						echo '<li id="prince-logo">' . wp_kses_post( apply_filters( 'prince_header_logo_link', $link, $page['id'] ) ) . '</li>';
+						echo '<li id="prince-logo">' . wp_kses_post( apply_filters( '__prefix_header_logo_link', $link, $page['id'] ) ) . '</li>';
 
-						echo '<li id="prince-version"><span>' . esc_html( apply_filters( 'prince_header_version_text', 'Prince', $page['id'] ) ) . '</span></li>';
+						echo '<li id="prince-version"><span>' . esc_html( apply_filters( '__prefix_header_version_text', 'Prince', $page['id'] ) ) . '</span></li>';
 
 						// Add additional theme specific links here.
 						do_action( 'prince_header_list', $page['id'] );
@@ -333,7 +333,7 @@ if ( ! class_exists( 'Prince_Settings' ) ) {
 
 							echo '<input type="hidden" name="action" value="reset" />';
 
-							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Settings', 'prince-settings' ) . '">' . esc_html__( 'Reset Settings', 'prince-settings' ) . '</button>';
+							echo '<button type="submit" class="prince-ui-button button button-secondary left reset-settings" title="' . esc_html__( 'Reset Settings', 'wp-radio' ) . '">' . esc_html__( 'Reset Settings', 'wp-radio' ) . '</button>';
 
 							echo '</form>';
 						}
@@ -571,7 +571,7 @@ if ( ! class_exists( 'Prince_Settings' ) ) {
 								$required_setting = array(
 									array(
 										'id'        => 'title',
-										'label'     => __( 'Title', 'prince-settings' ),
+										'label'     => __( 'Title', 'wp-radio' ),
 										'desc'      => '',
 										'std'       => '',
 										'type'      => 'text',

@@ -6,12 +6,6 @@
 
   #prince-sub-header + .ui-tabs.ui-widget-content {
     background: #313852 !important;
-    //display: flex;
-
-    .ui-tabs-nav {
-      //background: #2eb3a7;
-    }
-
   }
 
   .ui-tabs-panel, .prince-setting-body {
@@ -167,11 +161,11 @@
     }
 
     .format-setting-label {
-      margin: 0 0 5px;
+      margin: 0 !important;
       padding: 0;
       border: none;
 
-      h3 {
+      .label, h3 {
         margin: 0;
         padding: 0 !important;
         color: white !important;

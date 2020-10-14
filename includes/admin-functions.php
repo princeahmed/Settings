@@ -46,17 +46,17 @@ if ( ! function_exists( 'prince_register_settings_page' ) ) {
 						'id'    => prince_options_id(),
 						'pages' => array(
 							array(
-								'id'              => 'prince_settings',
+								'id'              => '__prefix_settings',
 								'parent_slug'     => apply_filters( '__prefix_settings_parent_slug', 'themes.php' ),
-								'page_title'      => apply_filters( '__prefix_settings_page_title', __( 'Settings', 'prince-settings' ) ),
-								'menu_title'      => apply_filters( '__prefix_settings_menu_title', __( 'Settings', 'prince-settings' ) ),
+								'page_title'      => apply_filters( '__prefix_settings_page_title', __( 'Settings', 'wp-radio' ) ),
+								'menu_title'      => apply_filters( '__prefix_settings_menu_title', __( 'Settings', 'wp-radio' ) ),
 								'capability'      => $caps = apply_filters( '__prefix_settings_capability', 'edit_theme_options' ),
-								'menu_slug'       => apply_filters( '__prefix_settings_menu_slug', 'prince-options' ),
+								'menu_slug'       => apply_filters( '__prefix_settings_menu_slug', 'prince-settings' ),
 								'icon_url'        => apply_filters( '__prefix_settings_icon_url', null ),
 								'position'        => apply_filters( '__prefix_settings_position', null ),
-								'updated_message' => apply_filters( '__prefix_settings_updated_message', __( 'Settings updated.', 'prince-settings' ) ),
-								'reset_message'   => apply_filters( '__prefix_settings_reset_message', __( 'Settings reset.', 'prince-settings' ) ),
-								'button_text'     => apply_filters( '__prefix_settings_button_text', __( 'Save Changes', 'prince-settings' ) ),
+								'updated_message' => apply_filters( '__prefix_settings_updated_message', __( 'Settings updated.', 'wp-radio' ) ),
+								'reset_message'   => apply_filters( '__prefix_settings_reset_message', __( 'Settings reset.', 'wp-radio' ) ),
+								'button_text'     => apply_filters( '__prefix_settings_button_text', __( 'Save Changes', 'wp-radio' ) ),
 								'contextual_help' => apply_filters( '__prefix_settings_contextual_help', $contextual_help ),
 								'sections'        => apply_filters( '__prefix_settings_sections', $sections ),
 								'settings'        => apply_filters( '__prefix_settings_settings', $settings )
@@ -92,7 +92,7 @@ if ( ! function_exists( 'prince_after_settings_save' ) ) {
 		$updated = isset( $_REQUEST['settings-updated'] ) && esc_html( $_REQUEST['settings-updated'] ) == 'true' ? true : false;
 
 		/* only execute after the Settings are saved */
-		if ( apply_filters( 'prince_settings_menu_slug', 'prince-settings' ) == $page && $updated ) {
+		if ( apply_filters( '__prefix_settings_menu_slug', 'prince-settings' ) == $page && $updated ) {
 
 			/* grab a copy of the Settings */
 			$options = get_option( prince_options_id() );
@@ -163,7 +163,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 					$input[ $key ] = '0';
 
-					add_settings_error( 'prince', 'invalid_border_width', sprintf( __( 'The %s input field for %s only allows numeric values.', 'prince-settings' ), '<code>width</code>', '<code>' . $field_id . '</code>' ), 'error' );
+					add_settings_error( 'prince', 'invalid_border_width', sprintf( __( 'The %s input field for %s only allows numeric values.', 'wp-radio' ), '<code>width</code>', '<code>' . $field_id . '</code>' ), 'error' );
 
 				}
 
@@ -224,7 +224,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 				$input = '';
 
-				add_settings_error( 'prince', 'invalid_hex', sprintf( __( 'The %s Colorpicker only allows valid hexadecimal or rgba values.', 'prince-settings' ), '<code>' . $field_id . '</code>' ), 'error' );
+				add_settings_error( 'prince', 'invalid_hex', sprintf( __( 'The %s Colorpicker only allows valid hexadecimal or rgba values.', 'wp-radio' ), '<code>' . $field_id . '</code>' ), 'error' );
 
 			}
 
@@ -265,7 +265,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 					$input[ $error ] = '0';
 
-					add_settings_error( 'prince', 'invalid_dimension_' . $error, sprintf( __( 'The %s input field for %s only allows numeric values.', 'prince-settings' ), '<code>' . $error . '</code>', '<code>' . $field_id . '</code>' ), 'error' );
+					add_settings_error( 'prince', 'invalid_dimension_' . $error, sprintf( __( 'The %s input field for %s only allows numeric values.', 'wp-radio' ), '<code>' . $error . '</code>', '<code>' . $field_id . '</code>' ), 'error' );
 
 				}
 
@@ -334,7 +334,7 @@ if ( ! function_exists( 'prince_validate_setting' ) ) {
 
 					$input[ $error ] = '0';
 
-					add_settings_error( 'prince', 'invalid_spacing_' . $error, sprintf( __( 'The %s input field for %s only allows numeric values.', 'prince-settings' ), '<code>' . $error . '</code>', '<code>' . $field_id . '</code>' ), 'error' );
+					add_settings_error( 'prince', 'invalid_spacing_' . $error, sprintf( __( 'The %s input field for %s only allows numeric values.', 'wp-radio' ), '<code>' . $error . '</code>', '<code>' . $field_id . '</code>' ), 'error' );
 
 				}
 
@@ -508,26 +508,26 @@ if ( ! function_exists( 'prince_admin_scripts' ) ) {
 		$localized_array = array(
 			'ajax'                  => admin_url( 'admin-ajax.php' ),
 			'nonce'                 => wp_create_nonce( 'prince' ),
-			'upload_text'           => apply_filters( 'prince_upload_text', __( 'Done', 'prince-settings' ) ),
-			'remove_media_text'     => __( 'Remove Media', 'prince-settings' ),
-			'reset_agree'           => __( 'Are you sure you want to reset back to the defaults?', 'prince-settings' ),
-			'remove_no'             => __( 'You can\'t remove this! But you can edit the values.', 'prince-settings' ),
-			'remove_agree'          => __( 'Are you sure you want to remove this?', 'prince-settings' ),
-			'activate_layout_agree' => __( 'Are you sure you want to activate this layout?', 'prince-settings' ),
-			'setting_limit'         => __( 'Sorry, you can\'t have settings three levels deep.', 'prince-settings' ),
-			'delete'                => __( 'Delete Gallery', 'prince-settings' ),
-			'deletePlaylist'        => __( 'Delete Playlist', 'prince-settings' ),
-			'edit'                  => __( 'Edit Gallery', 'prince-settings' ),
-			'editPlaylist'          => __( 'Edit Playlist', 'prince-settings' ),
-			'create'                => __( 'Create Gallery', 'prince-settings' ),
-			'createPlaylist'        => __( 'Create Playlist', 'prince-settings' ),
-			'confirm'               => __( 'Are you sure you want to delete this Gallery?', 'prince-settings' ),
-			'confirmPlaylist'       => __( 'Are you sure you want to delete this Playlist?', 'prince-settings' ),
-			'date_current'          => __( 'Today', 'prince-settings' ),
-			'date_time_current'     => __( 'Now', 'prince-settings' ),
-			'date_close'            => __( 'Close', 'prince-settings' ),
-			'replace'               => __( 'Featured Image', 'prince-settings' ),
-			'with'                  => __( 'Image', 'prince-settings' )
+			'upload_text'           => apply_filters( 'prince_upload_text', __( 'Done', 'wp-radio' ) ),
+			'remove_media_text'     => __( 'Remove Media', 'wp-radio' ),
+			'reset_agree'           => __( 'Are you sure you want to reset back to the defaults?', 'wp-radio' ),
+			'remove_no'             => __( 'You can\'t remove this! But you can edit the values.', 'wp-radio' ),
+			'remove_agree'          => __( 'Are you sure you want to remove this?', 'wp-radio' ),
+			'activate_layout_agree' => __( 'Are you sure you want to activate this layout?', 'wp-radio' ),
+			'setting_limit'         => __( 'Sorry, you can\'t have settings three levels deep.', 'wp-radio' ),
+			'delete'                => __( 'Delete Gallery', 'wp-radio' ),
+			'deletePlaylist'        => __( 'Delete Playlist', 'wp-radio' ),
+			'edit'                  => __( 'Edit Gallery', 'wp-radio' ),
+			'editPlaylist'          => __( 'Edit Playlist', 'wp-radio' ),
+			'create'                => __( 'Create Gallery', 'wp-radio' ),
+			'createPlaylist'        => __( 'Create Playlist', 'wp-radio' ),
+			'confirm'               => __( 'Are you sure you want to delete this Gallery?', 'wp-radio' ),
+			'confirmPlaylist'       => __( 'Are you sure you want to delete this Playlist?', 'wp-radio' ),
+			'date_current'          => __( 'Today', 'wp-radio' ),
+			'date_time_current'     => __( 'Now', 'wp-radio' ),
+			'date_close'            => __( 'Close', 'wp-radio' ),
+			'replace'               => __( 'Featured Image', 'wp-radio' ),
+			'with'                  => __( 'Image', 'wp-radio' )
 		);
 
 		/* localized script attached to 'prince' */
@@ -596,7 +596,7 @@ if ( ! function_exists( 'prince_create_media_post' ) ) {
 
 		$regsiter_post_type = 'register_' . 'post_type';
 		$regsiter_post_type( 'prince', array(
-			'labels'              => array( 'name' => __( 'Option Tree', 'prince-settings' ) ),
+			'labels'              => array( 'name' => __( 'Option Tree', 'wp-radio' ) ),
 			'public'              => false,
 			'show_ui'             => false,
 			'capability_type'     => 'post',
@@ -745,14 +745,14 @@ if ( ! function_exists( 'prince_default_settings' ) ) {
 					'sections' => array(
 						array(
 							'id'    => 'general',
-							'title' => __( 'General', 'prince-settings' )
+							'title' => __( 'General', 'wp-radio' )
 						)
 					),
 					'settings' => array(
 						array(
 							'id'        => 'sample_text',
-							'label'     => __( 'Sample Text Field Label', 'prince-settings' ),
-							'desc'      => __( 'Description for the sample text field.', 'prince-settings' ),
+							'label'     => __( 'Sample Text Field Label', 'wp-radio' ),
+							'desc'      => __( 'Description for the sample text field.', 'wp-radio' ),
 							'section'   => 'general',
 							'type'      => 'text',
 							'std'       => '',
@@ -1280,11 +1280,11 @@ if ( ! function_exists( 'prince_alert_message' ) ) {
 
 			if ( $message == 'success' ) {
 
-				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Settings updated.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Settings updated.', 'wp-radio' ) . '</p></div>';
 
 			} else if ( $message == 'failed' ) {
 
-				return '<div id="message" class="error fade below-h2"><p>' . __( 'Settings could not be saved.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="error fade below-h2"><p>' . __( 'Settings could not be saved.', 'wp-radio' ) . '</p></div>';
 
 			}
 
@@ -1292,22 +1292,22 @@ if ( ! function_exists( 'prince_alert_message' ) ) {
 
 			if ( $message == 'success' ) {
 
-				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Settings Imported.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Settings Imported.', 'wp-radio' ) . '</p></div>';
 
 			} else if ( $message == 'failed' ) {
 
-				return '<div id="message" class="error fade below-h2"><p>' . __( 'Settings could not be imported.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="error fade below-h2"><p>' . __( 'Settings could not be imported.', 'wp-radio' ) . '</p></div>';
 
 			}
 		} else if ( $action == 'import-data' ) {
 
 			if ( $message == 'success' ) {
 
-				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Data Imported.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Data Imported.', 'wp-radio' ) . '</p></div>';
 
 			} else if ( $message == 'failed' ) {
 
-				return '<div id="message" class="error fade below-h2"><p>' . __( 'Data could not be imported.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="error fade below-h2"><p>' . __( 'Data could not be imported.', 'wp-radio' ) . '</p></div>';
 
 			}
 
@@ -1315,11 +1315,11 @@ if ( ! function_exists( 'prince_alert_message' ) ) {
 
 			if ( $message == 'success' ) {
 
-				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Layouts Imported.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Layouts Imported.', 'wp-radio' ) . '</p></div>';
 
 			} else if ( $message == 'failed' ) {
 
-				return '<div id="message" class="error fade below-h2"><p>' . __( 'Layouts could not be imported.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="error fade below-h2"><p>' . __( 'Layouts could not be imported.', 'wp-radio' ) . '</p></div>';
 
 			}
 
@@ -1327,21 +1327,21 @@ if ( ! function_exists( 'prince_alert_message' ) ) {
 
 			if ( $message == 'success' ) {
 
-				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Layouts Updated.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Layouts Updated.', 'wp-radio' ) . '</p></div>';
 
 			} else if ( $message == 'failed' ) {
 
-				return '<div id="message" class="error fade below-h2"><p>' . __( 'Layouts could not be updated.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="error fade below-h2"><p>' . __( 'Layouts could not be updated.', 'wp-radio' ) . '</p></div>';
 
 			} else if ( $message == 'deleted' ) {
 
-				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Layouts have been deleted.', 'prince-settings' ) . '</p></div>';
+				return '<div id="message" class="updated fade below-h2"><p>' . __( 'Layouts have been deleted.', 'wp-radio' ) . '</p></div>';
 
 			}
 
 		} else if ( $updated == 'layout' ) {
 
-			return '<div id="message" class="updated fade below-h2"><p>' . __( 'Layout activated.', 'prince-settings' ) . '</p></div>';
+			return '<div id="message" class="updated fade below-h2"><p>' . __( 'Layout activated.', 'wp-radio' ) . '</p></div>';
 
 		} else if ( $action == 'reset' ) {
 
@@ -1380,51 +1380,51 @@ if ( ! function_exists( 'prince_option_types_array' ) ) {
 	function prince_option_types_array() {
 
 		return apply_filters( 'prince_option_types_array', array(
-			'background'                => __( 'Background', 'prince-settings' ),
-			'border'                    => __( 'Border', 'prince-settings' ),
-			'box-shadow'                => __( 'Box Shadow', 'prince-settings' ),
-			'category-checkbox'         => __( 'Category Checkbox', 'prince-settings' ),
-			'category-select'           => __( 'Category Select', 'prince-settings' ),
-			'checkbox'                  => __( 'Checkbox', 'prince-settings' ),
-			'colorpicker'               => __( 'Colorpicker', 'prince-settings' ),
-			'colorpicker-opacity'       => __( 'Colorpicker Opacity', 'prince-settings' ),
-			'css'                       => __( 'CSS', 'prince-settings' ),
-			'custom-post-type-checkbox' => __( 'Custom Post Type Checkbox', 'prince-settings' ),
-			'custom-post-type-select'   => __( 'Custom Post Type Select', 'prince-settings' ),
-			'date-picker'               => __( 'Date Picker', 'prince-settings' ),
-			'date-time-picker'          => __( 'Date Time Picker', 'prince-settings' ),
-			'dimension'                 => __( 'Dimension', 'prince-settings' ),
-			'gallery'                   => __( 'Gallery', 'prince-settings' ),
-			'google-fonts'              => __( 'Google Fonts', 'prince-settings' ),
-			'javascript'                => __( 'JavaScript', 'prince-settings' ),
-			'link-color'                => __( 'Link Color', 'prince-settings' ),
-			'list-item'                 => __( 'List Item', 'prince-settings' ),
-			'measurement'               => __( 'Measurement', 'prince-settings' ),
-			'numeric-slider'            => __( 'Numeric Slider', 'prince-settings' ),
-			'on-off'                    => __( 'On/Off', 'prince-settings' ),
-			'page-checkbox'             => __( 'Page Checkbox', 'prince-settings' ),
-			'page-select'               => __( 'Page Select', 'prince-settings' ),
-			'post-checkbox'             => __( 'Post Checkbox', 'prince-settings' ),
-			'post-select'               => __( 'Post Select', 'prince-settings' ),
-			'radio'                     => __( 'Radio', 'prince-settings' ),
-			'radio-image'               => __( 'Radio Image', 'prince-settings' ),
-			'select'                    => __( 'Select', 'prince-settings' ),
-			'sidebar-select'            => __( 'Sidebar Select', 'prince-settings' ),
-			'slider'                    => __( 'Slider', 'prince-settings' ),
-			'social-links'              => __( 'Social Links', 'prince-settings' ),
-			'spacing'                   => __( 'Spacing', 'prince-settings' ),
-			'tab'                       => __( 'Tab', 'prince-settings' ),
-			'tag-checkbox'              => __( 'Tag Checkbox', 'prince-settings' ),
-			'tag-select'                => __( 'Tag Select', 'prince-settings' ),
-			'taxonomy-checkbox'         => __( 'Taxonomy Checkbox', 'prince-settings' ),
-			'taxonomy-select'           => __( 'Taxonomy Select', 'prince-settings' ),
-			'text'                      => __( 'Text', 'prince-settings' ),
-			'textarea'                  => __( 'Textarea', 'prince-settings' ),
-			'textarea-simple'           => __( 'Textarea Simple', 'prince-settings' ),
-			'textblock'                 => __( 'Textblock', 'prince-settings' ),
-			'textblock-titled'          => __( 'Textblock Titled', 'prince-settings' ),
-			'typography'                => __( 'Typography', 'prince-settings' ),
-			'upload'                    => __( 'Upload', 'prince-settings' )
+			'background'                => __( 'Background', 'wp-radio' ),
+			'border'                    => __( 'Border', 'wp-radio' ),
+			'box-shadow'                => __( 'Box Shadow', 'wp-radio' ),
+			'category-checkbox'         => __( 'Category Checkbox', 'wp-radio' ),
+			'category-select'           => __( 'Category Select', 'wp-radio' ),
+			'checkbox'                  => __( 'Checkbox', 'wp-radio' ),
+			'colorpicker'               => __( 'Colorpicker', 'wp-radio' ),
+			'colorpicker-opacity'       => __( 'Colorpicker Opacity', 'wp-radio' ),
+			'css'                       => __( 'CSS', 'wp-radio' ),
+			'custom-post-type-checkbox' => __( 'Custom Post Type Checkbox', 'wp-radio' ),
+			'custom-post-type-select'   => __( 'Custom Post Type Select', 'wp-radio' ),
+			'date-picker'               => __( 'Date Picker', 'wp-radio' ),
+			'date-time-picker'          => __( 'Date Time Picker', 'wp-radio' ),
+			'dimension'                 => __( 'Dimension', 'wp-radio' ),
+			'gallery'                   => __( 'Gallery', 'wp-radio' ),
+			'google-fonts'              => __( 'Google Fonts', 'wp-radio' ),
+			'javascript'                => __( 'JavaScript', 'wp-radio' ),
+			'link-color'                => __( 'Link Color', 'wp-radio' ),
+			'list-item'                 => __( 'List Item', 'wp-radio' ),
+			'measurement'               => __( 'Measurement', 'wp-radio' ),
+			'numeric-slider'            => __( 'Numeric Slider', 'wp-radio' ),
+			'on-off'                    => __( 'On/Off', 'wp-radio' ),
+			'page-checkbox'             => __( 'Page Checkbox', 'wp-radio' ),
+			'page-select'               => __( 'Page Select', 'wp-radio' ),
+			'post-checkbox'             => __( 'Post Checkbox', 'wp-radio' ),
+			'post-select'               => __( 'Post Select', 'wp-radio' ),
+			'radio'                     => __( 'Radio', 'wp-radio' ),
+			'radio-image'               => __( 'Radio Image', 'wp-radio' ),
+			'select'                    => __( 'Select', 'wp-radio' ),
+			'sidebar-select'            => __( 'Sidebar Select', 'wp-radio' ),
+			'slider'                    => __( 'Slider', 'wp-radio' ),
+			'social-links'              => __( 'Social Links', 'wp-radio' ),
+			'spacing'                   => __( 'Spacing', 'wp-radio' ),
+			'tab'                       => __( 'Tab', 'wp-radio' ),
+			'tag-checkbox'              => __( 'Tag Checkbox', 'wp-radio' ),
+			'tag-select'                => __( 'Tag Select', 'wp-radio' ),
+			'taxonomy-checkbox'         => __( 'Taxonomy Checkbox', 'wp-radio' ),
+			'taxonomy-select'           => __( 'Taxonomy Select', 'wp-radio' ),
+			'text'                      => __( 'Text', 'wp-radio' ),
+			'textarea'                  => __( 'Textarea', 'wp-radio' ),
+			'textarea-simple'           => __( 'Textarea Simple', 'wp-radio' ),
+			'textblock'                 => __( 'Textblock', 'wp-radio' ),
+			'textblock-titled'          => __( 'Textblock Titled', 'wp-radio' ),
+			'typography'                => __( 'Typography', 'wp-radio' ),
+			'upload'                    => __( 'Upload', 'wp-radio' )
 		) );
 
 	}
@@ -2101,35 +2101,35 @@ if ( ! function_exists( 'prince_radio_images' ) ) {
 
 	function prince_radio_images( $field_id = '' ) {
 
-		return apply_filters( 'prince_radio_images', array(
+		return apply_filters( '__prefix_radio_images', array(
 			array(
 				'value' => 'left-sidebar',
-				'label' => __( 'Left Sidebar', 'prince-settings' ),
+				'label' => __( 'Left Sidebar', 'wp-radio' ),
 				'src'   => __prefix_settings_assets_url . 'princeleft-sidebar.png'
 			),
 			array(
 				'value' => 'right-sidebar',
-				'label' => __( 'Right Sidebar', 'prince-settings' ),
+				'label' => __( 'Right Sidebar', 'wp-radio' ),
 				'src'   => __prefix_settings_assets_url . 'princeright-sidebar.png'
 			),
 			array(
 				'value' => 'full-width',
-				'label' => __( 'Full Width (no sidebar)', 'prince-settings' ),
+				'label' => __( 'Full Width (no sidebar)', 'wp-radio' ),
 				'src'   => __prefix_settings_assets_url . 'princefull-width.png'
 			),
 			array(
 				'value' => 'dual-sidebar',
-				'label' => __( 'Dual Sidebar', 'prince-settings' ),
+				'label' => __( 'Dual Sidebar', 'wp-radio' ),
 				'src'   => __prefix_settings_assets_url . 'princedual-sidebar.png'
 			),
 			array(
 				'value' => 'left-dual-sidebar',
-				'label' => __( 'Left Dual Sidebar', 'prince-settings' ),
+				'label' => __( 'Left Dual Sidebar', 'wp-radio' ),
 				'src'   => __prefix_settings_assets_url . 'princeleft-dual-sidebar.png'
 			),
 			array(
 				'value' => 'right-dual-sidebar',
-				'label' => __( 'Right Dual Sidebar', 'prince-settings' ),
+				'label' => __( 'Right Dual Sidebar', 'wp-radio' ),
 				'src'   => __prefix_settings_assets_url . 'princeright-dual-sidebar.png'
 			)
 		), $field_id );
@@ -2159,7 +2159,7 @@ if ( ! function_exists( 'prince_list_item_settings' ) ) {
 		$settings = apply_filters( 'prince_list_item_settings', array(
 			array(
 				'id'        => 'image',
-				'label'     => __( 'Image', 'prince-settings' ),
+				'label'     => __( 'Image', 'wp-radio' ),
 				'desc'      => '',
 				'std'       => '',
 				'type'      => 'upload',
@@ -2170,7 +2170,7 @@ if ( ! function_exists( 'prince_list_item_settings' ) ) {
 			),
 			array(
 				'id'        => 'link',
-				'label'     => __( 'Link', 'prince-settings' ),
+				'label'     => __( 'Link', 'wp-radio' ),
 				'desc'      => '',
 				'std'       => '',
 				'type'      => 'text',
@@ -2181,7 +2181,7 @@ if ( ! function_exists( 'prince_list_item_settings' ) ) {
 			),
 			array(
 				'id'        => 'description',
-				'label'     => __( 'Description', 'prince-settings' ),
+				'label'     => __( 'Description', 'wp-radio' ),
 				'desc'      => '',
 				'std'       => '',
 				'type'      => 'textarea-simple',
@@ -2220,19 +2220,19 @@ if ( ! function_exists( 'prince_slider_settings' ) ) {
 			array(
 				'name'  => 'image',
 				'type'  => 'image',
-				'label' => __( 'Image', 'prince-settings' ),
+				'label' => __( 'Image', 'wp-radio' ),
 				'class' => ''
 			),
 			array(
 				'name'  => 'link',
 				'type'  => 'text',
-				'label' => __( 'Link', 'prince-settings' ),
+				'label' => __( 'Link', 'wp-radio' ),
 				'class' => ''
 			),
 			array(
 				'name'  => 'description',
 				'type'  => 'textarea',
-				'label' => __( 'Description', 'prince-settings' ),
+				'label' => __( 'Description', 'wp-radio' ),
 				'class' => ''
 			)
 		), $id );
@@ -2296,8 +2296,8 @@ if ( ! function_exists( 'prince_social_links_settings' ) ) {
 		$settings = apply_filters( 'prince_social_links_settings', array(
 			array(
 				'id'    => 'name',
-				'label' => __( 'Name', 'prince-settings' ),
-				'desc'  => sprintf( __( 'Enter the name/ title that will be shown in the title attribute of the link. %s', 'prince-settings' ), '<br><code>Example: Website, Facebook, Twitter etc</code>' ),
+				'label' => __( 'Name', 'wp-radio' ),
+				'desc'  => sprintf( __( 'Enter the name/ title that will be shown in the title attribute of the link. %s', 'wp-radio' ), '<br><code>Example: Website, Facebook, Twitter etc</code>' ),
 				'std'   => '',
 				'type'  => 'text',
 				'class' => 'prince-setting-title'
@@ -2306,7 +2306,7 @@ if ( ! function_exists( 'prince_social_links_settings' ) ) {
 			array(
 				'id'    => 'href',
 				'label' => 'Link',
-				'desc'  => sprintf( __( 'Enter a link to the profile or page on the social website. Remember to add the %s part to the front of the link.', 'prince-settings' ), '<code>http://</code>' ),
+				'desc'  => sprintf( __( 'Enter a link to the profile or page on the social website. Remember to add the %s part to the front of the link.', 'wp-radio' ), '<code>http://</code>' ),
 				'type'  => 'text',
 			)
 		), $id );
@@ -2686,7 +2686,7 @@ if ( ! function_exists( 'prince_insert_css_with_markers' ) ) {
 
 			// Can't write to the file so we error out
 			if ( ! is_writable( $filepath ) ) {
-				add_settings_error( 'prince', 'dynamic_css', sprintf( __( 'Unable to write to file %s.', 'prince-settings' ), '<code>' . $filepath . '</code>' ), 'error' );
+				add_settings_error( 'prince', 'dynamic_css', sprintf( __( 'Unable to write to file %s.', 'wp-radio' ), '<code>' . $filepath . '</code>' ), 'error' );
 
 				return false;
 			}
@@ -2971,17 +2971,17 @@ if ( ! function_exists( 'prince_sections_view' ) ) {
     <div class="prince-setting is-section">
       <div class="open">' . ( isset( $section['title'] ) ? esc_attr( $section['title'] ) : 'Section ' . ( $key + 1 ) ) . '</div>
       <div class="button-section">
-        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'edit', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'edit', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'wp-radio' ) . '
         </a>
-        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'wp-radio' ) . '
         </a>
       </div>
       <div class="prince-setting-body">
         <div class="format-settings">
           <div class="format-setting type-text">
-            <div class="description">' . __( '<strong>Section Title</strong>: Displayed as a menu item on the Settings page.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Section Title</strong>: Displayed as a menu item on the Settings page.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][title]" value="' . ( isset( $section['title'] ) ? esc_attr( $section['title'] ) : '' ) . '" class="widefat prince-ui-input prince-setting-title section-title" autocomplete="off" />
             </div>
@@ -2989,7 +2989,7 @@ if ( ! function_exists( 'prince_sections_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text">
-            <div class="description">' . __( '<strong>Section ID</strong>: A unique lower case alphanumeric string, underscores allowed.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Section ID</strong>: A unique lower case alphanumeric string, underscores allowed.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][id]" value="' . ( isset( $section['id'] ) ? esc_attr( $section['id'] ) : '' ) . '" class="widefat prince-ui-input section-id" autocomplete="off" />
             </div>
@@ -3040,17 +3040,17 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
     <div class="prince-setting">
       <div class="open">' . ( isset( $setting['label'] ) ? esc_attr( $setting['label'] ) : 'Setting ' . ( $key + 1 ) ) . '</div>
       <div class="button-section">
-        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'wp-radio' ) . '
         </a>
-        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'wp-radio' ) . '
         </a>
       </div>
       <div class="prince-setting-body">
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>Label</strong>: Displayed as the label of a form element on the Settings page.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Label</strong>: Displayed as the label of a form element on the Settings page.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][label]" value="' . ( isset( $setting['label'] ) ? esc_attr( $setting['label'] ) : '' ) . '" class="widefat prince-ui-input prince-setting-title" autocomplete="off" />
             </div>
@@ -3058,7 +3058,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>ID</strong>: A unique lower case alphanumeric string, underscores allowed.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>ID</strong>: A unique lower case alphanumeric string, underscores allowed.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][id]" value="' . ( isset( $setting['id'] ) ? esc_attr( $setting['id'] ) : '' ) . '" class="widefat prince-ui-input" autocomplete="off" />
             </div>
@@ -3066,7 +3066,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-select wide-desc">
-            <div class="description">' . __( '<strong>Type</strong>: Choose one of the available option types from the dropdown.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Type</strong>: Choose one of the available option types from the dropdown.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <select name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][type]" value="' . esc_attr( $type ) . '" class="prince-ui-select">
               ' . prince_loop_through_option_types( $type, $child ) . '                     
@@ -3077,7 +3077,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-textarea wide-desc">
-            <div class="description">' . __( '<strong>Description</strong>: Enter a detailed description for the users to read on the Settings page, HTML is allowed. This is also where you enter content for both the Textblock & Textblock Titled option types.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Description</strong>: Enter a detailed description for the users to read on the Settings page, HTML is allowed. This is also where you enter content for both the Textblock & Textblock Titled option types.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <textarea class="textarea" rows="10" cols="40" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][desc]">' . ( isset( $setting['desc'] ) ? esc_html( $setting['desc'] ) : '' ) . '</textarea>
             </div>
@@ -3085,29 +3085,29 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-textblock wide-desc">
-            <div class="description">' . __( '<strong>Choices</strong>: This will only affect the following option types: Checkbox, Radio, Select & Done.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Choices</strong>: This will only affect the following option types: Checkbox, Radio, Select & Done.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <ul class="prince-setting-wrap prince-sortable" data-name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . ']">
                 ' . ( isset( $setting['choices'] ) ? prince_loop_through_choices( $name . '[' . $key . ']', $setting['choices'] ) : '' ) . '
               </ul>
-              <a href="javascript:void(0);" class="prince-choice-add prince-ui-button button hug-left">' . __( 'Add Choice', 'prince-settings' ) . '</a>
+              <a href="javascript:void(0);" class="prince-choice-add prince-ui-button button hug-left">' . __( 'Add Choice', 'wp-radio' ) . '</a>
             </div>
           </div>
         </div>
         <div class="format-settings">
           <div class="format-setting type-textblock wide-desc">
-            <div class="description">' . __( '<strong>Settings</strong>: This will only affect the List Item option type.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Settings</strong>: This will only affect the List Item option type.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <ul class="prince-setting-wrap prince-sortable" data-name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . ']">
                 ' . ( isset( $setting['settings'] ) ? prince_loop_through_sub_settings( $name . '[' . $key . '][settings]', $setting['settings'] ) : '' ) . '
               </ul>
-              <a href="javascript:void(0);" class="prince-list-item-setting-add prince-ui-button button hug-left">' . __( 'Add Setting', 'prince-settings' ) . '</a>
+              <a href="javascript:void(0);" class="prince-list-item-setting-add prince-ui-button button hug-left">' . __( 'Add Setting', 'wp-radio' ) . '</a>
             </div>
           </div>
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>Standard</strong>: Setting the standard value for your option only works for some option types. Read the <code>Prince->Documentation</code> for more information on which ones.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Standard</strong>: Setting the standard value for your option only works for some option types. Read the <code>Prince->Documentation</code> for more information on which ones.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               ' . $std_form_element . '
             </div>
@@ -3115,7 +3115,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>Rows</strong>: Enter a numeric value for the number of rows in your textarea. This will only affect the following option types: CSS, Textarea, & Textarea Simple.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Rows</strong>: Enter a numeric value for the number of rows in your textarea. This will only affect the following option types: CSS, Textarea, & Textarea Simple.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][rows]" value="' . ( isset( $setting['rows'] ) ? esc_attr( $setting['rows'] ) : '' ) . '" class="widefat prince-ui-input" />
             </div>
@@ -3123,7 +3123,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>Post Type</strong>: Add a comma separated list of post type like \'post,page\'. This will only affect the following option types: Custom Post Type Checkbox, & Custom Post Type Select.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Post Type</strong>: Add a comma separated list of post type like \'post,page\'. This will only affect the following option types: Custom Post Type Checkbox, & Custom Post Type Select.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][post_type]" value="' . ( isset( $setting['post_type'] ) ? esc_attr( $setting['post_type'] ) : '' ) . '" class="widefat prince-ui-input" autocomplete="off" />
             </div>
@@ -3131,7 +3131,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>Taxonomy</strong>: Add a comma separated list of any registered taxonomy like \'category,post_tag\'. This will only affect the following option types: Taxonomy Checkbox, & Taxonomy Select.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Taxonomy</strong>: Add a comma separated list of any registered taxonomy like \'category,post_tag\'. This will only affect the following option types: Taxonomy Checkbox, & Taxonomy Select.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][taxonomy]" value="' . ( isset( $setting['taxonomy'] ) ? esc_attr( $setting['taxonomy'] ) : '' ) . '" class="widefat prince-ui-input" autocomplete="off" />
             </div>
@@ -3139,7 +3139,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>Min, Max, & Step</strong>: Add a comma separated list of options in the following format <code>0,100,1</code> (slide from <code>0-100</code> in intervals of <code>1</code>). The three values represent the minimum, maximum, and step options and will only affect the Numeric Slider option type.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Min, Max, & Step</strong>: Add a comma separated list of options in the following format <code>0,100,1</code> (slide from <code>0-100</code> in intervals of <code>1</code>). The three values represent the minimum, maximum, and step options and will only affect the Numeric Slider option type.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][min_max_step]" value="' . ( isset( $setting['min_max_step'] ) ? esc_attr( $setting['min_max_step'] ) : '' ) . '" class="widefat prince-ui-input" autocomplete="off" />
             </div>
@@ -3147,7 +3147,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . __( '<strong>CSS Class</strong>: Add and optional class to this option type.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>CSS Class</strong>: Add and optional class to this option type.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][class]" value="' . ( isset( $setting['class'] ) ? esc_attr( $setting['class'] ) : '' ) . '" class="widefat prince-ui-input" autocomplete="off" />
             </div>
@@ -3155,7 +3155,7 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text wide-desc">
-            <div class="description">' . sprintf( __( '<strong>Condition</strong>: Add a comma separated list (no spaces) of conditions in which the field will be visible, leave this setting empty to always show the field. In these examples, <code>value</code> is a placeholder for your condition, which can be in the form of %s.', 'prince-settings' ), '<code>field_id:is(value)</code>, <code>field_id:not(value)</code>, <code>field_id:contains(value)</code>, <code>field_id:less_than(value)</code>, <code>field_id:less_than_or_equal_to(value)</code>, <code>field_id:greater_than(value)</code>, or <code>field_id:greater_than_or_equal_to(value)</code>' ) . '</div>
+            <div class="description">' . sprintf( __( '<strong>Condition</strong>: Add a comma separated list (no spaces) of conditions in which the field will be visible, leave this setting empty to always show the field. In these examples, <code>value</code> is a placeholder for your condition, which can be in the form of %s.', 'wp-radio' ), '<code>field_id:is(value)</code>, <code>field_id:not(value)</code>, <code>field_id:contains(value)</code>, <code>field_id:less_than(value)</code>, <code>field_id:less_than_or_equal_to(value)</code>, <code>field_id:greater_than(value)</code>, or <code>field_id:greater_than_or_equal_to(value)</code>' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][condition]" value="' . ( isset( $setting['condition'] ) ? esc_attr( $setting['condition'] ) : '' ) . '" class="widefat prince-ui-input" autocomplete="off" />
             </div>
@@ -3163,11 +3163,11 @@ if ( ! function_exists( 'prince_settings_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-select wide-desc">
-            <div class="description">' . __( '<strong>Operator</strong>: Choose the logical operator to compute the result of the conditions.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Operator</strong>: Choose the logical operator to compute the result of the conditions.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <select name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][operator]" value="' . $operator . '" class="prince-ui-select">
-                <option value="and" ' . selected( $operator, 'and', false ) . '>' . __( 'and', 'prince-settings' ) . '</option>
-                <option value="or" ' . selected( $operator, 'or', false ) . '>' . __( 'or', 'prince-settings' ) . '</option>
+                <option value="and" ' . selected( $operator, 'and', false ) . '>' . __( 'and', 'wp-radio' ) . '</option>
+                <option value="or" ' . selected( $operator, 'or', false ) . '>' . __( 'or', 'wp-radio' ) . '</option>
               </select>
             </div>
           </div>
@@ -3203,17 +3203,17 @@ if ( ! function_exists( 'prince_choices_view' ) ) {
     <div class="prince-setting">
       <div class="open">' . ( isset( $choice['label'] ) ? esc_attr( $choice['label'] ) : 'Choice ' . ( $key + 1 ) ) . '</div>
       <div class="button-section">
-        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'wp-radio' ) . '
         </a>
-        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'wp-radio' ) . '
         </a>
       </div>
       <div class="prince-setting-body">
         <div class="format-settings">
           <div class="format-setting-label">
-            <h5>' . __( 'Label', 'prince-settings' ) . '</h5>
+            <h5>' . __( 'Label', 'wp-radio' ) . '</h5>
           </div>
           <div class="format-setting type-text wide-desc">
             <div class="format-setting-inner">
@@ -3223,7 +3223,7 @@ if ( ! function_exists( 'prince_choices_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting-label">
-            <h5>' . __( 'Value', 'prince-settings' ) . '</h5>
+            <h5>' . __( 'Value', 'wp-radio' ) . '</h5>
           </div>
           <div class="format-setting type-text wide-desc">
             <div class="format-setting-inner">
@@ -3233,7 +3233,7 @@ if ( ! function_exists( 'prince_choices_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting-label">
-            <h5>' . __( 'Image Source (Radio Image only)', 'prince-settings' ) . '</h5>
+            <h5>' . __( 'Image Source (Radio Image only)', 'wp-radio' ) . '</h5>
           </div>
           <div class="format-setting type-text wide-desc">
             <div class="format-setting-inner">
@@ -3269,17 +3269,17 @@ if ( ! function_exists( 'prince_contextual_help_view' ) ) {
     <div class="prince-setting">
       <div class="open">' . ( isset( $content['title'] ) ? esc_attr( $content['title'] ) : 'Content ' . ( $key + 1 ) ) . '</div>
       <div class="button-section">
-        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'wp-radio' ) . '
         </a>
-        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'wp-radio' ) . '
         </a>
       </div>
       <div class="prince-setting-body">
         <div class="format-settings">
           <div class="format-setting type-text no-desc">
-            <div class="description">' . __( '<strong>Title</strong>: Displayed as a contextual help menu item on the Settings page.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Title</strong>: Displayed as a contextual help menu item on the Settings page.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][title]" value="' . ( isset( $content['title'] ) ? esc_attr( $content['title'] ) : '' ) . '" class="widefat prince-ui-input prince-setting-title" autocomplete="off" />
             </div>
@@ -3287,7 +3287,7 @@ if ( ! function_exists( 'prince_contextual_help_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-text no-desc">
-            <div class="description">' . __( '<strong>ID</strong>: A unique lower case alphanumeric string, underscores allowed.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>ID</strong>: A unique lower case alphanumeric string, underscores allowed.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <input type="text" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][id]" value="' . ( isset( $content['id'] ) ? esc_attr( $content['id'] ) : '' ) . '" class="widefat prince-ui-input" autocomplete="off" />
             </div>
@@ -3295,7 +3295,7 @@ if ( ! function_exists( 'prince_contextual_help_view' ) ) {
         </div>
         <div class="format-settings">
           <div class="format-setting type-textarea no-desc">
-            <div class="description">' . __( '<strong>Content</strong>: Enter the HTML content about this contextual help item displayed on the Theme Option page for end users to read.', 'prince-settings' ) . '</div>
+            <div class="description">' . __( '<strong>Content</strong>: Enter the HTML content about this contextual help item displayed on the Theme Option page for end users to read.', 'wp-radio' ) . '</div>
             <div class="format-setting-inner">
               <textarea class="textarea" rows="15" cols="40" name="' . esc_attr( $name ) . '[' . esc_attr( $key ) . '][content]">' . ( isset( $content['content'] ) ? esc_html( $content['content'] ) : '' ) . '</textarea>
             </div>
@@ -3331,7 +3331,7 @@ if ( ! function_exists( 'prince_list_item_view' ) ) {
 		$required_setting = array(
 			array(
 				'id'        => 'title',
-				'label'     => __( 'Title', 'prince-settings' ),
+				'label'     => __( 'Title', 'wp-radio' ),
 				'desc'      => '',
 				'std'       => '',
 				'type'      => 'text',
@@ -3363,11 +3363,11 @@ if ( ! function_exists( 'prince_list_item_view' ) ) {
     <div class="prince-setting">
       <div class="open">' . ( isset( $list_item['title'] ) ? esc_attr( $list_item['title'] ) : '' ) . '</div>
       <div class="button-section">
-        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'wp-radio' ) . '
         </a>
-        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'wp-radio' ) . '
         </a>
       </div>
       <div class="prince-setting-body">';
@@ -3523,11 +3523,11 @@ if ( ! function_exists( 'prince_social_links_view' ) ) {
     <div class="prince-setting">
       <div class="open">' . ( isset( $list_item['name'] ) ? esc_attr( $list_item['name'] ) : '' ) . '</div>
       <div class="button-section">
-        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-edit prince-ui-button button left-item" title="' . __( 'Edit', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-edit"></span>' . __( 'Edit', 'wp-radio' ) . '
         </a>
-        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'prince-settings' ) . '">
-          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'prince-settings' ) . '
+        <a href="javascript:void(0);" class="prince-setting-remove prince-ui-button button button-secondary light right-item" title="' . __( 'Delete', 'wp-radio' ) . '">
+          <span class="icon dashicons dashicons-trash"></span>' . __( 'Delete', 'wp-radio' ) . '
         </a>
       </div>
       <div class="prince-setting-body">';
@@ -4097,7 +4097,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_gallery' ) ) {
 
 		return apply_filters( 'prince_meta_box_post_format_gallery', array(
 			'id'       => 'prince-post-format-gallery',
-			'title'    => __( 'Gallery', 'prince-settings' ),
+			'title'    => __( 'Gallery', 'wp-radio' ),
 			'desc'     => '',
 			'pages'    => $pages,
 			'context'  => 'side',
@@ -4142,7 +4142,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_link' ) ) {
 
 		return apply_filters( 'prince_meta_box_post_format_link', array(
 			'id'       => 'prince-post-format-link',
-			'title'    => __( 'Link', 'prince-settings' ),
+			'title'    => __( 'Link', 'wp-radio' ),
 			'desc'     => '',
 			'pages'    => $pages,
 			'context'  => 'side',
@@ -4151,14 +4151,14 @@ if ( ! function_exists( 'prince_meta_box_post_format_link' ) ) {
 				array(
 					'id'    => '_format_link_url',
 					'label' => '',
-					'desc'  => __( 'Link URL', 'prince-settings' ),
+					'desc'  => __( 'Link URL', 'wp-radio' ),
 					'std'   => '',
 					'type'  => 'text'
 				),
 				array(
 					'id'    => '_format_link_title',
 					'label' => '',
-					'desc'  => __( 'Link Title', 'prince-settings' ),
+					'desc'  => __( 'Link Title', 'wp-radio' ),
 					'std'   => '',
 					'type'  => 'text'
 				)
@@ -4193,7 +4193,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_quote' ) ) {
 
 		return apply_filters( 'prince_meta_box_post_format_quote', array(
 			'id'       => 'prince-post-format-quote',
-			'title'    => __( 'Quote', 'prince-settings' ),
+			'title'    => __( 'Quote', 'wp-radio' ),
 			'desc'     => '',
 			'pages'    => $pages,
 			'context'  => 'side',
@@ -4202,28 +4202,28 @@ if ( ! function_exists( 'prince_meta_box_post_format_quote' ) ) {
 				array(
 					'id'    => '_format_quote_source_name',
 					'label' => '',
-					'desc'  => __( 'Source Name (ex. author, singer, actor)', 'prince-settings' ),
+					'desc'  => __( 'Source Name (ex. author, singer, actor)', 'wp-radio' ),
 					'std'   => '',
 					'type'  => 'text'
 				),
 				array(
 					'id'    => '_format_quote_source_url',
 					'label' => '',
-					'desc'  => __( 'Source URL', 'prince-settings' ),
+					'desc'  => __( 'Source URL', 'wp-radio' ),
 					'std'   => '',
 					'type'  => 'text'
 				),
 				array(
 					'id'    => '_format_quote_source_title',
 					'label' => '',
-					'desc'  => __( 'Source Title (ex. book, song, movie)', 'prince-settings' ),
+					'desc'  => __( 'Source Title (ex. book, song, movie)', 'wp-radio' ),
 					'std'   => '',
 					'type'  => 'text'
 				),
 				array(
 					'id'    => '_format_quote_source_date',
 					'label' => '',
-					'desc'  => __( 'Source Date', 'prince-settings' ),
+					'desc'  => __( 'Source Date', 'wp-radio' ),
 					'std'   => '',
 					'type'  => 'text'
 				)
@@ -4258,7 +4258,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_video' ) ) {
 
 		return apply_filters( 'prince_meta_box_post_format_video', array(
 			'id'       => 'prince-post-format-video',
-			'title'    => __( 'Video', 'prince-settings' ),
+			'title'    => __( 'Video', 'wp-radio' ),
 			'desc'     => '',
 			'pages'    => $pages,
 			'context'  => 'side',
@@ -4267,7 +4267,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_video' ) ) {
 				array(
 					'id'    => '_format_video_embed',
 					'label' => '',
-					'desc'  => sprintf( __( 'Embed video from services like Youtube, Vimeo, or Hulu. You can find a list of supported oEmbed sites in the %1$s. Alternatively, you could use the built-in %2$s shortcode.', 'prince-settings' ), '<a href="http://codex.wordpress.org/Embeds" target="_blank">' . __( 'Wordpress Codex', 'prince-settings' ) . '</a>', '<code>[video]</code>' ),
+					'desc'  => sprintf( __( 'Embed video from services like Youtube, Vimeo, or Hulu. You can find a list of supported oEmbed sites in the %1$s. Alternatively, you could use the built-in %2$s shortcode.', 'wp-radio' ), '<a href="http://codex.wordpress.org/Embeds" target="_blank">' . __( 'Wordpress Codex', 'wp-radio' ) . '</a>', '<code>[video]</code>' ),
 					'std'   => '',
 					'type'  => 'textarea'
 				)
@@ -4302,7 +4302,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_audio' ) ) {
 
 		return apply_filters( 'prince_meta_box_post_format_audio', array(
 			'id'       => 'prince-post-format-audio',
-			'title'    => __( 'Audio', 'prince-settings' ),
+			'title'    => __( 'Audio', 'wp-radio' ),
 			'desc'     => '',
 			'pages'    => $pages,
 			'context'  => 'side',
@@ -4311,7 +4311,7 @@ if ( ! function_exists( 'prince_meta_box_post_format_audio' ) ) {
 				array(
 					'id'    => '_format_audio_embed',
 					'label' => '',
-					'desc'  => sprintf( __( 'Embed audio from services like SoundCloud and Rdio. You can find a list of supported oEmbed sites in the %1$s. Alternatively, you could use the built-in %2$s shortcode.', 'prince-settings' ), '<a href="http://codex.wordpress.org/Embeds" target="_blank">' . __( 'Wordpress Codex', 'prince-settings' ) . '</a>', '<code>[audio]</code>' ),
+					'desc'  => sprintf( __( 'Embed audio from services like SoundCloud and Rdio. You can find a list of supported oEmbed sites in the %1$s. Alternatively, you could use the built-in %2$s shortcode.', 'wp-radio' ), '<a href="http://codex.wordpress.org/Embeds" target="_blank">' . __( 'Wordpress Codex', 'wp-radio' ) . '</a>', '<code>[audio]</code>' ),
 					'std'   => '',
 					'type'  => 'textarea'
 				)

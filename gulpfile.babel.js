@@ -1,5 +1,4 @@
 import gulp from 'gulp';
-import pkg from './package';
 import path from 'path';
 import yargs from 'yargs';
 import sass from 'gulp-sass';
@@ -20,6 +19,8 @@ import wpPot from 'gulp-wp-pot';
 
 const PRODUCTION = yargs.argv.prod;
 const server = browserSync.create();
+
+const pkg = 'wp-radio';
 
 const paths = {
     css: {
@@ -56,6 +57,7 @@ const paths = {
             '!node_modules/**',
             '!build/**',
             '!src/**',
+            '!demo/**',
             '!**/*.md',
             '!**/*.map',
             '!**/*.sh',
@@ -105,7 +107,7 @@ export const css = () => {
 
 export const js = () => {
     return gulp.src(paths.js.src)
-        //.pipe(named(file => (file.stem + (PRODUCTION ? `.min` : ''))))
+    //.pipe(named(file => (file.stem + (PRODUCTION ? `.min` : ''))))
         .pipe(named())
         .pipe(webpack({
             mode: PRODUCTION ? 'production' : 'development',
@@ -141,9 +143,15 @@ export const copy = () => {
         .pipe(gulp.dest(paths.other.dest));
 };
 
+export const buildCopy = () => {
+    return gulp.src(paths.build.src)
+        .pipe(replace('__prefix', 'wp_radio'))
+        .pipe(gulp.dest(paths.build.dest));
+};
+
 export const serve = done => {
     server.init({
-        proxy: `localhost/${path.resolve(__dirname, '../../../').split(path.sep).pop()}`
+        proxy: `localhost/${pkg}`
     });
 
     done();
@@ -164,15 +172,15 @@ export const watch = () => {
 
 export const compress = () => {
     return gulp.src(paths.build.src)
-        //.pipe(replace('__prefix', pkg.name.toLowerCase().replace(/-/g, '_')))
-        .pipe(zip(`${pkg.name}.zip`))
+        .pipe(replace('__prefix', 'wp_radio'))
+        .pipe(zip(`${pkg}.zip`))
         .pipe(gulp.dest(paths.build.dest));
 };
 
 export const checkdomain = () => {
     return gulp.src(paths.php.src)
         .pipe(checktextdomain({
-            text_domain: pkg.name,
+            text_domain: pkg,
             keywords: [
                 '__:1,2d',
                 '_e:1,2d',
@@ -197,13 +205,13 @@ export const checkdomain = () => {
 export const makepot = () => {
     return gulp.src(paths.php.src)
         .pipe(wpPot({
-            domain: pkg.name,
-            package: pkg.name
+            domain: pkg,
+            package: pkg
         }))
-        .pipe(gulp.dest(`languages/${pkg.name}.pot`))
+        .pipe(gulp.dest(`languages/${pkg}.pot`))
 };
 
 export const dev = gulp.series(clean, gulp.parallel(css, js, images, copy), serve, watch);
-export const build = gulp.series(clean, gulp.parallel(css, js, images, copy), checkdomain, makepot, compress);
+export const build = gulp.series(clean, gulp.parallel(css, js, images, copy), checkdomain, makepot, buildCopy, compress);
 
 export default dev;

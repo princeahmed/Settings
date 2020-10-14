@@ -374,12 +374,12 @@ if ( ! class_exists( 'Prince_Settings_Loader' ) ) {
 		public function change_image_button( $translation, $text, $domain ) {
 			global $pagenow;
 
-			if ( $pagenow == apply_filters( 'prince_settings_parent_slug', 'themes.php' ) && 'default' == $domain && 'Insert into post' == $text ) {
+			if ( $pagenow == apply_filters( '__prefix_settings_parent_slug', 'themes.php' ) && 'default' == $domain && 'Insert into post' == $text ) {
 
 				// Once is enough.
 				remove_filter( 'gettext', array( $this, 'prince_change_image_button' ) );
 
-				return apply_filters( 'prince_upload_text', __( 'Done', 'prince-settings' ) );
+				return apply_filters( 'prince_upload_text', __( 'Done', 'wp-radio' ) );
 
 			}
 

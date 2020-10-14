@@ -10,7 +10,7 @@
         /* set active tab on click */
         setActiveTab: function () {
             $('.ui-state-default').removeClass('ui-tabs-active ui-state-active');
-            $('#page-prince_settings #post-body-content>div').hide();
+            $('#page-__prefix_settings #post-body-content>div').hide();
 
             $(this).addClass('ui-tabs-active ui-state-active');
 
@@ -21,16 +21,16 @@
             const $tab_id = $(this).attr('id');
 
             if (typeof (Storage) !== 'undefined') {
-                localStorage.setItem('prince_settings_active_tab', $tab_id);
+                localStorage.setItem('__prefix_settings_active_tab', $tab_id);
             }
         },
 
         /* handle active tab after load */
         handleActiveTab:  () => {
             $('.ui-state-default').removeClass('ui-tabs-active ui-state-active');
-            $('#page-prince_settings #post-body-content>div').hide();
+            $('#page-__prefix_settings #post-body-content>div').hide();
 
-            let $tab_id = localStorage.getItem('prince_settings_active_tab');
+            let $tab_id = localStorage.getItem('__prefix_settings_active_tab');
             $tab_id = $tab_id ? $tab_id : $('.ui-tabs>ul>li:first-child').attr('id');
 
             const $tab = $('#' + $tab_id);
@@ -40,7 +40,7 @@
                 $('#' + $tab.attr('aria-controls')).show();
             }
 
-            $('#page-prince_settings #post-body-content').show();
+            $('#page-__prefix_settings #post-body-content').show();
         }
     };
 
